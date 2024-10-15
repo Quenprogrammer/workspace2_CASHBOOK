@@ -1,0 +1,150 @@
+<!-- ========== HEADER ========== -->
+<header id="header" class="header  navbar navbar-expand-lg  navbar-sticky-lg-top navbar-light bg-white">
+
+  <div class="container">
+    <nav class="js-mega-menu navbar-nav-wrap">
+      <!-- Default Logo -->
+      <a class="navbar-brand" routerLink="/" aria-label="Tibet">
+        <div >
+          <a class="navbar-brand" href="./index.html" aria-label="Front">
+            <img class="navbar-brand-logo" src="./assets/svg/logos/logo.svg" alt="Logo">
+          </a>
+        </div>
+      </a>
+      <!-- End Default Logo -->
+
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button"  >
+        <span class="navbar-toggler-default">
+          <i class="bi-list"></i>
+        </span>
+        <span class="navbar-toggler-toggled">
+          <i class="bi-x"></i>
+        </span>
+      </button>
+      <!-- End Toggler -->
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav text-center">
+          <!-- Landings -->
+          <li class="hs-has-mega-menu nav-item">
+            <a id="landingsMegaMenu" class="listItems" aria-current="page" routerLink="" role="button" >Home</a>
+          </li>
+          <!-- End Landings -->
+
+          <!-- Company -->
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a id="companyMegaMenu" class="listItems" routerLink="about-us" role="button" >About Us</a>
+
+          </li>
+          <!-- End Company -->
+
+          <!-- Account -->
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a id="accountMegaMenu" class="listItems" routerLink="news" role="button" >News</a>
+          </li>
+          <!-- End Account -->
+
+          <!-- Pages -->
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a id="pagesMegaMenu" class="listItems" routerLink="programs" role="button" >Program</a>
+          </li>
+          <!-- End Pages -->
+
+          <!-- Blog -->
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a id="blogMegaMenu" class="listItems" routerLink="gallery" role="button" >Gallery</a>
+          </li>
+
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a  class="listItems" routerLink="commercial-production" role="button" >Commercial Production</a>
+          </li>
+
+          <li class="hs-has-sub-menu nav-item  mx-3">
+            <a  class="listItems" routerLink="public-education" role="button" >Public Education</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="btn btn-primary btn-transition" routerLink="contactUs">contact Us</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- End Collapse -->
+    </nav>
+  </div>
+</header>
+<!-- ========== END HEADER ========== -->
+
+
+
+<ng-template #content let-offcanvas>
+  <div class="container mt-2 mb-2" >
+    <article class="leaderboard bg-primary text-white" >
+
+      <header >
+
+        <p  type="button" class=" mx-4 mt-2 mb-5"  aria-label="Close" (click)="offcanvas.dismiss('Cross click')" style="font-size: 65px; color: white;">-</p>
+
+        <h1 class="leaderboard__title text-white"><span class="leaderboard__title--top">Kibrisorder</span><span class="leaderboard__title--bottom">Tech Feature</span></h1>
+
+      </header>
+    </article>
+  </div>
+  <div class="offcanvabs-body">
+
+    <!-- FAQ -->
+    <div class="container mt-1  mb-5" >
+      <article class="leaderboard bg-primary text-white">
+
+        <main class="leaderboard__profiles">
+
+          <a routerLink="/home" (click)="offcanvas.dismiss('Cross click')">
+            <article class="leaderboard__profile">
+              <img src="assets/svg/illustrations/browse.svg"  class="lemaderboard__picture" style="width: 50px; border-radius: 50%">
+              <span class="listItems">Home</span>
+            </article>
+          </a>
+          <a routerLink="/aboutUs" (click)="offcanvas.dismiss('Cross click')">
+            <article class="leaderboard__profile">
+              <img src="assets/svg/illustrations/communication.svg"  class="lemaderboard__picture" style="width: 40px; border-radius: 50%">
+              <span class="listItems">About Us</span>
+            </article>
+          </a>
+          <a routerLink="/service" (click)="offcanvas.dismiss('Cross click')">
+            <article class="leaderboard__profile">
+              <img src="assets/svg/illustrations/empty-state-no-data.svg"  class="lemaderboard__picture" style="width: 40px; border-radius: 50%">
+              <span class="listItems">Services</span>
+            </article>
+          </a>
+          <a routerLink="/technologies" (click)="offcanvas.dismiss('Cross click')">
+            <article class="leaderboard__profile">
+              <img src="assets/svg/illustrations/document-sheet.svg" class="lemaderboard__picture" style="width: 40px; border-radius: 50%">
+              <span class="listItems">Technologies</span>
+            </article>
+          </a>
+          <a routerLink="/caseStudy" (click)="offcanvas.dismiss('Cross click')">
+            <article class="leaderboard__profile">
+              <img src="assets/svg/illustrations/document-sheet.svg" class="lemaderboard__picture" style="width: 40px; border-radius: 50%">
+              <span class="listItems">Case Studies</span>
+            </article>
+          </a>
+        </main>
+
+      </article>
+
+
+    </div>
+
+    <!-- End FAQ -->
+  </div>
+</ng-template>
+
+
+
+
+
+
+
