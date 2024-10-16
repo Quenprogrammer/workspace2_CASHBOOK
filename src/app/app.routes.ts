@@ -8,7 +8,7 @@ export const routes: Routes = [
     redirectTo: '/home',
   },
   {path: 'home', component: HomeComponent},
-
+  {path: 'login', loadComponent: () => import ('./features/login/login.component').then(c => c.LoginComponent)},
 
 
 
