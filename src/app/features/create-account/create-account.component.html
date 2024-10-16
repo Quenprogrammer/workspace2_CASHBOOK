@@ -1,0 +1,158 @@
+
+
+
+
+
+
+
+
+<main id="content1" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-black" style="background-image: url(../../../assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-2">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-none d-lg-block">
+            <h1 class="h2 text-white">Cashbook Accounts</h1>
+          </div>
+
+
+          <!-- End Breadcrumb -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto">
+          <div class="d-none d-lg-block">
+            <a class="btn btn-danger" routerLink="/menu">Close</a>
+          </div>
+
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-default">
+                <i class="bi-list"></i>
+              </span>
+            <span class="navbar-toggler-toggled">
+                <i class="bi-x"></i>
+              </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Content -->
+  <div class="container  content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+    <div class="row">
+
+
+      <div class="col-lg-6">
+        <div class="col-12"><table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">Account Name</th>
+            <th scope="col">Classification code</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Account Name</th>
+            <td>2356727872</td>
+            <td>recieverble</td>
+            <td><a  routerlink="login" class="btn btn-primary btn-transition" ng-reflect-router-link="login" href="/login">View</a></td>
+          </tr>
+
+          </tbody>
+        </table></div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="col-12">
+          <div class="card " >
+            <div class="">
+              <h1 style="text-align: center" >Cashbook</h1>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="GeneralInquiriesMessage" (ngSubmit)="onSubmit()">
+                <div class="row gx-3">
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <label class="form-label visually-hidden" for="hireUsFormFirstName">Account name</label>
+                      <input type="text" formControlName="accountName"
+                             [ngClass]="accountName?.invalid && (accountName?.dirty || accountName?.touched)?'is-invalid':''"
+                             class="form-control form-control-lg" id="hireUsFormFirstName"
+                             placeholder="Account name" aria-label="First name">
+                      <div *ngIf="accountName?.invalid && (accountName?.dirty || accountName?.touched)" class="text-danger">
+                        <div *ngIf="accountName?.errors?.['required']">Account name is required.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <label class="form-label visually-hidden" for="hireUsFormCompanyName">Code</label>
+                      <input type="text" formControlName="code"
+                             [ngClass]="code?.invalid && (code?.dirty || code?.touched)?'is-invalid':''"
+                             class="form-control form-control-lg" id="hireUsFormCompanyName" placeholder="Classification Code" aria-label="Phone Number">
+                      <div *ngIf="code?.invalid && (code?.dirty || code?.touched)" class="text-danger">
+                        <div *ngIf="code?.errors?.['pattern']">Enter a valid number.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row gx-3">
+                  <div class="col-sm-12">
+                    <div class="mb-3">
+                      <label class="form-label visually-hidden" for="hireUsFormLastName">Last name</label>
+                      <input type="text" formControlName="description" class="form-control form-control-lg" id="hireUsFormLastName" placeholder="Description" aria-label="Last name">
+                    </div>
+                  </div>
+
+
+                </div>
+
+
+
+                <div class="mb-3">
+                  <label class="form-label" for="hireUsFormDetails">Category</label>
+                  <select class="form-select form-select-lg" formControlName="category"
+                          [ngClass]="category?.invalid && (category?.dirty || category?.touched) ? 'is-invalid' : ''"
+                          id="hireUsFormDetails" aria-label="Tell us about your project">
+
+                    <option value="payable">Payable</option>
+                    <option value="recieverble">Receivables</option>
+                  </select>
+                  <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="text-danger">
+                    <div *ngIf="category?.errors?.['required']">Category is required</div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">Send inquiry</button>
+                </div>
+              </form>
+            </div>
+          </div></div>
+      </div>
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+  <!-- End Content -->
+</main>
+
+
+
+
+
+
+

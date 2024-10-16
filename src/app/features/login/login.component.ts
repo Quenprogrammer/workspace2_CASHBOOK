@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
 
@@ -45,18 +45,42 @@ export class LoginComponent implements OnInit {
       const q = query(usersCollection, where('username', '==', username));
 
       // Specify the User type in collectionData
-      collectionData<User>(q, { idField: 'id' }).subscribe((users: User[]) => { // Add type annotation here
+      collectionData<User>(q, { idField: 'id' }).subscribe((users: User[]) => {
         if (users.length > 0) {
           const user = users[0];
 
           // Validate password
           if (user.password === password) {
-            this.router.navigate(['/menu']);
+            this.router.navigate(['/menu']).then(success => {
+              if (success) {
+                console.log('Navigation to menu successful!');
+              } else {
+                console.error('Navigation to menu failed!');
+              }
+            }).catch(err => {
+              console.error('Error during navigation to menu:', err);
+            });
           } else {
-            this.router.navigate(['/invalid-page']);
+            this.router.navigate(['/invalidAccount']).then(success => {
+              if (success) {
+                console.log('Navigation to invalid account successful!');
+              } else {
+                console.error('Navigation to invalid account failed!');
+              }
+            }).catch(err => {
+              console.error('Error during navigation to invalid account:', err);
+            });
           }
         } else {
-          this.router.navigate(['/invalid-page']);
+          this.router.navigate(['/invalidAccount']).then(success => {
+            if (success) {
+              console.log('Navigation to invalid account successful!');
+            } else {
+              console.error('Navigation to invalid account failed!');
+            }
+          }).catch(err => {
+            console.error('Error during navigation to invalid account:', err);
+          });
         }
       });
     }
