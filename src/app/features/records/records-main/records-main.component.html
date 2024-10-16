@@ -1,0 +1,152 @@
+
+
+<main id="content1" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-2">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-none d-lg-block">
+            <h1 class="h2 text-white">Cashbook Records</h1>
+          </div>
+
+
+          <!-- End Breadcrumb -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto">
+          <div class="d-none d-lg-block">
+            <a class="btn btn-danger" routerLink="/menu">Close</a>
+          </div>
+
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-default">
+                <i class="bi-list"></i>
+              </span>
+            <span class="navbar-toggler-toggled">
+                <i class="bi-x"></i>
+              </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Content -->
+  <div class="container  content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+    <div class="row">
+
+
+      <div class="col-lg-12">
+        <div class="d-grid gap-3 gap-lg-5">
+          <!-- Card -->
+          <div class="card">
+            <div class="mt-3 mb-0" style="margin: 10px">
+
+              <!-- End Row -->
+
+
+              <!-- End Progress -->
+
+
+            </div>
+            <div class="card-body">
+              <main id="content" role="main">
+
+                <div class=" content-space-1 ">
+                  <div class="text-center">
+                    <ul ngbNav #nav="ngbNav" class="nav nav-segment nav-pills mb-6" role="tablist">
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link " id="nav-one-eg1-tab" data-bs-toggle="pill" data-bs-target="#nav-one-eg1"
+                           role="tab" aria-controls="nav-one-eg1" aria-selected="true"  >Monthly record</a>
+                        <ng-template ngbNavContent>
+
+                          <app-monthlyrecords></app-monthlyrecords>
+                        </ng-template>
+
+                      </li>
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link" id="nav-one-eg2-tab" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
+                           aria-controls="nav-two-eg1" aria-selected="false">Accounts record</a>
+                        <ng-template ngbNavContent>
+                          <app-accounts-records></app-accounts-records>
+                        </ng-template>
+                      </li>
+
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+                           aria-controls="nav-two-eg1" aria-selected="false">Debits Records</a>
+                        <ng-template ngbNavContent>
+                          <app-debits-records></app-debits-records>
+                        </ng-template>
+                      </li>
+
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+                           aria-controls="nav-two-eg1" aria-selected="false">Credits Records</a>
+                        <ng-template ngbNavContent>
+                          <app-credit-records></app-credit-records>
+                        </ng-template>
+                      </li>
+
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+                           aria-controls="nav-two-eg1" aria-selected="false">Instant Search</a>
+                        <ng-template ngbNavContent>
+                          <app-search></app-search>
+                        </ng-template>
+                      </li>
+
+                      <li ngbNavItem class="nav-item">
+                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+                           aria-controls="nav-two-eg1" aria-selected="false">Analysis</a>
+                        <ng-template ngbNavContent>
+                          <app-analysis></app-analysis>
+                        </ng-template>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- End Nav -->
+
+                  <!-- Tab Content -->
+                  <div class="tab-content">
+                    <div [ngbNavOutlet]="nav"></div>
+                  </div>
+                  <!-- End Tab Content -->
+                </div>
+
+
+
+
+
+              </main>
+
+            </div>
+            </div>
+            <!-- End Body -->
+
+            <!-- Footer -->
+
+            <!-- End Footer -->
+          </div>
+          <!-- End Card -->
+
+
+
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+  <!-- End Content -->
+</main>
+
+
+

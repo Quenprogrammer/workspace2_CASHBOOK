@@ -1,0 +1,276 @@
+<body>
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-1">
+      <div class="row align-items-center">
+
+
+
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Content Section -->
+  <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- Navbar -->
+        <div class="col-12 mb-3 ">
+          <!-- Card -->
+          <div class="card h-100">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2">Total Transactions</h6>
+
+              <div class="row align-items-center gx-2 text-center">
+                <div class="col">
+                  <span class="js-counter display-6 text-dark text-center">{{totalDocuments}}</span>
+                  <span class="text-body fs-5 ms-1 text-center">from 20,000</span>
+                </div>
+                <!-- End Col -->
+
+
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <div class="col-12 mb-3">
+          <!-- Card -->
+          <div class="card h-100">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2">Total Users</h6>
+
+              <div class="row align-items-center gx-2 text-center">
+                <div class="col">
+                  <span class="js-counter display-6 text-dark text-center" data-value="12">3</span>
+                  <span class="text-body fs-5 ms-1 text-center">from 50</span>
+                </div>
+
+
+              </div>
+              <!-- End Row -->
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+
+        <div class="col-12 mb-3 ">
+          <!-- Card -->
+          <div class="card h-100">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-center">Database Usage</h6>
+
+              <div class="row align-items-center gx-2">
+                <div class="col">
+                  <span class="js-counter display-6 text-dark text-center">{{ datasetSize }}</span>
+                  <span class="display-5 text-dark">%</span>
+
+                </div>
+
+
+              </div>
+              <!-- End Row -->
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+
+        <!-- End Navbar -->
+      </div>
+      <!-- End Col -->
+
+
+      <div class="col-lg-9">
+        <!-- Card -->
+        <div class="card card-body mb-2 mb-lg-2">
+          <div class="row col-lg-divider gx-lg-6">
+            <div class="col-lg-3">
+              <!-- Media -->
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h5 class="mb-2">Credit</h5>
+                  <h3 class="card-title text-dark">{{ totalCreditAmount | currency }}</h3>
+
+                  <div class="d-flex align-items-center">
+                    <span class="d-block fs-6">5k orders</span>
+                    <span class="badge bg-soft-success text-success ms-2">
+                    <i class="bi-graph-up"></i> 4.3%
+                  </span>
+                  </div>
+                </div>
+
+                <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+                <i class="bi-shop"></i>
+              </span>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-lg-3">
+              <!-- Media -->
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h5 class=" mb-2">Debit</h5>
+                  <h3 class="card-title text-dark">{{ totalDebitAmount | currency }}</h3>
+
+                  <div class="d-flex align-items-center">
+                    <span class="d-block fs-6">21k orders</span>
+                    <span class="badge bg-soft-success text-success ms-2">
+                    <i class="bi-graph-up"></i> 12.5%
+                  </span>
+                  </div>
+                </div>
+
+                <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+                <i class="bi-layout-text-window-reverse"></i>
+              </span>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-lg-3">
+              <!-- Media -->
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h5 class=" mb-2">Balance</h5>
+                  <h3 class="card-title text-dark">{{ balance | currency }}</h3>
+
+                  <div class="d-flex align-items-center">
+                    <span class="d-block fs-6">6k orders</span>
+                  </div>
+                </div>
+
+                <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+                <i class="bi-percent"></i>
+              </span>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-lg-3">
+              <!-- Media -->
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  <h5 class=" mb-2">Stats</h5>
+                  <h3 class="card-title text-dark text-dark">$3,982.53</h3>
+
+                  <div class="d-flex align-items-center">
+                    <span class="d-block fs-6">150 orders</span>
+                    <span class="badge bg-soft-danger text-danger ms-2">
+                    <i class="bi-graph-down"></i> 4.4%
+                  </span>
+                  </div>
+                </div>
+
+                <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+                <i class="bi-people"></i>
+              </span>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+
+
+
+
+        <!-- Card -->
+        <div id="cardFullScreenEg" class="card overflow-hidden ">
+
+          <div class="card">
+           <!-- Body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md mb-4 mb-md-0">
+                  <div class="mb-4">
+                    <span class="card-subtitle">Your plan (billed yearly):</span>
+                    <h5>Starter - April 2020</h5>
+                  </div>
+
+                  <div>
+                    <span class="card-subtitle">Total per year</span>
+                    <h3 class="text-primary">$264 USD</h3>
+                  </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-md-auto">
+                  <div class="d-grid d-md-flex gap-3">
+
+                    <a class="btn btn-primary btn-sm btn-transition" routerLink="/payment">Update plan</a>
+                  </div>
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </div>
+            <!-- End Body -->
+
+            <hr class="my-3">
+
+            <!-- Body -->
+            <div class="card-body" style="">
+              <div class="row align-items-center flex-grow-1 mb-2">
+                <div class="col">
+                  <h4 class="card-header-title">Storage usage</h4>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-auto">
+                  <span class="text-dark fw-semibold">4.27 GB</span> used of 6 GB
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+
+              <!-- Progress -->
+              <div class="progress rounded-pill mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: 25%; opacity: .6" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <!-- End Progress -->
+
+              <!-- Legend Indicators -->
+              <div class="list-inline">
+                <div class="list-inline-item">
+                  <span class="legend-indicator bg-primary"></span>Personal usage space
+                </div>
+                <div class="list-inline-item">
+                  <span class="legend-indicator bg-primary opacity"></span>Shared space
+                </div>
+                <div class="list-inline-item">
+                  <span class="legend-indicator"></span>Unused space
+                </div>
+              </div>
+              <!-- End Legend Indicators -->
+            </div>
+            <!-- End Body -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+
+      </div>
+      <!-- End Row -->
+
+
+    </div>
+    <!-- End Card -->
+  </div>
+
+</main>
+</body>
+
+
+

@@ -1,0 +1,204 @@
+<div class="container content-space-1">
+  <div class="row mb-7">
+    <div class="col-md mb-3 mb-md-0">
+      <!-- Card -->
+      <div class="card h-100 shadow-none zi-1">
+        <div class="card-header text-center">
+          <div class="mb-2">
+
+          <span id="pricingCount1" class="fs-1 text-dark fw-semibold" data-hs-toggle-switch-item-options="{
+                           &quot;min&quot;: 29,
+                           &quot;max&quot;: 19
+                         }">{{ totalDebitAmount | currency }}</span>
+
+          </div>
+
+          <h3 class="card-title">Debit</h3>
+
+        </div>
+
+
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-md mb-3 mb-md-0">
+      <div class="position-relative">
+        <!-- Card -->
+        <div class="card h-100 zi-1">
+          <div class="card-header text-center">
+            <div class="mb-2">
+
+            <span id="pricingCount2" class="fs-1 text-dark fw-semibold" data-hs-toggle-switch-item-options="{
+                             &quot;min&quot;: 49,
+                             &quot;max&quot;: 39
+                           }">{{balance|currency}}</span>
+
+            </div>
+
+            <h3 class="card-title">Balance</h3>
+
+          </div>
+
+
+        </div>
+        <!-- End Card -->
+
+        <!-- SVG Elements -->
+        <figure class="position-absolute bottom-0 start-0 mb-n7 ms-n7" style="width: 9rem;">
+          <img class="img-fluid" src="./assets/svg/components/dots.svg" alt="Image Description">
+        </figure>
+
+        <figure class="position-absolute top-0 end-0 mt-n7 me-n7" style="width: 7rem;">
+          <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 260 260" xml:space="preserve">
+                  <circle fill="#ffc107" cx="130" cy="130" r="130"></circle>
+                </svg>
+        </figure>
+        <!-- End SVG Elements -->
+      </div>
+    </div>
+    <!-- End Col -->
+
+    <div class="col-md mb-3 mb-md-0">
+      <!-- Card -->
+      <div class="card h-100 shadow-none zi-1">
+        <div class="card-header text-center">
+          <div class="mb-2">
+
+          <span id="pricingCount3" class="fs-1 text-dark fw-semibold" data-hs-toggle-switch-item-options="{
+                           &quot;min&quot;: 69,
+                           &quot;max&quot;: 59
+                         }">{{ totalCreditAmount | currency }}</span>
+
+          </div>
+
+          <h3 class="card-title">Credit</h3>
+
+        </div>
+
+
+
+
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+  </div>
+
+  <div class="col-lg-12">
+    <div class="d-grid gap-3 gap-lg-5">
+
+      <!-- Card -->
+      <div class="card">
+        <!-- Header -->
+
+        <!-- End Header -->
+
+        <!-- Body -->
+        <div class="card-body">
+          <div class="table-responsive datatable-custom mt-3 table-container">
+            <div id="datatable_wrapper" class="dataTables_wrapper no-footer">
+              <!-- Card Grid -->
+              <div class="container">
+                <div class="row align-items-center mb-2">
+                  <div class="col-sm mb-3 mb-sm-0">
+                    <div class="mb-2">
+                      <form (ngSubmit)="searchByAccountName(searchInput.value)">
+                        <!-- Input Card -->
+                        <div class="input-card border">
+                          <div class="input-card-form">
+                            <label for="searchAppsForm" class="form-label visually-hidden">Search for apps</label>
+                            <div class="input-group input-group-merge">
+                      <span class="input-group-prepend input-group-text">
+                        <i class="bi-search"></i>
+                      </span>
+                              <input type="text" class="form-control" id="searchAppsForm" placeholder="Search for accounts" aria-label="Search for accounts" #searchInput>
+                            </div>
+                          </div>
+                          <button type="submit" style="border-radius: 10px" class="btn btn-primary">Search
+                            <i class="bi-arrow-right"></i>
+                          </button>
+                        </div>
+                        <!-- End Input Card -->
+                      </form>
+                    </div>
+                    <!-- End Search -->
+                  </div>
+
+                  <div class="col-sm-auto">
+                    <div class="d-sm-flex justify-content-sm-end align-items-center">
+                      <button type="button" style="border-radius: 10px" class="btn btn-primary mx-2" (click)="filterByType('debit')">Debit</button>
+                      <button type="button" style="border-radius: 10px" class="btn btn-primary" (click)="filterByType('credit')">Credit</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Row -->
+              </div>
+              <!-- End Card Grid -->
+
+              <table id="datatable"
+                     class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table dataTable no-footer"
+                     style="width: 100%;" role="grid">
+                <thead class="thead-light">
+                <tr role="row">
+                  <th class="table-column-pe-0" style="width: 24px;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="datatableCheckAll">
+                      <label class="form-check-label" for="datatableCheckAll"></label>
+                    </div>
+                  </th>
+                  <th style="width: 158px;">Date</th>
+                  <th style="width: 151px;">Account Name</th>
+                  <th style="width: 65px;">Reference No</th>
+                  <th style="width: 124px;">Amount</th>
+                  <th style="width: 148px;">Payee</th>
+                  <th style="width: 130px;">Payment Method</th>
+                  <th style="width: 100px;">Actions</th>
+                  <th style="width: 100px;">Type</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let inquiry of filteredInquiries" role="row">
+                  <td class="table-column-pe-0">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="ordersCheck{{inquiry.id}}">
+                      <label class="form-check-label" for="ordersCheck{{inquiry.id}}"></label>
+                    </div>
+                  </td>
+                  <td>{{ inquiry.date }}</td>
+                  <td>{{ inquiry.account }}</td>
+                  <td>{{ inquiry.referenceNumber }}</td>
+                  <td>{{ inquiry.amount }}</td>
+                  <td>{{ inquiry.payee }}</td>
+                  <td>{{ inquiry.paymentMode }}</td>
+                  <td>
+                    <button (click)="deleteInquiry(inquiry.id)">Delete</button>
+                  </td>
+                  <td>{{ inquiry.type }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Row -->
+        </div>
+
+
+
+
+        <!-- End Body -->
+
+        <hr class="my-3">
+
+
+      </div>
+      <!-- End Card -->
+
+
+
+
+    </div>
+  </div>
+</div>

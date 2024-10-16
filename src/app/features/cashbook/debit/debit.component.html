@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-12 mb-5 mb-lg-0">
+      <div class="card-header bg-black py-5" style="border-radius: 10px">
+        <h1 class="text-center" style="color: white; ">Cash Out</h1>
+      </div>
+      <div class="card">
+
+        <div class="card-body">
+          <form [formGroup]="GeneralInquiriesMessage" (ngSubmit)="onSubmit()">
+            <div class="row gx-3">
+              <!-- Date and Reference Number -->
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="date" [ngClass]="date?.invalid && (date?.dirty || date?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionDate" placeholder="MM/DD/YYYY" aria-label="Date">
+                  <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="text-danger">
+                    <div *ngIf="date?.errors?.['required']">Date is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="referenceNumber"
+                         [ngClass]="referenceNumber?.invalid && (referenceNumber?.dirty || referenceNumber?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionReference" placeholder="Enter reference number" aria-label="Reference Number">
+                  <div *ngIf="referenceNumber?.invalid && (referenceNumber?.dirty || referenceNumber?.touched)" class="text-danger">
+                    <div *ngIf="referenceNumber?.errors?.['required']">Reference number is required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="description" [ngClass]="description?.invalid && (description?.dirty || description?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionDescription" placeholder="Brief explanation of the transaction" aria-label="Description">
+                  <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="text-danger">
+                    <div *ngIf="description?.errors?.['required']">Description is required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account and Amount -->
+            <div class="row gx-3">
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="account" [ngClass]="account?.invalid && (account?.dirty || account?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionAccount" placeholder="Account Name" aria-label="Account">
+                  <div *ngIf="account?.invalid && (account?.dirty || account?.touched)" class="text-danger">
+                    <div *ngIf="account?.errors?.['required']">Account name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="amount" [ngClass]="amount?.invalid && (amount?.dirty || amount?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionAmount" placeholder="Enter Amount" aria-label="Amount">
+                  <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)" class="text-danger">
+                    <div *ngIf="amount?.errors?.['required']">Amount is required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payee and Mode of Payment -->
+            <div class="row gx-3">
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="payee" [ngClass]="payee?.invalid && (payee?.dirty || payee?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionPayee" placeholder="Enter payee Name" aria-label="Payee">
+                  <div *ngIf="payee?.invalid && (payee?.dirty || payee?.touched)" class="text-danger">
+                    <div *ngIf="payee?.errors?.['required']">Payee name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <input type="text" formControlName="paymentMode" [ngClass]="paymentMode?.invalid && (paymentMode?.dirty || paymentMode?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionPaymentMode" placeholder="Mode of Payment (e.g., Cash, Bank Transfer)" aria-label="Payment Mode">
+                  <div *ngIf="paymentMode?.invalid && (paymentMode?.dirty || paymentMode?.touched)" class="text-danger">
+                    <div *ngIf="paymentMode?.errors?.['required']">Mode of payment is required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-dark btn-lg" style="background-color: black">Save Transaction</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
