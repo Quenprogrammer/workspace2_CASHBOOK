@@ -1,0 +1,67 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  gap: 10px; /* Space between cards */
+}
+
+/* For medium screens (md) */
+@media (min-width: 768px) { /* Adjust based on your design */
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+  }
+}
+
+/* For large screens (lg) */
+@media (min-width: 992px) { /* Adjust based on your design */
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr); /* 5 columns for large screens */
+  }
+}
+
+.grid-item {
+  position: relative;
+  border: 1px ; /* Add border for card effect */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow of contents */
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column; /* Arrange icon and title vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Use the text color of parent */
+  height: 100%; /* Make link take full height of grid item */
+  padding: 16px; /* Add some padding */
+  transition: background-color 0.3s; /* Smooth background change */
+}
+
+.card-link:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
+
+.card-icon {
+  width: 70px; /* Set a fixed width for icons */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.card-title {
+  margin-top: 8px; /* Space between icon and title */
+  text-align: center; /* Center the title */
+}
+
+
+
+@media (min-width: 992px) {
+  body{
+    overflow: hidden;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+  }
+}
+
+

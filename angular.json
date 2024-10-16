@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bagaudaschool": {
+    "aimtechsolution": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/bagaudaschool",
+            "outputPath": "dist/aimtechsolution",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -43,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1.7mb",
+                  "maximumError": "1.8MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "bagaudaschool:build:production"
+              "buildTarget": "aimtechsolution:build:production"
             },
             "development": {
-              "buildTarget": "bagaudaschool:build:development"
+              "buildTarget": "aimtechsolution:build:development"
             }
           },
           "defaultConfiguration": "development"
