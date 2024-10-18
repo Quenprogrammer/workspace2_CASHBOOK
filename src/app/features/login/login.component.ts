@@ -21,15 +21,15 @@ interface User {
     NgIf
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']  // Fixed 'styleUrl' to 'styleUrls'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;  // Use the definite assignment assertion
+  loginForm!: FormGroup;
 
   constructor(private firestore: Firestore, private router: Router) {}
 
   ngOnInit(): void {
-    // Initialize the form in ngOnInit
+    // Initialize the login form with form controls and validators
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
@@ -44,45 +44,48 @@ export class LoginComponent implements OnInit {
       const usersCollection = collection(this.firestore, 'users');
       const q = query(usersCollection, where('username', '==', username));
 
-      // Specify the User type in collectionData
-      collectionData<User>(q, { idField: 'id' }).subscribe((users: User[]) => {
-        if (users.length > 0) {
-          const user = users[0];
+      // Fetch users and check credentials
+      collectionData<User>(q, { idField: 'id' }).subscribe({
+        next: (users: User[]) => {
+          if (users.length > 0) {
+            const user = users[0];
 
-          // Validate password
-          if (user.password === password) {
-            this.router.navigate(['/menu']).then(success => {
-              if (success) {
-                console.log('Navigation to menu successful!');
-              } else {
-                console.error('Navigation to menu failed!');
-              }
-            }).catch(err => {
-              console.error('Error during navigation to menu:', err);
-            });
-          } else {
-            this.router.navigate(['/invalidAccount']).then(success => {
-              if (success) {
-                console.log('Navigation to invalid account successful!');
-              } else {
-                console.error('Navigation to invalid account failed!');
-              }
-            }).catch(err => {
-              console.error('Error during navigation to invalid account:', err);
-            });
-          }
-        } else {
-          this.router.navigate(['/invalidAccount']).then(success => {
-            if (success) {
-              console.log('Navigation to invalid account successful!');
+            // Secure password comparison should be done server-side
+            if (user.password === password) {
+              this.router.navigate(['/menu']).then(success => {
+                if (success) {
+                  console.log('Navigation to menu successful!');
+                } else {
+                  console.error('Navigation to menu failed!');
+                }
+              }).catch((err: any) => {
+                console.error('Error during navigation to menu:', err);
+              });
             } else {
-              console.error('Navigation to invalid account failed!');
+              this.navigateToInvalidAccount();
             }
-          }).catch(err => {
-            console.error('Error during navigation to invalid account:', err);
-          });
+          } else {
+            this.navigateToInvalidAccount();
+          }
+        },
+        error: (err: any) => {
+          console.error('Error querying Firestore:', err);
+          this.navigateToInvalidAccount();
         }
       });
     }
+  }
+
+  // Function to navigate to an invalid account page
+  private navigateToInvalidAccount(): void {
+    this.router.navigate(['/invalidAccount']).then(success => {
+      if (success) {
+        console.log('Navigation to invalid account successful!');
+      } else {
+        console.error('Navigation to invalid account failed!');
+      }
+    }).catch((err: any) => {
+      console.error('Error during navigation to invalid account:', err);
+    });
   }
 }

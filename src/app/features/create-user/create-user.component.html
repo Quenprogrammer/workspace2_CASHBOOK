@@ -1,0 +1,106 @@
+<!-- Hero -->
+<div class="container position-relative content-space-t-1 content-space-t-md-1 content-space-t-lg-1" >
+  <div class="row justify-content-lg-between align-items-lg-center">
+    <div class="col-md-10 col-lg-5">
+      <!-- Heading -->
+      <div class="mb-7">
+        <h1 class=" mb-3">
+        Cashbook Pro <span style="color: red; font-family: Consolas,serif"> V1.0 </span>
+
+
+        </h1>
+        <p class="lead">Whatever your goal - we will get your there.</p>
+      </div>
+      <!-- End Title & Description -->
+
+      <div class="d-none d-lg-block">
+        <img class="img-fluid" src="../assets/svg/illustrations/oc-growing.svg" alt="Image Description">
+      </div>
+    </div>
+    <!-- End Col -->
+
+    <div  class="col-lg-6">
+
+      <div class="card card-lg">
+        <div class="card-body">
+          <div class="mb-4">
+
+
+            <h2 class="card-title" style="color: black; text-align: center">Create New Account</h2>
+            <h3 class="card-title" style="font-size: 15px">Fill out the form and your account will be created  as soon as possible.</h3>
+          </div>
+
+          <!-- Form -->
+          <form [formGroup]="GeneralInquiriesMessage" (ngSubmit)="onSubmit()">
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="hireUsFormFirstName">User Name</label>
+                  <input type="text" formControlName="userName"
+                         [ngClass]="userName?.invalid && (userName?.dirty || userName?.touched)?'is-invalid':''"
+                         class="form-control form-control-lg" id="hireUsFormFirstName"
+                         placeholder="Username" aria-label="First name">
+                  <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="text-danger">
+                    <div *ngIf="userName?.errors?.['required']">Username is required.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row gx-3">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="hireUsFormWorkEmail">Email address</label>
+                  <input formControlName="email"
+                         [ngClass]="email?.invalid && (email?.dirty || email?.touched)?'is-invalid':''"
+                         type="email" class="form-control form-control-lg" id="hireUsFormWorkEmail" placeholder="Email" aria-label="email@site.com">
+                  <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
+                    <div *ngIf="email?.errors?.['required']">Email is required.</div>
+                    <div *ngIf="email?.errors?.['email']">Enter a valid email.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label visually-hidden" for="hireUsFormCompanyName">Phone Number</label>
+                  <input type="text" formControlName="password"
+                         [ngClass]="password?.invalid && (password?.dirty || password?.touched)?'is-invalid':''"
+                         class="form-control form-control-lg" id="hireUsFormCompanyName" placeholder="Password" aria-label="Phone Number">
+                  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
+                    <div *ngIf="password?.errors?.['pattern']">Enter a valid password.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+            </div>
+          </form>
+
+          <!-- End Form -->
+        </div>
+      </div>
+      <!-- End Form -->
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Hero -->
+
+
+
+
+
+
+
+

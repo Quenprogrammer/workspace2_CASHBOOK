@@ -17,7 +17,7 @@ export const MENU_ITEMS: MenuItem[] = [
    { name: 'Cloud', icon: 'assets/vendor/duotone-icons/fil/fil024.svg', link: '/storage' },
   { name: 'Help center', icon: 'assets/vendor/duotone-icons/elc/elc008.svg', link: '/help-center' },
   { name: 'Cashbook Accounts', icon: 'assets/vendor/duotone-icons/com/com006.svg', link: '/cashbook-accounts' },
-  { name: 'Database', icon: 'assets/vendor/duotone-icons/com/com013.svg', link: '/database' },
+  { name: 'Budget', icon: 'assets/vendor/duotone-icons/com/com013.svg', link: '/budget' },
 
 
 ];

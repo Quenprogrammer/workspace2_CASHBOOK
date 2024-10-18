@@ -4,7 +4,16 @@
   <div class="navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
     <div class="container content-space-1 content-space-b-lg-2">
       <div class="row align-items-center">
+        <div class="col">
+          <div class="d-none d-lg-block">
+            <h1 class=" mb-1 text-white">
+              Cashbook Pro <span style="color: red; font-family: Consolas,serif"> V1.0 </span>
+            </h1>
+          </div>
 
+
+          <!-- End Breadcrumb -->
+        </div>
       </div>
       <!-- End Row -->
     </div>
@@ -14,22 +23,22 @@
   <!-- Content -->
   <div class="container  content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
     <div class="row">
-      <!-- foter -->
-      <div class="col-lg-6">
+
+        <div class="col-lg-6">
         <div class="row">
           <div class="col-12 mb-3" >
             <!-- Card -->
             <div class="card h-100 mt-2" >
-              <div class="">
+              <div class=" container">
                 <div class="row">
-                  <div class="col-2 mt-2">
+                  <div class="col-3 mt-2">
                     <div class="card shadow-none " style="padding-bottom: 5px">
                       <div class=" text-center">
-                        <img style="width: 70%" src="../assets/icons/wifi.gif">
+                        <img class="imgSettings" src="./assets/icons/wifi.gif">
 
                         <div class="row align-items-center gx-2">
                           <div class="col">
-                            <h6 class=" text-dark" >Not connected</h6>
+                            <h6 class=" text-dark" >connected</h6>
 
                           </div>
                           <!-- End Col -->
@@ -46,92 +55,43 @@
                   <div class="col-2 mt-2">
                     <div class="card shadow-none ">
                       <div class=" text-center">
-                        <img style="width: 70%" src="../assets/icons/Developer.png">
+                        <a href="#">
+                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+                        </a>
 
-                        <div class="row align-items-center gx-2">
-                          <div class="col">
-                            <h4 class=" text-dark" >24 users</h4>
-
-                          </div>
-                          <!-- End Col -->
-
-
-                          <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
                       </div>
                     </div>
 
 
-                  </div>
-                  <div class="col-6 text-center">
-                    <h6 class="mt-2">Cashbook Accounts </h6>
-                    <div class="row">
-
-                      <div class="col-6 mt-2">
-                        <div class="card shadow-none ">
-                          <div class=" text-center">
-
-
-                            <div class="row align-items-center gx-2">
-                              <div class="col">
-
-                                <h4 class=" text-dark" >24 users</h4>
-
-                              </div>
-                              <!-- End Col -->
-
-
-                              <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-6 mt-2">
-                        <div class="card shadow-none ">
-                          <div class=" text-center">
-
-
-                            <div class="row align-items-center gx-2">
-                              <div class="col">
-
-                                <h4 class=" text-dark" >24 users</h4>
-
-                              </div>
-                              <!-- End Col -->
-
-
-                              <!-- End Col -->
-                            </div>
-                            <!-- End Row -->
-                          </div>
-                        </div>
-
-
-                      </div>
-
-                    </div>
                   </div>
                   <div class="col-2 mt-2">
                     <div class="card shadow-none ">
                       <div class=" text-center">
+                        <img style="width: 80%"  src="../assets/icons/Developer.png">
 
 
-                        <div class="row align-items-center gx-2">
-                          <div class="col d-flex justify-content-center align-items-center">
-
-                            <button type="button" class="btn btn-danger mt-2" style="font-size: 10px;" routerLink="/login">logout</button>
-
-                          </div>
-                          <!-- End Col -->
+                      </div>
+                    </div>
 
 
-                          <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
+                  </div>
+                  <div class="col-2 mt-2">
+                    <div class="card shadow-none ">
+                      <div class=" text-center">
+                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-2 mt-2">
+                    <div class="card shadow-none ">
+                      <div class=" text-center">
+                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+
+
                       </div>
                     </div>
 
@@ -174,11 +134,12 @@
                   <div class="col-lg-3">
                     <!-- Card -->
                     <div class="text-center">
-                      <img class="avatar avatar-lg  mb-1" src="assets/vendor/duotone-icons/com/com014.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                      <a routerLink="/backupDataPassword">
+                      <img class="avatar avatar-lg  mb-0" src="assets/vendor/duotone-icons/com/com014.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
                          <span class=" text-body">Backup Data</span>
 
 
-
+                      </a>
                       <!-- End Row -->
                     </div>
                     <!-- End Card -->
@@ -197,21 +158,27 @@
 
                   <div class="col-lg-3">
                     <!-- Card -->
-                    <div class="text-center">
-                      <img class="avatar avatar-lg  mb-1" src="assets/vendor/duotone-icons/teh/teh002.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
-                      <span class=" text-body">Create User</span>
-
-
-
+                    <div class="text-center" routerLink='/createUser' style="cursor: pointer;">
+                      <img
+                        class="avatar avatar-lg mb-1"
+                        src="assets/vendor/duotone-icons/teh/teh002.svg"
+                        alt="Image Description"
+                        data-hs-theme-appearance="default"
+                        style="min-height: 6rem;"
+                      >
+                      <span class="text-body">Create User</span>
                       <!-- End Row -->
                     </div>
                     <!-- End Card -->
                   </div>
 
+
                   <div class="col-lg-3">
                     <!-- Card -->
                     <div class="text-center">
-                      <img class="avatar avatar-lg  mb-1" src="assets/vendor/duotone-icons/teh/teh001.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                      <a routerLink="/database">
+                      <img class="avatar avatar-lg  mb-0" src="assets/vendor/duotone-icons/teh/teh001.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                      </a>
                       <span class=" text-body">Database</span>
 
 
@@ -227,10 +194,10 @@
 
 <div class="row">
 
-  <div class="col-3 d-flex justify-content-center align-items-center"><img style="width: 100%" src="../assets/icons/loading.gif"> </div>
+  <div class="col-3 d-flex justify-content-center align-items-center mt-5"><img style="width: 80%" src="../assets/icons/loading.gif"> </div>
   <div class="col-9">  <div class="col-md">
     <!-- List -->
-    <ul class="list-unstyled list-py-1 mb-0">
+    <ul class="list-unstyled list-py-1 mb-0 mt-5">
       <!-- Review Ratings -->
       <li class="d-flex align-items-center fs-6">
         <span class="me-3">5 star</span>
@@ -251,15 +218,7 @@
       </li>
       <!-- End Review Ratings -->
 
-      <!-- Review Ratings -->
-      <li class="d-flex align-items-center fs-6">
-        <span class="me-3">3 star</span>
-        <div class="progress flex-grow-1">
-          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <span class="ms-3">0</span>
-      </li>
-      <!-- End Review Ratings -->
+
 
       <!-- Review Ratings -->
       <li class="d-flex align-items-center fs-6">
@@ -326,14 +285,14 @@
 
       <div class="col-lg-6">
 
-        <div class="d-grid gap-3 gap-lg-5">
+        <div class="d-grid gap-3 gap-lg-4">
           <!-- Card -->
           <div class="card shadow-none" >
 
             <div class="card-body" style="padding-bottom: 1px">
-              <div class="container grid-page">
-                <div class="grid-container">
-                  <div class="" *ngFor="let item of items">
+              <div class=" grid-page">
+                <div class="row">
+                  <div class="col-4 col-lg-3" *ngFor="let item of items">
                     <a [routerLink]="item.link" class="card-link">
                       <img [src]="item.icon" alt="{{ item.name }}" class="card-icon" />
                       <p style="font-size: 14px" class="">{{ item.name }}</p>
