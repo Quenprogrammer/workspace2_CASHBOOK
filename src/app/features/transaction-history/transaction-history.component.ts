@@ -1,9 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { collection, collectionData, Firestore, deleteDoc, doc } from '@angular/fire/firestore';
-import { AsyncPipe, CurrencyPipe, NgForOf, NgIf } from "@angular/common";
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import {CurrencyPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { take } from 'rxjs/operators';
-import {FormsModule} from "@angular/forms";
 
 interface MessageInquiries {
   id?: string;
@@ -20,13 +20,7 @@ interface MessageInquiries {
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [
-    NgForOf,
-
-    CurrencyPipe,
-
-    FormsModule
-  ],
+  imports: [NgForOf, CurrencyPipe, FormsModule, NgStyle, NgIf],
   templateUrl: './transaction-history.component.html',
   styleUrls: ['./transaction-history.component.scss']
 })
@@ -37,10 +31,12 @@ export class TransactionHistoryComponent implements OnInit {
   inquiriesMessage$: Observable<MessageInquiries[]> = collectionData(this.inquiriesCollection, { idField: 'id' }) as Observable<MessageInquiries[]>;
 
   transactions: MessageInquiries[] = []; // To hold the loaded transactions
+  loading: boolean = true; // Flag to track loading state
 
   ngOnInit() {
     this.inquiriesMessage$.subscribe(inquiries => {
       this.transactions = inquiries; // Load all transactions into the array
+      this.loading = false; // Set loading to false after data is fetched
       console.log('Loaded Transactions:', this.transactions); // Debugging output
     });
   }

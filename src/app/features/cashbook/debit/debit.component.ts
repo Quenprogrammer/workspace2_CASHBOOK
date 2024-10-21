@@ -70,7 +70,7 @@ export class DebitComponent implements OnInit{
       const dataToSubmit = {
         ...this.GeneralInquiriesMessage.value,
         referenceNumber: this.referenceNumber!.value, // Use non-null assertion operator
-        type: 'credit' // Add the type field
+        type: 'debit' // Add the type field
       };
 
       addDoc(this.generalMessageInquiries, dataToSubmit)
