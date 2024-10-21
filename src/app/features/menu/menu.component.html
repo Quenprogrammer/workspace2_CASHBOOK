@@ -1,8 +1,8 @@
 <body>
 <main id="content" role="main" class="bg-light">
   <!-- Breadcrumb -->
-  <div class="navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
-    <div class="container content-space-1 content-space-b-lg-2">
+  <div class="d-none d-md-block navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class=" container content-space-1 content-space-b-lg-2">
       <div class="row align-items-center">
         <div class="col">
           <div class="d-none d-lg-block">
@@ -56,7 +56,7 @@
                     <div class="card shadow-none ">
                       <div class=" text-center">
                         <a href="#">
-                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+                        <img style="width: 80%"  src="assets/custome/icon-25.svg">
                         </a>
 
                       </div>
@@ -67,7 +67,7 @@
                   <div class="col-2 mt-2">
                     <div class="card shadow-none ">
                       <div class=" text-center">
-                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+                        <img style="width: 80%"  src="assets/custome/icon-31.svg">
 
 
                       </div>
@@ -78,7 +78,7 @@
                   <div class="col-2 mt-2">
                     <div class="card shadow-none ">
                       <div class=" text-center">
-                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+                        <img style="width: 80%"  src="assets/custome/icon-37.svg">
 
 
                       </div>
@@ -89,7 +89,7 @@
                   <div class="col-2 mt-2">
                     <div class="card shadow-none ">
                       <div class=" text-center">
-                        <img style="width: 80%"  src="../assets/icons/Developer.png">
+                        <img style="width: 80%"  src="assets/custome/icon-32.svg">
 
 
                       </div>
@@ -108,7 +108,8 @@
 
         </div>
         <!-- Navbar -->
-        <div class="navbar-expand-lg navbar-light">
+        <div class="navbar-expand-sm navbar-light">
+
           <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
             <!-- Card -->
             <div class="card flex-grow-1 mb-2">
@@ -131,12 +132,12 @@
                 <div class="row col-lg-divider">
 
 
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 custom-hover custom-hover" style="">
                     <!-- Card -->
                     <div class="text-center">
                       <a routerLink="/backupDataPassword">
-                      <img class="avatar avatar-lg  mb-0" src="assets/vendor/duotone-icons/com/com014.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
-                         <span class=" text-body">Backup Data</span>
+                      <img class="avatar avatar-lg  mb-0 " src="assets/custome/icon-44.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                         <span class=" text-body ">Backup Data</span>
 
 
                       </a>
@@ -145,23 +146,24 @@
                     <!-- End Card -->
                   </div>
 
-                  <div class="col-lg-3">
-                    <!-- Card -->
-                    <div class="text-center">
-                      <img class="avatar avatar-lg mb-1" src="assets/vendor/duotone-icons/gra/gra005.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
-                      <span class=" text-body">Statistics</span>
+                  <div class="col-lg-3 custom-hover"><!-- Card -->
 
+                    <div class="text-center">
+                      <a routerLink="/statistics">
+                      <img class="avatar avatar-lg mb-1" src="assets/custome/icon-22.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                      <span class=" text-body">Statistics</span>
+                      </a>
                       <!-- End Row -->
                     </div>
                     <!-- End Card -->
                   </div>
 
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 custom-hover">
                     <!-- Card -->
                     <div class="text-center" routerLink='/createUser' style="cursor: pointer;">
                       <img
                         class="avatar avatar-lg mb-1"
-                        src="assets/vendor/duotone-icons/teh/teh002.svg"
+                        src="assets/custome/icon-7.svg"
                         alt="Image Description"
                         data-hs-theme-appearance="default"
                         style="min-height: 6rem;"
@@ -173,11 +175,11 @@
                   </div>
 
 
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 custom-hover">
                     <!-- Card -->
                     <div class="text-center">
                       <a routerLink="/database">
-                      <img class="avatar avatar-lg  mb-0" src="assets/vendor/duotone-icons/teh/teh001.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
+                      <img class="avatar avatar-lg  mb-0" src="assets/custome/icon-22.svg" alt="Image Description" data-hs-theme-appearance="default" style="min-height: 6rem;">
                       </a>
                       <span class=" text-body">Database</span>
 
@@ -292,8 +294,8 @@
             <div class="card-body" style="padding-bottom: 1px">
               <div class=" grid-page">
                 <div class="row">
-                  <div class="col-4 col-lg-3" *ngFor="let item of items">
-                    <a [routerLink]="item.link" class="card-link">
+                  <div class="col-4 col-lg-3 custom-hover" *ngFor="let item of items">
+                    <a [routerLink]="item.link" class="card-link custom-hover">
                       <img [src]="item.icon" alt="{{ item.name }}" class="card-icon" />
                       <p style="font-size: 14px" class="">{{ item.name }}</p>
                     </a>
