@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, from } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 // Define a simple contact model
 export interface Contact {
@@ -13,21 +14,11 @@ export interface Contact {
   providedIn: 'root'
 })
 export class ContactService {
-  // Initialize a BehaviorSubject with an empty array of contacts
-  private contactsSubject = new BehaviorSubject<Contact[]>([]);
-  contacts$ = this.contactsSubject.asObservable();
+  constructor(private firestore: AngularFirestore) { }
 
-  constructor() {}
-
-  // Add a new contact
-  addContact(contact: Contact) {
-    const currentContacts = this.contactsSubject.value;
-    currentContacts.push(contact);
-    this.contactsSubject.next(currentContacts);  // Update the contacts list
-  }
-
-  // Get all contacts (this will be used to display contacts later if needed)
-  getContacts() {
-    return this.contactsSubject.asObservable();
+  // Method to add a new contact to Firestore
+  addContact(contact: Contact): Observable<any> {
+    const contactRef = this.firestore.collection('contacts').add(contact);
+    return from(contactRef); // Convert the Promise to Observable
   }
 }

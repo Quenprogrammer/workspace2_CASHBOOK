@@ -4,142 +4,110 @@
   <div class="row">
     <div class="col-lg-6 mb-9 mb-lg-0">
       <!-- Heading -->
-      <div class="mb-5">
-        <h1>Get in touch</h1>
-        <p>We'd love to talk about how we can help you.</p>
-      </div>
 
+<app-contact-list></app-contact-list>
     </div>
     <!-- End Col -->
     <div class="col-lg-6">
       <div class="ps-lg-5">
-        <!-- Card -->
-        <div class="card">
-          <div class="card-header border-bottom text-center">
-            <h3 class="card-header-title">General Inquiries</h3>
-          </div>
+        <div class="">
 
-          <div class="card-body">
-            <!-- Form -->
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-              <div class="row gx-3">
-                <div class="col-sm-6">
-                  <!-- Full Name -->
-                  <div class="mb-3">
+          <div class="card">
 
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      formControlName="name"
-                      id="name"
-                      placeholder="Enter Full Name"
-                      aria-label="Full Name"
-                    />
-                    <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="text-danger">
-                      <small *ngIf="contactForm.get('name')?.hasError('required')">Full Name is required</small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-sm-6">
-                  <!-- Email -->
-                  <div class="mb-3">
-
-                    <input
-                      type="email"
-                      class="form-control form-control-lg"
-                      formControlName="email"
-                      id="email"
-                      placeholder="Enter Email"
-                      aria-label="Email"
-                    />
-                    <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="text-danger">
-                      <small *ngIf="contactForm.get('email')?.hasError('required')">Email is required</small>
-                      <small *ngIf="contactForm.get('email')?.hasError('email')">Invalid email format</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row gx-3">
-                <div class="col-12">
-                  <!-- Phone Numbers -->
-                  <div class="mb-3" formArrayName="phoneNumbers">
-
-                    <div *ngFor="let phoneCtrl of phoneNumbers.controls; let i = index">
-                      <div class="d-flex align-items-center mb-2">
-                        <input
-                          type="tel"
-                          class="form-control form-control-lg"
-                          [formControlName]="i"
-                          placeholder="Enter Phone Number"
-                          aria-label="Phone Number"
-                        />
-                        <div class="col p-2">
-                          <button type="button" class="btn btn-danger btn-sm ml-2" (click)="removePhoneNumber(i)">
-                          Remove
-                        </button>
-                        </div>
-
+            <div class="card-body">
+              <h2 class="card-title" style="color: black; text-align: center">Connect with us</h2>
+              <form [formGroup]="GeneralInquiriesMessage" (ngSubmit)="onSubmit()">
+                <div class="row gx-3">
+                  <!-- Date and Reference Number -->
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <input type="text" formControlName="date" [ngClass]="date?.invalid && (date?.dirty || date?.touched) ? 'is-invalid' : ''"
+                             class="form-control form-control-lg border-0" id="transactionDate" placeholder="MM/DD/YYYY" aria-label="Date" readonly>
+                      <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="text-danger">
+                        <div *ngIf="date?.errors?.['required']">Date is required.</div>
                       </div>
                     </div>
-                    <button type="button" class="btn btn-success btn-sm mt-2" (click)="addPhoneNumber()">
-                      Add Phone Number
-                    </button>
-                    <div *ngIf="contactForm.get('phoneNumbers')?.invalid && contactForm.get('phoneNumbers')?.touched" class="text-danger">
-                      <small *ngIf="contactForm.get('phoneNumbers')?.hasError('required')">At least one phone number is required</small>
+                  </div>
+
+
+
+                </div>
+
+                <!-- Information -->
+                <div class="row gx-3">
+                  <div class="col-sm-12">
+                    <div class="mb-3">
+    <textarea formControlName="additionalInformation"
+              [ngClass]="additionalInformation?.invalid && (additionalInformation?.dirty || additionalInformation?.touched) ? 'is-invalid' : ''"
+              class="form-control form-control-lg"
+              id="transactionInformation"
+              placeholder="Additional Information"
+              aria-label="Information"></textarea>
+                      <div *ngIf="additionalInformation?.invalid && (additionalInformation?.dirty || additionalInformation?.touched)" class="text-danger">
+                        <div *ngIf="additionalInformation?.errors?.['required']">Information is required.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Fullname and phoneNumber -->
+                <div class="row gx-3">
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+
+                      <input type="text" formControlName="name" [ngClass]="name?.invalid && (name?.dirty || name?.touched) ? 'is-invalid' : ''"
+                             class="form-control form-control-lg" id="transactionFullname" placeholder="Fullname Name" aria-label="Fullname">
+                      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-danger">
+                        <div *ngIf="name?.errors?.['required']">Full name is required.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+
+                      <input type="text" formControlName="phoneNumber" [ngClass]="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched) ? 'is-invalid' : ''"
+                             class="form-control form-control-lg" id="transactionphoneNumber" placeholder="Enter phone Number" aria-label="phoneNumber">
+                      <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="text-danger">
+                        <div *ngIf="phoneNumber?.errors?.['required']">phone Number is required.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-sm-12">
-                  <!-- Address -->
-                  <div class="mb-3">
+                <!-- Payee and Mode of Payment -->
+                <div class="row gx-3">
+                  <div class="col-sm-6">
+                    <div class="mb-3">
 
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      formControlName="address"
-                      id="address"
-                      placeholder="Enter Address"
-                      aria-label="Address"
-                    />
-                    <div *ngIf="contactForm.get('address')?.touched && contactForm.get('address')?.invalid" class="text-danger">
-                      <small *ngIf="contactForm.get('address')?.hasError('required')">Address is required</small>
+                      <input type="text" formControlName="Email" [ngClass]="Email?.invalid && (Email?.dirty || Email?.touched) ? 'is-invalid' : ''"
+                             class="form-control form-control-lg" id="transactionPayee" placeholder="Enter Email " aria-label="Payee">
+                      <div *ngIf="Email?.invalid && (Email?.dirty || Email?.touched)" class="text-danger">
+                        <div *ngIf="Email?.errors?.['required']">Valid Email is required.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <input type="text" formControlName="socialMedia" [ngClass]="socialMedia?.invalid && (socialMedia?.dirty || socialMedia?.touched) ? 'is-invalid' : ''"
+                             class="form-control form-control-lg" id="transactionPaymentMode" placeholder="Social Media Links" aria-label="Payment Mode">
+                      <div *ngIf="socialMedia?.invalid && (socialMedia?.dirty || socialMedia?.touched)" class="text-danger">
+                        <div *ngIf="socialMedia?.errors?.['required']">Social Media Link</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="mb-3">
-                <!-- Additional Information -->
-
-                <textarea
-                  class="form-control form-control-lg"
-                  formControlName="info"
-                  id="info"
-                  placeholder="Tell us more..."
-                  aria-label="Tell us more..."
-                  rows="4"
-                ></textarea>
-                <div *ngIf="contactForm.get('info')?.touched && contactForm.get('info')?.invalid" class="text-danger">
-                  <small *ngIf="contactForm.get('info')?.hasError('required')">Information is required</small>
+                <!-- Submit Button -->
+                <div class="d-grid mb-3">
+                  <button type="submit" class="btn btn-dark btn-lg" style="background-color: black">Save Contact</button>
                 </div>
-              </div>
-
-              <!-- Submit Button -->
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg" [disabled]="contactForm.invalid">Submit</button>
-              </div>
-
-              <div class="text-center">
-                <p class="form-text">We'll get back to you shortly.</p>
-              </div>
-            </form>
-            <!-- End Form -->
+              </form>
+            </div>
           </div>
         </div>
-        <!-- End Card -->
       </div>
     </div>
 
@@ -147,3 +115,6 @@
   </div>
   <!-- End Row -->
 </div>
+<!-- Card -->
+
+<!-- End Card -->

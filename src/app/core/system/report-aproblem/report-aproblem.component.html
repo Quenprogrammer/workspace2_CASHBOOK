@@ -1,182 +1,104 @@
-<main id="content" role="main">
-  <!-- Page Header -->
-  <div class="container content-space-t-2">
-    <div class="w-lg-75 mx-lg-auto">
-      <div class="page-header">
-        <!-- Media -->
-        <div class="d-sm-flex mb-3">
-          <div class="flex-shrink-0 mb-2 mb-sm-0">
-            <a href="../demo-jobs/employer.html">
-              <img class="avatar avatar-lg mb-3" src="../assets/svg/brands/capsule-icon.svg" alt="Image Description">
-            </a>
-          </div>
+<div class="container">
+  <div class="row">
 
-          <div class="flex-grow-1 ms-sm-4">
-            <div class="row">
-              <div class="col">
-                <h1 class="page-header-title h2">UX/UI Designer</h1>
-              </div>
-              <!-- End Col -->
-
-              <div class="col-auto">
-                <!-- Checkbbox Bookmark -->
-                <div class="form-check form-check-bookmark">
-                  <input class="form-check-input" type="checkbox" value="" id="jobsPageHeaderBookmarkCheck">
-                  <label class="form-check-label" for="jobsPageHeaderBookmarkCheck">
-                      <span class="form-check-bookmark-default">
-                        <i class="bi-star me-1"></i> Save this job
-                      </span>
-                    <span class="form-check-bookmark-active">
-                        <i class="bi-star-fill me-1"></i> Saved
-                      </span>
-                  </label>
-                </div>
-                <!-- End Checkbbox Bookmark -->
-              </div>
-              <!-- End Col -->
-            </div>
-            <!-- End Row -->
-
-            <ul class="list-inline list-separator d-flex align-items-center mb-2">
-              <li class="list-inline-item">
-                <a class="link" href="../demo-jobs/employer.html">Capsule</a>
-              </li>
-
-              <li class="list-inline-item">
-                <!-- Rating -->
-                <a class="d-flex gap-1" href="../demo-jobs/employer.html">
-                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="14">
-                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="14">
-                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="14">
-                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="14">
-                  <img src="../assets/svg/illustrations/star-half.svg" alt="Review rating" width="14">
-                  <span class="ms-1">2,391 reviews</span>
-                </a>
-                <!-- End Rating -->
-              </li>
-            </ul>
-
-            <ul class="list-inline list-separator small text-body mb-2">
-              <li class="list-inline-item">Posted 7 hours ago</li>
-              <li class="list-inline-item">Oxford, England, United Kingdom</li>
-              <li class="list-inline-item">Full time</li>
-            </ul>
-          </div>
-        </div>
-        <!-- End Media -->
+    <div class="col-12 mb-5 mb-lg-0">
+      <div class="card-header bg-black py-5" style="border-radius: 10px">
+        <h1 class="text-center" style="color: white; ">Cash In</h1>
       </div>
-    </div>
-  </div>
-  <!-- End Page Header -->
+      <div class="card">
 
-  <!-- Content -->
-  <div class="container content-space-1 content-space-b-lg-3">
-    <div class="w-lg-75 mx-lg-auto">
-      <!-- Card -->
-      <div class="card card-bordered mb-10">
         <div class="card-body">
-          <div class="row align-items-sm-center">
-            <div class="col-sm mb-2 mb-sm-0">
-              <h5 class="card-title text-uppercase">
-                <i class="bi-lightning-charge-fill me-1"></i> Send us mail instead
-              </h5>
-              <p class="card-text small">Save time by importing your resume.</p>
-            </div>
-            <!-- End Col -->
+          <form [formGroup]="GeneralInquiriesMessage" (ngSubmit)="onSubmit()">
+            <div class="row gx-3">
+              <!-- Date and Reference Number -->
+              <div class="col-sm-6">
+                <div class="mb-3">
 
-            <div class="col-sm-auto">
-              <!-- Dropdown -->
-              <div class="dropdown">
-                <a class="btn btn-primary" href="#" id="jobImportResumeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation="">
-                  My mail <i class="bi-chevron-down small ms-1"></i>
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="jobImportResumeDropdown" style="opacity: 1;">
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="../assets/vendor/bootstrap-icons/icons/laptop.svg" alt="Image Description"> My Computer
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="../assets/svg/brands/dropbox-icon.svg" alt="Image Description"> Dropbox
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="../assets/svg/brands/google-drive-icon.svg" alt="Image Description"> Google Drive
-                  </a>
+                  <input type="text" formControlName="date" [ngClass]="date?.invalid && (date?.dirty || date?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionDate" placeholder="MM/DD/YYYY" aria-label="Date">
+                  <div *ngIf="date?.invalid && (date?.dirty || date?.touched)" class="text-danger">
+                    <div *ngIf="date?.errors?.['required']">Date is required.</div>
+                  </div>
                 </div>
               </div>
-              <!-- End Dropdown -->
+
+
             </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
+
+            <!-- Information -->
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="mb-3">
+    <textarea formControlName="additionalInformation"
+              [ngClass]="additionalInformation?.invalid && (additionalInformation?.dirty || additionalInformation?.touched) ? 'is-invalid' : ''"
+              class="form-control form-control-lg"
+              id="transactionInformation"
+              placeholder="Additional Information"
+              aria-label="Information"></textarea>
+                  <div *ngIf="additionalInformation?.invalid && (additionalInformation?.dirty || additionalInformation?.touched)" class="text-danger">
+                    <div *ngIf="additionalInformation?.errors?.['required']">Information is required.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Fullname and phoneNumber -->
+            <div class="row gx-3">
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="name" [ngClass]="name?.invalid && (name?.dirty || name?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionFullname" placeholder="Fullname Name" aria-label="Fullname">
+                  <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-danger">
+                    <div *ngIf="name?.errors?.['required']">Full name is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="phoneNumber" [ngClass]="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionphoneNumber" placeholder="Enter phone Number" aria-label="phoneNumber">
+                  <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="text-danger">
+                    <div *ngIf="phoneNumber?.errors?.['required']">phone Number is required.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payee and Mode of Payment -->
+            <div class="row gx-3">
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="Email" [ngClass]="Email?.invalid && (Email?.dirty || Email?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionPayee" placeholder="Enter Email " aria-label="Payee">
+                  <div *ngIf="Email?.invalid && (Email?.dirty || Email?.touched)" class="text-danger">
+                    <div *ngIf="Email?.errors?.['required']">Valid Email is required.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <input type="text" formControlName="socialMedia" [ngClass]="socialMedia?.invalid && (socialMedia?.dirty || socialMedia?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="transactionPaymentMode" placeholder="Social Media Links" aria-label="Payment Mode">
+                  <div *ngIf="socialMedia?.invalid && (socialMedia?.dirty || socialMedia?.touched)" class="text-danger">
+                    <div *ngIf="socialMedia?.errors?.['required']">Social Media Link</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid mb-3">
+              <button type="submit" class="btn btn-dark btn-lg" style="background-color: black">Save Transaction</button>
+            </div>
+          </form>
         </div>
       </div>
-      <!-- End Card -->
-
-      <!-- Form -->
-      <form>
-        <div class="mb-4">
-          <h3>Personal information</h3>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-6">
-            <!-- Form -->
-            <div class="mb-4">
-              <label class="form-label" for="applyForJobFirstName">First name</label>
-              <input type="text" class="form-control" name="applyForJobNameFirstName" id="applyForJobFirstName" placeholder="First name" aria-label="First name">
-            </div>
-            <!-- End Form -->
-          </div>
-
-          <div class="col-sm-6">
-            <!-- Form -->
-            <div class="mb-4">
-              <label class="form-label" for="applyForJobLasttName">User Name</label>
-              <input type="text" class="form-control" name="applyForJobNameLastName" id="applyForJobLasttName" placeholder="User name" aria-label="User name">
-            </div>
-            <!-- End Form -->
-          </div>
-        </div>
-        <!-- End Form -->
-
-        <!-- Form -->
-        <div class="mb-4">
-          <label class="form-label" for="applyForJobEmail">Email address</label>
-          <input type="email" class="form-control" name="applyForJobNameEmail" id="applyForJobEmail" placeholder="email@site.com" aria-label="email@site.com">
-        </div>
-        <!-- End Form -->
-
-        <!-- Form -->
-
-
-
-
-
-        <hr class="my-7">
-
-        <div class="mb-4">
-          <h3>Message</h3>
-        </div>
-
-        <!-- Form -->
-        <div class="mb-4">
-
-          <textarea class="form-control" name="applyForJobSummaryName" id="applyForJobSummary" placeholder="Message" aria-label="Message" rows="6"></textarea>
-        </div>
-        <!-- End Form -->
-
-
-        <hr class="my-7">
-
-
-
-
-        <div class="d-grid mt-5">
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </div>
-      </form>
-      <!-- End Form -->
     </div>
   </div>
-  <!-- Content -->
-</main>
+</div>

@@ -1,7 +1,19 @@
-import { Component } from '@angular/core';
-import {Contact, ContactService} from '../../services/contact/contact.service';
-import {FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {NgForOf, NgIf} from '@angular/common';
+import {Component, inject} from '@angular/core';
+
+import {
+
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {addDoc, collection, collectionData, Firestore} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {ToastService} from '../../services/toast-services';
+import {MessageInquiries} from '../../core/system/interface/contactInterface';
+import {ContactListComponent} from './contact-list/contact-list.component';
 
 @Component({
   selector: 'app-contacts',
@@ -11,54 +23,100 @@ import {NgForOf, NgIf} from '@angular/common';
     NgIf,
 
     ReactiveFormsModule,
-    NgForOf
+    NgClass,
+    ContactListComponent,
+
   ],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
-  contactForm!: FormGroup;
+  firestore: Firestore = inject(Firestore);
+  generalMessageInquiries = collection(this.firestore, 'income');
 
-  constructor(private fb: FormBuilder) { }
+  // Observable to store the inquiries
+  inquiriesMessage$: Observable<MessageInquiries[]>;
 
-  ngOnInit(): void {
-    // Initialize the form with validation
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]], // Name field with validation
-      email: ['', [Validators.required, Validators.email]], // Email field with validation
-      address: ['', [Validators.required, Validators.minLength(5)]], // Address should have required and minLength validation
-      phoneNumbers: this.fb.array([ // Initial phone number field
-        ['', [Validators.required, Validators.pattern(/^\d{10}$/)]] // Phone number should be 10 digits long (adjust pattern if needed)
-      ]),
-      info: ['', [Validators.required]] // Additional Information
-    });
+  // Form group with the date automatically filled with the current date
+  GeneralInquiriesMessage = new FormGroup({
+    date: new FormControl(this.getCurrentDate(), [Validators.required]), // Set current date
+    additionalInformation: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required]),
+    Email: new FormControl('', [Validators.required]),
+    socialMedia: new FormControl('', )
+  });
+
+  randomNumber = 0;
+  min = 100000000;
+  max = 999999999;
+
+  // Inject ToastService through the constructor
+  constructor(private toastService: ToastService) {
+    this.inquiriesMessage$ = collectionData(this.generalMessageInquiries, { idField: 'id' }) as Observable<MessageInquiries[]>;
   }
 
-  // Getter for phone numbers form array
-  get phoneNumbers(): FormArray {
-    return this.contactForm.get('phoneNumbers') as FormArray;
+
+
+  // Method to get the current date in YYYY-MM-DD format
+  getCurrentDate(): string {
+    const today = new Date();
+    return today.toISOString().split('T')[0]; // Returns YYYY-MM-DD
   }
 
-  // Add a new phone number field
-  addPhoneNumber(): void {
-    this.phoneNumbers.push(
-      this.fb.control('', [Validators.required, Validators.pattern(/^\d{10}$/)]) // You can adjust the pattern if needed
-    );
-  }
+  onSubmit() {
+    if (this.GeneralInquiriesMessage.valid) {
+      const dataToSubmit = {
+        ...this.GeneralInquiriesMessage.value,
 
-  // Remove a phone number field
-  removePhoneNumber(index: number): void {
-    this.phoneNumbers.removeAt(index);
-  }
+        type: 'Report A Problem' // Add the type field
+      };
 
-  // Handle form submission
-  onSubmit(): void {
-    if (this.contactForm.valid) {
-      console.log('Form Submitted', this.contactForm.value);
-      // You can send this form data to your backend server for further processing
+      addDoc(this.generalMessageInquiries, dataToSubmit)
+        .then(() => {
+          this.GeneralInquiriesMessage.reset();
+          this.GeneralInquiriesMessage.patchValue({ date: this.getCurrentDate() }); // Reset the date to the current date
+          console.log('Transaction saved successfully');
+          this.toastService.show('', 'Transaction saved successfully', 'success');
+        })
+        .catch((error) => {
+          console.error('Error saving transaction:', error);
+          this.toastService.show('', 'Error saving transaction', 'danger');
+        });
     } else {
       console.log('Form is invalid');
+      this.toastService.show('', 'Please fill in all required fields correctly.', 'danger');
     }
   }
+
+  // Getters for form controls
+  get date() {
+    return this.GeneralInquiriesMessage.get('date');
+  }
+
+  get referenceNumber() {
+    return this.GeneralInquiriesMessage.get('referenceNumber');
+  }
+
+  get additionalInformation() {
+    return this.GeneralInquiriesMessage.get('additionalInformation');
+  }
+
+  get name() {
+    return this.GeneralInquiriesMessage.get('name');
+  }
+
+  get phoneNumber() {
+    return this.GeneralInquiriesMessage.get('phoneNumber');
+  }
+
+  get Email() {
+    return this.GeneralInquiriesMessage.get('Email');
+  }
+
+  get socialMedia() {
+    return this.GeneralInquiriesMessage.get('socialMedia');
+  }
+
 
 }
