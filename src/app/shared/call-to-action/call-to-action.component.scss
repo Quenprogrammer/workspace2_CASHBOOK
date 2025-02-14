@@ -1,0 +1,41 @@
+.u-devices-v2__tablet {
+  position: absolute;
+  left: 0;
+  top: -18%;
+  z-index: 1;
+  width: 34.375rem;
+  height: 50.875rem;
+  transform: rotate(344deg);
+  transform-origin: 90% -20%;
+}
+
+.logo{
+  height: 20rem;
+  margin-top: -5rem;
+}
+.u-devices-v2__phone {
+  position: absolute;
+  right: 13%;
+  bottom: -5%;
+  z-index: 1;
+  width: 19.8125rem;
+  height: 41.5625rem;
+  transform: rotate(-20deg);
+  transform-origin: 100% 0;
+}
+
+.u-devices-v2 {
+    position: relative;
+    overflow: visible;
+    overflow-x: clip;
+  }
+
+
+
+
+
+
+
+.callToAction{
+
+}

@@ -1,0 +1,16 @@
+.customIMG{
+  height:100px;
+  width:100px;
+  border-radius: 15px;
+}
+.cardPadding{
+  padding:1px;
+ margin:2px;
+}
+@media (max-width: 576px) {
+  /* Styles for small screens */
+  .customIMG{
+    height:85px;
+    width:85px;
+  object-fit: cover}
+}

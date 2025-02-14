@@ -1,1 +1,21 @@
-<p>apps works!</p>
+<div class="container">
+  <div class="col-md-12 col-lg-10 ">
+  <div class="row">
+    @for(items of apps; track items.name ){
+    <div class="col-4 col-md-2 mb-4">
+      <a [routerLink]="items.link">
+        <div class="card custom-card text-center cardPadding shadow-none" >
+          <div class="">
+            <img class="img-fluid customIMG" [src]="items.logo" alt="{{items.name}}">
+            <p class="card-text">{{items.name | truncateText:9}}</p>
+          </div>
+        </div>
+
+      </a>
+    </div>
+    }
+
+
+  </div>
+  </div>
+  </div>

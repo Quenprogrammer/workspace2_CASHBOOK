@@ -15,7 +15,7 @@ export class LoadingComponent {
     'assets/custome/07.png',
     'assets/custome/01.png',
     'assets/custome/03.png',
-    'assets/custome/img.png',
+    'assets/custome/binance.png',
     'assets/custome/img4-dark.png',
     'assets/custome/img6.png',
     'assets/custome/img9.png',
