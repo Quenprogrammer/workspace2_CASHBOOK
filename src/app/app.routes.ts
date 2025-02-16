@@ -27,6 +27,7 @@ export const routes: Routes = [
   {path: 'backupDataPassword', loadComponent: () => import ('./features/data/backup-data-password/backup-data-password.component').then(c => c.BackupDataPasswordComponent)},
 
   {path: 'createUser', loadComponent: () => import ('./features/create-user/create-user.component').then(c => c.CreateUserComponent)},
+  {path: 'stats', loadComponent: () => import ('./features/statistics/statistics.component').then(c => c.StatisticsComponent)},
   {path: 'tools', loadComponent: () => import ('./features/tools/tools.component').then(c => c.ToolsComponent)},
   {path: 'statistics', loadComponent: () => import ('./features/cashbook/statistics/statistics.component').then(c => c.StatisticsComponent)},
 
