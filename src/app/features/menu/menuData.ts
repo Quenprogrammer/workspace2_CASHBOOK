@@ -7,24 +7,22 @@ export interface MenuItem {
 
 // Export the menu data
 export const MENU_ITEMS: MenuItem[] = [
-
-    { name: 'Contacts', icon: '7x24h-svgrepo-com.svg', link: '/dashboard' },
-    { name: 'API Interface', icon: 'api-interface-svgrepo-com.svg', link: '/api-interface' },
-    { name: 'Availability', icon: 'availability-svgrepo-com.svg', link: '/availability' },
-    { name: 'backup', icon: 'cloud-acceleration-svgrepo-com.svg', link: '/cloud-acceleration' },
-    { name: 'Cloud Backup', icon: 'cloud-backup-svgrepo-com.svg', link: '/cloud-backup' },
-    { name: 'Data Analysis', icon: 'data-analysis-svgrepo-com.svg', link: '/data-analysis' },
-    { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
-    { name: 'DNS', icon: 'dns-svgrepo-com.svg', link: '/dns' },
-    { name: 'Database', icon: 'host-record-svgrepo-com.svg', link: '/host-record' },
-    { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/interface-control' },
-    { name: 'Statistics', icon: 'machine-vision-svgrepo-com.svg', link: '/machine-vision' },
-    { name: 'Mail Reception', icon: 'mail-reception-svgrepo-com.svg', link: '/mail-reception' },
-    { name: 'Apps', icon: 'mobile-app-svgrepo-com.svg', link: '/apps' },
-    { name: 'Port Detection', icon: 'port-detection-svgrepo-com.svg', link: '/port-detection' },
-    { name: 'Vault', icon: 'recursive-server-svgrepo-com.svg', link: '/recursive-server' },
-    { name: 'Settings', icon: 'system-settings-svgrepo-com.svg', link: '/system-settings' },
-    { name: 'Touch Click', icon: 'touch-click-svgrepo-com.svg', link: '/touch-click' }
+  { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/interface-control' },
+  { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
+  { name: 'Dashboard', icon: 'data-analysis-svgrepo-com.svg', link: '/data-analysis' },
+  { name: 'Records', icon: 'touch-click-svgrepo-com.svg', link: '/touch-click' },
+  { name: 'Statistics', icon: 'machine-vision-svgrepo-com.svg', link: '/machine-vision' },
+  { name: 'Expenses', icon: 'port-detection-svgrepo-com.svg', link: '/port-detection' },
+  { name: 'Cashbook Acc', icon: 'cloud-backup-svgrepo-com.svg', link: '/cloud-backup' },
+  { name: 'Vault', icon: 'recursive-server-svgrepo-com.svg', link: '/recursive-server' },
+  { name: 'backup', icon: 'cloud-acceleration-svgrepo-com.svg', link: '/cloud-acceleration' },
+  { name: 'Database', icon: 'host-record-svgrepo-com.svg', link: '/host-record' },
+  { name: 'Subscription', icon: 'dns-svgrepo-com.svg', link: '/dns' },
+  { name: 'Notifications', icon: 'mail-reception-svgrepo-com.svg', link: '/mail-reception' },
+  { name: 'Settings', icon: 'system-settings-svgrepo-com.svg', link: '/system-settings' },
+  { name: 'API Interface', icon: 'api-interface-svgrepo-com.svg', link: '/statUp' },
+    { name: 'Report Bug', icon: 'availability-svgrepo-com.svg', link: '/availability' },
+     { name: 'Apps', icon: 'mobile-app-svgrepo-com.svg', link: '/apps' },
 
 
   /*  { name: 'kkktest', icon: '7x24h-svgrepo-com.svg', link: '/dashboard' },

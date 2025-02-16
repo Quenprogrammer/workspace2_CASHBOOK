@@ -3,12 +3,20 @@ import {NgForOf, NgIf} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {MENU_ITEMS, MenuItem} from "./menuData";
 import { NetworkService } from '../../services/network.service';
+import {TimeComponent} from './time/time.component';
+import {AccessPasswordComponent} from './access-password/access-password.component';
+import {StandByComponent} from './stand-by/stand-by.component';
+import {AimsTagComponent} from '../../core/system/aims-tag/aims-tag.component';
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
     NgForOf,
     RouterLink,
+    TimeComponent,
+    AccessPasswordComponent,
+    StandByComponent,
+    AimsTagComponent,
 
   ],
   templateUrl: './menu.component.html',

@@ -9,22 +9,7 @@ import { interval } from 'rxjs';
 })
 export class LoadingComponent {
   imageUrls: string[] = [
-    /*'assets/custome/mobile-app-light.jpg',
-    'assets/custome/cta-screens.png',
-    'assets/custome/01-light.png',
-    'assets/custome/07.png',
-    'assets/custome/01.png',
-    'assets/custome/03.png',
-    'assets/custome/binance.png',
-    'assets/custome/img4-dark.png',
-    'assets/custome/img6.png',
-    'assets/custome/img9.png',
-    'assets/custome/img5.png',
-    'assets/custome/img3.jpg',*/
-    'assets/custome/01-light.jpg',
 
-   /* 'assets/custome/03-light.jpg',
-    */
   ];
   randomImageUrl!: string;
 

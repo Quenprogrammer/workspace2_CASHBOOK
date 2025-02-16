@@ -9,6 +9,8 @@ export const routes: Routes = [
   },
   {path: 'statUp', loadComponent: () => import ('./core/system/start-up/start-up.component').then(c => c.StartUpComponent)},
   {path: 'loading', loadComponent: () => import ('./core/system/loading/loading.component').then(c => c.LoadingComponent)},
+  {path: 'debug', loadComponent: () => import ('./core/debug/debug.component').then(c => c.DebugComponent)},
+  {path: 'profile', loadComponent: () => import ('./core/profile/profile.component').then(c => c.ProfileComponent)},
 
   {path: 'home', component: HomeComponent},
   {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
