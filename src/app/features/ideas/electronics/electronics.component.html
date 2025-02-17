@@ -1,0 +1,155 @@
+<!-- Hero -->
+<div class="overflow-hidden">
+  <div class="container content-space-1">
+    <div class="row justify-content-lg-between align-items-md-center">
+      <div class="col-md-6 col-lg-5 mb-7 mb-md-0">
+        <!-- Heading -->
+        <div class="mb-5">
+          <span class="text-cap">Who we are?</span>
+          <h1 class="display-5 mb-3">IDEAS Electronics Store</h1>
+          <p class="lead">Our team aims to deliver the most outstanding Prosucts.</p>
+        </div>
+        <!-- End Title & Description -->
+
+        <div class="d-grid d-sm-flex gap-3">
+          <a class="btn btn-primary btn-transition" href="#caseStudies">About Us</a>
+          <a class="btn btn-link" href="#">Contact Us <i class="bi-chevron-right small ms-1"></i></a>
+        </div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-md-6">
+        <div class="position-relative">
+          <img class="img-fluid rounded-2 heroImage" src="electronics/img_3.png" alt="Image Description">
+          <div class="position-absolute top-0 end-0 w-100 h-100 bg-soft-primary rounded-2 zi-n1 mt-5 me-n5"></div>
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+</div>
+<!-- End Hero -->
+
+<h1 class="text-center my-3 display-3">Electronics <span style="color: red">Store</span></h1>
+<div class="overflow-hidden gradient-x-three-sm-primary rounded-2 mx-md-10">
+  <div class="container content-space-2 content-space-lg-3">
+    <div class="row justify-content-center align-items-lg-center">
+      <div class="col-10 col-sm-8 col-lg-5 mb-10 mb-lg-0">
+        <div class="position-relative">
+          <img class="img-fluid rounded-2" src="../assets/img/900x900/img24.jpg" alt="Image Description">
+
+          <!-- SVG Shape -->
+          <div class="position-absolute top-0 start-0 zi-n1 mt-n6 ms-n7" style="width: 10rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="100" height="100">
+              <circle fill="#FFC107" opacity=".7" cx="167.6" cy="167.6" r="130.1"></circle>
+            </svg>
+          </div>
+          <!-- End SVG Shape -->
+
+          <!-- SVG Shape -->
+          <div class="position-absolute bottom-0 end-0 zi-n1 mb-n6 me-n10" style="width: 10rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="120" height="120">
+              <circle fill="none" stroke="#377dff" stroke-width="75" cx="167.6" cy="167.6" r="130.1"></circle>
+            </svg>
+          </div>
+          <!-- End SVG Shape -->
+        </div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-lg-7">
+        <div class="ps-lg-6">
+          <div class="mb-3">
+            <img class="avatar" src="../assets/svg/brands/capsule-icon.svg" alt="Image Description">
+          </div>
+
+          <!-- Blockquote -->
+          <figure class="mb-5">
+            <blockquote class="blockquote blockquote-lg">" Save time and effort in your hiring journey. Front's simple and powerful tools let you source, screen, and hire faster. "</blockquote>
+
+            <figcaption class="blockquote-footer">
+              Anna Lowry
+              <span class="blockquote-footer-source">HR Director | Capsule</span>
+            </figcaption>
+          </figure>
+          <!-- End Blockquote -->
+
+          <div class="row">
+            <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
+              <h2 class="text-primary mb-1">59%</h2>
+              <p class="small mb-0">in budget saved on unconverting ads</p>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
+              <h2 class="text-primary mb-1">27%</h2>
+              <p class="small mb-0">in time saved on campaign management</p>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-6 col-md-4">
+              <h2 class="text-primary mb-1">2.1x</h2>
+              <p class="small mb-0">more split tests and experiments</p>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    @for( items of electronics; track items.name){
+    <div class="col-md-3 mb-3">
+      <div class="card">
+
+
+        <div class="card-body">
+<img class="img-fluid image" [src]="items.image">
+          <h6>{{items.name}}</h6>
+          <h6>{{items.price}}</h6>
+
+        </div>
+
+    </div>
+    </div>
+    }
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="bg-light">
+    <div class="container content-space-2">
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto">
+        <div class="row justify-content-lg-between">
+          <!-- Heading -->
+          <div class="mb-5">
+            <span class="text-cap">Subscribe</span>
+            <h2>Get the latest updates from us</h2>
+          </div>
+          <!-- End Heading -->
+
+          <form>
+            <!-- Input Card -->
+            <div class="input-card input-card-pill input-card-sm border mb-3">
+              <div class="input-card-form">
+                <label for="subscribeForm" class="form-label visually-hidden">Enter email</label>
+                <input type="text" class="form-control form-control-lg" id="subscribeForm" placeholder="Enter email" aria-label="Enter email">
+              </div>
+              <button type="button" class="btn btn-primary btn-lg rounded-pill">Subscribe</button>
+            </div>
+            <!-- End Input Card -->
+          </form>
+
+          <p class="small">You can unsubscribe at any time. Read our <a href="#">privacy policy</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
