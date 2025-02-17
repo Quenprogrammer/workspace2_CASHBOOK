@@ -1,26 +1,27 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
-import {MENU_ITEMS, MenuItem} from "./menuData";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForOf, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { MENU_ITEMS, MenuItem } from './menuData';
 import { NetworkService } from '../../services/network.service';
-import {TimeComponent} from './time/time.component';
-import {AccessPasswordComponent} from './access-password/access-password.component';
-import {StandByComponent} from './stand-by/stand-by.component';
-import {AimsTagComponent} from '../../core/system/aims-tag/aims-tag.component';
+import { TimeComponent } from './time/time.component';
+import { AccessPasswordComponent } from './access-password/access-password.component';
+import { StandByComponent } from './stand-by/stand-by.component';
+import { AimsTagComponent } from '../../core/system/aims-tag/aims-tag.component';
+
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
     NgForOf,
     RouterLink,
-    TimeComponent,
+
     AccessPasswordComponent,
     StandByComponent,
     AimsTagComponent,
-
+    NgIf,
   ],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
   isOnline: boolean = true;
@@ -40,16 +41,18 @@ export class MenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.timer) {
-      clearInterval(this.timer);
+      clearInterval(this.timer); // Clear the timer on component destroy
     }
   }
 
-  updateTime() {
+  // Updates the current time and sets interval
+  updateTime(): void {
     const now = new Date();
-    this.currentTime = now.toLocaleTimeString();
+    this.currentTime = now.toLocaleTimeString(); // Format as you need
 
+    // Update the time every second
     this.timer = setInterval(() => {
       this.updateTime();
     }, 1000);

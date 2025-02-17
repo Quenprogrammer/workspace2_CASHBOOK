@@ -1359,7 +1359,15 @@
               <div class="flex-grow-1 ms-lg-3">
                 <span class="d-block fs-6">Network Connection</span>
                 <div class="d--flex align-items-center">
-                  <h3 class="mb-0">62.9%</h3>
+                  <h3 class="mb-0" *ngIf="isOnline; else offlineTemplate" >online</h3>
+                  <div class="network-status">
+                  <ng-template #offlineTemplate>
+                    <h3 class="mb-0">offline</h3>
+                  </ng-template>
+                </div>
+
+                  <!-- Other content of your menu component -->
+
                 </div>
               </div>
             </div>

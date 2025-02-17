@@ -3,7 +3,7 @@ import {MenuComponent} from '../menu/menu.component';
 import {RouterLink} from '@angular/router';
 import {MENU_ITEMS} from "./menuData";
 import {NgForOf} from "@angular/common";
-import {LoadingComponent} from '../../core/system/loading/loading.component';
+
 import {SocialAccountsComponent} from '../social-accounts/social-accounts.component';
 
 @Component({
@@ -13,7 +13,7 @@ import {SocialAccountsComponent} from '../social-accounts/social-accounts.compon
 
     RouterLink,
     NgForOf,
-    LoadingComponent,
+
     SocialAccountsComponent
   ],
   templateUrl: './home.component.html',
