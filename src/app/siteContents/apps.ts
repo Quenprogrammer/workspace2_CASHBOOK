@@ -9,7 +9,7 @@ export const apps = [
   },
   {
     name: 'Coinbase',
-    link: 'https://www.coinbase.com',
+    link: 'https://www.coinbase.com/',
     logo:  crypto + 'coinbase.png'
   },
   {
@@ -162,7 +162,7 @@ export const cryptoWallets = [
   },
   {
     name: 'Coinbase Wallet',
-    link: 'https://www.coinbase.com/crypto',
+    link: 'https://www.coinbase.com/',
     logo:  crypto + 'coinbase.png',  // Replace with actual logo URL or path
     category: 'crypto'
   },
@@ -222,7 +222,7 @@ export const cryptoWallets = [
   },
   {
     name: 'BitPay Wallet',
-    link: 'https://bitpay.com/crypto',
+    link: 'https://www.bitpay.com/',
     logo:  crypto + 'bitpay.png',  // Replace with actual logo URL or path
     category: 'crypto'
   },

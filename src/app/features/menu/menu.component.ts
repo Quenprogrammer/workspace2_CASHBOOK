@@ -7,6 +7,7 @@ import { TimeComponent } from './time/time.component';
 import { AccessPasswordComponent } from './access-password/access-password.component';
 import { StandByComponent } from './stand-by/stand-by.component';
 import { AimsTagComponent } from '../../core/system/aims-tag/aims-tag.component';
+import {BalanceComponent} from './balance/balance.component';
 
 @Component({
   selector: 'app-menu',
@@ -19,6 +20,7 @@ import { AimsTagComponent } from '../../core/system/aims-tag/aims-tag.component'
     StandByComponent,
     AimsTagComponent,
     NgIf,
+    BalanceComponent,
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']

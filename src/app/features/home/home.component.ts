@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MenuComponent} from '../menu/menu.component';
+
 import {RouterLink} from '@angular/router';
 import {MENU_ITEMS} from "./menuData";
 import {NgForOf} from "@angular/common";
