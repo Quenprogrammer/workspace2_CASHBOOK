@@ -1,12 +1,13 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {Statistic} from '../../ideas/homepage/homepage.component';
-import {NgForOf} from '@angular/common';
+import {CurrencyPipe, NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-balance',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    CurrencyPipe
   ],
   templateUrl: './balance.component.html',
   styleUrl: './balance.component.css'
