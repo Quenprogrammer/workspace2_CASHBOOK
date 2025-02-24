@@ -1,18 +1,22 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {Statistic} from '../../ideas/homepage/homepage.component';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CurrencyPipe, NgForOf} from '@angular/common';
-
+export interface Statistic {
+  value: number;
+  label: string;
+  animatedValue?: number; // Optional property for animated value
+}
 @Component({
   selector: 'app-balance',
   standalone: true,
   imports: [
-    NgForOf,
-    CurrencyPipe
+    CurrencyPipe,
+    NgForOf
+
   ],
   templateUrl: './balance.component.html',
-  styleUrl: './balance.component.css'
+  styleUrls: ['./balance.component.css']
 })
-export class BalanceComponent implements AfterViewInit{
+export class BalanceComponent implements AfterViewInit {
   stats:number=0;
   credit:number=1000000;
   debit:number=200000;

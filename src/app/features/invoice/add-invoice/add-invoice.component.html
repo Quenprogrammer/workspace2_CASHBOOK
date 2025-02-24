@@ -1,0 +1,127 @@
+
+<div class="container d-flex justify-content-center mt-1">
+  <div class="card shadow-lg border-0 my-5 mx-5" style="width: 100%">
+    <h2 class="text-center mt-3">Add New Invoice</h2>
+
+    <form [formGroup]="invoiceForm" (ngSubmit)="addInvoice()" class="mx-5 my-5">
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input [disabled]="isDisabled"
+               type="text"
+               id="customerName"
+               class="form-control"
+               formControlName="customerName"
+               placeholder="Enter customer name" />
+        <button type="button" class="btn btn-primary mt-2" (click)="openScrollableContent(longContent)">Select Customer</button>
+      </div>
+
+      <div class="mb-3">
+        <label for="invoice" class="form-label">Invoice No.</label>
+        <input type="text"
+               id="invoice"
+               class="form-control"
+               formControlName="invoice"
+               placeholder="Enter invoice number" />
+        <div *ngIf="invoiceForm.controls['invoice'].invalid && invoiceForm.controls['invoice'].touched" class="text-danger">
+          Invoice number is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="amountPaid" class="form-label">Amount Paid</label>
+        <input type="number"
+               id="amountPaid"
+               class="form-control"
+               formControlName="amountPaid"
+               placeholder="Enter amount paid" />
+        <div *ngIf="invoiceForm.controls['amountPaid'].invalid && invoiceForm.controls['amountPaid'].touched" class="text-danger">
+          <div *ngIf="invoiceForm.controls['amountPaid'].hasError('required')">Amount paid is required.</div>
+          <div *ngIf="invoiceForm.controls['amountPaid'].hasError('min')">Amount paid must be a positive number.</div>
+          <div *ngIf="invoiceForm.controls['amountPaid'].hasError('amountPaidExceedsTotal')">Amount paid cannot exceed the total item price.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="balanceOutstanding" class="form-label">Balance Outstanding</label>
+        <input type="number"
+               id="balanceOutstanding"
+               class="form-control"
+               formControlName="balanceOutstanding"
+               placeholder="Enter balance outstanding" />
+      </div>
+
+      <div formArrayName="items">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col" style="width: 40%">Item Name</th>
+              <th scope="col" style="width: 10%">Quantity</th>
+              <th scope="col" style="width: 15%">Price</th>
+              <th scope="col" style="width: 20%">Total</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+              <td style="width: 40%">
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter item name" />
+                <div *ngIf="item.get('name')?.invalid && item.get('name')?.touched" class="text-danger">Item name is required.</div>
+              </td>
+              <td style="width: 10%">
+                <input type="number" class="form-control" formControlName="quantity" placeholder="Enter quantity" />
+                <div *ngIf="item.get('quantity')?.invalid && item.get('quantity')?.touched" class="text-danger">Quantity is required and must be a positive number.</div>
+              </td>
+              <td style="width: 15%">
+                <input type="number" class="form-control" formControlName="price" placeholder="Enter price" />
+                <div *ngIf="item.get('price')?.invalid && item.get('price')?.touched" class="text-danger">Price is required and must be a positive number.</div>
+              </td>
+              <td style="width: 20%">{{ item.value.quantity * item.value.price }}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="removeItem(i)">Remove</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-secondary mb-3" (click)="addItem()">Add Item</button>
+      </div>
+
+      <div class="container">
+        <button type="submit" class="btn btn-primary" [disabled]="invoiceForm.invalid || isLoading">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          {{ isLoading ? 'Processing...' : 'Add Invoice' }}
+        </button>
+
+        <button type="button" class="btn btn-danger mx-3" routerLink="/invoice">Close</button>
+        <button type="button" class="btn btn-primary" (click)="pushData()">Push Data</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal for Customer Selection -->
+<ng-template #longContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Customer List</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Search here..." [(ngModel)]="searchTerm" />
+    </div>
+
+    <ul class="list-group" *ngIf="(customers$ | async) as customers">
+      <li class="list-group-item" *ngFor="let customer of (customers | filter: searchTerm)">
+        <strong>Name:</strong> {{ customer.customerName }} <br />
+        <strong>Gender:</strong> {{ customer.gender }}
+        <button type="button" class="btn btn-primary btn-sm float-end" (click)="selectCustomer(customer)">
+          Select
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

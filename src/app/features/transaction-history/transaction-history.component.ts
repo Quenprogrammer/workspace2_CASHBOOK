@@ -1,9 +1,10 @@
-import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
+import {Component, inject, OnInit, ChangeDetectorRef, WritableSignal, signal} from '@angular/core';
 import { Observable } from 'rxjs';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import {CurrencyPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { take } from 'rxjs/operators';
+import {LoadingComponent} from '../../core/system/loading/loading.component';
 
 interface MessageInquiries {
   id?: string;
@@ -20,11 +21,12 @@ interface MessageInquiries {
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [NgForOf, CurrencyPipe, FormsModule, NgStyle, NgIf],
+  imports: [NgForOf, CurrencyPipe, FormsModule, NgStyle, NgIf, LoadingComponent],
   templateUrl: './transaction-history.component.html',
   styleUrls: ['./transaction-history.component.scss']
 })
 export class TransactionHistoryComponent implements OnInit {
+  isLoading: WritableSignal<boolean> = signal(true);
   firestore: Firestore = inject(Firestore);
   inquiriesCollection = collection(this.firestore, 'income');
 

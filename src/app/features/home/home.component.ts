@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, signal, WritableSignal} from '@angular/core';
 
 import {RouterLink} from '@angular/router';
 import {MENU_ITEMS} from "./menuData";
 import {NgForOf} from "@angular/common";
 
-import {SocialAccountsComponent} from '../social-accounts/social-accounts.component';
+
 
 @Component({
   selector: 'app-home',
@@ -14,12 +14,12 @@ import {SocialAccountsComponent} from '../social-accounts/social-accounts.compon
     RouterLink,
     NgForOf,
 
-    SocialAccountsComponent
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  isLoading: WritableSignal<boolean> = signal(true);
     protected readonly items = MENU_ITEMS;
 }

@@ -1,68 +1,73 @@
-<div class="gradient-x-three-sm-primary" style="background-color: black">
-  <div class="container content-space-1">
-    <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
-    <form>
-      <!-- Input Card -->
-      <div class="input-card input-card-sm mb-3">
-        <div class="input-card-form">
-          <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
-          <div class="input-group input-group-merge">
+@if (isLoading()) {
+<app-loading></app-loading>
+} @else {
+  <div class="gradient-x-three-sm-primary" style="background-color: black">
+    <div class="container content-space-1">
+      <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
+      <form>
+        <!-- Input Card -->
+        <div class="input-card input-card-sm mb-3">
+          <div class="input-card-form">
+            <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+            <div class="input-group input-group-merge">
                 <span class="input-group-prepend input-group-text">
                   <i class="bi-search"></i>
                 </span>
-            <input type="text" class="form-control" id="jobTitleForm" placeholder="Account Name" aria-label="Job, title, skills, or company">
+              <input type="text" class="form-control" id="jobTitleForm" placeholder="Account Name" aria-label="Job, title, skills, or company">
+            </div>
           </div>
+
+
+          <button type="button" class="btn btn-danger">Search</button>
         </div>
+        <!-- End Input Card -->
+      </form>
+
+      <div class="row align-items-center">
+
+        <!-- End Col -->
 
 
-        <button type="button" class="btn btn-danger">Search</button>
+
+
+        <!-- End Col -->
       </div>
-      <!-- End Input Card -->
-    </form>
-
-    <div class="row align-items-center">
-
-      <!-- End Col -->
-
-
-
-
-      <!-- End Col -->
+      <!-- End Row -->
     </div>
-    <!-- End Row -->
   </div>
-</div>
-<div class="container">
-  <div *ngIf="loading" class="loading-message">Loading...</div>
-  <div class="table-responsive">
-    <table *ngIf="!loading" class="table">
-      <thead>
-      <tr>
-        <th>Date</th>
-        <th>Account</th>
-        <th>Reference Number</th>
-        <th>Description</th>
-        <th>Payee</th>
-        <th>Amount</th>
-        <th>Payment Mode</th>
-        <th>Type</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let transaction of transactions">
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.date }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.account }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.referenceNumber }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.description }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.payee }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.amount | currency }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.paymentMode }}</td>
-        <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.type }}</td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="container">
+    <div *ngIf="loading" class="loading-message">Loading...</div>
+    <div class="table-responsive">
+      <table *ngIf="!loading" class="table">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Account</th>
+          <th>Reference Number</th>
+          <th>Description</th>
+          <th>Payee</th>
+          <th>Amount</th>
+          <th>Payment Mode</th>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.date }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.account }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.referenceNumber }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.description }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.payee }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.amount | currency }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.paymentMode }}</td>
+          <td [ngStyle]="{'color': transaction.type === 'credit' ? 'green' : 'red'}">{{ transaction.type }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
   </div>
+}
 
-
-
-</div>

@@ -1,0 +1,39 @@
+<ng-template #viewDataModal let-modal="modal">
+  <div class="modal-header">
+    <h4 class="modal-title">Form Data</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="container">
+      <h5>Customer Name: {{ formData?.customerName }}</h5>
+      <h5>Invoice No: {{ formData?.invoice }}</h5>
+      <h5>Amount Paid: {{ formData?.amountPaid }}</h5>
+      <h5>Balance Outstanding: {{ formData?.balanceOutstanding }}</h5>
+
+      <h3>Items</h3>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of formData?.items">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.quantity * item.price }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Close</button>
+  </div>
+</ng-template>

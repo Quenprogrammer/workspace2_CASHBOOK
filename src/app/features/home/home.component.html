@@ -1,4 +1,8 @@
+@if (isLoading()) {
 
+  <h1>yes</h1>
+
+} @else {
 <div class="position-relative bg-black overflow-hidden" style="background-image: url(../assets/svg/components/wave-pattern-light.svg);">
   <div class="container position-relative zi-2 content-space-t-1 content-space-t-lg-1 content-space-b-1 content-space-b-md-3">
 
@@ -69,7 +73,13 @@
             </div>
           </figure>
           <!-- End Browser Device -->
+          @if (isLoading()) {
 
+              <h1>yes</h1>
+
+          } @else {
+            <h1>n0</h1>
+          }
           <div class="d-none d-sm-block position-absolute bottom-0 end-0 zi-1 mb-n5 me-n5" style="max-width: 30rem;" data-aos="fade-up" data-aos-delay="100">
             <!-- Card -->
             <div class="card bg-warning" style="background-image: url(../assets/svg/components/wave-pattern-light.svg);">
@@ -109,4 +119,4 @@
 </div>
 <!-- End Hero -->
 
-<app-social-accounts></app-social-accounts>
+}
