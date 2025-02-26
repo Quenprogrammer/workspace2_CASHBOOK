@@ -7,7 +7,7 @@ export interface MenuItem {
 
 // Export the menu data
 export const MENU_ITEMS: MenuItem[] = [
-  { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/interface-control' },
+  { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
   { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
   { name: 'Dashboard', icon: 'data-analysis-svgrepo-com.svg', link: '/dashboard' },
   { name: 'Records', icon: 'touch-click-svgrepo-com.svg', link: '/records' },

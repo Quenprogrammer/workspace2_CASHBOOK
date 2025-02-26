@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Account Transactions</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Payee</th>
+      <th>Payment Mode</th>
+      <th>Reference Number</th>
+      <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let account of accounts$ | async">
+      <td>{{ account.amount }}</td>
+      <td>{{ account.date }}</td>
+      <td>{{ account.description }}</td>
+      <td>{{ account.payee }}</td>
+      <td>{{ account.paymentMode }}</td>
+      <td>{{ account.referenceNumber }}</td>
+      <td>{{ account.type }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

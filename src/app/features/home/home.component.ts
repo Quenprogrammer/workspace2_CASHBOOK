@@ -3,6 +3,7 @@ import {Component, signal, WritableSignal} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {MENU_ITEMS} from "./menuData";
 import {NgForOf} from "@angular/common";
+import {StatsComponent} from '../../shared/stats/stats.component';
 
 
 
@@ -13,6 +14,7 @@ import {NgForOf} from "@angular/common";
 
     RouterLink,
     NgForOf,
+    StatsComponent,
 
 
   ],
