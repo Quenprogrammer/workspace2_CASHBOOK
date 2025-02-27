@@ -2,6 +2,7 @@
 
 <main id="content1" role="main" class="bg-light">
   <!-- Breadcrumb -->
+
   <div class="navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
     <div class="container content-space-1 content-space-b-lg-2">
       <div class="row align-items-center">
@@ -48,6 +49,96 @@
         <div class="d-grid gap-3 gap-lg-5">
           <!-- Card -->
           <div class="card">
+            <div class="container content-space-1 content-space-lg-3">
+              <!-- Heading -->
+              <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+                <h2>3 comments</h2>
+              </div>
+              <!-- End Heading -->
+
+              <div class="row justify-content-lg-center">
+                <div class="col-lg-8">
+                  <!-- Comment -->
+                  <ul class="list-comment">
+                    <!-- Item -->
+                    <li class="list-comment-item">
+                      <!-- Media -->
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="flex-shrink-0">
+                          <img class="avatar avatar-circle" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="flex-grow-1 ms-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <h6>Dave Austin</h6>
+                            <span class="d-block small text-muted">1 day ago</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Media -->
+
+                      <p>As a Special Education teacher this resonates so well with me. Fighting with gen ed teachers to flatten for the students with learning disabilities. It also confirms some things for me in my writing.</p>
+
+                      <a class="link" href="#">Reply</a>
+
+                      <!-- Comment -->
+                      <ul class="list-comment">
+                        <!-- Item -->
+                        <li class="list-comment-item">
+                          <!-- Media -->
+                          <div class="d-flex align-items-center mb-3">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-circle" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                            </div>
+
+                            <div class="flex-grow-1 ms-3">
+                              <div class="d-flex justify-content-between align-items-center">
+                                <h6>Christina Kray</h6>
+                                <span class="d-block small text-muted">1 day ago</span>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Media -->
+
+                          <p>Love it Dave! We're all about keeping it up.</p>
+
+                          <a class="link" href="#">Reply</a>
+                        </li>
+                        <!-- End Item -->
+                      </ul>
+                      <!-- End Comment -->
+                    </li>
+                    <!-- End Item -->
+
+                    <!-- Item -->
+                    <li class="list-comment-item">
+                      <!-- Media -->
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="flex-shrink-0">
+                          <img class="avatar avatar-circle" src="./assets/img/160x160/img8.jpg" alt="Image Description">
+                        </div>
+
+                        <div class="flex-grow-1 ms-3">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <h6>Hanna Wolfe</h6>
+                            <span class="d-block small text-muted">2 days ago</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Media -->
+
+                      <p>Since our attention spans seem to be shrinking by the day — keeping it simple is more important than ever.</p>
+
+                      <a class="link" href="#">Reply</a>
+                    </li>
+                    <!-- End Item -->
+                  </ul>
+                  <!-- End Comment -->
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </div>
             <div class="mt-3 mb-0" style="margin: 10px">
 
               <!-- End Row -->
@@ -57,77 +148,7 @@
 
 
             </div>
-            <div class="card-body">
-              <main id="content" role="main">
 
-                <div class=" content-space-1 ">
-                  <div class="text-center">
-                    <ul ngbNav #nav="ngbNav" class="nav nav-segment nav-pills mb-6" role="tablist">
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link " id="nav-one-eg1-tab" data-bs-toggle="pill"
-                           data-bs-target="#nav-one-eg1"
-                           role="tab" aria-controls="nav-one-eg1" aria-selected="true">Monthly record</a>
-                        <ng-template ngbNavContent>
-
-                          <app-monthlyrecords></app-monthlyrecords>
-                        </ng-template>
-
-                      </li>
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link" id="nav-one-eg2-tab" data-bs-toggle="pill"
-                           data-bs-target="#nav-two-eg1" role="tab"
-                           aria-controls="nav-two-eg1" aria-selected="false">Accounts record</a>
-                        <ng-template ngbNavContent>
-                          <app-accounts-records></app-accounts-records>
-                        </ng-template>
-                      </li>
-
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
-                           aria-controls="nav-two-eg1" aria-selected="false">Debits Records</a>
-                        <ng-template ngbNavContent>
-                          <app-debits-records></app-debits-records>
-                        </ng-template>
-                      </li>
-
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
-                           aria-controls="nav-two-eg1" aria-selected="false">Credits Records</a>
-                        <ng-template ngbNavContent>
-                          <app-credit-records></app-credit-records>
-                        </ng-template>
-                      </li>
-
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
-                           aria-controls="nav-two-eg1" aria-selected="false">Instant Search</a>
-                        <ng-template ngbNavContent>
-                          <app-search></app-search>
-                        </ng-template>
-                      </li>
-
-                      <li ngbNavItem class="nav-item">
-                        <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
-                           aria-controls="nav-two-eg1" aria-selected="false">Analysis</a>
-                        <ng-template ngbNavContent>
-                          <app-analysis></app-analysis>
-                        </ng-template>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- End Nav -->
-
-                  <!-- Tab Content -->
-                  <div class="tab-content">
-                    <div [ngbNavOutlet]="nav"></div>
-                  </div>
-                  <!-- End Tab Content -->
-                </div>
-
-
-              </main>
-
-            </div>
           </div>
           <!-- End Body -->
 

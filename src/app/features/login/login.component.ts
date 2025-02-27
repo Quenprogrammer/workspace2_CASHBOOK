@@ -3,13 +3,12 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import { Firestore, collectionData, collection, query, where } from '@angular/fire/firestore';
 import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 
-// Define User interface for type safety
 interface User {
   id: string;
   username: string;
-  password: string; // Note: This should be handled securely
+  password: string;
 }
 
 @Component({
@@ -29,42 +28,44 @@ export class LoginComponent implements OnInit {
   constructor(private firestore: Firestore, private router: Router) {}
 
   ngOnInit(): void {
-    // Initialize the login form with form controls and validators
     this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      password: new FormControl('', [Validators.required, Validators.minLength(3)]) // Enforcing minimum password length
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
+      let { username, password } = this.loginForm.value;
+
+      // Convert both username and password to lowercase
+      username = username.trim().toLowerCase();
+      password = password.trim().toLowerCase();
+
+      console.log('Checking username:', username);
+      console.log('Checking password:', password);
 
       // Query Firestore for the username
-      const usersCollection = collection(this.firestore, 'users');
+      const usersCollection = collection(this.firestore, 'users'); // Ensure correct Firestore collection
       const q = query(usersCollection, where('username', '==', username));
 
-      // Fetch users and check credentials
-      collectionData<User>(q, { idField: 'id' }).subscribe({
+      // Subscribe to user data, ensuring automatic unsubscribe
+      collectionData<User>(q, { idField: 'id' }).pipe(take(1)).subscribe({
         next: (users: User[]) => {
+          console.log('Firestore result:', users);
+
           if (users.length > 0) {
             const user = users[0];
 
-            // Secure password comparison should be done server-side
-            if (user.password === password) {
-              this.router.navigate(['/menu']).then(success => {
-                if (success) {
-                  console.log('Navigation to menu successful!');
-                } else {
-                  console.error('Navigation to menu failed!');
-                }
-              }).catch((err: any) => {
-                console.error('Error during navigation to menu:', err);
-              });
+            if (user.password.toLowerCase() === password) { // Compare passwords in lowercase
+              console.log('Login successful');
+              this.router.navigate(['/menu']);
             } else {
+              console.log('Invalid password');
               this.navigateToInvalidAccount();
             }
           } else {
+            console.log('Username not found');
             this.navigateToInvalidAccount();
           }
         },
@@ -76,15 +77,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // Function to navigate to an invalid account page
   private navigateToInvalidAccount(): void {
-    this.router.navigate(['/invalidAccount']).then(success => {
-      if (success) {
-        console.log('Navigation to invalid account successful!');
-      } else {
-        console.error('Navigation to invalid account failed!');
-      }
-    }).catch((err: any) => {
+    this.router.navigate(['/invalidAccount']).catch((err: any) => {
       console.error('Error during navigation to invalid account:', err);
     });
   }

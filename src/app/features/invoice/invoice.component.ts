@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import {CurrencyPipe, NgForOf} from "@angular/common";
+import {AddInvoiceComponent} from './add-invoice/add-invoice.component';
 /*import { NgxPaginationModule } from 'ngx-pagination'; // Import ngx-pagination module*/
 
 interface invoiceData {
@@ -18,9 +19,10 @@ interface invoiceData {
   standalone: true,
   imports: [
     RouterLink,
-   /* NgxPaginationModule, */ // Include ngx-pagination in the imports
+    /* NgxPaginationModule, */ // Include ngx-pagination in the imports
     CurrencyPipe,
-    NgForOf
+    NgForOf,
+    AddInvoiceComponent
   ],
   templateUrl: './invoice.component.html',
   styleUrl: './invoice.component.scss'

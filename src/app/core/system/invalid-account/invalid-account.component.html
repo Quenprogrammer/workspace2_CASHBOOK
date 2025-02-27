@@ -1,0 +1,103 @@
+<main id="content" role="main">
+   <div class="d-md-flex">
+    <div class="container d-md-flex align-items-md-center vh-md-100 content-space-t-3 content-space-b-1 content-space-b-md-3 content-space-md-0">
+      <div class="row justify-content-md-between align-items-md-center flex-grow-1">
+        <div class="col-9 col-md-5 mb-5 mb-md-0">
+          <img class="img-fluid" src="avatar/oc-yelling.svg" alt="SVG Illustration">
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-6">
+          <!-- Heading -->
+          <div class="mb-4">
+            <h1>Invalid <span style="color: red">Account</span> </h1>
+            <p>Please verify your username and password. If you’ve forgotten them, try resetting your password or contact support.</p>     </div>
+          <!-- End Heading -->
+          <div>
+
+
+
+
+          </div>
+
+
+
+          <div class="js-countdown row mb-5">
+
+            <!-- End Col -->
+
+            <div class="col-3">
+              <h2 class="js-cd-hours h1 text-primary mb-0">{{ hours }}</h2>
+              <h5 class="mb-0">Hours</h5>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-3">
+              <h2 class="js-cd-minutes h1 text-primary mb-0">{{ minutes }}</h2>
+              <h5 class="mb-0">Mins</h5>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-3">
+              <h2 class="js-cd-seconds h1 text-primary mb-0">{{ seconds }}</h2>
+              <h5 class="mb-0">Secs</h5>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-3">
+              <h2 class="js-cd-days h1 text-primary mb-0">{{period }}</h2>
+              <h5 class="mb-0">Period</h5>
+            </div>
+          </div>
+          <!-- End Row -->
+
+          <form>
+            <p>{{ currentDate }}</p>
+            <div class="input-card input-card-sm border">
+              <div class="input-card-form">
+                <label for="subscribeForm" class="form-label visually-hidden">Enter email</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  id="subscribeForm"
+                  placeholder="Contact system administrator"
+                  [(ngModel)]="inputValue"
+                  name="subscribeInput"
+                  aria-label="Enter email">
+              </div>
+              <button type="button" class="btn btn-primary btn-lg" (click)="openModal()">Send</button>
+            </div>
+          </form>
+
+          <!-- Modal -->
+          <div *ngIf="isModalOpen" class="modal-overlay">
+            <div class="modal-content">
+              <span class="close" (click)="closeModal()">&times;</span>
+              <h2>Modal Title</h2>
+              <p>Your input: {{ inputValue }}</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+
+</main>
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2 class="text-center my-5"> Message Delivery Report</h2>
+
+
+    <div class="mb-5"><p>{{deliveryReport}}</p>
+
+    <h6>  Delivery Time: {{hours}}:{{minutes}} {{period}}</h6>
+    <h6>Delivery Status: Successful</h6>
+     <p style="text-align: justify"><span style="font-weight: bolder">message:</span> {{ inputValue }}</p>
+    </div>
+  </div>
+</div>

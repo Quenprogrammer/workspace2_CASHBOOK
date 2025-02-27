@@ -1,0 +1,105 @@
+<div class="gradient-x-three-sm-primary" style="background-color: black">
+  <div class="container content-space-1">
+    <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
+  </div></div>
+<main class="container">
+
+
+  <!-- End Breadcrumb -->
+
+  <!-- Card Grid -->
+
+    <div class="row col-lg-divider">
+      <div class="col-lg-3">
+        <!-- Navbar -->
+        <div class="navbar-expand-lg">
+          <!-- Navbar Toggle -->
+
+          <!-- End Navbar Toggle -->
+
+          <!-- Navbar Collapse -->
+          <div id="navbarVerticalNavMenu" class="navbar-collapse collapse" style="">
+            <div class="d-grid gap-4 flex-grow-1">
+              <div class="nav nav-sm nav-pills nav-vertical">
+                <h5 class="nav-subtitle">Explore</h5>
+                <a class="nav-link d-flex justify-content-between" href="#">All <span class="badge text-dark border rounded-pill">30+</span></a>
+                <a class="nav-link" href="#">Top rated</a>
+                <a class="nav-link" href="#">Featured</a>
+                <a class="nav-link" href="#">Daily tools</a>
+                <a class="nav-link d-flex justify-content-between" href="#">New <span class="badge text-dark border rounded-pill">18</span></a>
+                <a class="nav-link" href="#">Channels</a>
+              </div>
+
+
+
+
+            </div>
+          </div>
+          <!-- End Navbar Collapse -->
+        </div>
+        <!-- End Navbar -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-lg-9">
+        <div class="ps-lg-2">
+          <!-- Search -->
+          <div class="mb-4">
+
+
+            <form class="mt-2">
+              <!-- Input Card -->
+              <div class="input-card border">
+                <div class="input-card-form">
+                  <label for="searchAppsForm" class="form-label visually-hidden">Search for apps</label>
+                  <div class="input-group input-group-merge">
+                      <span class="input-group-prepend input-group-text">
+                        <i class="bi-search"></i>
+                      </span>
+                    <input type="text" class="form-control" id="searchAppsForm" placeholder="Search " aria-label="Search for apps">
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary">
+                  <i class="bi-arrow-right"></i>
+                </button>
+              </div>
+              <!-- End Input Card -->
+            </form>
+          </div>
+          <!-- End Search -->
+
+          <div class="row gx-3">
+            @for (items of settings; track items.name){
+            <div class="col-sm-6 col-md-4 mb-3">
+              <!-- Card -->
+              <div class="card card-bordered card-transition  h-100 shadow-lg">
+                <a class="card-body" [routerLink]="items.link">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-lg" [src]="items.logo" alt="Logo">
+                    </div>
+
+                    <div class="flex-grow-1 ms-3">
+                      <div class="d-flex align-items-center">
+                        <h5 class="card-title mb-0">{{items.name}}</h5>
+                       </div>
+                      <p class="card-text text-body small">{{items.hint}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+            }
+
+          </div>
+          <!-- End Row -->
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+  <!-- End Card Grid -->
+</main>
