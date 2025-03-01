@@ -4,16 +4,18 @@ import { Observable, BehaviorSubject, combineLatest, map } from 'rxjs';
 import { Account, FirestoreService } from '../../../services/firestore/firestore.service';
 import { DatePipe } from '@angular/common';
 import {NgbCollapse} from '@ng-bootstrap/ng-bootstrap';
+import {LoadingComponent} from '../../../core/system/loading/loading.component';
 
 @Component({
   selector: 'app-credited',
   standalone: true,
-  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse],
+  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse, LoadingComponent],
   providers: [DatePipe],
   templateUrl: './credited.component.html',
   styleUrls: ['./credited.component.css']
 })
 export class CreditedComponent implements OnInit {
+  isLoading: boolean = true;
   isCollapsed = true;
   accounts$: Observable<Account[]> | undefined;
   filteredAccounts$: Observable<Account[]> | undefined;
@@ -56,6 +58,10 @@ export class CreditedComponent implements OnInit {
         );
       })
     );
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   }
 
   updateSearch(field: 'amount' | 'date' | 'ref' | 'payee', event: Event) {

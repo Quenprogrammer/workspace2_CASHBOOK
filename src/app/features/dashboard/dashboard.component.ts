@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { collection, collectionData, Firestore, getCountFromServer } from '@angular/fire/firestore';
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 interface MessageInquiries {
   id?: string;
@@ -28,8 +28,8 @@ interface MessageInquiries {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'] // Fixed typo: styleUrl should be styleUrls
 })
-export class DashboardComponent implements OnInit {
-  firestore: Firestore = inject(Firestore);
+export class DashboardComponent /*implements OnInit*/ {
+  /*firestore: Firestore = inject(Firestore);
   inquiriesCollection = collection(this.firestore, 'income');
 
   inquiriesMessage$: Observable<MessageInquiries[]> = collectionData(this.inquiriesCollection, { idField: 'id' }) as Observable<MessageInquiries[]>;
@@ -70,5 +70,11 @@ export class DashboardComponent implements OnInit {
       // Calculate the balance
       this.balance = this.totalCreditAmount - this.totalDebitAmount;
     });
+  }*/
+  constructor(private router: Router) {}
+
+  navigateToLogin() {
+    this.router.navigateByUrl('/menu', { skipLocationChange: true });
   }
+
 }

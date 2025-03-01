@@ -8,6 +8,97 @@ export const apps = [
     logo:  crypto + 'binance.png'
   },
   {
+    name: 'fedelity.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'PayPal',
+    link: '',
+    logo:  payment + 'binance.png',
+    category: 'payments'
+  },
+  {
+    name: 'firstBank.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'gtbank 1.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'jaizbank.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'opay.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'PayPal',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'MetaMask.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'zenithBank.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: '',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'Whatsapp.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'okx.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'kukoin.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'BinanceChainWallet.png',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+  {
+    name: 'kuda.jpg',
+    link: '',
+    logo:  payment + 'PayPal.png',
+    category: 'payments'
+  },
+
+  {
     name: 'Coinbase',
     link: 'https://www.coinbase.com/',
     logo:  crypto + 'coinbase.png'

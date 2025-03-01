@@ -1,13 +1,26 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from './features/home/home.component';
-
+import { authGuard } from './auth.guard';
 export const routes: Routes = [
+
   {
     path: '',
     pathMatch: 'full',
     redirectTo: '/menu',
   },
-  {path: 'start', loadComponent: () => import ('./core/system/start-up/start-up.component').then(c => c.StartUpComponent)},
+  {
+    path: 'start',
+    loadComponent: () => import('./core/system/start-up/start-up.component')
+      .then(c => c.StartUpComponent),
+    canActivate: [authGuard]
+  },
+
+  {
+    path: 'mens',
+    loadComponent: () => import('./features/menu/menu.component')
+      .then(_ => _.MenuComponent),
+    data: { hidden: true } // Custom flag to hide it
+  },
   {path: 'debug', loadComponent: () => import ('./core/debug/debug.component').then(c => c.DebugComponent)},
   {path: 'profile', loadComponent: () => import ('./core/system/profile/profile.component').then(c => c.ProfileComponent)},
   {path: 'settings', loadComponent: () => import ('./core/system/settings/settings.component').then(c => c.SettingsComponent)},

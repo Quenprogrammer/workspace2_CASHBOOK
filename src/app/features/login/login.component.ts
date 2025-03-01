@@ -38,27 +38,23 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       let { username, password } = this.loginForm.value;
 
-      // Convert both username and password to lowercase
       username = username.trim().toLowerCase();
       password = password.trim().toLowerCase();
 
-      console.log('Checking username:', username);
-      console.log('Checking password:', password);
-
-      // Query Firestore for the username
-      const usersCollection = collection(this.firestore, 'users'); // Ensure correct Firestore collection
+      const usersCollection = collection(this.firestore, 'users');
       const q = query(usersCollection, where('username', '==', username));
 
-      // Subscribe to user data, ensuring automatic unsubscribe
       collectionData<User>(q, { idField: 'id' }).pipe(take(1)).subscribe({
         next: (users: User[]) => {
-          console.log('Firestore result:', users);
-
           if (users.length > 0) {
             const user = users[0];
 
-            if (user.password.toLowerCase() === password) { // Compare passwords in lowercase
+            if (user.password.toLowerCase() === password) {
               console.log('Login successful');
+
+              // ✅ Store authentication status in localStorage
+              localStorage.setItem('userToken', JSON.stringify({ username: user.username, id: user.id }));
+
               this.router.navigate(['/menu']);
             } else {
               console.log('Invalid password');
