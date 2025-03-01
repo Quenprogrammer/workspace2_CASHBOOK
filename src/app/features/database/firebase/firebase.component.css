@@ -1,0 +1,10 @@
+.json-container {
+
+  font-family:monospace;
+  color: black !important;
+  padding: 13px !important;
+  border-radius: 5px !important;
+  overflow-x: auto !important;
+  font-size: 14px !important;
+}
+
