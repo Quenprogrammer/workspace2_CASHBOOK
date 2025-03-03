@@ -61,10 +61,13 @@
 
                   <div class="row">
                     @for(items of siteMap;track items.name){
-                      <div class="col-4 col-md-3">
-                        <img [src]="items.logo">
+                      <div class="col-4 col-md-3 d-flex flex-column align-items-center justify-content-center">
+                       <a [routerLink]="items.path">
+                        <img src="logos/logs.svg" class="img-fluid" style="width: 80px; height: 80px">
                         <h6 class="text-center">{{items.name | truncateText:10}}</h6>
+                       </a>
                       </div>
+
                     }
                   </div>
 
