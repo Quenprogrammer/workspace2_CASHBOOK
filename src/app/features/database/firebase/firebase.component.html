@@ -1,57 +1,53 @@
 <!-- Modal Overlay -->
 <div *ngIf="isModalOpen" class="modal-overlay">
-  <div class="modal-content" style="">
-    <div class="card" style="max-height: 250px; overflow-y: auto;">
+  <div class="modal-content">
+    <div class="card" style="max-height: 400px; overflow-y: auto;">
       <!-- Header -->
       <div class="card-header card-header-content-between border-bottom">
+        <div class="row gx-1">
+          <div class="col-auto">
+            <button class="btn btn-primary" (click)="downloadData()">Download <i class="bi-file-earmark-arrow-down me-1"></i></button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-danger" (click)="closeModal()">Close</button>
+          </div>
+        </div>
 
-        <h4 class="card-header-title">{{ selectedFirebase.name }}</h4>
-        <a class="btn btn-ghost-secondary btn-sm" href="#">
-          <i class="bi-file-earmark-arrow-down me-1"></i> Download .CSV
-        </a>
-        <span class="close" (click)="closeModal()">&times;</span>
+
       </div>
       <!-- End Header -->
 
       <!-- Body -->
-      <div class=" bg-secondary">
-<pre *ngIf="selectedFirebase.data.includes('{')" class="json-container">
-      <code [innerHTML]="syntaxHighlight(selectedFirebase.data)"></code>
-    </pre>
+      <div class="">
+        <h2 class="card-header-title p-3">{{ selectedFirebase.name }}</h2>
+
+
+        <pre *ngIf="selectedFirebase.data.includes('{')" class="json-container">
+          <code [innerHTML]="syntaxHighlight(selectedFirebase.data)"></code>
+        </pre>
       </div>
       <!-- End Body -->
-
-
-
-
     </div>
-
-
-
 
     <!-- Display Data as Plain Text (If not JSON) -->
     <p class="modal-head" *ngIf="!selectedFirebase.data.includes('{')">
       {{ selectedFirebase.data }}
     </p>
-
-
-    <!-- Display JSON Data with Syntax Highlighting -->
-
   </div>
 </div>
 
-<!-- Product Section -->
-<section class="container position-relative z-3 my-5">
+<!-- Product Section (Hidden when Modal is Open) -->
+<section *ngIf="!isModalOpen" class="container position-relative z-3 my-5">
   <div class="row">
-    <div class="col-4 col-md-3 mb-3" *ngFor="let product of products; let i = index">
-      <a (click)="openModal(i)" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
+    <div class="col-3 col-md-2 mb-3" *ngFor="let product of config; let i = index">
+      <a (click)="openModal(i)" class=" text-center">
+        <div class="d-flex justify-content-center align-items-center">
+          <img [src]="product.image" class="imgSize rounded-2 cursor-pointer" [alt]="product.name">
 
-  <img [src]="product.image" class="img-fluid imgSize" [alt]="product.name">
-
-<h6 class="text-center">{{product.name}}</h6>
-
-
+        </div>
+        <p style="font-size: 12px">{{ product.name | truncateText:10 }}</p>
       </a>
+
     </div>
   </div>
 </section>

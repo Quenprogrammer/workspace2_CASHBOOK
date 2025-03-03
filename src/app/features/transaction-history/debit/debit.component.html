@@ -3,33 +3,30 @@
 </div>
 
 <div *ngIf="!isLoading">
-  <div class="gradient-x-three-sm-primary" style="background-color: black">
-    <div class="container content-space-1">
-      <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
 
+    <div class="container ">
       <form>
-        <div class="input-card input-card-sm mb-3">
+
+        <div class="input-card input-card-sm">
           <div class="input-card-form">
             <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
-            <div class="input-group input-group-merge">
-                <span class="input-group-prepend input-group-text">
-                  <i class="bi-search"></i>
-                </span>
-              <input type="text" class="form-control" id="jobTitleForm" placeholder="Paid By"
-                     (input)="updateSearch('payee', $event)">
+            <div style="border: 2px solid black" class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </span>
+              <input  type="text" class="form-control" id="jobTitleForm" placeholder="PaidBy" aria-label="Job, title, skills, or company"
+                     (input)="updateSearch('payee', $event)"
+              >
             </div>
           </div>
 
-          <select class="form-select mb-2 selectType" >
-            <option selected="selected" value="credit">Credit</option>
-            <option value="debit">Debit</option>
 
-          </select>
+          <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
+                  [attr.aria-expanded]="!isCollapsed">Advance Search
+          </button>
         </div>
+
       </form>
-      <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
-              [attr.aria-expanded]="!isCollapsed">Advance Search
-      </button>
       <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
         <div class="row mb-3" *ngIf="showFilters">
           <div class="col-12 col-md-4 mb-2">
@@ -47,30 +44,46 @@
   </div>
 
   <div class="container">
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Payee</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Reference</th>
-          <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let account of filteredAccounts$ | async">
-          <th style="min-width: 150px" scope="row" class="text-dark">{{ getFormattedDate(account.date) }}</th>
-          <td style="min-width: 200px">{{ account.payee }}</td>
-          <td>{{ account.amount || 0 | currency:'₦' }}</td>
-          <td>{{ account.referenceNumber }}</td>
-          <td class="d-flex align-items-center gap-1">
-            <button type="button" class="btn btn-primary btn-sm btn-transition" (click)="openModal(account)">View</button>
-            <button type="button" class="btn btn-danger btn-sm btn-transition" (click)="openDeletePopup(account)">Remove</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center">
+          <thead class="thead-light">
+          <tr >
+            <th style="min-width: 150px;">Date</th>
+            <th style="min-width: 180px;">Payee</th>
+            <th style="min-width: 150px;">Amount</th>
+            <th style="min-width: 120px;">Payment Method</th>
+
+            <th style="min-width: 180px;">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let account of filteredAccounts$ | async" >
+            <td>{{ getFormattedDate(account.date) }}
+            </td>
+            <td>{{ account.payee }}</td>
+            <td>{{ account.amount || 0 | currency:'₦' }}</td>
+            <td><span class="badge bg-warning">Pending</span></td>
+
+            <td>
+              <div class="row">
+                <div class="col-6 d-flex justify-content-start">
+                  <button type="button" class="btn btn-sm btn-outline-primary" (click)="openModal(account)">
+                    <i class="bi-pencil-fill"></i> view
+                  </button>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                  <i class="bi-trash" style="font-size: 30px; cursor: pointer; color:red" (click)="openDeletePopup(account)" ></i>
+                </div>
+              </div>
+
+
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div *ngIf="isModalOpen" class="modal-overlay">
@@ -80,6 +93,7 @@
             <h2 class="mt-2">Transaction Details</h2>
           </div>
           <div class="col-auto ms-auto">
+
             <button class="btn btn-danger" (click)="closeModal()">Close</button>
           </div>
         </div>
@@ -116,14 +130,14 @@
         <div class="text-center">
           <div class="d-flex gap-1">
             <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-primary" (click)="printDetails()">Print</button>
+
             <button class="btn btn-primary">Save as PDF</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
 
 <!-- Delete Confirmation Popup -->
 <div class="popup-overlay" *ngIf="isDeletePopupOpen">

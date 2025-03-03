@@ -3,11 +3,12 @@ import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from './menuData';
 import { NetworkService } from '../../services/network.service';
-import { TimeComponent } from './time/time.component';
+
 import { AccessPasswordComponent } from './access-password/access-password.component';
 import { StandByComponent } from './stand-by/stand-by.component';
-import { AimsTagComponent } from '../../core/system/aims-tag/aims-tag.component';
+
 import {BalanceComponent} from './balance/balance.component';
+
 
 @Component({
   selector: 'app-menu',
@@ -18,9 +19,10 @@ import {BalanceComponent} from './balance/balance.component';
 
     AccessPasswordComponent,
     StandByComponent,
-    AimsTagComponent,
+
     NgIf,
     BalanceComponent,
+
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']

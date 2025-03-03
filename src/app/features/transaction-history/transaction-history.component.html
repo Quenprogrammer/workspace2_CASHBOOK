@@ -1,7 +1,28 @@
-<!--@if (isLoading()) {
-<app-loading></app-loading>
-} @else {-->
+<div class="gradient-x-three-sm-primary content-space-1" style="background-color: black">
+  <div class="container " style="">
+    <div class="row ">
+      <div class="col-8 d-flex justify-content-between">
+        <h1 class="CText text-white">Transaction<span style="color: red"> Records</span></h1>
+      </div>
+      <div class="col-4">
+        <select class="form-select mb-2 selectType" [(ngModel)]="selectedOption">
+          <option selected="selected" value="credit">Credit</option>
+          <option value="debit">Debit</option>
+        </select>
+      </div>
+    </div>
 
-<app-credited></app-credited>
-<!--}-->
+
+
+  </div>
+</div>
+
+<app-credited *ngIf="selectedOption === 'credit'"></app-credited>
+<app-debit *ngIf="selectedOption === 'debit'"></app-debit>
+
+
+
+
+
+
 

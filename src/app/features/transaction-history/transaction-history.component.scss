@@ -14,3 +14,34 @@
 }
 
 
+@media (max-width: 576px) {
+  .CText{
+    font-size: 30px;
+  }
+  .container{
+    background-color: black;
+    height: 1px
+  }
+}
+.selectType{
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  transition: background-color 0.3s, border 0.3s, color 0.9s;
+}
+.selectType:hover {
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+}
+/* Styles for medium screens (md) */
+@media (min-width: 768px) and (max-width: 900px) {
+  .selectType {
+    width: 40%;
+  }
+  .container{
+    background-color: black;
+    height: 100px
+  }
+}
+

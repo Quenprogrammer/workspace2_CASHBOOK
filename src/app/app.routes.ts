@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from './features/home/home.component';
-import { authGuard } from './auth.guard';
+/*import { authGuard } from './auth.guard';*/
 export const routes: Routes = [
 
   {
@@ -8,19 +8,9 @@ export const routes: Routes = [
     pathMatch: 'full',
     redirectTo: '/menu',
   },
-  {
-    path: 'start',
-    loadComponent: () => import('./core/system/start-up/start-up.component')
-      .then(c => c.StartUpComponent),
-    canActivate: [authGuard]
-  },
 
-  {
-    path: 'mens',
-    loadComponent: () => import('./features/menu/menu.component')
-      .then(_ => _.MenuComponent),
-    data: { hidden: true } // Custom flag to hide it
-  },
+
+
   {path: 'debug', loadComponent: () => import ('./core/debug/debug.component').then(c => c.DebugComponent)},
   {path: 'profile', loadComponent: () => import ('./core/system/profile/profile.component').then(c => c.ProfileComponent)},
   {path: 'settings', loadComponent: () => import ('./core/system/settings/settings.component').then(c => c.SettingsComponent)},
@@ -36,7 +26,6 @@ export const routes: Routes = [
   {path: 'cashbook-accounts', loadComponent: () => import ('./features/create-account/create-account.component').then(c => c.CreateAccountComponent)},
   {path: 'records', loadComponent: () => import ('./features/records/records-main/records-main.component').then(c => c.RecordsMainComponent)},
   {path: 'transaction-history', loadComponent: () => import ('./features/transaction-history/transaction-history.component').then(c => c.TransactionHistoryComponent)},
-  {path: 'login', loadComponent: () => import ('./features/login/login.component').then(c => c.LoginComponent)},
    {path: 'payment', loadComponent: () => import ('./core/system/payment-form/payment-form.component').then(c => c.PaymentFormComponent)},
   {path: 'backupData', loadComponent: () => import ('./features/data/backup/backup.component').then(c => c.BackupComponent)},
   {path: 'backupDataPassword', loadComponent: () => import ('./features/data/backup-data-password/backup-data-password.component').then(c => c.BackupDataPasswordComponent)},

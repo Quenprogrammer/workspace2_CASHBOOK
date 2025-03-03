@@ -1,32 +1,8 @@
-import { Component } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
-import { LineBreakPipe } from '../../../shared/linebrake/line-break.pipe';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import {TruncateTextPipe} from '../../../shared/truncate-text-pipe/truncate-text.pipe';  // ✅ Import DomSanitizer
-
-@Component({
-  selector: 'app-firebase',
-  standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-
-    TruncateTextPipe
-  ],
-  templateUrl: './firebase.component.html',
-  styleUrl: './firebase.component.css'
-})
-export class FirebaseComponent {
-  isModalOpen: boolean = false;
-  selectedFirebase: { name: string; image: string; data: string } = { name: '', image: '', data: '' };
-
-  constructor(private sanitizer: DomSanitizer) {}  // ✅ Inject DomSanitizer
-
-  config = [
-    {
-      name: "Service Account",
-      image: "logos/serviceA.png",
-      data: `{
+export const   config = [
+  {
+    name: "Service Account",
+    image: "logos/serviceA.png",
+    data: `{
 
   "type": "service_account",
   "project_id": "cashbook-979b7",
@@ -40,11 +16,11 @@ export class FirebaseComponent {
   "universe_domain": "googleapis.com"
 
 }`
-    },
-    {
-      name: "SDK configuration npm",
-      image: "firebase/img.png",
-      data: `{
+  },
+  {
+    name: "SDK configuration npm",
+    image: "firebase/img.png",
+    data: `{
 
     npm install firebase
 
@@ -62,11 +38,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 }`
-    },
-    {
-      name: "SDK configuration CDN",
-      image: "firebase/cdn.png",
-      data: `
+  },
+  {
+    name: "SDK configuration CDN",
+    image: "firebase/cdn.png",
+    data: `
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
@@ -91,11 +67,11 @@ const analytics = getAnalytics(app);
   const analytics = getAnalytics(app);
 </script>
     `
-    },
-    {
-      name: "Project Details",
-      image: "logos/details.png",
-      data: `
+  },
+  {
+    name: "Project Details",
+    image: "logos/details.png",
+    data: `
 {
   "Project Name": "Cashbook",
   "Project ID": "cashbook-979b7",
@@ -104,11 +80,11 @@ const analytics = getAnalytics(app);
 }
 
 `
-    },
-    {
-      name: "angular.json",
-      image: "firebase/angularJSON.jpg",
-      data: `
+  },
+  {
+    name: "angular.json",
+    image: "firebase/angularJSON.jpg",
+    data: `
 {
   "hosting": {
     "source": ".",
@@ -125,11 +101,11 @@ const analytics = getAnalytics(app);
 
 
 `
-    },
-    {
-      name: "app.routes",
-      image: "firebase/approutes.svg",
-      data: `
+  },
+  {
+    name: "app.routes",
+    image: "firebase/approutes.svg",
+    data: `
 import { Routes } from '@angular/router';
 import {HomeComponent} from './features/home/home.component';
 import { authGuard } from './auth.guard';
@@ -196,11 +172,11 @@ export const routes: Routes = [
 ];
 
 `
-    },
-    {
-      name: "tsconfig.app.json",
-      image: "firebase/tsconfig.json.png",
-      data: `
+  },
+  {
+    name: "tsconfig.app.json",
+    image: "firebase/tsconfig.json.png",
+    data: `
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
@@ -220,11 +196,11 @@ export const routes: Routes = [
 
 
 `
-    },
-    {
-      name: "package.json",
-      image: "firebase/package.png",
-      data: `
+  },
+  {
+    name: "package.json",
+    image: "firebase/package.png",
+    data: `
 {
   "name": "aimtechsolution",
   "version": "0.0.0",
@@ -271,11 +247,11 @@ export const routes: Routes = [
 }
 
 `
-    },
-    {
-      name: "editorconfig.json",
-      image: "firebase/editorsConfig.png",
-      data: `
+  },
+  {
+    name: "editorconfig.json",
+    image: "firebase/editorsConfig.png",
+    data: `
 {
   # Editor configuration, see https://editorconfig.org
 root = true
@@ -298,11 +274,11 @@ trim_trailing_whitespace = false
 }
 
 `
-    },
-    {
-      name: "tsconfig",
-      image: "firebase/tsconfig.jpg",
-      data: `
+  },
+  {
+    name: "tsconfig",
+    image: "firebase/tsconfig.jpg",
+    data: `
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
@@ -339,11 +315,11 @@ trim_trailing_whitespace = false
 
 
 `
-    },
-    {
-      name: "app.components",
-      image: "firebase/appcomponents.jpg",
-      data: `
+  },
+  {
+    name: "app.components",
+    image: "firebase/appcomponents.jpg",
+    data: `
 <app-header></app-header>
 <div style="min-height: 100vh">
 
@@ -360,43 +336,43 @@ trim_trailing_whitespace = false
 
 
 `
-    },
-    {
-      name: "FireStore",
-      image: "firebase/firestore.png",
-      data: `
+  },
+  {
+    name: "FireStore",
+    image: "firebase/firestore.png",
+    data: `
 
 
 `
-    },
-    {
-      name: "Cloud Store",
-      image: "firebase/cloud.png",
-      data: `
+  },
+  {
+    name: "Cloud Store",
+    image: "firebase/cloud.png",
+    data: `
 
 
 `
-    },
-    {
-      name: "Authentication",
-      image: "firebase/auth.png",
-      data: `
+  },
+  {
+    name: "Authentication",
+    image: "firebase/auth.png",
+    data: `
 
 
 `
-    },
-    {
-      name: "Functions",
-      image: "firebase/functions.png",
-      data: `
+  },
+  {
+    name: "Functions",
+    image: "firebase/functions.png",
+    data: `
 
 
 `
-    },
-    {
-      name: "Firebase Config",
-      image: "firebase/functions.png",
-      data: `
+  },
+  {
+    name: "Firebase Config",
+    image: "firebase/functions.png",
+    data: `
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAw6Nor69h7X2uHI1EfujHHwg-717KIOOA",
@@ -409,11 +385,11 @@ const firebaseConfig = {
 };
 
 `
-    },
-    {
-      name: "Security Rules",
-      image: "firebase/functions.png",
-      data: `
+  },
+  {
+    name: "Security Rules",
+    image: "firebase/functions.png",
+    data: `
 rules_version = '2';
 
 service cloud.firestore {
@@ -435,11 +411,11 @@ service cloud.firestore {
 }
 
 `
-    },
-    {
-      name: "User and Permissions",
-      image: "firebase/userPermission.png",
-      data: `
+  },
+  {
+    name: "User and Permissions",
+    image: "firebase/userPermission.png",
+    data: `
 [
   {
     "Company Name": "AimsTech",
@@ -454,58 +430,6 @@ service cloud.firestore {
 ]
 
 `
-    },
+  },
 
-  ];
-
-  openModal(index: number) {
-    this.selectedFirebase = this.config[index];
-    this.isModalOpen = true;
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
-  }
-
-  // ✅ Function to apply syntax highlighting and return safe HTML
-  syntaxHighlight(json: string): SafeHtml {
-    json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-    json = json.replace(
-      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|\b\d+\b)/g,
-      function (match) {
-        let cls = "json-number";
-        if (/^"/.test(match)) {
-          if (/:$/.test(match)) {
-            cls = "json-key"; // JSON Key (blue)
-          } else {
-            cls = "json-string"; // JSON String (green)
-          }
-        } else if (/true|false/.test(match)) {
-          cls = "json-boolean"; // Boolean (red)
-        } else if (/null/.test(match)) {
-          cls = "json-null"; // Null (gray)
-        }
-        return `<span class="${cls}">${match}</span>`;
-      }
-    );
-
-    console.log("Processed JSON:", json); // Debugging Output
-
-    return this.sanitizer.bypassSecurityTrustHtml(json);
-  }
-  downloadData() {
-    const data = this.selectedFirebase.data;
-    const blob = new Blob([data], { type: 'application/json' }); // Use text/plain if it's not JSON
-    const url = window.URL.createObjectURL(blob);
-
-    // Create a temporary <a> element for triggering the download
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${this.selectedFirebase.name}.json`;  // Name the file with the selected data name and .json extension
-    a.click();
-
-    // Clean up and revoke the Object URL
-    window.URL.revokeObjectURL(url);
-  }
-}
+];
