@@ -29,7 +29,7 @@ interface MessageInquiries {
   styleUrls: ['./dashboard.component.scss'] // Fixed typo: styleUrl should be styleUrls
 })
 export class DashboardComponent /*implements OnInit*/ {
-  /*firestore: Firestore = inject(Firestore);
+  firestore: Firestore = inject(Firestore);
   inquiriesCollection = collection(this.firestore, 'income');
 
   inquiriesMessage$: Observable<MessageInquiries[]> = collectionData(this.inquiriesCollection, { idField: 'id' }) as Observable<MessageInquiries[]>;
@@ -70,11 +70,7 @@ export class DashboardComponent /*implements OnInit*/ {
       // Calculate the balance
       this.balance = this.totalCreditAmount - this.totalDebitAmount;
     });
-  }*/
-  constructor(private router: Router) {}
-
-  navigateToLogin() {
-    this.router.navigateByUrl('/menu', { skipLocationChange: true });
   }
+
 
 }

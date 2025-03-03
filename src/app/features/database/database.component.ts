@@ -6,10 +6,11 @@ import {LogsComponent} from './logs/logs.component';
 import {HomepageComponent} from '../ideas/homepage/homepage.component';
 import {NotificationsComponent} from './notifications/notifications.component';
 import {UsersComponent} from './users/users.component';
-import {ConfigComponent} from './config/config.component';
+import {ConfigComponent} from './configurations/config/config.component';
 import {TransactionComponent} from './transaction/transaction.component';
 import {StorageComponent} from './storage/storage.component';
 import {FirebaseComponent} from './firebase/firebase.component';
+
 
 
 
@@ -23,13 +24,14 @@ import {FirebaseComponent} from './firebase/firebase.component';
     NgForOf,
     NgIf,
     LogsComponent,
-    HomepageComponent,
+
     NotificationsComponent,
     UsersComponent,
     ConfigComponent,
     TransactionComponent,
     StorageComponent,
     FirebaseComponent,
+
 
 
   ],
@@ -44,7 +46,8 @@ export class DatabaseComponent {
     { name: 'Storage', image: 'logos/3.svg', component: 'storage' },
     { name: 'Users', image: 'logos/4.svg', component: 'users' },
     { name: 'Firebase', image: 'logos/firebase.png', component: 'firebase' },
-    { name: 'Logs', image: 'logos/5.svg', component: 'logs' }
+    { name: 'Logs', image: 'logos/5.svg', component: 'logs' },
+
   ];
 
   activeComponent: string = '';

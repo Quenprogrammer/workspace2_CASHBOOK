@@ -1,7 +1,7 @@
 <!-- Modal Overlay -->
 <div *ngIf="isModalOpen" class="modal-overlay">
-  <div class="modal-content">
-    <div class="card">
+  <div class="modal-content" style="">
+    <div class="card" style="max-height: 250px; overflow-y: auto;">
       <!-- Header -->
       <div class="card-header card-header-content-between border-bottom">
 
@@ -14,7 +14,7 @@
       <!-- End Header -->
 
       <!-- Body -->
-      <div class="">
+      <div class=" bg-secondary">
 <pre *ngIf="selectedFirebase.data.includes('{')" class="json-container">
       <code [innerHTML]="syntaxHighlight(selectedFirebase.data)"></code>
     </pre>
@@ -43,7 +43,7 @@
 <!-- Product Section -->
 <section class="container position-relative z-3 my-5">
   <div class="row">
-    <div class="col-md-3 mb-3" *ngFor="let product of products; let i = index">
+    <div class="col-4 col-md-3 mb-3" *ngFor="let product of products; let i = index">
       <a (click)="openModal(i)" class="card card-hover zoom-effect border-0 rounded-5 overflow-hidden">
 
   <img [src]="product.image" class="img-fluid imgSize" [alt]="product.name">

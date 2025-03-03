@@ -10,7 +10,7 @@ export const MENU_ITEMS: MenuItem[] = [
   { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
   { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
   { name: 'Dashboard', icon: 'data-analysis-svgrepo-com.svg', link: '/dashboard' },
-  { name: 'Notifications', icon: 'touch-click-svgrepo-com.svg', link: '/records' },
+  { name: 'Map', icon: 'touch-click-svgrepo-com.svg', link: '/records' },
   { name: 'Invoice', icon: 'machine-vision-svgrepo-com.svg', link: '/invoice' },
    { name: 'Users', icon: 'cloud-backup-svgrepo-com.svg', link: '/users' },
   { name: 'Vault', icon: 'recursive-server-svgrepo-com.svg', link: '/recursive-server' },

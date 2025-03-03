@@ -1,332 +1,466 @@
-import {crypto, payment} from '../core/system/variables/globalVariables';
+import {crypto, path} from '../core/system/variables/globalVariables';
 
 
-export const apps = [
-  {
-    name: 'Binance',
-    link: 'https://www.binance.com',
-    logo:  crypto + 'binance.png'
-  },
-  {
-    name: 'fedelity.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'PayPal',
-    link: '',
-    logo:  payment + 'binance.png',
-    category: 'payments'
-  },
-  {
-    name: 'firstBank.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'gtbank 1.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'jaizbank.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'opay.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'PayPal',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'MetaMask.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'zenithBank.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: '',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'Whatsapp.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'okx.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'kukoin.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'BinanceChainWallet.png',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
-  {
-    name: 'kuda.jpg',
-    link: '',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
-  },
 
-  {
-    name: 'Coinbase',
-    link: 'https://www.coinbase.com/',
-    logo:  crypto + 'coinbase.png'
-  },
-  {
-    name: 'CoinGecko',
-    link: 'https://www.coingecko.com',
-    logo:  crypto + 'coingecko.png'
-  },
-  {
-    name: 'CoinMarketCap',
-    link: 'https://www.coinmarketcap.com',
-    logo:  crypto + 'coinmarketcap.png'
-  },
-  {
-    name: 'Crypto.com',
-    link: 'https://www.crypto.com',
-    logo:  crypto + 'crypto.com.png'
-  },
-  {
-    name: 'KuCoin',
-    link: 'https://www.kucoin.com',
-    logo:  crypto + 'kukoin.png'
-  },
-  {
-    name: 'OKX',
-    link: 'https://www.okx.com',
-    logo:  crypto + 'okx.png'
-  },
-  {
-    name: 'TradingView',
-    link: 'https://www.tradingview.com',
-    logo:  crypto + 'tradingView.png'
-  }
-];
 export const paymentChannels = [
   {
-    name: 'PayPal',
-    link: 'https://www.paypal.com',
-    logo:  payment + 'PayPal.png',
-    category: 'payments'
+    name: "Alipay",
+    sn: "1",
+    link: "pending",
+    image: path + "alipay.png"
   },
   {
-    name: 'Stripe',
-    link: 'https://stripe.com',
-    logo:  payment + 'Stripe.png',
-    category: 'payments'
+    name: "Amazon Pay",
+    sn: "2",
+    link: "pending",
+    image: path + "AmazonPay.png"
   },
   {
-    name: 'Square',
-    link: 'https://squareup.com',
-    logo:  payment + 'Square.png',
-    category: 'payments'
+    name: "Apple Pay",
+    sn: "3",
+    link: "pending",
+    image: path + "ApplePay.jpg"
   },
   {
-    name: 'Google Pay',
-    link: 'https://pay.google.com',
-    logo:  payment + 'googlepay.png',
-    category: 'payments'
+    name: "Binance",
+    sn: "4",
+    link: "pending",
+    image: path + "binance.png"
   },
   {
-    name: 'Apple Pay',
-    link: 'https://www.apple.com/apple-pay/',
-    logo:  payment + 'ApplePay.jpg',
-    category: 'payments'
+    name: "Binance Chain Wallet",
+    sn: "5",
+    link: "pending",
+    image: path + "BinanceChainWallet.png"
   },
   {
-    name: 'Amazon Pay',
-    link: 'https://pay.amazon.com',
-    logo:  payment + 'AmazonPay.png',
-    category: 'payments'
+    name: "Bitpay",
+    sn: "6",
+    link: "pending",
+    image: path + "bitpay.png"
   },
   {
-    name: 'Payoneer',
-    link: 'https://www.payoneer.com',
-    logo:  payment + 'Payoneer.jpg',
-    category: 'payments'
+    name: "Blockchain Wallet",
+    sn: "7",
+    link: "pending",
+    image: path + "BlockchainWallet.png"
   },
   {
-    name: 'Klarna',
-    link: 'https://www.klarna.com',
-    logo:  payment + 'Klarna.png',
-    category: 'payments'
+    name: "Coinbase",
+    sn: "8",
+    link: "pending",
+    image: path + "coinbase.png"
   },
   {
-    name: 'Venmo',
-    link: 'https://venmo.com',
-    logo:  payment + 'Venmo.jpg',
-    category: 'payments'
+    name: "CoinGecko",
+    sn: "9",
+    link: "pending",
+    image: path + "coingecko.png"
   },
   {
-    name: 'Alipay',
-    link: 'https://www.alipay.com',
-    logo:  payment + 'alipay.png',
-    category: 'payments'
+    name: "CoinMarketCap",
+    sn: "10",
+    link: "pending",
+    image: path + "coinmarketcap.png"
   },
   {
-    name: 'First Bank',
-    link: 'https://www.firstbanknigeria.com',
-    logo:  payment + 'firstBank.png',
-    category: 'payments'
+    name: "(link unavailable)",
+    sn: "11",
+    link: "pending",
+    image: path + "crypto.com.png"
   },
   {
-    name: 'Kuda',
-    link: 'https://www.kuda.com',
-    logo:  payment + 'kuda.jpg',
-    category: 'payments'
+    name: "Electrum",
+    sn: "12",
+    link: "pending",
+    image: path + "electrum.png"
   },
   {
-    name: 'Opay',
-    link: 'https://www.opayweb.com',
-    logo:  payment + 'opay.png',
-    category: 'payments'
+    name: "Exodus Wallet",
+    sn: "13",
+    link: "pending",
+    image: path + "ExodusWallet.jpg"
   },
   {
-    name: 'Zenith Bank',
-    link: 'https://www.zenithbank.com',
-    logo:  payment + 'zenithBank.png',
-    category: 'payments'
+    name: "Fidelity",
+    sn: "14",
+    link: "pending",
+    image: path + "fedelity.png"
   },
   {
-    name: 'GTBank',
-    link: 'https://www.gtbank.com',
-    logo:  payment + 'gtbank.png',  // Replace with actual logo file
-    category: 'payments'
+    name: "First Bank",
+    sn: "15",
+    link: "pending",
+    image: path + "firstBank.png"
   },
   {
-    name: 'Unity Bank',
-    link: 'https://www.unitybankng.com',
-    logo:  payment + 'unitybank.png',  // Replace with actual logo file
-    category: 'payments'
+    name: "Fortmatic",
+    sn: "16",
+    link: "pending",
+    image: path + "Fortmatic.png"
   },
   {
-    name: 'Jaiz Bank',
-    link: 'https://www.jaizbankplc.com',
-    logo:  payment + 'jaizbank.png',  // Replace with actual logo file
-    category: 'payments'
-  }
-];
-export const cryptoWallets = [
+    name: "Google Pay",
+    sn: "17",
+    link: "pending",
+    image: path + "googlepay.png"
+  },
   {
+    name: "GT Bank",
+    sn: "18",
+    link: "pending",
+    image: path + "gtbank.png"
+  },
+  {
+    name: "Jaiz Bank",
+    sn: "19",
+    link: "pending",
+    image: path + "jaizbank.png"
+  },
+  {
+    name: "Klarna",
+    sn: "20",
+    link: "pending",
+    image: path + "Klarna.png"
+  },
+  {
+    name: "Kuda",
+    sn: "21",
+    link: "pending",
+    image: path + "kuda.jpg"
+  },
+  {
+    name: "Kukoin",
+    sn: "22",
+    link: "pending",
+    image: path + "kukoin.png"
+  },
+  {
+    name: "Ledger Live",
+    sn: "23",
+    link: "pending",
+    image: path + "LedgerLive.png"
+  },
+  {
+    name: "MetaMask",
+    sn: "24",
+    link: "pending",
+    image: path + "MetaMask.png"
+  },
+  {
+    name: "MyEtherWallet",
+    sn: "25",
+    link: "pending",
+    image: path + "MyEtherWallet.png"
+  },
+  {
+    name: "OKX",
+    sn: "26",
+    link: "pending",
+    image: path + "okx.png"
+  },
+  {
+    name: "Opay",
+    sn: "27",
+    link: "pending",
+    image: path + "opay.png"
+  },
+  {
+    name: "Palmpay",
+    sn: "28",
+    link: "pending",
+    image: path + "palmpay.jpg"
+  },
+  {
+    name: "Payoneer",
+    sn: "29",
+    link: "pending",
+    image: path + "Payoneer.jpg"
+  },
+  {
+    name: "PayPal",
+    sn: "30",
+    link: "pending",
+    image: path + "PayPal.png"
+  },
+  {
+    name: "Square",
+    sn: "31",
+    link: "pending",
+    image: path + "Square.png"
+  },
+  {
+    name: "Stripe",
+    sn: "32",
+    link: "pending",
+    image: path + "Stripe.png"},
+
+
+{
+  name: "TradingView",
+    sn: "33",
+  link: "pending",
+  image: path + "tradingView.png"
+},
+{
+  name: "Trezor Wallet",
+    sn: "34",
+  link: "pending",
+  image: path + "TrezorWallet.png"
+},
+{
+  name: "TrustVolt",
+    sn: "35",
+  link: "pending",
+  image: path + "trustvolt.png"
+},
+{
+  name: "Trust Wallet",
+    sn: "36",
+  link: "pending",
+  image: path + "TrustWallet.jpg"
+},
+{
+  name: "Unity Bank",
+    sn: "37",
+  link: "pending",
+  image: path + "unitybank.png"
+},
+{
+  name: "Venmo",
+    sn: "38",
+  link: "pending",
+  image: path + "Venmo.jpg"
+},
+{
+  name: "Whatsapp",
+    sn: "39",
+  link: "pending",
+  image: path + "Whatsapp.png"
+},
+{
+  name: "Zengo",
+    sn: "40",
+  link: "pending",
+  image: path + "zengo.png"
+},
+{
+  name: "Zenith Bank",
+    sn: "41",
+  link: "pending",
+  image: path + "zenithBank.png"}
+  ,{
     name: 'MetaMask',
     link: 'https://metamask.io',
-    logo: crypto + 'MetaMask.png',  // Replace with actual logo URL or path
+    image: path + 'MetaMask.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Trust Wallet',
     link: 'https://trustcrypto.com',
-    logo:  crypto + 'TrustWallet.jpg',  // Replace with actual logo URL or path
+    image:  path + 'TrustWallet.jpg',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Coinbase Wallet',
     link: 'https://www.coinbase.com/',
-    logo:  crypto + 'coinbase.png',  // Replace with actual logo URL or path
+    image:  path + 'coinbase.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Exodus Wallet',
     link: 'https://www.exodus.com',
-    logo:  crypto + 'ExodusWallet.jpg',  // Replace with actual logo URL or path
+    image:  path + 'ExodusWallet.jpg',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Binance Chain Wallet',
     link: 'https://www.binance.org/en/crypto',
-    logo:  crypto + 'BinanceChainWallet.png',  // Replace with actual logo URL or path
+    image:  path + 'BinanceChainWallet.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'MyEtherWallet',
     link: 'https://www.myethercrypto.com',
-    logo:  crypto + 'MyEtherWallet.png',  // Replace with actual logo URL or path
+    image:  path + 'MyEtherWallet.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'MetaMask Mobile',
     link: 'https://metamask.io/mobile',
-    logo:  crypto + 'MetaMask.png',  // Replace with actual logo URL or path
+    image:  path + 'MetaMask.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Fortmatic',
     link: 'https://fortmatic.com',
-    logo:  crypto + 'Fortmatic.png',  // Replace with actual logo URL or path
+    image:  path + 'Fortmatic.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Ledger Live',
     link: 'https://www.ledger.com/ledger-live',
-    logo:  crypto + 'LedgerLive.png',  // Replace with actual logo URL or path
+    image:  path + 'LedgerLive.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Trezor Wallet',
     link: 'https://trezor.io',
-    logo:  crypto + 'TrezorWallet.png',  // Replace with actual logo URL or path
+    image:  path + 'TrezorWallet.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Electrum Wallet',
     link: 'https://electrum.org',
-    logo:  crypto + 'electrum.png',  // Replace with actual logo URL or path
+    image:  path + 'electrum.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Blockchain Wallet',
     link: 'https://www.blockchain.com/crypto',
-    logo:  crypto + 'BlockchainWallet.png',  // Replace with actual logo URL or path
+    image:  path + 'BlockchainWallet.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'BitPay Wallet',
     link: 'https://www.bitpay.com/',
-    logo:  crypto + 'bitpay.png',  // Replace with actual logo URL or path
+    image:  path + 'bitpay.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'Zengo Wallet',
     link: 'https://www.zengo.com',
-    logo:  crypto + 'zengo.png',  // Replace with actual logo URL or path
+    image:  path + 'zengo.png',  // Replace with actual image URL or path
     category: 'crypto'
   },
   {
     name: 'TrustVault',
     link: 'https://www.trustvault.com',
-    logo:  crypto + 'trustvolt.png',  // Replace with actual logo URL or path
+    image:  path + 'trustvolt.png',  // Replace with actual image URL or path
     category: 'crypto'
+  },{
+    name: 'Binance',
+    link: 'https://www.binance.com',
+    image:  path + 'binance.png'
+  },
+  {
+    name: 'Coinbase',
+    link: 'https://www.coinbase.com/',
+    image:  path + 'coinbase.png'
+  },
+  {
+    name: 'CoinGecko',
+    link: 'https://www.coingecko.com',
+    image:  path + 'coingecko.png'
+  },
+  {
+    name: 'CoinMarketCap',
+    link: 'https://www.coinmarketcap.com',
+    image:  path + 'coinmarketcap.png'
+  },
+  {
+    name: 'Crypto.com',
+    link: 'https://www.crypto.com',
+    image:  path + 'crypto.com.png'
+  },
+  {
+    name: 'KuCoin',
+    link: 'https://www.kucoin.com',
+    image:  path + 'kukoin.png'
+  },
+  {
+    name: 'OKX',
+    link: 'https://www.okx.com',
+    image:  path + 'okx.png'
+  },
+  {
+    name: 'TradingView',
+    link: 'https://www.tradingview.com',
+    image:  path + 'tradingView.png'
   }
+,{
+  name: "Alipay",
+    sn: "1",
+  link: "pending",
+  image: path + "alipay.png"
+},
+{
+  name: "Amazon Pay",
+    sn: "2",
+  link: "pending",
+  image: path + "AmazonPay.png"
+},
+{
+  name: "Apple Pay",
+    sn: "3",
+  link: "pending",
+  image: path + "ApplePay.jpg"
+},
+{
+  name: "Binance",
+    sn: "4",
+  link: "pending",
+  image: path + "binance.png"
+},
+{
+  name: "Binance Chain Wallet",
+    sn: "5",
+  link: "pending",
+  image: path + "BinanceChainWallet.png"
+},
+{
+  name: "Bitpay",
+    sn: "6",
+  link: "pending",
+  image: path + "bitpay.png"
+},
+{
+  name: "Blockchain Wallet",
+    sn: "7",
+  link: "pending",
+  image: path + "BlockchainWallet.png"
+},
+{
+  name: "Coinbase",
+    sn: "8",
+  link: "pending",
+  image: path + "coinbase.png"
+},
+{
+  name: "CoinGecko",
+    sn: "9",
+  link: "pending",
+  image: path + "coingecko.png"
+},
+{
+  name: "CoinMarketCap",
+    sn: "10",
+  link: "pending",
+  image: path + "coinmarketcap.png"
+},
+{
+  name: "(link unavailable)",
+    sn: "11",
+  link: "pending",
+  image: path + "crypto.com.png"
+},
+{
+  name: "Electrum",
+    sn: "12",
+  link: "pending",
+  image: path + "electrum.png"
+},
+{
+  name: "Exodus Wallet",
+    sn: "13",
+  link: "pending",
+  image: path + "ExodusWallet.jpg"
+},
+{
+  name: "Fidelity",
+    sn: "14",
+  link: "pending",
+  image: path + "fedelity.png"
+},
+
 ];

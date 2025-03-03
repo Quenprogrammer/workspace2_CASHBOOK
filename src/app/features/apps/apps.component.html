@@ -1,6 +1,7 @@
+<!--
 
 <main id="content1" role="main" class="bg-light d-none d-sm-block">
-  <!-- Breadcrumb -->
+  &lt;!&ndash; Breadcrumb &ndash;&gt;
   <div class="navbar-dark bg-black" style="background-image: url(../../../assets/svg/components/wave-pattern-light.svg);">
 
     <div class="container content-space-1 content-space-b-lg-1">
@@ -13,16 +14,16 @@
           </div>
 
 
-          <!-- End Breadcrumb -->
+          &lt;!&ndash; End Breadcrumb &ndash;&gt;
         </div>
-        <!-- End Col -->
+        &lt;!&ndash; End Col &ndash;&gt;
 
         <div class="col-auto">
           <div class="d-none d-lg-block">
             <a class="btn btn-danger" routerLink="/menu">Close</a>
           </div>
 
-          <!-- Responsive Toggle Button -->
+          &lt;!&ndash; Responsive Toggle Button &ndash;&gt;
           <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-default">
                 <i class="bi-list"></i>
@@ -31,16 +32,16 @@
                 <i class="bi-x"></i>
               </span>
           </button>
-          <!-- End Responsive Toggle Button -->
+          &lt;!&ndash; End Responsive Toggle Button &ndash;&gt;
         </div>
-        <!-- End Col -->
+        &lt;!&ndash; End Col &ndash;&gt;
       </div>
-      <!-- End Row -->
+      &lt;!&ndash; End Row &ndash;&gt;
     </div>
   </div>
 
 
-  <!-- End Content -->
+  &lt;!&ndash; End Content &ndash;&gt;
 </main>
 
 
@@ -52,16 +53,16 @@
 
       <div id="stickyBlockStartPoint" style="">
         <div class="js-sticky-block"  style="">
-          <!-- Card -->
+          &lt;!&ndash; Card &ndash;&gt;
           <div class="card">
             <div class="p-1">
-              <!-- Fancybox -->
+              &lt;!&ndash; Fancybox &ndash;&gt;
               <div class="bg-img-start text-center rounded-2 py-10 px-5" style="background-color: black">
               </div>
-              <!-- End Fancybox -->
+              &lt;!&ndash; End Fancybox &ndash;&gt;
             </div>
 
-            <!-- Card Body -->
+            &lt;!&ndash; Card Body &ndash;&gt;
             <div class="card-body">
 
 
@@ -70,12 +71,12 @@
 
 
                   <div class="row">
-                    @for(items of cryptoWallets; track items.name ){
+                    @for(items of paymentChannels; track items.name ){
                       <div class="col-4 col-md-3 col-lg-2 mb-2">
                         <a [href]="items.link">
                           <div class="card custom-card text-center cardPadding shadow-none" >
                             <div class="">
-                              <img class="img-fluid customIMG" [src]="items.logo" alt="{{items.name}}">
+                              <img class="img-fluid customIMG" [src]="items.image" alt="{{items.name}}">
                               <p class="text">{{items.name | truncateText:10}}</p>
                             </div>
                           </div>
@@ -89,18 +90,18 @@
 
 
             </div>
-            <!-- End Card Body -->
+            &lt;!&ndash; End Card Body &ndash;&gt;
           </div>
-          <!-- End Card -->
+          &lt;!&ndash; End Card &ndash;&gt;
         </div>
       </div>
-      <!-- End Sticky Block -->
+      &lt;!&ndash; End Sticky Block &ndash;&gt;
     </div>
 
   </div>
 </div>
 
-<!--
+&lt;!&ndash;
 <main id="content" role="main" class="main">
   <div class="position-fixed top-0 end-0 start-0 bg-img-start" style="height: 32rem; background-image: url(svg/card-6.svg);">
     &lt;!&ndash; Shape &ndash;&gt;
@@ -189,4 +190,71 @@
   </div>
   &lt;!&ndash; End Content &ndash;&gt;
 </main>
+&ndash;&gt;
 -->
+<div class="position-relative gradient-x-three-sm-primary rounded-2 content-space-t-md-1 content-space-b-md-2 mx-md-10">
+  <div class="container position-relative content-space-t-2 content-space-t-lg-3 content-space-b-1">
+    <div class="row position-relative zi-2">
+      <div class="col-lg-8">
+        <!-- Heading -->
+        <div class="w-lg-75 text-center text-lg-start mb-5 mb-lg-7">
+          <h1 class="display-4">Find the most<br><span class="text-primary text-highlight-warning">exciting</span> startup jobs</h1>
+        </div>
+        <!-- End Heading -->
+
+        <form>
+          <!-- Input Card -->
+          <div class="input-card input-card-sm">
+            <div class="input-card-form">
+              <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+              <div class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </span>
+                <input type="text" class="form-control" id="jobTitleForm" placeholder="Job, title, skills, or company" aria-label="Job, title, skills, or company">
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <label for="cityForm" class="form-label visually-hidden">City, state, or zip</label>
+              <div class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-geo-alt"></i>
+                    </span>
+                <input type="text" class="form-control" id="cityForm" placeholder="City, state, or zip" aria-label="City, state, or zip">
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary">Search</button>
+          </div>
+          <!-- End Input Card -->
+        </form>
+
+        <p class="form-text">Search through over 125,000 listings</p>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+    <div class="d-none d-lg-block col-lg-6 position-lg-absolute top-0 end-0">
+      <img class="img-fluid rounded-2" src="../assets/img/900x900/img23.jpg" alt="Image Description">
+
+      <!-- SVG Shape -->
+      <div class="position-absolute top-0 start-0 zi-n1 mt-n6 ms-n7" style="width: 10rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="100" height="100">
+          <circle fill="#FFC107" opacity=".7" cx="167.6" cy="167.6" r="130.1"></circle>
+        </svg>
+      </div>
+      <!-- End SVG Shape -->
+
+      <!-- SVG Shape -->
+      <div class="position-absolute bottom-0 end-0 zi-n1 mb-n6 me-n10" style="width: 10rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="120" height="120">
+          <circle fill="none" stroke="#377dff" stroke-width="75" cx="167.6" cy="167.6" r="130.1"></circle>
+        </svg>
+      </div>
+      <!-- End SVG Shape -->
+
+      <p class="form-text">Powered by: <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/google.svg" alt="Image Description"></p>
+    </div>
+  </div>
+</div>

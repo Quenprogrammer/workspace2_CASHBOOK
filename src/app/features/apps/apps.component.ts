@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {apps, cryptoWallets, paymentChannels} from '../../siteContents/apps';
+import { paymentChannels} from '../../siteContents/apps';
 import {RouterLink} from '@angular/router';
 import {TruncateTextPipe} from '../../shared/truncate-text-pipe/truncate-text.pipe';
 
@@ -15,7 +15,8 @@ import {TruncateTextPipe} from '../../shared/truncate-text-pipe/truncate-text.pi
 })
 export class AppsComponent {
 
-  protected readonly apps = apps;
+
+
   protected readonly paymentChannels = paymentChannels;
-  protected readonly cryptoWallets = cryptoWallets;
+
 }
