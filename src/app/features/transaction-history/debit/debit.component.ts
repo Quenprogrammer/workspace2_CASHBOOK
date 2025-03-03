@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, combineLatest, map, Observable} from 'rxjs';
 import {Account, FirestoreService} from '../../../services/firestore/firestore.service';
 import {AsyncPipe, CurrencyPipe, DatePipe, NgForOf, NgIf} from '@angular/common';
@@ -23,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   templateUrl: './debit.component.html',
   styleUrl: './debit.component.css'
 })
-export class DebitComponent {
+export class DebitComponent implements OnInit{
   isLoading = true;
   isCollapsed = true;
   showFilters = true;

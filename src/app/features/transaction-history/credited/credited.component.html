@@ -3,127 +3,141 @@
 </div>
 
 <div *ngIf="!isLoading">
-  <div class="gradient-x-three-sm-primary" style="background-color: black">
-    <div class="container content-space-1">
-      <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
 
-      <form>
-        <div class="input-card input-card-sm mb-3">
-          <div class="input-card-form">
-            <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
-            <div class="input-group input-group-merge">
-                <span class="input-group-prepend input-group-text">
-                  <i class="bi-search"></i>
-                </span>
-              <input type="text" class="form-control" id="jobTitleForm" placeholder="Paid By"
-                     (input)="updateSearch('payee', $event)">
-            </div>
-          </div>
+  <div class="container ">
+    <form>
 
-          <select class="form-select mb-2 selectType" >
-            <option selected="selected" value="credit">Credit</option>
-            <option value="debit">Debit</option>
-
-          </select>
-        </div>
-      </form>
-      <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
-              [attr.aria-expanded]="!isCollapsed">Advance Search
-      </button>
-      <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-        <div class="row mb-3" *ngIf="showFilters">
-          <div class="col-12 col-md-4 mb-2">
-            <input type="text" class="form-control" placeholder="Search Amount" (input)="updateSearch('amount', $event)">
-          </div>
-          <div class="col-6 col-md-4">
-            <input type="date" class="form-control" (input)="updateSearch('date', $event)">
-          </div>
-          <div class="col-6 col-md-4">
-            <input type="text" class="form-control" placeholder="Search Reference" (input)="updateSearch('ref', $event)">
+      <div class="input-card input-card-sm">
+        <div class="input-card-form">
+          <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+          <div style="border: 2px solid black" class="input-group input-group-merge">
+                    <span class="input-group-prepend input-group-text">
+                      <i class="bi-search"></i>
+                    </span>
+            <input  type="text" class="form-control" id="jobTitleForm" placeholder="PaidBy" aria-label="Job, title, skills, or company"
+                    (input)="updateSearch('payee', $event)"
+            >
           </div>
         </div>
+
+
+        <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
+                [attr.aria-expanded]="!isCollapsed">Advance Search
+        </button>
       </div>
-    </div>
-  </div>
 
-  <div class="container">
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Payee</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Reference</th>
-          <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let account of filteredAccounts$ | async">
-          <th style="min-width: 150px" scope="row" class="text-dark">{{ getFormattedDate(account.date) }}</th>
-          <td style="min-width: 200px">{{ account.payee }}</td>
-          <td>{{ account.amount || 0 | currency:'₦' }}</td>
-          <td>{{ account.referenceNumber }}</td>
-          <td class="d-flex align-items-center gap-1">
-            <button type="button" class="btn btn-primary btn-sm btn-transition" (click)="openModal(account)">View</button>
-            <button type="button" class="btn btn-danger btn-sm btn-transition" (click)="openDeletePopup(account)">Remove</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div *ngIf="isModalOpen" class="modal-overlay">
-      <div class="modal-content">
-        <div class="row align-items-center">
-          <div class="col text-center">
-            <h2 class="mt-2">Transaction Details</h2>
-          </div>
-          <div class="col-auto ms-auto">
-            <button class="btn btn-danger" (click)="closeModal()">Close</button>
-          </div>
+    </form>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="row mb-3" *ngIf="showFilters">
+        <div class="col-12 col-md-4 mb-2">
+          <input type="text" class="form-control" placeholder="Search Amount" (input)="updateSearch('amount', $event)">
         </div>
-
-        <table class="table table-bordered my-3">
-          <tbody>
-          <tr>
-            <th>Date</th>
-            <td>{{ getFormattedDate(selectedAccount?.date) }}</td>
-          </tr>
-          <tr>
-            <th>Payee</th>
-            <td>{{ selectedAccount?.payee }}</td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td>{{ selectedAccount?.type }}</td>
-          </tr>
-          <tr>
-            <th>Amount</th>
-            <td>{{ selectedAccount?.amount || 0 | currency:'₦' }}</td>
-          </tr>
-          <tr>
-            <th>Reference</th>
-            <td>{{ selectedAccount?.referenceNumber }}</td>
-          </tr>
-          <tr>
-            <th>Description</th>
-            <td>{{ selectedAccount?.description }}</td>
-          </tr>
-          </tbody>
-        </table>
-
-        <div class="text-center">
-          <div class="d-flex gap-1">
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-primary" (click)="printDetails()">Print</button>
-            <button class="btn btn-primary">Save as PDF</button>
-          </div>
+        <div class="col-6 col-md-4">
+          <input type="date" class="form-control" (input)="updateSearch('date', $event)">
+        </div>
+        <div class="col-6 col-md-4">
+          <input type="text" class="form-control" placeholder="Search Reference" (input)="updateSearch('ref', $event)">
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container ">
+  <div class="card mb-4">
+    <div class="table-responsive mb-4">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="thead-light">
+        <tr >
+          <th style="min-width: 150px;">Date</th>
+          <th style="min-width: 180px;">Payee</th>
+          <th style="min-width: 150px;">Amount</th>
+          <th style="min-width: 120px;">Payment Method</th>
+
+          <th style="min-width: 180px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let account of filteredAccounts$ | async" >
+          <td>{{ getFormattedDate(account.date) }}
+          </td>
+          <td>{{ account.payee }}</td>
+          <td>{{ account.amount || 0 | currency:'₦' }}</td>
+          <td><span class="badge bg-warning">Pending</span></td>
+
+          <td>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-start">
+                <button type="button" class="btn btn-sm btn-outline-primary" (click)="openModal(account)">
+                  <i class="bi-pencil-fill"></i> view
+                </button>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <i class="bi-trash" style="font-size: 30px; cursor: pointer; color:red" (click)="openDeletePopup(account)" ></i>
+              </div>
+            </div>
+
+
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <div class="row align-items-center">
+        <div class="col text-center">
+          <h2 class="mt-2">Transaction Details</h2>
+        </div>
+        <div class="col-auto ms-auto">
+
+          <button class="btn btn-danger" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+
+      <table class="table table-bordered my-3">
+        <tbody>
+        <tr>
+          <th>Date</th>
+          <td>{{ getFormattedDate(selectedAccount?.date) }}</td>
+        </tr>
+        <tr>
+          <th>Payee</th>
+          <td>{{ selectedAccount?.payee }}</td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>{{ selectedAccount?.type }}</td>
+        </tr>
+        <tr>
+          <th>Amount</th>
+          <td>{{ selectedAccount?.amount || 0 | currency:'₦' }}</td>
+        </tr>
+        <tr>
+          <th>Reference</th>
+          <td>{{ selectedAccount?.referenceNumber }}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{ selectedAccount?.description }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <div class="d-flex gap-1">
+          <button class="btn btn-primary">Edit</button>
+
+          <button class="btn btn-primary">Save as PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Delete Confirmation Popup -->
 <div class="popup-overlay" *ngIf="isDeletePopupOpen">

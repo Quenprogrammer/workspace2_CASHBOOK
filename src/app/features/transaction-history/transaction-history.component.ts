@@ -10,12 +10,13 @@ import {DebitComponent} from './debit/debit.component';
 import {NgIf} from '@angular/common';
 import {CreditedComponent} from './credited/credited.component';
 import {MenuComponent} from '../menu/menu.component';
+import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
 
 
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [FormsModule, LoadingComponent, DebitComponent, NgIf, CreditedComponent, MenuComponent],
+  imports: [FormsModule, LoadingComponent, DebitComponent, NgIf, CreditedComponent, MenuComponent, TotalCreditedComponent],
   templateUrl: './transaction-history.component.html',
   styleUrls: ['./transaction-history.component.scss']
 })

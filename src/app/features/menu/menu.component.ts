@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
+import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MENU_ITEMS, MenuItem } from './menuData';
 import { NetworkService } from '../../services/network.service';
@@ -8,6 +8,8 @@ import { AccessPasswordComponent } from './access-password/access-password.compo
 import { StandByComponent } from './stand-by/stand-by.component';
 
 import {BalanceComponent} from './balance/balance.component';
+import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
+import {TotalDebitedComponent} from '../../data/total-debited/total-debited.component';
 
 
 @Component({
@@ -22,6 +24,9 @@ import {BalanceComponent} from './balance/balance.component';
 
     NgIf,
     BalanceComponent,
+    CurrencyPipe,
+    TotalCreditedComponent,
+    TotalDebitedComponent,
 
   ],
   templateUrl: './menu.component.html',

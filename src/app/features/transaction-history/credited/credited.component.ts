@@ -5,11 +5,12 @@ import { Account, FirestoreService } from '../../../services/firestore/firestore
 import { DatePipe } from '@angular/common';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingComponent } from '../../../core/system/loading/loading.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-credited',
   standalone: true,
-  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse, LoadingComponent],
+  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse, LoadingComponent, FormsModule, ReactiveFormsModule],
   providers: [DatePipe],
   templateUrl: './credited.component.html',
   styleUrls: ['./credited.component.css']
