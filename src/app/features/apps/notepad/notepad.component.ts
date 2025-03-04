@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {addDoc, collection, Firestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-notepad',
@@ -10,6 +11,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./notepad.component.css']
 })
 export class NotepadComponent {
+  constructor(private firestore: Firestore) {}
+
+  async addUser() {
+    const usersCollection = collection(this.firestore, 'users');
+    try {
+      await addDoc(usersCollection, { name: 'John Doe', email: 'johndoe@example.com' });
+      console.log('User added successfully');
+    } catch (error) {
+      console.error('Error adding user:', error);
+    }
+  }
   textContent: string = '';
   undoStack: string[] = [];
   redoStack: string[] = [];
@@ -20,7 +32,7 @@ export class NotepadComponent {
   searchResults: number[] = [];
   currentSearchIndex: number = -1;
 
-  constructor() {}
+
 
   saveState() {
     this.undoStack.push(this.textContent);
@@ -82,4 +94,6 @@ export class NotepadComponent {
     textarea.focus();
     textarea.setSelectionRange(index, index + this.searchText.length);
   }
+
+
 }

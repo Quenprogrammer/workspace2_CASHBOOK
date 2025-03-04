@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import {NgForOf, NgIf} from '@angular/common';
 import {LogsComponent} from './logs/logs.component';
-import {HomepageComponent} from '../ideas/homepage/homepage.component';
+
 import {NotificationsComponent} from './notifications/notifications.component';
 import {UsersComponent} from './users/users.component';
 
