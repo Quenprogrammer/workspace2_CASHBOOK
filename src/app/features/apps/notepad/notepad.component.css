@@ -1,0 +1,25 @@
+.custom-btn {
+  background-color: white !important;
+  border: 1px solid black !important;
+  padding: 10px !important;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    justify-content: center;
+  }
+
+  .form-control-sm {
+    width: 100%;
+  }
+}

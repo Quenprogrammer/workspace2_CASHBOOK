@@ -1,0 +1,82 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card" style="width: 100%; max-width: 400px;">
+    <div class="card-header text-center">
+      <h4>Responsive Calculator</h4>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <input type="text" class="form-control text-right mb-3" [(ngModel)]="currentInput" disabled />
+      </div>
+      <div class="history mb-3">
+        <h5>History</h5>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of history">{{ item }}</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button class="btn btn-primary btn-block" (click)="clear()">C</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('7')">7</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('8')">8</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('9')">9</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('4')">4</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('5')">5</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('6')">6</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-info btn-block" (click)="appendInput('+')">+</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('1')">1</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('2')">2</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('3')">3</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-info btn-block" (click)="appendInput('-')">-</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('0')">0</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-secondary btn-block" (click)="appendInput('.')">.</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-success btn-block" (click)="calculate()">=</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-info btn-block" (click)="appendInput('/')">/</button>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <button class="btn btn-warning btn-block" (click)="calculatePercentage()">%</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-warning btn-block" (click)="convertCurrency()">Convert Currency</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
