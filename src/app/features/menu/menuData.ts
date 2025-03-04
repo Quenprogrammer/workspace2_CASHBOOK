@@ -5,7 +5,7 @@ export interface MenuItem {
   link: string; // This should be a string representing the router link
 }
 
-// Export the menu data
+// Export the menu datafff
 export const MENU_ITEMS: MenuItem[] = [
   { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
   { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
