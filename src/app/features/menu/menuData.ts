@@ -22,7 +22,7 @@ export const MENU_ITEMS: MenuItem[] = [
   { name: 'Notifications', icon: 'mail-reception-svgrepo-com.svg', link: '/mail-reception' },
   { name: 'Settings', icon: 'system-settings-svgrepo-com.svg', link: '/settings' },
   { name: 'API Interface', icon: 'api-interface-svgrepo-com.svg', link: '/statUp' },
-    { name: 'Report Bug', icon: 'availability-svgrepo-com.svg', link: '/reportCenter' },
+    { name: 'Logs', icon: 'availability-svgrepo-com.svg', link: '/reportCenter' },
 
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { paymentChannels} from '../../siteContents/apps';
+import { paymentChannels} from '../../data/apps';
 import {RouterLink} from '@angular/router';
 import {TruncateTextPipe} from '../../shared/truncate-text-pipe/truncate-text.pipe';
 
