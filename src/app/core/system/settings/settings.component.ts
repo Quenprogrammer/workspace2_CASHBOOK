@@ -19,6 +19,18 @@ export class SettingsComponent {
       hint: "Create a new user account easily",
     },
     {
+      name: "Configuration",
+      link: "/database",
+      logo: "host-record-svgrepo-com.svg",
+      hint: "Create a new user account easily",
+    },
+    {
+      name: "Vault",
+      link: "/x",
+      logo: "recursive-server-svgrepo-com.svg",
+      hint: "Create a new user account easily",
+    },
+    {
       name: "Company",
       link: "https://example.com",
       logo: "logos/company.svg",

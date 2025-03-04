@@ -23,75 +23,7 @@ export class FirebaseComponent {
   constructor(private sanitizer: DomSanitizer) {}  // ✅ Inject DomSanitizer
 
   config = [
-    {
-      name: "Service Account",
-      image: "logos/serviceA.png",
-      data: `{
 
-  "type": "service_account",
-  "project_id": "cashbook-979b7",
-  "private_key_id": "ca6ddddd5def6a35c69024de321b52d7e9850a65",
-  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7IhahzgwrUWiO\\nDaQ2gUdJxntuVUba2/HUMpsL1fjxpMCkN8mKKpHqqK0QKiuo0r10WFqnOlg/Pvkw\\n...",
-  "client_email": "firebase-adminsdk-5mazj@cashbook-979b7.iam.gserviceaccount.com",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-   "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-5mazj%40cashbook-979b7.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
-
-}`
-    },
-    {
-      name: "SDK configuration npm",
-      image: "firebase/img.png",
-      data: `{
-
-    npm install firebase
-
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-const firebaseConfig = {
-  apiKey: "AIzaSyAw6Nor69h7X2uHI1EfujHHwg-717KIOOA",
-  authDomain: "cashbook-979b7.firebaseapp.com",
-  projectId: "cashbook-979b7",
-  storageBucket: "cashbook-979b7.firebasestorage.app",
-  messagingSenderId: "575903547165",
-  appId: "1:575903547165:web:c7b809df944630a7716bf4",
-  measurementId: "G-E62D6DZXR3"
-};
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-}`
-    },
-    {
-      name: "SDK configuration CDN",
-      image: "firebase/cdn.png",
-      data: `
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase config that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAw6Nor69h7X2uHI1EfujHHwg-717KIOOA",
-    authDomain: "cashbook-979b7.firebaseapp.com",
-    projectId: "cashbook-979b7",
-    storageBucket: "cashbook-979b7.firebasestorage.app",
-    messagingSenderId: "575903547165",
-    appId: "1:575903547165:web:c7b809df944630a7716bf4",
-    measurementId: "G-E62D6DZXR3"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-    `
-    },
     {
       name: "Project Details",
       image: "logos/details.png",

@@ -5,6 +5,7 @@ import {Firestore, collection, addDoc, collectionData, getDoc, doc, updateDoc, s
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
 import {increment} from '@angular/fire/database';
+import {StatsComponent} from '../../../shared/stats/stats.component';
 
 export interface MessageInquiries {
   date: string;
@@ -23,7 +24,8 @@ export interface MessageInquiries {
     FormsModule,
     ReactiveFormsModule,
     NgIf,
-    NgClass
+    NgClass,
+    StatsComponent
   ],
   templateUrl: './credit.component.html',
   styleUrls: ['./credit.component.scss']

@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavLinkBase, NgbNavOutlet} from "@ng-bootstrap/ng-bootstrap";
-import {RouterLink} from "@angular/router";
+
 import {NgForOf, NgIf} from '@angular/common';
 import {LogsComponent} from './logs/logs.component';
 import {HomepageComponent} from '../ideas/homepage/homepage.component';
 import {NotificationsComponent} from './notifications/notifications.component';
 import {UsersComponent} from './users/users.component';
 
-import {TransactionComponent} from './transaction/transaction.component';
+
 import {StorageComponent} from './storage/storage.component';
 import {FirebaseComponent} from './firebase/firebase.component';
 
@@ -28,7 +27,7 @@ import {FirebaseComponent} from './firebase/firebase.component';
     NotificationsComponent,
     UsersComponent,
 
-    TransactionComponent,
+
     StorageComponent,
     FirebaseComponent,
 
@@ -41,7 +40,7 @@ import {FirebaseComponent} from './firebase/firebase.component';
 export class DatabaseComponent {
   databaseMenu = [
 
-    { name: 'Transactions', image: 'logos/1.svg', component: 'transactions' },
+
     { name: 'Notifications', image: 'logos/2.svg', component: 'notifications' },
     { name: 'Storage', image: 'logos/3.svg', component: 'storage' },
     { name: 'Users', image: 'logos/4.svg', component: 'users' },
