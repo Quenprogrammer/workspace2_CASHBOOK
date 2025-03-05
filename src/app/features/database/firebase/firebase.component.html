@@ -39,7 +39,7 @@
 <!-- Product Section (Hidden when Modal is Open) -->
 <section *ngIf="!isModalOpen" class="container position-relative z-3 my-5">
   <div class="row">
-    <div class="col-3 col-md-2 mb-3" *ngFor="let product of configu; let i = index">
+    <div class="col-3 col-md-2 mb-3" *ngFor="let product of config; let i = index">
       <a (click)="openModal(i)" class=" text-center">
         <div class="d-flex justify-content-center align-items-center">
           <img [src]="product.image" class="imgSize rounded-2 cursor-pointer" [alt]="product.name">
