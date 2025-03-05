@@ -12,7 +12,7 @@ export const MENU_ITEMS: MenuItem[] = [
   { name: 'Dashboard', icon: 'data-analysis-svgrepo-com.svg', link: '/dashboard' },
   { name: 'Map', icon: 'touch-click-svgrepo-com.svg', link: '/records' },
   { name: 'Invoice', icon: 'machine-vision-svgrepo-com.svg', link: '/invoice' },
-   { name: 'Users', icon: 'cloud-backup-svgrepo-com.svg', link: '/users' },
+   { name: 'Vault', icon: 'cloud-backup-svgrepo-com.svg', link: '/vault' },
 
   { name: 'Apps', icon: 'mobile-app-svgrepo-com.svg', link: '/apps' },
 
@@ -22,7 +22,7 @@ export const MENU_ITEMS: MenuItem[] = [
   { name: 'Notifications', icon: 'mail-reception-svgrepo-com.svg', link: '/mail-reception' },
   { name: 'Settings', icon: 'system-settings-svgrepo-com.svg', link: '/settings' },
   { name: 'API Interface', icon: 'api-interface-svgrepo-com.svg', link: '/statUp' },
-    { name: 'Logs', icon: 'availability-svgrepo-com.svg', link: '/reportCenter' },
+    { name: 'Logs', icon: 'availability-svgrepo-com.svg', link: '/logs' },
 
 
 

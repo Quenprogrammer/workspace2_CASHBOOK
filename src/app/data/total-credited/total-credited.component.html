@@ -1,15 +1,8 @@
-<div  class="my-5">
-
-  <div *ngIf="documents$ | async as docs">
-    <div *ngFor="let doc of docs">
-<h3 class="text-center">Cumulative Credit</h3>
-      <h1 class="text-center" style="color: #09a5be; font-family: monospace" *ngFor="let key of doc | keyvalue">   {{ key.value | currency:'₦':'symbol':'1.2-2' }}</h1>
-    </div>
-
-  </div>
-
-  <div *ngIf="!(documents$ | async)?.length" class="text-center mt-3">
-    <p>No data available.</p>
-  </div>
-
+<div class="container">
+  <h2>Total Credited</h2>
+  <ul>
+    <li *ngFor="let doc of documents">
+      ID: {{ doc['id'] }} - Total Credit: {{ doc.totalCredit }}
+    </li>
+  </ul>
 </div>

@@ -9,8 +9,10 @@ import {interval, map} from 'rxjs';
     DatePipe,
     AsyncPipe
   ],
-  templateUrl: './time.component.html',
-  styleUrl: './time.component.css'
+  template: `
+    <p>Current Time: {{ currentTime | async }}</p>
+  `,
+
 })
 export class TimeComponent   {
   currentTime = interval(1000).pipe(

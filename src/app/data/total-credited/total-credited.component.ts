@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
+import {TotalsService} from '../../services/Cumulative/totals.service';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {AsyncPipe, CurrencyPipe, KeyValuePipe, NgForOf, NgIf, TitleCasePipe} from '@angular/common';
 import {collection, collectionData, Firestore} from '@angular/fire/firestore';
@@ -13,7 +14,7 @@ interface FirebaseDocument {
     NgIf,
     AsyncPipe,
     KeyValuePipe,
-    TitleCasePipe,
+
     NgForOf,
     CurrencyPipe
   ],
@@ -21,12 +22,13 @@ interface FirebaseDocument {
   styleUrl: './total-credited.component.css'
 })
 export class TotalCreditedComponent implements OnInit{
-  documents$: Observable<FirebaseDocument[]>;
+  documents: FirebaseDocument[] = [];
 
-  constructor(private firestore: Firestore) {
-    const colRef = collection(this.firestore, 'totalCredit'); // Replace with your collection name
-    this.documents$ = collectionData(colRef) as Observable<FirebaseDocument[]>;
+  constructor(private firestoreDataService: TotalsService) {}
+
+  ngOnInit(): void {
+    this.firestoreDataService.documents$.subscribe(data => {
+      this.documents = data;
+    });
   }
-
-  ngOnInit(): void {}
 }

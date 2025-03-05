@@ -5,6 +5,7 @@ import {address, companyName, email, phone} from '../../features/data/companyInf
 import {NotepadComponent} from '../../features/apps/notepad/notepad.component';
 import {CalculatorComponent} from '../../features/apps/calculator/calculator.component';
 import {BackupComponent} from '../../features/data/backup/backup.component';
+import {AuthComponent} from '../system/auth/auth.component';
 
 @Component({
   selector: 'app-debug',
@@ -13,7 +14,8 @@ import {BackupComponent} from '../../features/data/backup/backup.component';
 
     NotepadComponent,
     CalculatorComponent,
-    BackupComponent
+    BackupComponent,
+    AuthComponent
   ],
   templateUrl: './debug.component.html',
   styleUrl: './debug.component.css'

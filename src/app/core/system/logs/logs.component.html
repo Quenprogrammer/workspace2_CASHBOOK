@@ -1,0 +1,189 @@
+
+
+
+
+<main id="content" role="main" class="main">
+  <!-- Content -->
+  <div class="content container-fluid">
+
+    <div class="gradient-x-three-sm-primary">
+      <div class="container content-space-2">
+        <form>
+          <!-- Input Card --><h1>System Logs</h1>
+          <div class="input-card input-card-sm mb-3"  >
+            <div class="input-card-form">
+              <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+              <div class="input-group input-group-merge">
+                <span class="input-group-prepend input-group-text">
+                  <i class="bi-search"></i>
+                </span>
+                <input type="text" class="form-control" id="jobTitleForm" placeholder="Job, title, skills, or company" aria-label="Job, title, skills, or company">
+              </div>
+            </div>
+
+            <div class="input-card-form">
+               <div class="input-group input-group-merge">
+                <span class="input-group-prepend input-group-text">
+                  <i class="bi-geo-alt"></i>
+                </span>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary mx-1 mb-2 mb-md-0">Download</button>
+            <button type="button" class="btn btn-primary  mx-1 mb-2 mb-md-0">Delete Logs </button>
+            <button type="button" class="btn btn-primary  mx-1 mb-2 mb-md-0">BackUp Data </button>
+          </div>
+          <!-- End Input Card -->
+        </form>
+
+        <div class="row align-items-center">
+          <div class="col-md-auto mb-3 mb-lg-0">
+            <h6 class="mb-1">Limit search to:</h6>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-md mb-3 mb-lg-0">
+            <!-- Check -->
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox1" value="option1" checked="">
+              <label class="form-check-label" for="jobSearchToCheckbox1">Job title</label>
+            </div>
+            <!-- End Check -->
+
+            <!-- Check -->
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox2" value="option2">
+              <label class="form-check-label" for="jobSearchToCheckbox2">Skills</label>
+            </div>
+            <!-- End Check -->
+
+            <!-- Check -->
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox3" value="option3">
+              <label class="form-check-label" for="jobSearchToCheckbox3">Companies</label>
+            </div>
+            <!-- End Check -->
+
+            <!-- Check -->
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox4" value="option4">
+              <label class="form-check-label" for="jobSearchToCheckbox4">Field of study</label>
+            </div>
+            <!-- End Check -->
+          </div>
+
+          <div class="col-md-auto">
+            <!-- Switch -->
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="remoteOnlySwitch">
+              <label class="form-check-label" for="remoteOnlySwitch">Remote only</label>
+            </div>
+            <!-- End Switch -->
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </div>
+    </div>
+    <!-- Card -->
+    <div class="card">
+      <!-- Header -->
+
+      <!-- End Header -->
+
+      <!-- Table -->
+      <div class="table-responsive datatable-custom position-relative"  style="height: 150px">
+        <div id="datatable_wrapper" class="dataTables_wrapper no-footer">
+
+
+          <table id="datatable" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table dataTable no-footer"  aria-describedby="datatable_info">
+
+            <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr role="row" class="even">
+
+
+              <td>
+                <span class="d-block h5 mb-0">3:00pm</span>
+                <span class="d-block fs-5">monday-27-june-2025</span>
+              </td>
+              <td>User</td>
+              <td>
+                <span class="legend-indicator bg-warning"></span>Success
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <span class="fs-5 me-2">24%</span>
+                  <div class="progress table-progress">
+                    <div class="progress-bar" role="progressbar" style="width: 24%" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </td>
+              <td>Action</td>
+              <td>
+                <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
+                  <i class="bi-pencil-fill me-1"></i> Edit
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <!-- End Table -->
+
+      <!-- Footer -->
+      <div class="card-footer">
+        <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+
+
+          <div class="col-sm-auto">
+            <div class="d-flex justify-content-center justify-content-sm-end">
+              <!-- Pagination -->
+              <nav id="datatablePagination" aria-label="Activity pagination"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul id="datatable_pagination" class="pagination datatable-custom-pagination"><li class="paginate_item page-item disabled"><a class="paginate_button previous page-link" aria-controls="datatable" data-dt-idx="0" tabindex="0" id="datatable_previous"><span aria-hidden="true">Prev</span></a></li><li class="paginate_item page-item active"><a class="paginate_button page-link" aria-controls="datatable" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_item page-item"><a class="paginate_button page-link" aria-controls="datatable" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_item page-item"><a class="paginate_button next page-link" aria-controls="datatable" data-dt-idx="3" tabindex="0" id="datatable_next"><span aria-hidden="true">Next</span></a></li></ul></div></nav>
+            </div>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Footer -->
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Content -->
+
+
+</main>

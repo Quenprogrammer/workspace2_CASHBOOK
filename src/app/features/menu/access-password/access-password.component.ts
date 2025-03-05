@@ -1,21 +1,39 @@
 import {Component, OnInit} from '@angular/core';
 import {interval} from 'rxjs';
+import { AuthGenerateService } from '../../../services/auth/auth-generate.service';
 
 @Component({
   selector: 'app-access-password',
   standalone: true,
   imports: [],
-  templateUrl: './access-password.component.html',
-  styleUrl: './access-password.component.css'
+  template: `
+    <style>
+      .sub{
+        font-size: 10px;
+      }
+    </style>
+    <h2 class="mb-0"> {{ randomNumber }}</h2>
+    <p class="mb-0 sub" style="color: red"> Key {{ currentInterval }}</p>
+    <p class="mb-0 sub"> Interval {{ totalInterval }}</p>
+
+  `
 })
 export class AccessPasswordComponent implements OnInit {
-  randomNumber: number=100000000;
+  randomNumber: number = 0;
+  currentInterval: number = 0;
+  totalInterval: number = 1000;
+
+  constructor(private randomNumberService: AuthGenerateService) {}
 
   ngOnInit(): void {
-    interval(50).subscribe(() => {
-      this.randomNumber = Math.floor(Math.random() * 100000000);
-
+    this.randomNumberService.randomNumber$.subscribe(num => {
+      this.randomNumber = num;
+    });
+    this.randomNumberService.currentInterval$.subscribe(interval => {
+      this.currentInterval = interval;
+    });
+    this.randomNumberService.totalInterval$.subscribe(total => {
+      this.totalInterval = total;
     });
   }
-
 }
