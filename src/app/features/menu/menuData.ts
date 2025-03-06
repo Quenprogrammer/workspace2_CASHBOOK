@@ -15,6 +15,7 @@ export const MENU_ITEMS: MenuItem[] = [
    { name: 'Vault', icon: 'cloud-backup-svgrepo-com.svg', link: '/vault' },
 
   { name: 'Apps', icon: 'mobile-app-svgrepo-com.svg', link: '/apps' },
+  { name: 'Company', icon: 'mobile-app-svgrepo-com.svg', link: '/company' },
 
   { name: 'backup', icon: 'cloud-acceleration-svgrepo-com.svg', link: '/backupDataPassword' },
 

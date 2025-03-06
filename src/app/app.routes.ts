@@ -23,6 +23,7 @@ export const routes: Routes = [
   {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
     {path: 'cashbook-accounts', loadComponent: () => import ('./features/create-account/create-account.component').then(c => c.CreateAccountComponent)},
   {path: 'records', loadComponent: () => import ('./features/records/records-main/records-main.component').then(c => c.RecordsMainComponent)},
+  {path: 'company', loadComponent: () => import ('./features/company/company-profile/company-profile.component').then(c => c.CompanyProfileComponent)},
   {path: 'transaction-history', loadComponent: () => import ('./features/transaction-history/transaction-history.component').then(c => c.TransactionHistoryComponent)},
    {path: 'payment', loadComponent: () => import ('./core/system/payment-form/payment-form.component').then(c => c.PaymentFormComponent)},
   {path: 'backupData', loadComponent: () => import ('./features/data/backup/backup.component').then(c => c.BackupComponent)},
@@ -32,10 +33,13 @@ export const routes: Routes = [
   {path: 'cashbook', loadComponent: () => import ('./features/cashbook/cashbook.component').then(c => c.CashbookComponent)},
   {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
   {path: 'dashboard', loadComponent: () => import ('./features/dashboard/dashboard.component').then(c => c.DashboardComponent)},
-   {path: 'vault', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
+   {path: 'vault', loadComponent: () => import ('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent)},
+   {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
    {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
 
+/*
   {path: 'database', loadComponent: () => import ('./features/database/database.component').then(c => c.DatabaseComponent)},
+*/
 
 
 

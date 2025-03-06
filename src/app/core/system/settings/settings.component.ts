@@ -48,6 +48,12 @@ export class SettingsComponent {
       logo: "logos/logs.svg",
       hint: "View and manage activity logs efficiently",
     },
+    {
+      name: "Database",
+      link: "https://example.com",
+      logo: "logos/logs.svg",
+      hint: "View and manage activity data efficiently",
+    },
   ];
 
 }
