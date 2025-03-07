@@ -21,6 +21,7 @@ export const routes: Routes = [
   {path: 'users', loadComponent: () => import ('./features/users/users.component').then(c => c.UsersComponent)},
   {path: 'addContacts', loadComponent: () => import ('./features/contacts/contacts.component').then(c => c.ContactsComponent)},
   {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
+  {path: 'appsHome', loadComponent: () => import ('./features/apps/app-home/app-home.component').then(c => c.AppHomeComponent)},
     {path: 'cashbook-accounts', loadComponent: () => import ('./features/create-account/create-account.component').then(c => c.CreateAccountComponent)},
   {path: 'records', loadComponent: () => import ('./features/records/records-main/records-main.component').then(c => c.RecordsMainComponent)},
   {path: 'company', loadComponent: () => import ('./features/company/company-profile/company-profile.component').then(c => c.CompanyProfileComponent)},

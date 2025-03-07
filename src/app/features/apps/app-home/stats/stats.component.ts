@@ -1,43 +1,34 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CurrencyPipe, NgForOf} from '@angular/common';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {NgForOf} from "@angular/common";
 export interface Statistic {
   value: number;
   label: string;
   animatedValue?: number; // Optional property for animated value
 }
+
 @Component({
-  selector: 'app-balance',
-  standalone: true,
+    selector: 'app-stats',
+    standalone: true,
   imports: [
-    CurrencyPipe,
     NgForOf
-
   ],
-  templateUrl: './balance.component.html',
-  styleUrls: ['./balance.component.css']
+    templateUrl: './stats.component.html',
+    styleUrl: './stats.component.scss'
 })
-export class BalanceComponent implements AfterViewInit {
-  stats:number=0;
-  credit:number=1000000;
-  debit:number=200000;
-
+export class StatsComponent implements AfterViewInit{
   @ViewChild('statisticsSection') statisticsSection!: ElementRef;
 
   statistics: Statistic[] = [
-
-    { value: +2000000, label: 'Credit' },
-    { value: +4000000, label: 'Debit' },
+    { value: +540, label: 'Apps Installed'  },
 
   ];
 
   private isAnimated: boolean = false; // Flag to check if animation has started
 
   ngAfterViewInit(): void { // Lifecycle hook properly used
-    /*this.createObserver();*/
-    this.calculateStats()
+    this.createObserver();
   }
 
-/*
   private createObserver(): void {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -57,7 +48,7 @@ export class BalanceComponent implements AfterViewInit {
     this.statistics.forEach(stat => {
       stat.animatedValue = 0; // Initialize animatedValue to 0
       const total = stat.value;
-      const increment = Math.ceil(total / (duration / 100)); // Increment value
+      const increment = Math.ceil(total / (duration / 2)); // Increment value
       let current = 0;
 
       const interval = setInterval(() => {
@@ -73,12 +64,4 @@ export class BalanceComponent implements AfterViewInit {
       }, 100); // Update every 100 milliseconds
     });
   }
-*/
-
-
-  calculateStats(){
-
-    this.stats=(this.credit / this.debit) * 100
-  }
-
 }

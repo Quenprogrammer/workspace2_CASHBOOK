@@ -111,10 +111,11 @@
 </div>
 
 -->
-<app-auth></app-auth>
+<!--<app-auth></app-auth>-->
 <app-notepad></app-notepad>
-<app-calculator></app-calculator>
-<app-backup></app-backup>
+<!--<app-calculator></app-calculator>
+<app-backup></app-backup>-->
+<!--
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -232,7 +233,7 @@
 <body>
 
 <div class="receipt-container">
-  <!-- Header -->
+  &lt;!&ndash; Header &ndash;&gt;
   <div class="header">
     <img src="logo.png" alt="Company Logo">
     <h1>{{companyName}}</h1>
@@ -240,7 +241,7 @@
     <p>Phone: {{phone}} | Email: {{email}}</p>
   </div>
 
-  <!-- Receipt Details -->
+  &lt;!&ndash; Receipt Details &ndash;&gt;
   <div class="details">
     <table style=" border-collapse: collapse; margin-top: 20px;">
       <tr>
@@ -260,7 +261,7 @@
 
   </div>
 
-  <!-- Items Table -->
+  &lt;!&ndash; Items Table &ndash;&gt;
   <table class="table-container">
     <thead>
     <tr>
@@ -287,24 +288,24 @@
     </tbody>
   </table>
 
-  <!-- Total Calculation -->
+  &lt;!&ndash; Total Calculation &ndash;&gt;
   <div class="total-section">
 
     <h2> <strong>Total</strong></h2>
     <h3><strong> ₦14,512.50</strong></h3>
   </div>
 
-  <!-- Signature -->
+  &lt;!&ndash; Signature &ndash;&gt;
   <div class="signature">
     <p><strong>Authorized By:</strong></p>
     <p>__________________________</p>
     <p>Manager</p>
   </div>
 
-  <!-- Print Button -->
+  &lt;!&ndash; Print Button &ndash;&gt;
   <button class="btn-print" onclick="window.print()">Print Receipt</button>
 
-  <!-- Footer -->
+  &lt;!&ndash; Footer &ndash;&gt;
   <div class="footer">
     <h4>Thank you for your business!</h4>
     <h3>Website: www.company.com </h3>
@@ -312,3 +313,37 @@
 </div>
 
 </body>
+<div class="container">
+  <h2>Equation Solver</h2>
+  <form [formGroup]="equationForm" (ngSubmit)="solveEquation()">
+    <label for="A">A:</label>
+    <input id="A" type="number" formControlName="A">
+
+    <label for="S">S:</label>
+    <input id="S" type="number" formControlName="S">
+
+    <label for="U">U:</label>
+    <input id="U" type="number" formControlName="U">
+
+    <label for="P">P:</label>
+    <input id="P" type="number" formControlName="P">
+
+    <label for="R">R:</label>
+    <input id="R" type="number" formControlName="R">
+
+    <label for="k">k:</label>
+    <input id="k" type="number" formControlName="k">
+
+    <button type="submit" [disabled]="equationForm.invalid">Solve</button>
+  </form>
+
+  <div *ngIf="results">
+    <h3>Results:</h3>
+    <p>k: {{ results.k }}</p>
+    <p>S: {{ results.S }}</p>
+    <p>U: {{ results.U }}</p>
+    <p>P: {{ results.P }}</p>
+    <p>R: {{ results.R }}</p>
+  </div>
+</div>
+-->

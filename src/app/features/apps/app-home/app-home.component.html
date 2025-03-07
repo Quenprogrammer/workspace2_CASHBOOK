@@ -1,1 +1,497 @@
-<p>app-home works!</p>
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-primary" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-3">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-none d-lg-block">
+            <h1 class="h2 text-white">Personal info</h1>
+          </div>
+
+          <!-- Breadcrumb -->
+
+          <!-- End Breadcrumb -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto">
+          <div class="d-none d-lg-block">
+            <a class="btn btn-soft-light btn-sm" href="#">Log out</a>
+          </div>
+
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-default">
+                <i class="bi-list"></i>
+              </span>
+            <span class="navbar-toggler-toggled">
+                <i class="bi-x"></i>
+              </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Content -->
+  <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 " style="margin-top: -125px">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- Navbar -->
+        <div class="navbar-expand-lg navbar-light">
+          <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+            <!-- Card -->
+            <div class="card flex-grow-1 mb-5">
+              <div class="card-body">
+                <!-- Avatar -->
+                <div class="d-none d-lg-block text-center mb-5">
+                  <div class="avatar avatar-xxl avatar-circle mb-3">
+                    <img class="avatar-img" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                    <img class="avatar-status avatar-lg-status" src="./assets/svg/illustrations/top-vendor.svg" alt="Image Description" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Verified user" data-bs-original-title="Verified user">
+                  </div>
+
+                  <h4 class="card-title mb-0">Natalie Curtis</h4>
+                  <p class="card-text small">nataliexample.com</p>
+                </div>
+                <!-- End Avatar -->
+
+                <!-- Nav -->
+                <span class="text-cap">Account</span>
+
+                <!-- List -->
+                <ul class="nav nav-sm nav-tabs nav-vertical mb-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="./account-overview.html">
+                      <i class="bi-person-badge nav-icon"></i> Personal info
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-security.html">
+                      <i class="bi-shield-shaded nav-icon"></i> Security
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-notifications.html">
+                      <i class="bi-bell nav-icon"></i> Notifications
+                      <span class="badge bg-soft-dark text-dark rounded-pill nav-link-badge">1</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-preferences.html">
+                      <i class="bi-sliders nav-icon"></i> Preferences
+                    </a>
+                  </li>
+                </ul>
+                <!-- End List -->
+
+                <span class="text-cap">Shopping</span>
+
+                <!-- List -->
+                <ul class="nav nav-sm nav-tabs nav-vertical mb-4">
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-orders.html">
+                      <i class="bi-basket nav-icon"></i> Your orders
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-wishlist.html">
+                      <i class="bi-heart nav-icon"></i> Wishlist
+                      <span class="badge bg-soft-dark text-dark rounded-pill nav-link-badge">2</span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- End List -->
+
+                <span class="text-cap">Billing</span>
+
+                <!-- List -->
+                <ul class="nav nav-sm nav-tabs nav-vertical">
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-payments.html">
+                      <i class="bi-credit-card nav-icon"></i> Payments
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-address.html">
+                      <i class="bi-geo-alt nav-icon"></i> Address
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="./account-teams.html">
+                      <i class="bi-people nav-icon"></i> Teams
+                      <span class="badge bg-soft-dark text-dark rounded-pill nav-link-badge">+2 new users</span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- End List -->
+
+                <div class="d-lg-none">
+                  <div class="dropdown-divider"></div>
+
+                  <!-- List -->
+                  <ul class="nav nav-sm nav-tabs nav-vertical">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <i class="bi-box-arrow-right nav-icon"></i> Log out
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End List -->
+                </div>
+                <!-- End Nav -->
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+        <!-- End Navbar -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-lg-9">
+        <div class="d-grid gap-3 gap-lg-5">
+          <!-- Card -->
+          <div class="card">
+            <div class="card-header border-bottom">
+              <app-stats></app-stats>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+
+            </div>
+            <!-- End Body -->
+
+            <!-- Footer -->
+            <div class="card-footer pt-0">
+              <div class="d-flex justify-content-end gap-3">
+                <a class="btn btn-white" href="javascript:;">Cancel</a>
+                <a class="btn btn-primary" href="javascript:;">Save changes</a>
+              </div>
+            </div>
+            <!-- End Footer -->
+          </div>
+
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Content -->
+</main>
+<div class="container content-space-2 content-space-t-lg-4 content-space-b-lg-3">
+  <!-- Heading -->
+  <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-7">
+    <h2>Explore over 2 million tech and startup job-opportunities</h2>
+    <p>Find a job you love. <a class="link" href="#">Set your career interests.</a></p>
+  </div>
+  <!-- End Heading -->
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Mailchimp</a>
+                    <img class="avatar avatar-xss ms-1" src="../assets/svg/illustrations/top-vendor.svg" alt="Review rating" data-toggle="tooltip" data-placement="top" title="Claimed profile">
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">Senior B2B sales consultant</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$125k-$135k yearly</span>
+
+          <span class="badge bg-soft-info text-info me-2">
+                <span class="legend-indicator bg-info"></span>Remote
+              </span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 7 hours ago</li>
+            <li class="list-inline-item">Oxford</li>
+            <li class="list-inline-item">Full time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/capsule-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Capsule</a>
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">Office assistant/Social media assistant</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$50-$135 hourly</span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 21 hours ago</li>
+            <li class="list-inline-item">Newcastle</li>
+            <li class="list-inline-item">Part time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/dropbox-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Dropbox</a>
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">Marketing and Communications Manager</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$5k monthly</span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 1 day ago</li>
+            <li class="list-inline-item">London</li>
+            <li class="list-inline-item">Full time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/prosperops-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Prosperops</a>
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">Senior backend developer</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$75k-$85k yearly</span>
+
+          <span class="badge bg-soft-info text-info me-2">
+                <span class="legend-indicator bg-info"></span>Remote
+              </span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 1 day ago</li>
+            <li class="list-inline-item">Liverpool</li>
+            <li class="list-inline-item">Full time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/airbnb-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Airbnb</a>
+                    <img class="avatar avatar-xss ms-1" src="../assets/svg/illustrations/top-vendor.svg" alt="Review rating" data-toggle="tooltip" data-placement="top" title="Claimed profile">
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">Senior product manager</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$76k-$98k yearly</span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 2 days ago</li>
+            <li class="list-inline-item">London</li>
+            <li class="list-inline-item">Full time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col mb-5">
+      <!-- Card -->
+      <div class="card card-bordered h-100">
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/guideline-icon.svg" alt="Image Description">
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <h6 class="card-title">
+                    <a class="text-dark" href="../demo-jobs/employer.html">Guideline</a>
+                  </h6>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+
+          <h3 class="card-title">
+            <a class="text-dark" href="../demo-jobs/employer.html">iOS Engineer</a>
+          </h3>
+
+          <span class="d-block small text-body mb-1">$500-$1000 weekly</span>
+
+          <span class="badge bg-soft-info text-info me-2">
+                <span class="legend-indicator bg-info"></span>Remote
+              </span>
+        </div>
+        <!-- End Card Body -->
+
+        <!-- Card Footer -->
+        <div class="card-footer pt-0">
+          <ul class="list-inline list-separator small text-body">
+            <li class="list-inline-item">Posted 3 days ago</li>
+            <li class="list-inline-item">Manchester</li>
+            <li class="list-inline-item">Part time</li>
+          </ul>
+        </div>
+        <!-- End Card Footer -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+  <div class="text-center">
+    <a class="btn btn-outline-primary" href="../demo-jobs/job-list.html">View all jobs <i class="bi-chevron-right small ms-1"></i></a>
+  </div>
+</div>
