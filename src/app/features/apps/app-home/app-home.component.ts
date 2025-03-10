@@ -297,8 +297,37 @@ export class AppHomeComponent {
             sn: "41",
             link: "https://www.zenithbank.com",
             image: path + "zenithBank.png"
-          }
+          },
+          // Additional Banks
+          {
+            name: "Access Bank",
+            sn: "42",
+            link: "https://www.accessbankplc.com",
+            image: path + "accessBank.png"
+          },
+          {
+            name: "UBA",
+            sn: "43",
+            link: "https://www.ubagroup.com",
+            image: path + "uba.png"
+          },
+          {
+            name: "Sterling Bank",
+            sn: "44",
+            link: "https://www.sterlingbankng.com",
+            image: path + "sterlingBank.png"
+          },
+          {
+            name: "EcoBank",
+            sn: "45",
+            link: "https://www.ecobank.com",
+            image: path + "ecobank.png"
+          },
+
+
+
         ];
+
         break;
       case 4:
         this.modalTitle = 'Modal 4 Title';

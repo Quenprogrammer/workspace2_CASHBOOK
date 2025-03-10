@@ -4,7 +4,7 @@ import { ToastService } from '../../../services/toast-services';
 import {Firestore, collection, addDoc, collectionData, getDoc, doc, updateDoc, setDoc} from '@angular/fire/firestore';
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
-import { increment, runTransaction } from '@angular/fire/firestore';
+
 
 import {StatsComponent} from '../../../shared/stats/stats.component';
 

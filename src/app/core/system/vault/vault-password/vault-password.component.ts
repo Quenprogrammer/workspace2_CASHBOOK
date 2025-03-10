@@ -55,7 +55,7 @@ export class VaultPasswordComponent {
         code.p4 === enteredCode.p4
     );
 
-    if (matchedCode) {
+/*    if (matchedCode) {
       // If a match is found, navigate to the home route
       this.router.navigate(['/vault-app']);
       this.firestoreService.addUser('John Doe', pass, 'Login to vault');
@@ -64,7 +64,7 @@ export class VaultPasswordComponent {
       this.firestoreService.addUser('John Doe', fail, 'Login to vault');
 
       alert('Invalid verification code! Please try again.');
-    }
+    }*/
   }
 
   // This method is triggered when the user presses "Enter" after entering the last field
