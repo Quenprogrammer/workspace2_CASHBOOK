@@ -1,276 +1,370 @@
-
-<div class=" container mt-5">
-
-  <div class="row">
-    <div class="col-lg-7 mb-5 mb-lg-0">
-      <div class="card-body">
-
-        <div class="row align-items-center">
-          <div class="col-sm mb-2 mb-sm-0">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb breadcrumb-no-gutter">
-                <li class="breadcrumb-item"><a class="breadcrumb-link" href="./ecommerce-products.html">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add Product</li>
-              </ol>
-            </nav>
-
-            <h1 class="page-header-title">Add Product</h1>
-            <div class="card-body">
-              <div class="d-flex align-items-md-center">
-                <div style="padding: 0" class=" ">
-                 <img src="gif/sp.gif" class="img-fluid" alt="load" style="padding:0; width: 100%; height: 40px">
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                  <div class="row mx-md-n3">
-
-                    <!-- End Col -->
-
-                    <div class="col-md-9 col-lg-10 column-md-divider px-md-4">
-                      <div class="row justify-content-start mb-2">
-                        <div class="col-auto">
-                          <span class="legend-indicator bg-primary"></span>
-                          Credited
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-auto">
-                          <span class="legend-indicator bg-success"></span>
-                          Debited
-                        </div>
-                        <!-- End Col -->
+<div class="bg-dark">
+  <div class="content container-fluid" style="height: 23rem;">
+    <!-- Page Header -->
+    <div class="page-header page-header-light">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="page-header-title mt-4  mt-lg-2" [style.color]="headingTextColor">{{companyName}}</h1>
+        </div>
+        <!-- End Col -->
 
 
-                        <!-- End Col -->
-                      </div>
-                      <!-- End Row -->
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
 
-                      <!-- Progress -->
-                      <div class="progress rounded-pill">
-                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <!-- End Progress -->
+
+    </div>
+    <!-- End Page Header -->
+  </div>
+</div>
+<div class="content container-fluid" style="margin-top: -17rem;">
+  <!-- Card -->
+  <div class="card mb-3 mb-lg-5">
+    <!-- Header -->
+    <div class="p-1 p-md-5 card-header-content-sm-between">
+
+
+        <div class="d-flex align-items-md-center mb-3">
+          <div style="padding: 0" class="mt-2 ">
+            <img src="gif/sp.gif" class="img-fluid" alt="load" style="padding:0; width: 100%; height: 70px; object-fit: cover">
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <div class="row mx-md-n3">
+              <div class="col-md-9 col-lg-10 column-md-divider px-md-4 ">
+                <div class="row align-items-sm-center mb-2 mt-3 mt-md-1">
+                  <div class="col-sm  mb-sm-0 ">
+                    <div class="d-flex align-items-center">
+                      <span class="h5 mb-0">$7,431.14 USD</span>
+
+                      <span class="text-success ms-2">
+                  <i class="bi-graph-up"></i> 25.3%
+                </span>
                     </div>
-                    <!-- End Col -->
                   </div>
-                  <!-- End Row -->
                 </div>
+
+
+                <div class="progress rounded-pill">
+                  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Progress -->
+                <div class="row justify-content-start mb-2">
+                  <div class="col-auto">
+                    <span class="legend-indicator bg-primary"></span>
+                    Credited
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-auto">
+                    <span class="legend-indicator bg-success"></span>
+                    Expenses
+                  </div>
+                  <!-- End Col -->
+
+
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
               </div>
             </div>
-            <div class="mt-2">
-              <a class="text-body me-3" routerLink="/">
-                <i class="bi-clipboard me-1"></i> Duplicate
-              </a>
-              <a class="text-body" href="javascript:;">
-                <i class="bi-eye me-1"></i> Preview
-              </a>
-            </div>
+            <!-- End Row -->
           </div>
-          <!-- End Col -->
         </div>
-       <!-- End Row -->
+
+        <div class="">
+          <div class="text-center mb-3">
+
+            <ul ngbNav #nav="ngbNav" class="nav nav-segment nav-fill" role="tablist">
 
 
-        <!-- End Row -->
+              <li ngbNavItem class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
+                   aria-controls="nav-two-eg1" aria-selected="false">Docs</a>
+                <ng-template ngbNavContent>
+                  <div class="row">
+                    <div class="col-lg-7 mb-5 mb-lg-0">
+                      <div class="card-body shadow-lg">
 
-        <!-- Table -->
-        <div class="table-responsive">
-          <table class="table table-borderless table-nowrap table-align-middle">
-            <thead class="thead-light">
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th class="table-text-end">Amount</th>
-            </tr>
-            </thead>
+                        <h3 style="margin-bottom: 20px" class="text-center">Recent Transactions</h3>
 
+                      <!-- End Body -->
 
-          </table>
-        </div>
-        <!-- End Table -->
-        <app-credit class="mt-5"></app-credit>
-        <hr class="my-5">
-
+                      <hr class="my-0">
+                        <app-credit class="mt-5"></app-credit>
 
 
 
-      </div>
-    </div>
+                      </div>
+                    </div>
 
-    <div class="col-lg-5">
-      <!-- Card -->
-      <div class="card d-print-none">
-        <!-- Header -->
+                    <div class="col-lg-5 d-none d-md-block">
+                      <div class="card h-100">
+                        <!-- Header -->
+                        <div class="card-header card-header-content-between">
+                          <h4 class="card-header-title">Latest transactions</h4>
+
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown3" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="bi-three-dots-vertical"></i>
+                            </button>
+
+                            <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="reportsOverviewDropdown3">
+                              <span class="dropdown-header">Settings</span>
+
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-share-fill dropdown-item-icon"></i> Share reports
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-download dropdown-item-icon"></i> Download
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-alt dropdown-item-icon"></i> Connect other apps
+                              </a>
+
+                              <div class="dropdown-divider"></div>
+
+                              <span class="dropdown-header">Feedback</span>
+
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
+                              </a>
+                            </div>
+                          </div>
+                          <!-- End Dropdown -->
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Body -->
+                        <div class="card-body card-body-height">
+                          <ul class="list-group list-group-flush list-group-no-gutters">
+                            <!-- List Item -->
+                            <li class="list-group-item">
+                              <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                  <!-- Avatar -->
+                                  <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                    <span class="avatar-initials">B</span>
+                                  </div>
+                                  <!-- End Avatar -->
+                                </div>
+
+                                <div class="flex-grow-1 ms-3">
+                                  <div class="row">
+                                    <div class="col-7 col-md-5 order-md-1">
+                                      <h5 class="mb-0">Bob Dean</h5>
+                                      <span class="fs-6 text-body">Transfer to bank account</span>
+                                    </div>
+
+                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                      <h5 class="mb-0">-$290.00 USD</h5>
+                                      <span class="fs-6 text-body">15 May, 2020</span>
+                                    </div>
+
+                                    <div class="col-auto col-md-3 order-md-2">
+                                      <span class="badge bg-soft-warning text-warning rounded-pill">Pending</span>
+                                    </div>
+                                  </div>
+                                  <!-- End Row -->
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End List Item -->
+
+                            <!-- List Item -->
+                            <li class="list-group-item">
+                              <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                  <!-- Avatar -->
+                                  <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/slack-icon.svg" alt="Image Description">
+                                  <!-- End Avatar -->
+                                </div>
+
+                                <div class="flex-grow-1 ms-3">
+                                  <div class="row">
+                                    <div class="col-7 col-md-5 order-md-1">
+                                      <h5 class="mb-0">Slack</h5>
+                                      <span class="fs-6 text-body">Subscription payment</span>
+                                    </div>
+
+                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                      <h5 class="mb-0">-$11.00 USD</h5>
+                                      <span class="fs-6 text-body">12 May, 2020</span>
+                                    </div>
+
+                                    <div class="col-auto col-md-3 order-md-2">
+                                      <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                                    </div>
+                                  </div>
+                                  <!-- End Row -->
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End List Item -->
+
+                            <!-- List Item -->
+                            <li class="list-group-item">
+                              <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                  <!-- Avatar -->
+                                  <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/bank-of-america-icon.svg" alt="Image Description">
+                                  <!-- End Avatar -->
+                                </div>
+
+                                <div class="flex-grow-1 ms-3">
+                                  <div class="row">
+                                    <div class="col-7 col-md-5 order-md-1">
+                                      <h5 class="mb-0">Bank of America</h5>
+                                      <span class="fs-6 text-body">Withdrawal to bank account</span>
+                                    </div>
+
+                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                                      <h5 class="text-success mb-0">$3500.00 USD</h5>
+                                      <span class="fs-6 text-body">10 May, 2020</span>
+                                    </div>
+
+                                    <div class="col-auto col-md-3 order-md-2">
+                                      <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                                    </div>
+                                  </div>
+                                  <!-- End Row -->
+                                </div>
+                              </div>
+                            </li>
+                            <!-- End List Item -->
 
 
-        <!-- Body -->
-        <div class="card-body">
-          <h3 style="margin-top: -10px" class="text-center">Recent Transactions</h3>
-        </div>
-        <!-- End Body -->
-
-        <hr class="my-0">
-
-        <!-- Body -->
+                          </ul>
+                        </div>
+                        <!-- End Body -->
+                      </div>
+                    </div>
+                  </div>
 
 
-        <hr class="my-0">
 
-        <!-- Body -->
-        <div class="card-body card-body-height">
+                </ng-template>
+              </li>
+
+
+
+              <li ngbNavItem class="nav-item">
+                <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
+                   aria-controls="nav-two-eg1" aria-selected="false">Team</a>
+                <ng-template ngbNavContent>
+                  <div class="receipt-container">
+                    <!-- Header -->
+                    <div class="header">
+                      <img src="logo.png" alt="Company Logo">
+                      <h1 [style.color]="headingTextColor">{{companyName}}</h1>
+                      <p>1{{address}}</p>
+                      <p>Phone: {{phone}} | Email: {{email}}</p>
+                    </div>
+
+                    <!-- Receipt Details -->
+                    <div class="details">
+                      <table style=" border-collapse: collapse; margin-top: 20px;">
+                        <tr>
+                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Reference:</td>
+                          <td style="padding: 10px;">001234</td>
+                        </tr>
+                        <tr>
+                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Date:</td>
+
+                          <td style="padding: 10px;">March 3, 2025</td>
+                        </tr>
+                        <tr>
+                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Payment Method:</td>
+                          <td style="padding: 10px;">Cash</td>
+                        </tr>
+                      </table>
+
+                    </div>
+
+                    <!-- Items Table -->
+                    <table class="table-container">
+                      <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      <tr>
+                        <td style="width: 50px; font-weight: bold; font-size: 20px; text-align: right;">Payee</td>
+                        <td>Product A</td>
+
+                      </tr>
+
+                      <tr>
+                        <td style="width: 50px; font-weight: bold; font-size: 20px; text-align: right; padding-bottom: 120px;">Description</td>
+                        <td style=" padding-bottom: 120px; color: white;">Product A</td>
+                      </tr>
+
+
+
+                      </tbody>
+                    </table>
+
+                    <!-- Total Calculation -->
+                    <div class="total-section">
+
+                      <h2> <strong>Total</strong></h2>
+                      <h3><strong> ₦14,512.50</strong></h3>
+                    </div>
+
+                    <!-- Signature -->
+                    <div class="signature">
+                      <p><strong>Authorized By:</strong></p>
+                      <p>__________________________</p>
+                      <p>Manager</p>
+                    </div>
+
+                    <!-- Print Button -->
+                    <button class="btn-print" onclick="window.print()">Print Receipt</button>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                      <h4>Thank you for your business!</h4>
+                      <h3>Website: www.company.com </h3>
+                    </div>
+                  </div>
+
+                  <!-- End card shadow-none Grid -->
+                </ng-template>
+              </li>
+
+            </ul>
+          </div>
+          <!-- End Nav -->
+
           <!-- Tab Content -->
-          <div class="tab-content" id="invoicesStatusTabContent">
-            <div class="tab-pane fade show active" id="paid" role="tabpanel" aria-labelledby="paid-tab">
-
-              <ul class="list-group list-group-flush list-group-no-gutters">
-
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Update subscription method</h5>
-                    <span class="fs-5">Rocket Science Group</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$530.00 USD</span>
-                    <span class="fs-5">25 May, 2020</span>
-                  </div>
-                </li>
-
-                <!-- End List Item -->
-              </ul>
-              <!-- End List Group -->
-            </div>
-
-            <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-              <!-- List Group -->
-              <ul class="list-group list-group-flush list-group-no-gutters">
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Marketing campaign for Slack</h5>
-                    <span class="fs-5">Slack Technologies</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$2500.00 USD</span>
-                    <span class="fs-5">15 May, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Android app</h5>
-                    <span class="fs-5">Htmlstream Ltd.</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$7000.00 USD</span>
-                    <span class="fs-5">14 May, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Building startup for brand</h5>
-                    <span class="fs-5">Htmlstream Ltd.</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$530.00 USD</span>
-                    <span class="fs-5">15 May, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Massive dynamic project</h5>
-                    <span class="fs-5">Microsoft Corporation</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$55000.00 USD</span>
-                    <span class="fs-5">14 Apr, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-              </ul>
-              <!-- End List Group -->
-            </div>
-
-            <div class="tab-pane fade" id="declined" role="tabpanel" aria-labelledby="declined-tab">
-              <!-- List Group -->
-              <ul class="list-group list-group-flush list-group-no-gutters">
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Set up a datatable for Booking.com</h5>
-                    <span class="fs-5">United States-based Booking Holdings</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$7000.00 USD</span>
-                    <span class="fs-5">05 May, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Redesigning the Spotify main page</h5>
-                    <span class="fs-5">Spotify Technology S.A.</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$530.00 USD</span>
-                    <span class="fs-5">04 May, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-
-                <!-- List Item -->
-                <li class="list-group-item">
-                  <div class="mb-1">
-                    <h5 class="mb-0">Prosperops</h5>
-                    <span class="fs-5">Prosperops</span>
-                  </div>
-
-                  <div class="d-flex justify-content-between">
-                    <span class="h4 text-primary">$2500.00 USD</span>
-                    <span class="fs-5">15 Apr, 2020</span>
-                  </div>
-                </li>
-                <!-- End List Item -->
-              </ul>
-              <!-- End List Group -->
-            </div>
+          <div class="tab-content">
+            <div [ngbNavOutlet]="nav"></div>
           </div>
           <!-- End Tab Content -->
         </div>
-        <!-- End Body -->
 
-        <!-- Card Footer -->
-        <a class="card-footer text-center" href="#">
-          View all invoices <i class="bi-chevron-right"></i>
-        </a>
-        <!-- End Card Footer -->
-      </div>
-      <!-- End Card -->
+
+
+
+
     </div>
+    <!-- End Header -->
+
+    <!-- Body -->
+
+
   </div>
 
-
-
-
-
-
 </div>
+
+
+
+
 

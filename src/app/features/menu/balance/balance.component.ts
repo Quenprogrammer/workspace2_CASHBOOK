@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CurrencyPipe, NgForOf} from '@angular/common';
+import {headingTextColor} from "../../../core/system/config";
 export interface Statistic {
   value: number;
   label: string;
@@ -81,4 +82,5 @@ export class BalanceComponent implements AfterViewInit {
     this.stats=(this.credit / this.debit) * 100
   }
 
+    protected readonly headingTextColor = headingTextColor;
 }

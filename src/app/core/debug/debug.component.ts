@@ -14,10 +14,7 @@ import {NgIf} from '@angular/common';
   standalone: true,
   imports: [
 
-    NotepadComponent,
-    CalculatorComponent,
-    BackupComponent,
-    AuthComponent,
+
     ReactiveFormsModule,
     NgIf
   ],
@@ -25,6 +22,21 @@ import {NgIf} from '@angular/common';
   styleUrl: './debug.component.css'
 })
 export class DebugComponent {
+  progress = 0;
+  increaseProgress() {
+    this.progress += 10;
+    if (this.progress > 100) {
+      this.progress = 100;
+    }
+  }
+
+  ngAfterViewInit() {
+    setInterval(() => {
+      if (this.progress < 100) {
+        this.increaseProgress();
+      }
+    }, 1000);
+  }
 
   protected readonly companyName = companyName;
   protected readonly address = address;

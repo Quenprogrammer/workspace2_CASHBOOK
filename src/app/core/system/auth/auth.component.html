@@ -1,7 +1,33 @@
-<div class="container text-center mt-5">
-  <h2>Random Number Generator</h2>
-  <p class="display-4">{{ randomNumber }}</p>
-  <p>Current Interval: <strong>{{ currentInterval }} ms</strong></p>
-  <p>Total Interval: <strong>{{ totalInterval }} ms</strong></p>
-  <button class="btn btn-primary mt-3" (click)="startRandomNumberGenerator()">Restart</button>
+
+<div class="mx-auto" style="max-width: 30rem;">
+  <!-- Card -->
+  <div class="card card-lg mb-5">
+    <div class="card-body text-center">
+
+
+      <h1 class="display-5">{{ randomNumber }}</h1>
+
+      ggggggggg
+      <h1 class="display-5">{{timerId }}</h1>
+      <h1 class="display-5">{{ seconds }}</h1>
+      <div class="mb-4">
+        <label class="form-label" for="resetPasswordSrEmail" tabindex="0">Your email</label>
+
+        <input type="email" class="form-control form-control-lg" name="email" id="resetPasswordSrEmail" tabindex="1" placeholder="Enter your email address" aria-label="Enter your email address" required="">
+        <span class="invalid-feedback">Please enter a valid email address.</span>
+      </div>
+
+<div class="row">
+  <div class="col-auto"><p>Key: <strong>{{ currentInterval }} ms</strong></p></div>
+  <div class="col-auto"> <p>Interval: <strong>{{ totalInterval }} ms</strong></p></div>
+</div>
+      <div class="mt-4 mb-3">
+        <a class="btn btn-primary" href="./index.html">Skip now</a>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- End Card -->
+
 </div>

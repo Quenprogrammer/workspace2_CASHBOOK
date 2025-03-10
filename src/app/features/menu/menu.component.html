@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-auto">
-            <!-- Daterangepicker -->
+
             <button id="js-daterangepicker-predefined" class="btn btn-ghost-light btn-sm dropdown-toggle">
               <i class="bi-calendar-week"></i>
               <span class="js-daterangepicker-predefined-preview ms-1">Feb 15 - Feb 15, 2025</span>
@@ -22,10 +22,7 @@
           </div>
           <!-- End Col -->
         </div>
-        <!-- <div class="col">
-           <h1 class=" mb-1 text-white">
-           Cashbook Pro <span style="color: red; font-family: Consolas,serif"> V1.0 </span>
-         </h1></div>-->
+
         <div class="js-nav-scroller hs-nav-scroller-horizontal">
             <span class="hs-nav-scroller-arrow-prev hs-nav-scroller-arrow-dark-prev" style="display: none;">
               <a class="hs-nav-scroller-arrow-link" href="javascript:;">
@@ -66,9 +63,9 @@
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Database</span>
+                <span [style.color]="headingTextColor" class="d-block fs-6">Database</span>
                 <div class="d-flex align-items-center">
-                  <h3 class="mb-0">34,413</h3>
+                  <h3 [style.color]="headingTextColor" class="mb-0">34,413</h3>
                   <span class="badge bg-soft-success text-success ms-2">
                       <i class="bi-graph-up"></i> 12.5%
                     </span>
@@ -87,12 +84,12 @@
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Network Connection</span>
+                <span [style.color]="headingTextColor" class="d-block fs-6">Network Connection</span>
                 <div class="d--flex align-items-center">
-                  <h3 class="mb-0" *ngIf="isOnline; else offlineTemplate" >online</h3>
+                  <h3 [style.color]="headingTextColor" class="mb-0" *ngIf="isOnline; else offlineTemplate" >online</h3>
                   <div class="network-status">
                   <ng-template #offlineTemplate>
-                    <h3 class="mb-0">offline</h3>
+                    <h3 [style.color]="headingTextColor" class="mb-0">offline</h3>
                   </ng-template>
                 </div>
 
@@ -112,9 +109,9 @@
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">StandBy</span>
+                <span [style.color]="headingTextColor" class="d-block fs-6">StandBy</span>
                 <div class="d--flex align-items-center">
-                  <h3 class="mb-0"><app-stand-by></app-stand-by></h3>
+                  <h3  [style.color]="headingTextColor" class="mb-0"><app-stand-by></app-stand-by></h3>
                 </div>
               </div>
             </div>
@@ -129,9 +126,9 @@
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Authorization</span>
+                <span [style.color]="headingTextColor" class="d-block fs-6">Authorization</span>
                 <div class="d--flex align-items-center">
-                  <h3 class="mb-0"><app-access-password ></app-access-password></h3>
+                  <h3 [style.color]="headingTextColor" class="mb-0"><app-access-password ></app-access-password></h3>
                 </div>
               </div>
             </div>
@@ -159,7 +156,7 @@
 
           <div class="card-body ">
 
-            <div class="h3">
+            <div class="h3" [style.color]="headingTextColor">
 
                 <span class="badge bg-soft-info text-info rounded-pill">
                   <i class="bi-check-circle-fill me-1"></i> On track
@@ -167,48 +164,7 @@
             </div>
             <!-- End Badge -->
 
-            <div class="row row-cols-2 gx-3">
-              <div class="col mb-3">
-                <!-- Card -->
-                <div class="card card-sm card-bordered shadow-none h-100">
-                  <div class="">
-                    <h6 class="card-title">About a </h6>
-                  </div>
-
-                  <div class="card-footer pt-0">
-                    <span class="card-subtitle">43%</span>
-
-                    <div class="progress" style="height: 8px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Card -->
-              </div>
-              <!-- End Col -->
-
-              <div class="col mb-3">
-                <!-- Card -->
-                <div class="card card-sm card-bordered shadow-none h-100">
-                  <div class="">
-                    <h6 class="card-title">About a week</h6>
-                  </div>
-
-                  <div class="card-footer pt-0">
-                    <span class="card-subtitle">28%</span>
-
-                    <div class="progress" style="height: 8px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Card -->
-              </div>
-              <!-- End Col -->
-
-
-              <!-- End Col -->
-            </div>
+            <app-menu-stats></app-menu-stats>
             <hr>
 
             <app-total-credited class="my-3"></app-total-credited>
@@ -218,29 +174,9 @@
         </div>
         <!-- End Card -->
       </div>
-      <div class="col-lg-8 mb-3 mb-lg-5">
-        <!-- Card -->
-        <div class="card h-100">
+      <div class="col-lg-8 mb-3 mb-lg-5"><app-menu-items></app-menu-items></div>
 
 
-          <!-- Body -->
-          <div class="card-body card-body-height">
-            <h4 class="card-header-title mb-3">Latest transactions</h4>
-            <div class=" grid-page">
-              <div class="row">
-                <div class="col-4 col-lg-3 custom-hover" *ngFor="let item of items">
-                  <a [routerLink]="item.link" class="card-link custom-hover">
-                    <img [src]="item.icon" alt="{{ item.name }}" class="card-icon" />
-                    <p style="font-size: 14px" class="">{{ item.name }}</p>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End Body -->
-        </div>
-        <!-- End Card -->
-      </div>
 
     </div>
     <!-- End Row -->

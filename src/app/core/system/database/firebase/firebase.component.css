@@ -1,0 +1,21 @@
+.json-container {
+
+  font-family:monospace;
+  color: black !important;
+  padding: 13px !important;
+  border-radius: 5px !important;
+  overflow-x: auto !important;
+  font-size: 14px !important;
+}
+
+.imgSize{
+  width: 65px;
+  height: 65px;
+}
+.cursor-pointer {
+  cursor: pointer; /* Changes the cursor to a pointer (used for clickable items like links or buttons) */
+}
+
+.cursor-custom {
+  cursor: url('https://example.com/path/to/your/cursor.png'), auto; /* Custom cursor image */
+}
