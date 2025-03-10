@@ -16,7 +16,7 @@
 
 @media (max-width: 576px) {
   .CText{
-    font-size: 30px;
+    font-size: 18px;
   }
   .container{
     background-color: black;
@@ -42,6 +42,9 @@
   .container{
     background-color: black;
     height: 100px
+  }
+  .CText{
+    font-size: 20px;
   }
 }
 

@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {addDoc, collection, collectionData, Firestore, getDocs, query, where} from '@angular/fire/firestore';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ToastService} from '../../services/toast-services';
-import {MessageInquiries} from '../cashbook/debit/debit.component';
+import {MessageInquiries} from '../../core/system/vault/debit/debit.component';
 import {Observable} from 'rxjs';
 import {NgClass, NgIf} from '@angular/common';
 

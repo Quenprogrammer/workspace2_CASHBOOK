@@ -4,7 +4,8 @@ import { ToastService } from '../../../services/toast-services';
 import {Firestore, collection, addDoc, collectionData, getDoc, doc, updateDoc, setDoc} from '@angular/fire/firestore';
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
-import {increment} from '@angular/fire/database';
+import { increment, runTransaction } from '@angular/fire/firestore';
+
 import {StatsComponent} from '../../../shared/stats/stats.component';
 
 export interface MessageInquiries {
@@ -108,7 +109,7 @@ export class CreditComponent implements OnInit {
         } else {
           await setDoc(documentRef, { totalAmount: updatedTotalAmount });
         }
-        await this.incrementTransactionCount(this.firestore, transactionType);
+
 
         console.log(`Updated ${transactionType} total amount: ${updatedTotalAmount}`);
       } catch (error) {
@@ -121,30 +122,7 @@ export class CreditComponent implements OnInit {
     }
   }
 
-  async incrementTransactionCount(firestore: Firestore, transactionType: 'credit' | 'debit') {
-    const transactionDocRef = doc(firestore, 'transaction', 'transactionCount'); // Reference to document
 
-    try {
-      const docSnapshot = await getDoc(transactionDocRef);
-
-      if (docSnapshot.exists()) {
-        // If the document exists, increment the count
-        await updateDoc(transactionDocRef, {
-          [`${transactionType}Transaction`]: increment(1)
-        });
-      } else {
-        // If the document does not exist, create it with an initial count of 1
-        await setDoc(transactionDocRef, {
-          creditTransaction: transactionType === 'credit' ? 1 : 0,
-          debitTransaction: transactionType === 'debit' ? 1 : 0
-        });
-      }
-
-      console.log(`${transactionType} transaction count incremented successfully.`);
-    } catch (error) {
-      console.error(`Error incrementing ${transactionType} transaction count:`, error);
-    }
-  }
 
 
 

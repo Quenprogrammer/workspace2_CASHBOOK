@@ -1,14 +1,11 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { GoogleMap } from "@angular/google-maps";
+
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ToastService } from "../../services/notification/toast.service";
+
 import { addDoc, collection, collectionData, Firestore, Timestamp } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
-import {
-  LEADS_STATUS,
-  LEADS_TYPE
-} from "../property-overview/property-contact-us-leads-form/property-contact-us-leads-form.component";
+import {ToastService} from '../../../services/toast-services';
 
 interface MessageInquiries {
   firstName: string;
@@ -20,8 +17,8 @@ interface MessageInquiries {
 
 interface ContactUsLeadSubmission {
   isNew: boolean,
-  leadStatus: LEADS_STATUS,
-  type: LEADS_TYPE;
+  leadStatus: string,
+
   lead: {
     firstName: string;
     lastName: string;
@@ -38,7 +35,7 @@ interface ContactUsLeadSubmission {
   selector: 'tbr-contact-us',
   standalone: true,
   imports: [
-    GoogleMap,
+
     ReactiveFormsModule,
     NgClass,
     NgIf
@@ -81,7 +78,7 @@ export class ContactUsComponent {
       const dataToSubmit: ContactUsLeadSubmission = {
         isNew: true,
         leadStatus: 'unread',
-        type: 'contact-us',
+
         lead: {
           firstName: firstName ?? '',
           lastName: lastName ?? '',
@@ -97,23 +94,23 @@ export class ContactUsComponent {
       addDoc(this.generalMessageInquiries, dataToSubmit)
         .then(() => {
           this.isSubmitting = false;
-          this.toastService.show('Success', 'We have received your submission successfully', 'info');
-          this.scrollToElement();
+         /* this.toastService.show('Success', 'We have received your submission successfully', 'info');
+         */ this.scrollToElement();
           this.GeneralInquiriesMessage.reset();
         })
         .catch(e => {
           this.isSubmitting = false;
-          this.toastService.show('Error Message', 'Error encountered while sending message', 'danger');
-        });
+       /*   this.toastService.show('Error Message', 'Error encountered while sending message', 'danger');
+      */  });
     } else {
-      this.toastService.show('', 'Please fill in all required fields correctly.', 'danger');
-    }
+   /*   this.toastService.show('', 'Please fill in all required fields correctly.', 'danger');
+  */  }
   }
 
-  options: google.maps.MapOptions = {
+ /* options: google.maps.MapOptions = {
     center: { lat: 35.3213, lng: 33.3415 },
     zoom: 12
-  };
+  };*/
 
   get firstName() {
     return this.GeneralInquiriesMessage.get('firstName');

@@ -1,10 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {DebitComponent} from "./debit/debit.component";
 import {CreditComponent} from "./credit/credit.component";
-import {FirestoreService} from '../../services/firestore/firestore.service';
-import {NgForOf} from '@angular/common';
-import {StatsComponent} from '../../shared/stats/stats.component';
+import {address, companyName, email, phone} from '../data/companyInformation';
+import {headingTextColor} from '../../core/system/config';
+import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavOutlet} from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 
@@ -13,12 +14,14 @@ import {StatsComponent} from '../../shared/stats/stats.component';
   standalone: true,
   imports: [
     ReactiveFormsModule,
-
     FormsModule,
-    DebitComponent,
     CreditComponent,
-    NgForOf,
-    StatsComponent,
+    NgbNav,
+    NgbNavContent,
+    NgbNavItem,
+    NgbNavLink,
+    NgbNavOutlet,
+
 
   ],
   templateUrl: './cashbook.component.html',
@@ -26,4 +29,9 @@ import {StatsComponent} from '../../shared/stats/stats.component';
 })
 export class CashbookComponent {
 
+  protected readonly companyName = companyName;
+  protected readonly headingTextColor = headingTextColor;
+  protected readonly email = email;
+  protected readonly address = address;
+  protected readonly phone = phone;
 }

@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CurrencyPipe, NgForOf} from '@angular/common';
+import {headingTextColor} from "../../../core/system/config";
 export interface Statistic {
   value: number;
   label: string;
@@ -33,10 +34,11 @@ export class BalanceComponent implements AfterViewInit {
   private isAnimated: boolean = false; // Flag to check if animation has started
 
   ngAfterViewInit(): void { // Lifecycle hook properly used
-    this.createObserver();
+    /*this.createObserver();*/
     this.calculateStats()
   }
 
+/*
   private createObserver(): void {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -72,6 +74,7 @@ export class BalanceComponent implements AfterViewInit {
       }, 100); // Update every 100 milliseconds
     });
   }
+*/
 
 
   calculateStats(){
@@ -79,4 +82,5 @@ export class BalanceComponent implements AfterViewInit {
     this.stats=(this.credit / this.debit) * 100
   }
 
+    protected readonly headingTextColor = headingTextColor;
 }
