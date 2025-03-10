@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+interface FirebaseDocument {
+  totalAmount?: number;
+}
 @Injectable({
   providedIn: 'root'
 })
