@@ -1,8 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { collection, collectionData, Firestore, getCountFromServer } from '@angular/fire/firestore';
+
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
+import {TransactionsService} from '../../services/transactions/transactions.service';
+import {FirebaseDocument} from '../../services/Cumulative/totals.service';
+import {IncomeComponent} from './income/income.component';
+import {ExpensisComponent} from './expensis/expensis.component';
+import {BalanceComponent} from './balance/balance.component';
+import {StatsComponent} from './stats/stats.component';
+import {ServerComponent} from './server/server.component';
 
 interface MessageInquiries {
   id?: string;
@@ -20,57 +26,20 @@ interface MessageInquiries {
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    CurrencyPipe,
-    AsyncPipe,
-    RouterLink,
-    // Add AsyncPipe for async operations
+    IncomeComponent,
+    ExpensisComponent,
+    BalanceComponent,
+    StatsComponent,
+    ServerComponent
+
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'] // Fixed typo: styleUrl should be styleUrls
 })
 export class DashboardComponent /*implements OnInit*/ {
-  firestore: Firestore = inject(Firestore);
-  inquiriesCollection = collection(this.firestore, 'income');
+  progress1 = 33;  // Value for the first progress bar
+  progress2 = 25;  // Value for the second progress bar
 
-  inquiriesMessage$: Observable<MessageInquiries[]> = collectionData(this.inquiriesCollection, { idField: 'id' }) as Observable<MessageInquiries[]>;
-
-  totalCreditAmount: number = 0;
-  totalDebitAmount: number = 0;
-  balance: number = 0; // Add balance property
-  totalDocuments: number = 0; // Property for total document count
-  datasetSize: number = 0; // Property for dataset size
-
-  constructor() {}
-
-  ngOnInit() {
-    // Fetch total document count
-    getCountFromServer(this.inquiriesCollection).then((snapshot) => {
-      this.totalDocuments = snapshot.data().count; // Set the total document count
-      console.log('Total Documents:', this.totalDocuments); // Log total documents for debugging
-
-      // Calculate dataset size (integer division)
-      this.datasetSize = Math.floor(this.totalDocuments / 20000);
-    }).catch((error) => {
-      console.error("Error fetching document count: ", error);
-    });
-
-    // Subscribe to inquiries data for calculating totals
-    this.inquiriesMessage$.subscribe(inquiries => {
-      console.log('Inquiries:', inquiries); // Log inquiries for debugging
-
-      // Calculate total amounts for credits and debits
-      this.totalCreditAmount = inquiries
-        .filter(inquiry => inquiry.type === 'credit')
-        .reduce((sum, inquiry) => sum + (inquiry.amount || 0), 0);
-
-      this.totalDebitAmount = inquiries
-        .filter(inquiry => inquiry.type === 'debit')
-        .reduce((sum, inquiry) => sum + (inquiry.amount || 0), 0);
-
-      // Calculate the balance
-      this.balance = this.totalCreditAmount - this.totalDebitAmount;
-    });
-  }
-
-
+  // Opacity for the second progress bar
+  opacity2 = 0.6;  // Opacity of the second progress bar
 }
