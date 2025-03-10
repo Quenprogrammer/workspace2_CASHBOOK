@@ -1,0 +1,12 @@
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <h5 class="mb-2">Balance</h5>
+    <h3 [ngClass]="{'text-danger': balance < 0, 'text-success': balance >= 0}" class="card-title">
+      ₦{{ balance | number:'1.2-2' }}
+    </h3>
+  </div>
+
+  <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+    <i class="bi-percent"></i>
+  </span>
+</div>

@@ -1,34 +1,31 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {TotalsService} from '../../services/Cumulative/totals.service';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
+
 import {AsyncPipe, CurrencyPipe, KeyValuePipe, NgForOf, NgIf, TitleCasePipe} from '@angular/common';
-import {collection, collectionData, Firestore} from '@angular/fire/firestore';
+import { TransactionsService } from '../../services/transactions/transactions.service';
 interface FirebaseDocument {
-  [key: string]: any; // Allows dynamic keys
+  totalAmount?: number;
 }
+
 @Component({
   selector: 'app-total-credited',
   standalone: true,
   imports: [
-    NgIf,
-    AsyncPipe,
-    KeyValuePipe,
-
     NgForOf,
-    CurrencyPipe
+    CurrencyPipe,
+    AsyncPipe,
+    NgIf
+
   ],
   templateUrl: './total-credited.component.html',
   styleUrl: './total-credited.component.css'
 })
 export class TotalCreditedComponent implements OnInit{
-  documents: FirebaseDocument[] = [];
+  documents$: Observable<FirebaseDocument[]>;
 
-  constructor(private firestoreDataService: TotalsService) {}
-
-  ngOnInit(): void {
-    this.firestoreDataService.documents$.subscribe(data => {
-      this.documents = data;
-    });
+  constructor(private transactionService: TransactionsService) {
+    this.documents$ = this.transactionService.totalCredits$; // ✅ Subscribe to total credits
   }
+
+  ngOnInit(): void {}
 }

@@ -1,0 +1,35 @@
+
+<!-- Media -->
+<div class="d-flex" *ngIf="documents$ | async as docs; else noData">
+  <div class="flex-grow-1" *ngFor="let doc of docs">
+    <h5 class="mb-2">Expenses</h5>
+    <h3 class="card-title text-dark">  {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}</h3>
+
+    <ng-template #noData>
+      <p>No data available.</p>
+    </ng-template>
+
+    <div class="d-flex align-items-center">
+
+        <span class="badge bg-soft-success text-success ms-2">
+                    <i class="bi-graph-up"></i> 4.3%a
+                  </span>
+    </div>
+  </div>
+
+  <span class="icon icon-soft-secondary icon-sm icon-circle ms-3">
+                <i class="bi-shop"></i>
+              </span>
+</div>
+<!-- End Media -->
+
+
+
+
+
+<ng-template #noData>
+  <p>Loading..</p>
+</ng-template>
+
+<!-- End Media -->
+

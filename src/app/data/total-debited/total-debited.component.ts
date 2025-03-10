@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TransactionsService } from '../../services/transactions/transactions.service';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { AsyncPipe, CurrencyPipe, KeyValuePipe, NgForOf, NgIf } from '@angular/common';
+
+import { AsyncPipe, CurrencyPipe,  NgForOf, NgIf } from '@angular/common';
 
 interface FirebaseDocument {
   totalAmount?: number;
@@ -14,7 +14,7 @@ interface FirebaseDocument {
   imports: [
     AsyncPipe,
     CurrencyPipe,
-    KeyValuePipe,
+
     NgForOf,
     NgIf
   ],

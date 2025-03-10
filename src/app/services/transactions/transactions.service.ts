@@ -1,25 +1,83 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subject, of } from 'rxjs';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-interface FirebaseDocument {
-  totalAmount?: number;
+import { takeUntil, catchError } from 'rxjs/operators';
+
+export interface FirebaseDocument {
+    id?: string;
+    totalAmount?: number; // Standardized for both debits and credits
 }
+
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class TransactionsService {
+export class TransactionsService implements OnDestroy {
+    private totalDebitSubject = new BehaviorSubject<FirebaseDocument[]>([]);
+    totalDebits$ = this.totalDebitSubject.asObservable();
 
-  private totalDebitSubject = new BehaviorSubject<FirebaseDocument[]>([]);
-  totalDebits$ = this.totalDebitSubject.asObservable(); // ✅ Exposed Observable
+    private totalCreditSubject = new BehaviorSubject<FirebaseDocument[]>([]);
+    totalCredits$ = this.totalCreditSubject.asObservable();
 
-  constructor(private firestore: Firestore) {
-    this.loadTotalDebits(); // Fetch and listen for updates
-  }
+    private balanceSubject = new BehaviorSubject<number>(0);
+    balance$ = this.balanceSubject.asObservable();
 
-  private loadTotalDebits(): void {
-    const colRef = collection(this.firestore, 'totalDebit'); // ✅ Ensure this collection exists
-    collectionData(colRef).subscribe((data: FirebaseDocument[]) => {
-      this.totalDebitSubject.next(data); // ✅ Updates the BehaviorSubject
-    });
-  }
+    private profitPercentageSubject = new BehaviorSubject<number>(0);
+    profitPercentage$ = this.profitPercentageSubject.asObservable();
+
+    private unsubscribe$ = new Subject<void>();
+
+    constructor(private firestore: Firestore) {
+        this.loadTotalDebits();
+        this.loadTotalCredits();
+    }
+
+    private loadTotalDebits(): void {
+        const colRef = collection(this.firestore, 'totalDebit');
+        collectionData(colRef, { idField: 'id' })
+            .pipe(
+                takeUntil(this.unsubscribe$),
+                catchError((error) => {
+                    console.error('Error fetching totalDebits:', error);
+                    return of([]); // Ensures subscription doesn't fail
+                })
+            )
+            .subscribe((data: FirebaseDocument[]) => {
+                this.totalDebitSubject.next(data);
+                this.calculateBalanceAndProfit();
+            });
+    }
+
+    private loadTotalCredits(): void {
+        const colRef = collection(this.firestore, 'totalCredit');
+        collectionData(colRef, { idField: 'id' })
+            .pipe(
+                takeUntil(this.unsubscribe$),
+                catchError((error) => {
+                    console.error('Error fetching totalCredits:', error);
+                    return of([]); // Ensures subscription doesn't fail
+                })
+            )
+            .subscribe((data: FirebaseDocument[]) => {
+                this.totalCreditSubject.next(data);
+                this.calculateBalanceAndProfit();
+            });
+    }
+
+    private calculateBalanceAndProfit(): void {
+        const totalDebits = this.totalDebitSubject.getValue().reduce((sum, item) => sum + (item.totalAmount || 0), 0);
+        const totalCredits = this.totalCreditSubject.getValue().reduce((sum, item) => sum + (item.totalAmount || 0), 0);
+
+        // ✅ Corrected Balance Calculation
+        const balance = totalCredits - totalDebits;
+        this.balanceSubject.next(balance);
+
+        // ✅ Corrected Profit Percentage Calculation
+        const profitPercentage = totalDebits > 0 ? ((totalCredits - totalDebits) / totalDebits) * 100 : 0;
+        this.profitPercentageSubject.next(profitPercentage);
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
 }
