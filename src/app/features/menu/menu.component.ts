@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { MENU_ITEMS, MenuItem } from './menuData';
+
 import { NetworkService } from '../../services/network.service';
 
 import { AccessPasswordComponent } from './access-password/access-password.component';
@@ -10,23 +10,29 @@ import { StandByComponent } from './stand-by/stand-by.component';
 import {BalanceComponent} from './balance/balance.component';
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
 import {TotalDebitedComponent} from '../../data/total-debited/total-debited.component';
+import {headingTextColor} from "../../core/system/config";
+import {MenuStatsComponent} from './menu-stats/menu-stats.component';
+
+import {TimeComponent} from './time/time.component';
+import {MenuItemsComponent} from './menu-items/menu-items.component';
 
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
-    NgForOf,
-    RouterLink,
 
     AccessPasswordComponent,
     StandByComponent,
 
     NgIf,
-    BalanceComponent,
-    CurrencyPipe,
+
     TotalCreditedComponent,
     TotalDebitedComponent,
+    MenuStatsComponent,
+
+
+    MenuItemsComponent,
 
   ],
   templateUrl: './menu.component.html',
@@ -67,6 +73,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  items: MenuItem[] = MENU_ITEMS; // Ensure the type is correct
 
+    protected readonly headingTextColor = headingTextColor;
 }

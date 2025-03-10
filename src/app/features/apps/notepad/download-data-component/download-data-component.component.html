@@ -1,0 +1,15 @@
+<div class="row g-2 align-items-center">
+  <div class="col-auto">
+    <!-- Select -->
+    <select class="form-select form-select-sm" [(ngModel)]="selectedFormat">
+      <option value="text" selected>Text</option>
+      <option value="json">JSON</option>
+    </select>
+    <!-- End Select -->
+  </div>
+  <div class="col-auto">
+    <!-- Button -->
+    <button type="button" class="btn btn-outline-primary" (click)="downloadFile()">Download</button>
+    <!-- End Button -->
+  </div>
+</div>

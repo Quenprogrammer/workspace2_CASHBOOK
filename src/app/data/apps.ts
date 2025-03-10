@@ -1,8 +1,65 @@
-import {crypto, path} from '../core/system/variables/globalVariables';
+import { path} from '../core/system/variables/globalVariables';
 
+interface info{name:string; sn:string; link:string; image:string; }
 
+export const banks:info[] = [
+  {
+  name: "Fidelity",
+  sn: "14",
+  link: "https://www.fidelity.com",
+  image: path + "fidelity.png"
+},
+  {
+  name: "First Bank",
+  sn: "15",
+  link: "https://www.firstbanknigeria.com",
+  image: path + "firstBank.png"
+},
+  {
+    name: "GT Bank",
+    sn: "18",
+    link: "https://www.gtbank.com",
+    image: path + "gtbank.png"
+  },
+  {
+    name: "Jaiz Bank",
+    sn: "19",
+    link: "https://jaizbankplc.com",
+    image: path + "jaizbank.png"
+  },
+  {
+    name: "Kuda",
+    sn: "21",
+    link: "https://www.kuda.com",
+    image: path + "kuda.jpg"
+  },
+  {
+    name: "Opay",
+    sn: "27",
+    link: "https://www.opayweb.com",
+    image: path + "opay.png"
+  },
+  {
+    name: "Palmpay",
+    sn: "28",
+    link: "https://www.palmpay.com",
+    image: path + "palmpay.jpg"
+  },
+  {
+    name: "Unity Bank",
+    sn: "37",
+    link: "https://www.unitybankng.com",
+    image: path + "unitybank.png"
+  },
+  {
+    name: "Zenith Bank",
+    sn: "41",
+    link: "https://www.zenithbank.com",
+    image: path + "zenithBank.png"
+  }
+]
 
-export const paymentChannels = [
+export const paymentChannels:info[] = [
   {
     name: "Alipay",
     sn: "1",
@@ -21,6 +78,53 @@ export const paymentChannels = [
     link: "https://www.apple.com/apple-pay/",
     image: path + "ApplePay.jpg"
   },
+  {
+    name: "Fortmatic",
+    sn: "16",
+    link: "https://fortmatic.com",
+    image: path + "Fortmatic.png"
+  },
+  {
+    name: "Google Pay",
+    sn: "17",
+    link: "https://pay.google.com",
+    image: path + "googlepay.png"
+  },
+  {
+    name: "PayPal",
+    sn: "30",
+    link: "https://www.paypal.com",
+    image: path + "PayPal.png"
+  },
+  {
+    name: "Square",
+    sn: "31",
+    link: "https://squareup.com",
+    image: path + "Square.png"
+  },
+  {
+    name: "Stripe",
+    sn: "32",
+    link: "https://stripe.com",
+    image: path + "Stripe.png"
+  },
+  {
+    name: "Venmo",
+    sn: "38",
+    link: "https://www.venmo.com",
+    image: path + "Venmo.jpg"
+  },
+  {
+    name: "WhatsApp Pay",
+    sn: "39",
+    link: "https://www.whatsapp.com/payments",
+    image: path + "Whatsapp.png"
+  },
+];
+
+
+export const cryptoCurrency:info[] =[
+
   {
     name: "Binance",
     sn: "4",
@@ -82,52 +186,10 @@ export const paymentChannels = [
     image: path + "ExodusWallet.jpg"
   },
   {
-    name: "Fidelity",
-    sn: "14",
-    link: "https://www.fidelity.com",
-    image: path + "fidelity.png"
-  },
-  {
-    name: "First Bank",
-    sn: "15",
-    link: "https://www.firstbanknigeria.com",
-    image: path + "firstBank.png"
-  },
-  {
-    name: "Fortmatic",
-    sn: "16",
-    link: "https://fortmatic.com",
-    image: path + "Fortmatic.png"
-  },
-  {
-    name: "Google Pay",
-    sn: "17",
-    link: "https://pay.google.com",
-    image: path + "googlepay.png"
-  },
-  {
-    name: "GT Bank",
-    sn: "18",
-    link: "https://www.gtbank.com",
-    image: path + "gtbank.png"
-  },
-  {
-    name: "Jaiz Bank",
-    sn: "19",
-    link: "https://jaizbankplc.com",
-    image: path + "jaizbank.png"
-  },
-  {
     name: "Klarna",
     sn: "20",
     link: "https://www.klarna.com",
     image: path + "Klarna.png"
-  },
-  {
-    name: "Kuda",
-    sn: "21",
-    link: "https://www.kuda.com",
-    image: path + "kuda.jpg"
   },
   {
     name: "KuCoin",
@@ -160,40 +222,10 @@ export const paymentChannels = [
     image: path + "okx.png"
   },
   {
-    name: "Opay",
-    sn: "27",
-    link: "https://www.opayweb.com",
-    image: path + "opay.png"
-  },
-  {
-    name: "Palmpay",
-    sn: "28",
-    link: "https://www.palmpay.com",
-    image: path + "palmpay.jpg"
-  },
-  {
     name: "Payoneer",
     sn: "29",
     link: "https://www.payoneer.com",
     image: path + "Payoneer.jpg"
-  },
-  {
-    name: "PayPal",
-    sn: "30",
-    link: "https://www.paypal.com",
-    image: path + "PayPal.png"
-  },
-  {
-    name: "Square",
-    sn: "31",
-    link: "https://squareup.com",
-    image: path + "Square.png"
-  },
-  {
-    name: "Stripe",
-    sn: "32",
-    link: "https://stripe.com",
-    image: path + "Stripe.png"
   },
   {
     name: "TradingView",
@@ -214,39 +246,11 @@ export const paymentChannels = [
     image: path + "trustvolt.png"
   },
   {
-    name: "Trust Wallet",
-    sn: "36",
-    link: "https://trustwallet.com",
-    image: path + "TrustWallet.jpg"
-  },
-  {
-    name: "Unity Bank",
-    sn: "37",
-    link: "https://www.unitybankng.com",
-    image: path + "unitybank.png"
-  },
-  {
-    name: "Venmo",
-    sn: "38",
-    link: "https://www.venmo.com",
-    image: path + "Venmo.jpg"
-  },
-  {
-    name: "WhatsApp Pay",
-    sn: "39",
-    link: "https://www.whatsapp.com/payments",
-    image: path + "Whatsapp.png"
-  },
-  {
     name: "Zengo",
     sn: "40",
     link: "https://zengo.com",
     image: path + "zengo.png"
   },
-  {
-    name: "Zenith Bank",
-    sn: "41",
-    link: "https://www.zenithbank.com",
-    image: path + "zenithBank.png"
-  }
-];
+
+
+]

@@ -20,11 +20,15 @@
             </div>
           </div>
 
-
-          <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
-                  [attr.aria-expanded]="!isCollapsed">Advance Search
-          </button>
-        </div>
+<div class="row">
+  <div class="col-auto g-1">  <button type="button" class="btn-style btn btn-primary btn-lg" (click)="collapse.toggle()"
+                               [attr.aria-expanded]="!isCollapsed">Advance Search
+  </button>
+  </div>
+  <div class="col-auto g-1"> <button class="btn-style btn btn-primary btn-lg">Download Data</button>
+  </div>
+</div>
+                </div>
 
       </form>
       <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
@@ -43,8 +47,8 @@
     </div>
   </div>
 
-  <div class="container ">
-    <div class="card mb-4">
+  <div class=" ">
+    <div class=" mb-4">
       <div class="table-responsive mb-4">
         <table class="table table-bordered table-hover text-center">
           <thead class="thead-light">

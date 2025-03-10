@@ -4,12 +4,15 @@ import {addDoc, collection, Firestore, Timestamp} from "@angular/fire/firestore"
 @Injectable({
   providedIn: 'root'
 })
+
 export class NotificationService {
+
+
 
   constructor(private firestore: Firestore) {}
 
-  async addUser(name: string, age: number, address: string) {
-    const colRef = collection(this.firestore, 'users'); // Firestore collection name
+  async addUser(user: string, status: string, operation: string) {
+    const colRef = collection(this.firestore, 'Notifications'); // Firestore collection name
 
     const now = new Date();
 
@@ -19,9 +22,9 @@ export class NotificationService {
     }).format(now).replace(',', ''); // Removes unnecessary comma
 
     const userData = {
-      name,
-      age,
-      address,
+      user,
+      status,
+      operation,
       date: formattedDate, // Example: "Monday-26 January 2025"
       time: now.toLocaleTimeString(), // Example: "10:30:15 AM"
       timestamp: Timestamp.now() // Firestore server timestamp
