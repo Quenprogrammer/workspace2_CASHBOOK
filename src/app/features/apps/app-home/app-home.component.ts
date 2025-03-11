@@ -7,6 +7,9 @@ import {FormsModule} from '@angular/forms';
 import {path} from '../../../core/system/variables/globalVariables';
 import {paymentChannels} from '../../../data/apps';
 import {TruncateTextPipe} from '../../../shared/truncate-text-pipe/truncate-text.pipe';
+import {SideBarComponent} from '../components/side-bar/side-bar.component';
+import {NotepadComponent} from '../notepad/notepad.component';
+import {RouterLink} from '@angular/router';
 
 
 @Component({
@@ -19,7 +22,10 @@ import {TruncateTextPipe} from '../../../shared/truncate-text-pipe/truncate-text
     FormsModule,
     NgIf,
     NgForOf,
-    TruncateTextPipe
+    TruncateTextPipe,
+    SideBarComponent,
+    NotepadComponent,
+    RouterLink
   ],
   templateUrl: './app-home.component.html',
   styleUrl: './app-home.component.css',
@@ -30,11 +36,16 @@ export class AppHomeComponent {
   constructor() {}
 
   images = [
-    { id: 1, src: 'apps/alipay.png', alt: 'Image 1', title: 'Payment Methods' },
-    { id: 2, src: 'apps/alipay.png', alt: 'Image 2', title: 'CryptoCurrency' },
-    { id: 3, src: 'apps/alipay.png', alt: 'Image 3', title: 'Commercial Banks' },
-    { id: 4, src: 'apps/alipay.png', alt: 'Image 4', title: 'Modal 4' },
-    { id: 5, src: 'apps/alipay.png', alt: 'Image 5', title: 'Modal 5' }
+    { id: 1, src: 'apps/icons/paymentMethod.svg', alt: 'Image 1', title: 'Payment Methods' },
+    { id: 2, src: 'apps/icons/cryptoCurrency.svg', alt: 'Image 2', title: 'CryptoCurrency' },
+    { id: 3, src: 'apps/icons/bank.svg', alt: 'Image 3', title: 'Commercial Banks' },
+    { id: 4, src: 'apps/icons/calender.svg', alt: 'Image 4', title: 'Calender' },
+    { id: 4, src: 'apps/icons/drive.svg', alt: 'Image 4', title: 'Modal 4' },
+    { id: 5, src: 'apps/icons/', alt: 'Image 5', title: 'Modal 5' }
+  ];
+  inBuild=[
+    {name:'Notepad', link:'/notepad', logo:'apps/icons/notepad.svg'},
+    {name:'Calculator', link:'/calculator', logo:'apps/icons/calculator.svg'},
   ];
 
   isModalOpen = false;

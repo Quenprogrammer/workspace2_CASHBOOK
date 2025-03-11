@@ -5,7 +5,7 @@
       <div class=" grid-page">
         <div class="row">
           @for(item of MENU_ITEMS; track item.name){
-          <div class="col-4 col-lg-3 custom-hover">
+          <div class="col-4 col-lg-2 custom-hover">
             <a [routerLink]="item.link" class="card-link custom-hover">
               <img [src]="item.icon" alt="{{ item.name }}" class="card-icon"/>
               <p [style.color]="headingTextColor" style="font-size: 14px" class="">{{ item.name }}</p>

@@ -34,6 +34,7 @@ export class MenuItemsComponent {
     { name: 'Settings', icon: 'system-settings-svgrepo-com.svg', link: '/settings' },
     { name: 'API Interface', icon: 'api-interface-svgrepo-com.svg', link: '/statUp' },
     { name: 'Logs', icon: 'availability-svgrepo-com.svg', link: '/logs' },
+    { name: 'Whatsapp', icon: 'apps/Whatsapp.png', link: '/logs' },
 
 
 

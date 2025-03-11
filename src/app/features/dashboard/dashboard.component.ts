@@ -9,6 +9,7 @@ import {ExpensisComponent} from './expensis/expensis.component';
 import {BalanceComponent} from './balance/balance.component';
 import {StatsComponent} from './stats/stats.component';
 import {ServerComponent} from './server/server.component';
+import {TaxCalculatorComponent} from '../apps/tax-calculator/tax-calculator.component';
 
 interface MessageInquiries {
   id?: string;
@@ -30,7 +31,8 @@ interface MessageInquiries {
     ExpensisComponent,
     BalanceComponent,
     StatsComponent,
-    ServerComponent
+    ServerComponent,
+    TaxCalculatorComponent
 
   ],
   templateUrl: './dashboard.component.html',

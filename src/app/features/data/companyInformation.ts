@@ -4,6 +4,7 @@ export const industry = "Technology";
 export const address = " Danladi Nasidi Estate Mariri Kano";
 export const founded = "2019";
 export const headquarters = "Kano State, Kumbotso";
+export const logo= "bg/logo.png";
 
 export const website = "https://www.techinnovations.com";
 export const CEOName = "Abdullahi Sidi Jinjiri";
