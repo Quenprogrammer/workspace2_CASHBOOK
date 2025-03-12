@@ -1,0 +1,78 @@
+<!-- Button to open modal -->
+<button (click)="openModal()" class="btn btn-primary">Open Modal</button>
+
+<!-- Modal -->
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+
+
+
+        <div class=" mx-lg-auto">
+          <!-- Card -->
+          @for(explanation of explanations; track explanation.title){
+          <div class="card mb-5">
+            <div class="card-body">
+              <div class="row col-md-divider align-items-md-center">
+
+                  <!-- Card -->
+
+                <div class="col-md-12 mb-4">
+
+                    <div class="">
+                      <h2 class="text-center"> {{explanation.title}}</h2>
+
+                      <h5 class="mt-4">        Description</h5>
+                      <p style="margin-top:-10px">         {{explanation.description}}</p>
+
+                      <h5 class="mt-3">        Importance</h5>
+                      <p style="margin-top:-10px">        {{explanation.importance}}</p>
+
+                      <h5 class="mt-3">        Impacts</h5>
+
+                      <p style="margin-top:-10px" >       {{explanation.impact}}</p>
+
+                      <h5 class="mt-3">        recommendation</h5>
+                      <p style="margin-top:-10px" >       {{explanation.recommendation}}</p>
+                      <ul class="list-checked list-checked-bg-success list-checked-sm mb-0">
+                        <li class="list-checked-item" *ngFor="let point of explanation.keyPoints">{{ point }}</li>
+                      </ul>
+                    </div>
+
+
+
+                  <!-- End Row -->
+                </div>
+                <!-- End Col -->
+
+            <!--    <div class="col-md-3">
+                  <div class="ps-md-2">
+                    <h4>KeyPoints</h4>
+
+                    <ul class="list-checked list-checked-bg-success list-checked-sm mb-0">
+                      <li class="list-checked-item" *ngFor="let point of explanation.keyPoints">{{ point }}</li>
+                    </ul>
+
+
+
+
+                  </div>
+                </div>-->
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+            </div>
+          </div>
+          <!-- End Card -->
+          }
+
+      <!-- End Card -->
+
+
+
+
+
+
+
+
+        </div></div></div>

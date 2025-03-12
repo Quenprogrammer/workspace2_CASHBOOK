@@ -15,3 +15,50 @@
   background-color: black;
   transition: width 0.5s ease-in-out;
 }
+
+
+
+
+
+
+
+
+
+.windowsbutton {
+  width: 100%; /* Make the button fill the div */
+  padding: 10px; /* Optional: add padding for better button appearance */
+  font-size: 16px; /* Optional: adjust font size */
+  background-color: #007bff; /* Optional: button background color */
+  color: white; /* Optional: text color */
+  border: none; /* Optional: remove border */
+  cursor: pointer; /* Optional: change the cursor on hover */
+}
+
+/* Optional: Style for hover effect */
+.windowsbutton:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+.btn-small{
+  height:120px;
+}
+.btn-big{
+  height:247px;
+}
+
+
+.btn-xSmall{
+  height:50px;
+}
+
+
+.container {
+  height: 100vh; /* 80% of viewport height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+  border: 1px solid #ccc; /* Optional: Add a border around the container */
+  padding: 10px; /* Optional: Add some padding inside the container */
+}
+html, body {
+  height: 100%;
+  margin: 0; /* Remove any default margin */
+}

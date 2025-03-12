@@ -8,6 +8,7 @@ import {BackupComponent} from '../../features/data/backup/backup.component';
 import {AuthComponent} from '../system/auth/auth.component';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import {TaxCalculatorComponent} from '../../features/apps/tax-calculator/tax-calculator.component';
 
 @Component({
   selector: 'app-debug',
@@ -16,7 +17,8 @@ import {NgIf} from '@angular/common';
 
 
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    TaxCalculatorComponent
   ],
   templateUrl: './debug.component.html',
   styleUrl: './debug.component.css'

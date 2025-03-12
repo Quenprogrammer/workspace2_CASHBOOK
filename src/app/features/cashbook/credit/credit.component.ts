@@ -7,6 +7,8 @@ import { NgClass, NgIf } from "@angular/common";
 
 
 import {StatsComponent} from '../../../shared/stats/stats.component';
+import {TruncateTextPipe} from "../../../shared/truncate-text-pipe/truncate-text.pipe";
+import {ShareComponent} from './share/share.component';
 
 export interface MessageInquiries {
   date: string;
@@ -26,12 +28,15 @@ export interface MessageInquiries {
     ReactiveFormsModule,
     NgIf,
     NgClass,
-    StatsComponent
+    StatsComponent,
+    TruncateTextPipe,
+    ShareComponent
   ],
   templateUrl: './credit.component.html',
   styleUrls: ['./credit.component.scss']
 })
 export class CreditComponent implements OnInit {
+
   inquiriesMessage$: Observable<MessageInquiries[]>;
   generalMessageInquiries: any; // Moved declaration here
 

@@ -1,3 +1,38 @@
+<div class="container">
+  <h2>Live Search in Angular 18</h2>
+
+  <input
+    type="text"
+    class="form-control mb-3"
+    [formControl]="searchControl"
+    placeholder="Search routes..."
+  />
+
+  <div *ngIf="filteredRoutes.length > 0" class="row">
+    <div class="col-4 col-md-2 mb-3" *ngFor="let route of filteredRoutes">
+      <a [routerLink]="route.path" class="text-decoration-none ">
+        <div class="card text-white text-center mx-auto rounded-2 shadow-md">
+          <img
+            *ngIf="route.logo"
+            [src]="'sitemap/' + route.logo"
+            class="card-img-top img-map mt-2 mx-auto"
+            alt="{{ route.name }}"
+          />
+          <div class=" p-1">
+            <p class="card-title text-primary ">{{ route.name }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <p *ngIf="filteredRoutes.length === 0">No results found.</p>
+</div>
+
+
+
+
+
 <div class="content container-fluid">
 
 <main id="content1" role="main" class="bg-light">
@@ -64,7 +99,7 @@
                       <div class="col-4 col-md-3 d-flex flex-column align-items-center justify-content-center">
                        <a [routerLink]="items.path">
                         <img src="logos/logs.svg" class="img-fluid" style="width: 80px; height: 80px">
-                        <h6 class="text-center">{{items.name | truncateText:10}}</h6>
+                        <!--<h6 class="text-center">{{items.name | truncateText:10}}</h6>-->
                        </a>
                       </div>
 

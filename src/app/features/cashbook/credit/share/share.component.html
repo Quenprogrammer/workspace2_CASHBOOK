@@ -1,0 +1,46 @@
+<!--
+<button (click)="openModal()" class="btn btn-outline-primary btn-sm">
+  <i class="bi-share-fill"></i> Share
+</button>
+
+&lt;!&ndash; Modal Overlay &ndash;&gt;
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+    </div>
+
+    &lt;!&ndash; Modal Body &ndash;&gt;
+    <div class="modal-body">
+      <div class="text-center">
+        <h2>Share Link via Socials</h2>
+      </div>
+
+      &lt;!&ndash; Social Media Buttons &ndash;&gt;
+      <div class="d-grid gap-2">
+        <button *ngFor="let social of socialMedia"
+                (click)="window.open(social.url + encodeURIComponent(currentPageUrl), '_blank')"
+                class="btn btn-sm btn-light d-flex align-items-center justify-content-center">
+          <i [class]="social.icon + ' me-2'"></i> {{ social.name }}
+        </button>
+      </div>
+
+      &lt;!&ndash; Copy Link Section &ndash;&gt;
+      <div class="mb-3 mt-3">
+        <div class="input-group input-group-merge">
+          <input type="text" [value]="currentPageUrl" class="form-control" readonly>
+          <button (click)="copyToClipboard()" type="button" class="btn btn-primary btn-sm btn-lg">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    &lt;!&ndash; Modal Footer &ndash;&gt;
+    <div class="modal-footer d-block text-center py-sm-5">
+      @if (showSuccessMessage()) {
+        <p class="text-success py-2 mb-4">Successfully copied share URL.</p>
+      }
+      <small class="text-cap mb-4">Tibet Realty Co.</small>
+    </div>
+  </div>
+</div>
+-->

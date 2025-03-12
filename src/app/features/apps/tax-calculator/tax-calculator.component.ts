@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {AsyncPipe, DecimalPipe} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {DecimalPipe, NgIf} from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {HintComponent} from './hint/hint.component';
 
 @Component({
   selector: 'app-tax-calculator',
@@ -8,27 +9,20 @@ import {FormsModule} from '@angular/forms';
   imports: [
     DecimalPipe,
     FormsModule,
-    AsyncPipe
+    NgIf,
+    HintComponent
   ],
   templateUrl: './tax-calculator.component.html',
   styleUrl: './tax-calculator.component.css'
 })
 export class TaxCalculatorComponent {
 
-  depositPercentage: number = 25;
- propertyPrices: number = 25;
-  interestRate: number = 3.5;
-  amortizationYears: number = 25;
+  propertyPrice: number = 8999000; // Example default property price
+  depositPercentage: number = 25;  // Default deposit percentage
+  interestRate: number = 3.5;      // Default interest rate
+  amortizationYears: number = 25;  // Default amortization period (years)
 
-  get propertyPrice(): number {
-    if (!this.propertyPrices) return 0;
-
-    // Ensure it's a number (Remove € symbol and commas)
-    let price = this.propertyPrices.toString().replace(/[€,]/g, '');
-    return parseFloat(price) || 0;
-  }
-
-
+  // Computed Properties
   get depositAmount(): number {
     return (this.propertyPrice * this.depositPercentage) / 100;
   }
@@ -59,5 +53,9 @@ export class TaxCalculatorComponent {
       return this.loanAmount / totalPayments;
     }
     return (this.loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
+  }
+
+  updateCalculations() {
+    // This method is triggered on input changes to refresh computed values
   }
 }
