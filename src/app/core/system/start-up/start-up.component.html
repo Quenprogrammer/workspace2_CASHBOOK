@@ -5,7 +5,7 @@
 
       <div class="col-auto">
         <div class="d-none d-lg-block">
-          <a class="btn btn-soft-light btn-sm" href="#">Log out</a>
+          <a class="btn btn-soft-danger btn-sm" href="#">Exit</a>
         </div>
 
         <!-- Responsive Toggle Button -->
@@ -72,7 +72,124 @@
 
               <span id="progress-percentage display-5">{{ progress }}%</span>
             </div>
+            <!-- Card -->
+            <div class="">
 
+
+              <!-- Body -->
+              <div class="">
+                <!-- Nav Scroller -->
+                <div class="js-nav-scroller hs-nav-scroller-horizontal">
+      <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+        <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+          <i class="bi-chevron-left"></i>
+        </a>
+      </span>
+
+                  <span class="hs-nav-scroller-arrow-next" style="display: none;">
+        <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+          <i class="bi-chevron-right"></i>
+        </a>
+      </span>
+
+                  <!-- Nav -->
+                  <ul class="nav nav-segment nav-fill mb-7" id="featuresTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" href="#accountOrdersOne" id="accountOrdersOne-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersOne" role="tab" aria-controls="accountOrdersOne" aria-selected="true">Orders</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" href="#accountOrdersTwo" id="accountOrdersTwo-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersTwo" role="tab" aria-controls="accountOrdersTwo" aria-selected="false">Open Orders</a>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" href="#accountOrdersThree" id="accountOrdersThree-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersThree" role="tab" aria-controls="accountOrdersThree" aria-selected="false">Canceled Orders</a>
+                    </li>
+                  </ul>
+                  <!-- End Nav -->
+                </div>
+                <!-- End Nav Scroller -->
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="accountOrdersTabContent">
+                  <div class="tab-pane fade show active" id="accountOrdersOne" role="tabpanel" aria-labelledby="accountOrdersOne-tab">
+
+
+                    <ul class="list-unstyled mb-5">
+                      <!-- Card -->
+                      <li class="card card-bordered shadow-none mb-3">
+                        <div class="card-body">
+
+
+                          <hr>
+
+                          <div class="row">
+                            <div class="col-md-8">
+                              <h5>It's delivered!</h5>
+
+                              <div class="row gx-2">
+                                <div class="col">
+                                  <img class="img-fluid" src="../assets/img/380x360/img6.jpg" alt="Image Description">
+                                </div>
+                                <div class="col">
+                                  <img class="img-fluid" src="../assets/img/380x360/img4.jpg" alt="Image Description">
+                                </div>
+                                <div class="col">
+                                  <img class="img-fluid" src="../assets/img/380x360/img5.jpg" alt="Image Description">
+                                </div>
+                              </div>
+                              <!-- End Row -->
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="d-grid gap-2">
+                                <a class="btn btn-white btn-sm" href="#">
+                                  <i class="bi-basket small me-2"></i> View order
+                                </a>
+                                <a class="btn btn-white btn-sm" href="#">
+                                  <i class="bi-truck small me-2"></i> Track order
+                                </a>
+                                <a class="btn btn-white btn-sm" href="#">
+                                  <i class="bi-arrow-counterclockwise small me-2"></i> Return item
+                                </a>
+                                <a class="btn btn-primary btn-sm" href="#">Buy it again</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <!-- End Card -->
+
+
+                    </ul>
+
+                  </div>
+
+                  <div class="tab-pane fade" id="accountOrdersTwo" role="tabpanel" aria-labelledby="accountOrdersTwo-tab">
+                    <!-- Empty State -->
+                    <div class="text-center content-space-1">
+                      <img class="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-state-no-data.svg" alt="Image Description">
+                      <p class="card-text">No data to show</p>
+                      <a class="btn btn-white btn-sm" href="#">Start shopping</a>
+                    </div>
+                    <!-- End Empty State -->
+                  </div>
+
+                  <div class="tab-pane fade" id="accountOrdersThree" role="tabpanel" aria-labelledby="accountOrdersThree-tab">
+                    <!-- Empty State -->
+                    <div class="text-center content-space-1">
+                      <img class="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-state-no-data.svg" alt="Image Description">
+                      <p class="card-text">No data to show</p>
+                      <a class="btn btn-white btn-sm" href="#">Start shopping</a>
+                    </div>
+                    <!-- End Empty State -->
+                  </div>
+                </div>
+                <!-- End Tab Content -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
           </div>
           <!-- End Form -->
         </div>

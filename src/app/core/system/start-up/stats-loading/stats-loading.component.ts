@@ -1,42 +1,35 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { NgForOf } from '@angular/common';
+
 export interface Statistic {
   value: number;
-  icon:  number | string;
+  icon: string;
   label: string;
   classStyle: string;
-  animatedValue?: number; // Optional property for animated value
+  animatedValue?: number;
+  duration?: number; // Unique duration for each stat
+  interval?: number; // Unique interval for each stat
 }
+
 @Component({
   selector: 'app-stats-loading',
   standalone: true,
-  imports: [
-    NgForOf
-  ],
+  imports: [NgForOf],
   templateUrl: './stats-loading.component.html',
-  styleUrl: './stats-loading.component.css'
+  styleUrls: ['./stats-loading.component.css']
 })
-export class StatsLoadingComponent /*implements AfterViewInit*/ {
-  progress = 'h';
+export class StatsLoadingComponent implements AfterViewInit {
   @ViewChild('statisticsSection') statisticsSection!: ElementRef;
+  progress = 'h';
 
   statistics: Statistic[] = [
-    { value: 6, label: 'People certifies', icon:'bagauda school of fishiries/icons/programs.svg',classStyle:'bi-person fs-1 text-primary' },
-    { value: 20, label: 'Courses Uploaded', icon:'bagauda school of fishiries/icons/lab.svg',classStyle:'bi-clock-history fs-1 text-primary' },
-    /* { value: +40, label: 'Green House' },*/
-    /* { value: 50, label: 'Academic staffs' },
-     { value: +19, label: 'Azin Fish pounds' },
-     { value: +5, label: 'Concrete Fish ponds' },*/
-    { value: +20, label: 'Completed Projects',icon: 'bagauda school of fishiries/icons/nursery.svg' , classStyle:'bi-files-alt fs-1 text-primary'},
-    /* { value: +5, label: 'Fish Hatching Lab' },*/
-    { value: 800, label: 'Student Enrollment',icon:'bagauda school of fishiries/icons/student.svg', classStyle:'bi-pie-chart fs-1 text-primary' },
-    /*    { value: 1, label: 'Campus' },*/
-    /*{ value: 3, label: 'Standard Cafteria' } ,*/
-
-
+    { value: 20000, label: 'Records', icon: 'assets/icons/programs.svg', classStyle: 'bi-person fs-1 text-primary', duration: 5000, interval: 10 },
+    { value: 200, label: 'Storage', icon: 'assets/icons/lab.svg', classStyle: 'bi-clock-history fs-1 text-primary', duration: 4000, interval: 20 },
+    { value: 650, label: 'Speed', icon: 'assets/icons/nursery.svg', classStyle: 'bi-files-alt fs-1 text-primary', duration: 3000, interval: 15 },
+    { value: 800, label: 'CRUD Operations', icon: 'assets/icons/student.svg', classStyle: 'bi-pie-chart fs-1 text-primary', duration: 3500, interval: 12 }
   ];
 
-  private isAnimated: boolean = false; // Flag to check if animation has started
+  private isAnimated: boolean = false;
 
   ngAfterViewInit(): void {
     this.createObserver();
@@ -46,35 +39,38 @@ export class StatsLoadingComponent /*implements AfterViewInit*/ {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !this.isAnimated) {
-          this.animateStatistics(); // Start the animation
-          this.isAnimated = true; // Set the flag to true to avoid re-triggering
-          observer.unobserve(entry.target); // Stop observing once the animation starts
+          this.animateStatistics();
+          this.isAnimated = true;
+          observer.unobserve(entry.target);
         }
       });
     });
 
-    observer.observe(this.statisticsSection.nativeElement); // Observe the section
+    observer.observe(this.statisticsSection.nativeElement);
   }
 
   private animateStatistics(): void {
-    const duration = 8000; // Increased duration to 6000 ms (6 seconds)
     this.statistics.forEach(stat => {
-      stat.animatedValue = 0; // Initialize animatedValue to 0
+      stat.animatedValue = 0;
       const total = stat.value;
-      const increment = Math.ceil(total / (duration / 100)); // Increment value
+      const duration = stat.duration ?? 5000; // Default to 5000ms if not set
+      const intervalTime = stat.interval ?? 10; // Default to 10ms if not set
+
+      const steps = duration / intervalTime;
+      const increment = Math.ceil(total / steps);
       let current = 0;
 
       const interval = setInterval(() => {
         if (current < total) {
-          current += increment; // Increase current value
+          current += increment;
           if (current > total) {
-            current = total; // Ensure it does not exceed the total
+            current = total;
           }
-          stat.animatedValue = current; // Update animatedValue
+          stat.animatedValue = current;
         } else {
-          clearInterval(interval); // Clear interval when done
+          clearInterval(interval);
         }
-      }, 100); // Update every 100 milliseconds
+      }, intervalTime);
     });
   }
 }
