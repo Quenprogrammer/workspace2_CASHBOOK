@@ -40,12 +40,14 @@ export class AppHomeComponent {
     { id: 2, src: 'apps/icons/cryptoCurrency.svg', alt: 'Image 2', title: 'CryptoCurrency' },
     { id: 3, src: 'apps/icons/bank.svg', alt: 'Image 3', title: 'Commercial Banks' },
     { id: 4, src: 'apps/icons/calender.svg', alt: 'Image 4', title: 'Calender' },
-    { id: 4, src: 'apps/icons/drive.svg', alt: 'Image 4', title: 'Modal 4' },
-    { id: 5, src: 'apps/icons/', alt: 'Image 5', title: 'Modal 5' }
+    { id: 5, src: 'apps/icons/drive.svg', alt: 'Image 4', title: 'Drive' },
+
   ];
   inBuild=[
     {name:'Notepad', link:'/notepad', logo:'apps/icons/notepad.svg'},
     {name:'Calculator', link:'/calculator', logo:'apps/icons/calculator.svg'},
+    {name:'Google', link:'/google', logo:'apps/icons/calculator.svg'},
+    {name:'Microsoft', link:'/microsoft', logo:'apps/icons/calculator.svg'},
   ];
 
   isModalOpen = false;
@@ -341,8 +343,16 @@ export class AppHomeComponent {
 
         break;
       case 4:
-        this.modalTitle = 'Modal 4 Title';
+        this.modalTitle = 'Social media';
         this.modalContent = [
+          { name: "Facebook", sn: "1", link: "https://www.facebook.com", image: path + 'facebook-svgrepo-com.svg' }, { name: "WhatsApp", sn: "3", link: "https://www.whatsapp.com", image: path + 'whatsapp-128-svgrepo-com.svg' },
+          { name: "Instagram", sn: "4", link: "https://www.instagram.com", image: path + 'instagram-svgrepo-com.svg' },
+          { name: "Twitter", sn: "5", link: "https://www.twitter.com", image: path + 'twitter-svgrepo-com.svg' },
+          { name: "TikTok", sn: "6", link: "https://www.tiktok.com", image: path + 'tiktok-svgrepo-com.svg' },
+          { name: "Snapchat", sn: "7", link: "https://www.snapchat.com", image: path + 'snapchat-square-svgrepo-com.svg' },
+          { name: "LinkedIn", sn: "8", link: "https://www.linkedin.com", image: path + 'linkedin-svgrepo-com.svg' },
+          { name: "Discord", sn: "9", link: "https://www.discord.com", image: path + 'discord-svgrepo-com.svg' },
+          { name: "GitHub", sn: "10", link: "https://www.github.com", image: path + 'github-142-svgrepo-com.svg' }
 
         ];
         break;

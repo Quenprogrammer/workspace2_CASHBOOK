@@ -1,0 +1,30 @@
+<div class="row  " #statisticsSection>
+<div class="col-6 col-md-3 d-flex justify-content-end" *ngFor="let stat of statistics; let i = index">
+  <!-- Stats -->
+  <div class="d-lg-flex align-items-md-center mx-auto ">
+    <div class="flex-shrink-0">
+      <i [class]="stat.classStyle"></i>
+    </div>
+
+    <div class="flex-grow-1 ms-lg-3">
+      <span class="d-block fs-6">{{ stat.label || 0 }}</span>
+      <div class="d-flex align-items-center">
+        <h3 class="mb-0">{{ stat.animatedValue || 0 }}</h3>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Stats -->
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

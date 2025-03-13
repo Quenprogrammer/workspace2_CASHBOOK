@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { MicrosoftComponent } from './microsoft.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('MicrosoftComponent', () => {
+  let component: MicrosoftComponent;
+  let fixture: ComponentFixture<MicrosoftComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      imports: [MicrosoftComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(MicrosoftComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

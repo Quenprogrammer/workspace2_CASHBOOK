@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {AimsTagComponent} from '../system/aims-tag/aims-tag.component';
 
 import {address, companyName, email, phone} from '../../features/data/companyInformation';
 import {NotepadComponent} from '../../features/apps/notepad/notepad.component';
@@ -17,8 +16,7 @@ import {TaxCalculatorComponent} from '../../features/apps/tax-calculator/tax-cal
 
 
     ReactiveFormsModule,
-    NgIf,
-    TaxCalculatorComponent
+
   ],
   templateUrl: './debug.component.html',
   styleUrl: './debug.component.css'

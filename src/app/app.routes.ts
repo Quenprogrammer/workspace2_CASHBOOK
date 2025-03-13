@@ -6,9 +6,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/menu',
+    redirectTo: '/start',
   },
 
+  {path: 'start', loadComponent: () => import ('./core/system/start-up/start-up.component').then(c => c.StartUpComponent)},
 
 
   {path: 'debug', loadComponent: () => import ('./core/debug/debug.component').then(c => c.DebugComponent)},
@@ -21,8 +22,7 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
    {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
   {path: 'users', loadComponent: () => import ('./features/users/users.component').then(c => c.UsersComponent)},
-  {path: 'addContacts', loadComponent: () => import ('./features/contacts/contacts.component').then(c => c.ContactsComponent)},
-  {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
+    {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
   {path: 'tax', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
   {path: 'notepad', loadComponent: () => import ('./features/apps/notepad/notepad.component').then(c => c.NotepadComponent)},
   {path: 'calculator', loadComponent: () => import ('./features/apps/calculator/calculator.component').then(c => c.CalculatorComponent)},
@@ -31,7 +31,6 @@ export const routes: Routes = [
   {path: 'records', loadComponent: () => import ('./features/records/records-main/records-main.component').then(c => c.RecordsMainComponent)},
   {path: 'company', loadComponent: () => import ('./features/company/company-profile/company-profile.component').then(c => c.CompanyProfileComponent)},
   {path: 'transaction-history', loadComponent: () => import ('./features/transaction-history/transaction-history.component').then(c => c.TransactionHistoryComponent)},
-   {path: 'payment', loadComponent: () => import ('./core/system/payment-form/payment-form.component').then(c => c.PaymentFormComponent)},
   {path: 'backupData', loadComponent: () => import ('./features/data/backup/backup.component').then(c => c.BackupComponent)},
   {path: 'backupDataPassword', loadComponent: () => import ('./features/data/backup-data-password/backup-data-password.component').then(c => c.BackupDataPasswordComponent)},
   {path: 'createUser', loadComponent: () => import ('./features/create-user/create-user.component').then(c => c.CreateUserComponent)},

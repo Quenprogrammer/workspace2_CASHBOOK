@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy, TemplateRef, inject} from '@angular/core';
 import {DatePipe, NgIf} from '@angular/common';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import {AimsTagComponent} from '../aims-tag/aims-tag.component';
+
 
 @Component({
   selector: 'app-invalid-account',
@@ -10,7 +10,6 @@ import {AimsTagComponent} from '../aims-tag/aims-tag.component';
   imports: [
     NgIf,
     FormsModule,
-    AimsTagComponent
   ],
   templateUrl: './invalid-account.component.html',
   styleUrls: ['./invalid-account.component.css'],

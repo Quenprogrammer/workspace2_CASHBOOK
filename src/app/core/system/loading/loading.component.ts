@@ -8,7 +8,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import {Router, RouterLink} from '@angular/router';
 import {NgIf} from '@angular/common';
-import {AimsTagComponent} from '../aims-tag/aims-tag.component';
+
 
 @Component({
   selector: 'app-loading',
@@ -19,8 +19,7 @@ import {AimsTagComponent} from '../aims-tag/aims-tag.component';
     NgbDropdownMenu,
     RouterLink,
     NgbDropdownItem,
-    NgIf,
-    AimsTagComponent
+    NgIf
   ],
   templateUrl: './loading.component.html',
   styleUrl: './loading.component.css'
