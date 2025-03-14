@@ -9,7 +9,7 @@ import { StandByComponent } from './stand-by/stand-by.component';
 
 import {BalanceComponent} from './balance/balance.component';
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
-import {TotalDebitedComponent} from '../../data/total-debited/total-debited.component';
+
 import {headingTextColor} from "../../core/system/config";
 import {MenuStatsComponent} from './menu-stats/menu-stats.component';
 
@@ -28,7 +28,7 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
     NgIf,
 
     TotalCreditedComponent,
-    TotalDebitedComponent,
+
     MenuStatsComponent,
 
 
@@ -39,6 +39,8 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
+  isModal1Open = false;
+  isModal2Open = false;
   isOnline: boolean = true;
   currentDate: string;
   currentTime: string = ''; // Initialize as an empty string
@@ -75,4 +77,5 @@ export class MenuComponent implements OnInit, OnDestroy {
 
 
     protected readonly headingTextColor = headingTextColor;
+
 }

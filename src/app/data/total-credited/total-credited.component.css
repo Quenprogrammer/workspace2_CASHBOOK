@@ -1,0 +1,46 @@
+/*
+!* Basic styles for the statistics cards and progress bars *!
+.statistics-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.stat-card {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  height: 20px;
+  margin-top: 10px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.bg-success {
+  background-color: #28a745;
+}
+
+.bg-danger {
+  background-color: #dc3545;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+*/

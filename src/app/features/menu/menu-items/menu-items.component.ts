@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {headingTextColor} from '../../../core/system/config';
+import {NgIf} from "@angular/common";
 export interface MenuItem {
   name: string;
   icon: string; // This should be a string representing the URL to the icon
@@ -9,13 +10,15 @@ export interface MenuItem {
 @Component({
   selector: 'app-menu-items',
   standalone: true,
-  imports: [
-    RouterLink
-  ],
+    imports: [
+        RouterLink,
+        NgIf
+    ],
   templateUrl: './menu-items.component.html',
   styleUrl: './menu-items.component.css'
 })
 export class MenuItemsComponent {
+
   MENU_ITEMS: MenuItem[] = [
     { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
     { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },

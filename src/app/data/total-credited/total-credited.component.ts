@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-
-import {AsyncPipe, CurrencyPipe, KeyValuePipe, NgForOf, NgIf, TitleCasePipe} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TransactionsService } from '../../services/transactions/transactions.service';
+import {AsyncPipe, CurrencyPipe, NgClass, NgForOf, NgIf, PercentPipe} from '@angular/common';
+import { combineLatest } from 'rxjs';
+
 interface FirebaseDocument {
   totalAmount?: number;
 }
@@ -10,22 +11,50 @@ interface FirebaseDocument {
 @Component({
   selector: 'app-total-credited',
   standalone: true,
-  imports: [
-    NgForOf,
-    CurrencyPipe,
-    AsyncPipe,
-    NgIf
-
-  ],
   templateUrl: './total-credited.component.html',
-  styleUrl: './total-credited.component.css'
+  imports: [NgIf, CurrencyPipe, AsyncPipe, NgForOf, NgClass, PercentPipe],  // Ensure these imports are correct
+  styleUrls: ['./total-credited.component.css']
 })
-export class TotalCreditedComponent implements OnInit{
-  documents$: Observable<FirebaseDocument[]>;
+export class TotalCreditedComponent implements OnInit {
+  income$: Observable<FirebaseDocument[]>;  // Observable for income data
+  expenses$: Observable<FirebaseDocument[]>; // Observable for expenses data
+  totalAmount: number = 0;                  // Variable to store the combined total
+  credit: number = 0;                       // Variable to store the combined income total
+  debit: number = 0;                        // Variable to store the combined expenses total
+  netBalance: number = 0;                   // Variable to store net balance (Income - Expenses)
+  profitMargin: number = 0;                 // Variable to store profit margin
+  expenseToIncomeRatio: number = 0;         // Variable to store expense-to-income ratio
+  savings: number = 0;                      // Variable to store savings (surplus or deficit)
 
   constructor(private transactionService: TransactionsService) {
-    this.documents$ = this.transactionService.totalCredits$; // ✅ Subscribe to total credits
+    this.income$ = this.transactionService.totalCredits$;  // Getting income data
+    this.expenses$ = this.transactionService.totalDebits$;  // Getting expenses data
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Combine both observables and subscribe
+    combineLatest([this.income$, this.expenses$]).subscribe(([incomeDocs, expenseDocs]) => {
+      const totalIncome = incomeDocs.reduce((sum, doc) => sum + (doc.totalAmount || 0), 0);
+      const totalExpenses = expenseDocs.reduce((sum, doc) => sum + (doc.totalAmount || 0), 0);
+
+      // Store total income and expenses
+      this.credit = totalIncome;
+      this.debit = totalExpenses;
+
+      // Calculate total balance (income + expenses)
+      this.totalAmount = totalIncome + totalExpenses;
+
+      // Calculate net balance (income - expenses)
+      this.netBalance = totalIncome - totalExpenses;
+
+      // Calculate profit margin (profit margin = (income - expenses) / income)
+      this.profitMargin = totalIncome > 0 ? (this.netBalance / totalIncome) : 0;
+
+      // Calculate expense-to-income ratio (expenses / income)
+      this.expenseToIncomeRatio = totalIncome > 0 ? (totalExpenses / totalIncome) : 0;
+
+      // Calculate savings (net balance)
+      this.savings = this.netBalance;
+    });
+  }
 }

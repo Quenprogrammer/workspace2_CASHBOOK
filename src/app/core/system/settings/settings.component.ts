@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
 export class SettingsComponent {
+  isModal1Open = false;
+  isModal2Open = false;
+  isModal3Open = false;
+  isModal4Open = false;
  settings: {name: string; link: string; logo: string; hint: string}[] = [
     {
       name: "Add User",

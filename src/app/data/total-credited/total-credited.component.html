@@ -1,17 +1,130 @@
-<div class="my-5">
-  <h3 class="text-center">Cumulative Income</h3>
 
-  <div *ngIf="documents$ | async as docs; else noData">
-    <div *ngFor="let doc of docs">
-      <h1 class="text-center" style="color: green; font-family: monospace">
-        {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
-      </h1>
+<div class="col-12 mb-2">
+  <!-- Card -->
+  <div class="card  card-bordered shadow-none h-100" *ngIf="income$ | async as docs; else noData">
+    <div class="text-primary p-3" *ngFor="let doc of docs">
+      <h3 class="card-title ">Income </h3>
+      <div class="progress" style="height: 15px;">
+        <div class="progress-bar bg-dark" role="progressbar" style="width: 43%" aria-valuenow="43"
+             aria-valuemin="0" aria-valuemax="100"></div>
+
+      </div>
+      <div class="row mt-2">
+
+        <div class="col-auto d-flex justify-content-center"><h2 style="font-family: Arial, sans-serif; font-size: 24px;">43%</h2></div>
+        <div class="col-auto ms-auto">
+          <h2 style="font-family: Arial, sans-serif; font-size: 24px;">
+            {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
+          </h2>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- End Card -->
+</div>  <ng-template #noData>
+  <div class="text-center mt-3">
+    <p>No data available.</p>
+  </div>
+</ng-template>
+<div class="col-12 mb-2">
+  <!-- Card -->
+  <div class="card  card-bordered shadow-none h-100" *ngIf="expenses$ | async as docs; else noData">
+    <div class="text-primary p-3" *ngFor="let doc of docs">
+      <h3 class="card-title ">Expenses </h3>
+      <div class="progress" style="height: 15px;">
+        <div class="progress-bar bg-dark" role="progressbar" style="width: 43%" aria-valuenow="43"
+             aria-valuemin="0" aria-valuemax="100"></div>
+
+      </div>
+      <div class="row mt-2">
+
+        <div class="col-auto d-flex justify-content-center"><h2 style="font-family: Arial, sans-serif; font-size: 24px;">43%</h2></div>
+        <div class="col-auto ms-auto">
+          <h2 style="font-family: Arial, sans-serif; font-size: 24px;">
+            {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
+          </h2>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- End Card -->
+</div>  <ng-template #noData>
+  <div class="text-center mt-3">
+    <p>No data available.</p>
+  </div>
+</ng-template>
+<div class="col-12 mb-2">
+  <div class="card card-bordered shadow-none h-100">
+    <div class="text-primary p-3">
+      <h3 class="card-title">Total Income + Expenses</h3>
+      <h2 style="font-family: Arial, sans-serif; font-size: 24px;">
+        {{ totalAmount  }}
+        {{ credit  }}
+        {{ debit  }}
+      </h2>
     </div>
   </div>
+</div>
 
-  <ng-template #noData>
-    <div class="text-center mt-3">
-      <p>No data available.</p>
+<div class="statistics-container">
+  <!-- Total Income -->
+  <div class="stat-card">
+    <h3>Total Income</h3>
+    <h2>{{ credit | currency: '₦' : 'symbol' }}</h2>
+  </div>
+
+  <!-- Total Expenses -->
+  <div class="stat-card">
+    <h3>Total Expenses</h3>
+    <h2>{{ debit | currency: '₦' : 'symbol' }}</h2>
+  </div>
+
+  <!-- Net Balance (Profit or Loss) -->
+  <div class="stat-card">
+    <h3>Net Balance</h3>
+    <h2>{{ netBalance | currency: '₦' : 'symbol' }}</h2>
+    <div class="progress">
+      <div class="progress-bar" [ngClass]="{'bg-success': netBalance > 0, 'bg-danger': netBalance < 0}"
+           [style.width]="netBalance > 0 ? '100%' : '50%'"></div>
     </div>
-  </ng-template>
+    <p>{{ netBalance > 0 ? 'Profit' : 'Loss' }}</p>
+  </div>
+
+  <!-- Profit Margin -->
+  <div class="stat-card">
+    <h3>Profit Margin</h3>
+    <h2>{{ profitMargin | percent: '1.0-2' }}</h2>
+  </div>
+
+  <!-- Expense to Income Ratio -->
+  <div class="stat-card">
+    <h3>Expense-to-Income Ratio</h3>
+    <h2>{{ expenseToIncomeRatio | percent: '1.0-2' }}</h2>
+  </div>
+
+  <!-- Savings (Surplus/Deficit) -->
+  <div class="stat-card">
+    <h3>Savings (Surplus/Deficit)</h3>
+    <h2>{{ savings | currency: '₦' : 'symbol' }}</h2>
+    <p>{{ savings > 0 ? 'Surplus' : 'Deficit' }}</p>
+  </div>
+</div>
+<!-- Monthly Average Income and Expenses -->
+<div class="stat-card">
+  <h3>Monthly Average Income</h3>
+  <h2>{{ (credit / 12) | currency: '₦' : 'symbol' }}</h2>
+
+  <h3>Monthly Average Expenses</h3>
+  <h2>{{ (debit / 12) | currency: '₦' : 'symbol' }}</h2>
+</div>
+
+<!-- Debt vs Total Income -->
+<div class="stat-card">
+  <h3>Debt vs Total Income</h3>
+  <h2>Debt: {{ debit | currency: '₦' : 'symbol' }}</h2>
+  <h2>Debt-to-Income Ratio: {{ (debit / credit) * 100 | percent: '1.0-2' }}</h2>
 </div>
