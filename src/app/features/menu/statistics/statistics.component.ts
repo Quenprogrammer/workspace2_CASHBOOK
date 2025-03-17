@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TransactionsService } from '../../services/transactions/transactions.service';
-import {AsyncPipe, CurrencyPipe, DecimalPipe, NgClass, NgForOf, NgIf, PercentPipe} from '@angular/common';
+import { TransactionsService } from '../../../services/transactions/transactions.service';
+import {AsyncPipe, CurrencyPipe, NgClass, NgForOf, NgIf, PercentPipe} from '@angular/common';
 import { combineLatest } from 'rxjs';
 
 interface FirebaseDocument {
   totalAmount?: number;
 }
-
 @Component({
-  selector: 'app-total-credited',
+  selector: 'app-statistics',
   standalone: true,
-  templateUrl: './total-credited.component.html',
-  imports: [NgIf, CurrencyPipe, AsyncPipe, NgForOf, NgClass, PercentPipe, DecimalPipe],  // Ensure these imports are correct
-  styleUrls: ['./total-credited.component.css']
+  imports: [
+    AsyncPipe,
+    CurrencyPipe,
+    NgForOf,
+    NgIf,
+    PercentPipe,
+    NgClass
+  ],
+  templateUrl: './statistics.component.html',
+  styleUrl: './statistics.component.css'
 })
-export class TotalCreditedComponent implements OnInit {
-  isLoading: boolean = true;  // To handle loading state
+export class StatisticsComponent {
   income$: Observable<FirebaseDocument[]>;  // Observable for income data
   expenses$: Observable<FirebaseDocument[]>; // Observable for expenses data
   totalAmount: number = 0;                  // Variable to store the combined total
@@ -26,8 +31,7 @@ export class TotalCreditedComponent implements OnInit {
   profitMargin: number = 0;                 // Variable to store profit margin
   expenseToIncomeRatio: number = 0;         // Variable to store expense-to-income ratio
   savings: number = 0;                      // Variable to store savings (surplus or deficit)
-creditPercentage:number=0;
-debitPercentage:number=0;
+
   constructor(private transactionService: TransactionsService) {
     this.income$ = this.transactionService.totalCredits$;  // Getting income data
     this.expenses$ = this.transactionService.totalDebits$;  // Getting expenses data
@@ -45,8 +49,7 @@ debitPercentage:number=0;
 
       // Calculate total balance (income + expenses)
       this.totalAmount = totalIncome + totalExpenses;
-      this.creditPercentage=(this.credit/this.totalAmount)*100
-      this.debitPercentage=(this.debit/this.totalAmount)*100
+
       // Calculate net balance (income - expenses)
       this.netBalance = totalIncome - totalExpenses;
 
@@ -58,8 +61,6 @@ debitPercentage:number=0;
 
       // Calculate savings (net balance)
       this.savings = this.netBalance;
-
-      this.isLoading = false;
     });
   }
 }

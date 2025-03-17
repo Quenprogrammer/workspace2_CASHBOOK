@@ -1,5 +1,5 @@
-export const headingTextColor='white';
-export const textColor='white';
-export const textFontSize='white';
-export const headingFontSize='white';
+export const headingTextColor='black';
+export const textColor='black';
+export const textFontSize='14px';
+export const fontFamily='consolas';
 export const backgroundColor='white';

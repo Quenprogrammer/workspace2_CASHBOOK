@@ -1,64 +1,33 @@
-<div class="container">
-  <h2>Live Search in Angular 18</h2>
-
-  <input
-    type="text"
-    class="form-control mb-3"
-    [formControl]="searchControl"
-    placeholder="Search routes..."
-  />
-
-  <div *ngIf="filteredRoutes.length > 0" class="row">
-    <div class="col-4 col-md-2 mb-3" *ngFor="let route of filteredRoutes">
-      <a [routerLink]="route.path" class="text-decoration-none ">
-        <div class="card text-white text-center mx-auto rounded-2 shadow-md">
-          <img
-            *ngIf="route.logo"
-            [src]="'sitemap/' + route.logo"
-            class="card-img-top img-map mt-2 mx-auto"
-            alt="{{ route.name }}"
-          />
-          <div class=" p-1">
-            <p class="card-title text-primary ">{{ route.name }}</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <p *ngIf="filteredRoutes.length === 0">No results found.</p>
-</div>
 
 
-
-
-
-<div class="content container-fluid">
-
-<main id="content1" role="main" class="bg-light">
+<main id="content" role="main" class="bg-light">
   <!-- Breadcrumb -->
-
-  <div class="navbar-dark bg-black" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
-    <div class="container content-space-1 content-space-b-lg-2">
+  <div class="navbar-dark bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-1 content-space-b-lg-3">
       <div class="row align-items-center">
         <div class="col">
           <div class="d-none d-lg-block">
-            <h1 class="h2 text-white">Cashbook Records</h1>
+            <h1 class="h2 text-white">Personal info</h1>
           </div>
 
-
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-light mb-0">
+              <li class="breadcrumb-item">Account</li>
+              <li class="breadcrumb-item active" aria-current="page">Personal Info</li>
+            </ol>
+          </nav>
           <!-- End Breadcrumb -->
         </div>
         <!-- End Col -->
 
         <div class="col-auto">
           <div class="d-none d-lg-block">
-            <a class="btn btn-danger" routerLink="/menu">Close</a>
+            <a class="btn btn-soft-light btn-sm" href="#">Log out</a>
           </div>
 
           <!-- Responsive Toggle Button -->
-          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav"
-                  aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-default">
                 <i class="bi-list"></i>
               </span>
@@ -75,76 +44,48 @@
   </div>
   <!-- End Breadcrumb -->
 
-  <!-- Content -->
-  <div class="container  content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+  <!-- Content Section -->
+  <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
     <div class="row">
 
+      <!-- End Col -->
 
       <div class="col-lg-12">
-        <div class="d-grid gap-3 gap-lg-5">
-          <!-- Card -->
+        <div class="">
+          <h2>Live Search in Angular 18</h2>
+
+          <input
+            type="text"
+            class="form-control mb-3"
+            [formControl]="searchControl"
+            placeholder="Search routes..."
+          />
           <div class="card">
-            <div class="container content-space-1 content-space-lg-3">
-              <!-- Heading -->
-              <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-                <h2>3 comments</h2>
-              </div>
-              <!-- End Heading -->
-
-              <div class="row justify-content-lg-center">
-                <div class="col-lg-8">
-
-                  <div class="row">
-                    @for(items of siteMap;track items.name){
-                      <div class="col-4 col-md-3 d-flex flex-column align-items-center justify-content-center">
-                       <a [routerLink]="items.path">
-                        <img src="logos/logs.svg" class="img-fluid" style="width: 80px; height: 80px">
-                        <!--<h6 class="text-center">{{items.name | truncateText:10}}</h6>-->
-                       </a>
-                      </div>
-
-                    }
+            <div *ngIf="filteredRoutes.length > 0" class="row">
+              <div class="col-4 col-md-2 mb-3" *ngFor="let route of filteredRoutes">
+                <a [routerLink]="route.path" class="text-decoration-none ">
+                  <div class="card text-white text-center mx-auto rounded-2 shadow-md">
+                    <img
+                      *ngIf="route.logo"
+                      [src]="'sitemap/' + route.logo"
+                      class="card-img-top img-map mt-2 mx-auto"
+                      alt="{{ route.name }}"
+                    />
+                    <div class=" p-1">
+                      <p class="card-title text-primary ">{{ route.name }}</p>
+                    </div>
                   </div>
-
-
-
-
-
-
-                </div>
-                <!-- End Col -->
+                </a>
               </div>
-              <!-- End Row -->
-            </div>
-            <div class="mt-3 mb-0" style="margin: 10px">
-
-              <!-- End Row -->
-
-
-              <!-- End Progress -->
-
-
             </div>
 
+            <p *ngIf="filteredRoutes.length === 0">No results found.</p>
           </div>
-          <!-- End Body -->
-
-          <!-- Footer -->
-
-          <!-- End Footer -->
         </div>
-        <!-- End Card -->
-
-
       </div>
+      <!-- End Col -->
     </div>
-    <!-- End Col -->
+    <!-- End Row -->
   </div>
-  <!-- End Row -->
-
-  <!-- End Content -->
+  <!-- End Content Section -->
 </main>
-
-
-
-</div>

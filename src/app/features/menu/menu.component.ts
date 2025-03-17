@@ -39,8 +39,7 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  isModal1Open = false;
-  isModal2Open = false;
+
   isOnline: boolean = true;
   currentDate: string;
   currentTime: string = ''; // Initialize as an empty string

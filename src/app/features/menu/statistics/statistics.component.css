@@ -1,0 +1,44 @@
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 16px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.stat-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.stat-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.stat-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+.progress {
+  height: 20px;
+  margin-top: 8px;
+}
+.progress-bar {
+  transition: width 0.4s ease;
+}
+.text-primary {
+  color: #007bff;
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: #6c757d;
+}

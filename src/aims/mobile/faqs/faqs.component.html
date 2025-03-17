@@ -1,0 +1,47 @@
+<main id="content" role="main">
+  <!-- Hero -->
+  <div class="bg-img-start bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="container content-space-t-3 content-space-t-lg-5 content-space-b-2">
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto">
+        <h1 class="text-white">FAQ</h1>
+        <p class="text-white">Search our FAQ for answers to anything you might ask.</p>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero -->
+
+  <!-- FAQ -->
+  <div class="container content-space-2 content-space-b-lg-3">
+    <div class="w-lg-75 mx-lg-auto">
+      <div class="d-grid gap-10">
+        <div class="d-grid gap-3">
+
+          <!-- Accordion -->
+          @for(item of qas; track item;let  i = $index){
+            <div ngbAccordion class="accordion accordion-flush accordion-lg" id="accordionFAQBasics">
+            <!-- Accordion Item -->
+            <div ngbAccordionItem class="accordion-item" [collapsed]="i !==0">
+              <div ngbAccordionHeader class="accordion-header" id="headingBasicsOne">
+                <button ngbAccordionButton class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasicsOne" aria-expanded="false" aria-controls="collapseBasicsOne">
+                  {{item.question}}
+                </button>
+              </div>
+              <div ngbAccordionCollapse id="collapseBasicsOne" class="accordion-collapse collapse" aria-labelledby="headingBasicsOne" data-bs-parent="#accordionFAQBasics" style="">
+                <div ngbAccordionBody class="accordion-body">
+                  <p [innerHTML]="item.answer | replaceLineBreaks"></p>
+                </div>
+              </div>
+            </div>
+            <!-- End Accordion Item -->
+
+
+          </div>}
+          <!-- End Accordion -->
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- End FAQ -->
+</main>

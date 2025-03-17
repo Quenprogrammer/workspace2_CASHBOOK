@@ -29,9 +29,9 @@
 /* Close button for the modal */
 .close {
   position: absolute;
-  top: -20px;
+  top: -25px;
   right: 10px;
-  font-size: 50px;
+  font-size: 55px;
   cursor: pointer;
   color: red;
   margin-top: 15px;
