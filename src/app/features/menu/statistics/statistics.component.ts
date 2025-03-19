@@ -3,6 +3,10 @@ import { Observable } from 'rxjs';
 import { TransactionsService } from '../../../services/transactions/transactions.service';
 import {AsyncPipe, CurrencyPipe, NgClass, NgForOf, NgIf, PercentPipe} from '@angular/common';
 import { combineLatest } from 'rxjs';
+import {DashChartComponent} from './dash-chart/dash-chart.component';
+import {ExpenseTotalncomeRatioComponent} from './expense-totalncome-ratio/expense-totalncome-ratio.component';
+import {OthersComponent} from './others/others.component';
+import {OverviewComponent} from './overview/overview.component';
 
 interface FirebaseDocument {
   totalAmount?: number;
@@ -16,7 +20,11 @@ interface FirebaseDocument {
     NgForOf,
     NgIf,
     PercentPipe,
-    NgClass
+    NgClass,
+    DashChartComponent,
+    ExpenseTotalncomeRatioComponent,
+    OthersComponent,
+    OverviewComponent
   ],
   templateUrl: './statistics.component.html',
   styleUrl: './statistics.component.css'

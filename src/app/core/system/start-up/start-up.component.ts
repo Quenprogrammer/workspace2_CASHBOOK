@@ -35,7 +35,6 @@ export class StartUpComponent implements AfterViewInit {
     }]
   };
 
-
   drawChart() {
     const ctx = this.lineChart.nativeElement.getContext('2d');
     ctx.beginPath();
@@ -61,12 +60,16 @@ export class StartUpComponent implements AfterViewInit {
 
   path:string='homeScreen/'
   statMenu=[
-    { name: 'Contact Us', icon: this.path +'contactus.svg', link: '/cashbook' },
-    { name: 'FAQ', icon: this.path+'faq.svg', link: '/cashbook' },
+    { name: 'Contact Us', icon: this.path +'contactus.svg', link: '/contactUs' },
+    { name: 'FAQ', icon: this.path+'faq.svg', link: '/FAQ' },
     { name: 'Privacy', icon: this.path+'privacy.svg', link: '/cashbook' },
     { name: 'Services', icon: this.path+'services.svg', link: '/cashbook' },
-    { name: 'Subscription', icon: this.path+'subscription.svg', link: '/cashbook' },
-    { name: 'Terms', icon: this.path+'terms.svg', link: '/cashbook' },
+    { name: 'Subscription', icon: this.path+'subscription.svg', link: '/subscription' },
+    { name: 'Terms', icon: this.path+'terms.svg', link: '/terms' },
+    { name: 'services', icon: this.path+'configurations.svg', link: '/services' },
+    { name: 'technology', icon: this.path+'storage1.svg', link: '/technology' },
+    { name: 'Industries', icon: this.path+'invoice1.svg', link: '/industry' },
+
 
   ]
   progress = 0;

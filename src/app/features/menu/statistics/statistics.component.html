@@ -1,3 +1,21 @@
+
+<main id="content" role="main" class="main">
+  <!-- Content -->
+  <div class="content container ">
+
+
+    <app-dash-chart></app-dash-chart>
+    <app-overview></app-overview>
+    <app-expense-totalncome-ratio></app-expense-totalncome-ratio>
+
+    <!-- Card -->
+    <app-others></app-others>
+    <!-- End Card -->
+  </div>
+  <!-- End Content -->
+
+</main>
+
 <div class="col-12 mb-2">
   <!-- Income Card -->
   <div class="card card-bordered shadow-none h-100" *ngIf="income$ | async as docs; else noData">

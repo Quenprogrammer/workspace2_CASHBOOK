@@ -5,7 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { addDoc, collection, collectionData, Firestore, Timestamp } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
-import {ToastService} from '../../../services/toast-services';
+import {ToastService} from '../../app/services/toast-services';
 
 interface MessageInquiries {
   firstName: string;
