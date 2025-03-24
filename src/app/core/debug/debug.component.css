@@ -1,6 +1,7 @@
 #container {
-
-  text-align: center;
+  display: block;
+  width: max-content;
+  white-space: normal;
 }
 #progress-bar {
   width: 100%;

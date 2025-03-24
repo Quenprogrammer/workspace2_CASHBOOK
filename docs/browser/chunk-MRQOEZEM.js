@@ -1,0 +1,1 @@
+import{$ as o}from"./chunk-QLK2YSBK.js";var a=class e{toasts=[];show(s,t,r){this.toasts.push({header:s,body:t,type:r})}remove(s){this.toasts=this.toasts.filter(t=>t!==s)}clear(){this.toasts.splice(0,this.toasts.length)}static \u0275fac=function(t){return new(t||e)};static \u0275prov=o({token:e,factory:e.\u0275fac,providedIn:"root"})};export{a};

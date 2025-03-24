@@ -1,7 +1,7 @@
 
   <div class="card h-100">
     <div class="card-body card-body-height">
-      <h4 class="card-header-title mb-3" [style.color]="headingTextColor">Latest transactions</h4>
+      <h4 class="card-header-title mb-3" >Latest transactions</h4>
 
 
       <div class=" grid-page">
@@ -30,7 +30,7 @@
             <div class="col-4 col-lg-2 custom-hover">
               <a (click)="isModal2Open = true" class="card-link custom-hover">
                 <img src="item.icon" alt=" item.name " class="card-icon"/>
-                <app-text [text]="'others'"></app-text>
+                <app-text [text]="'Payment'"></app-text>
               </a>
             </div>
 
@@ -224,66 +224,7 @@
         <div class="modal-content">
           <span class="close" (click)="isModal2Open = false">&times;</span>
           <h2>Modal 2</h2>
-          <div class="card">
-            <div class="card-header border-bottom">
-              <h5 class="card-header-title">Password</h5>
-            </div>
 
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Form -->
-              <form>
-                <!-- Form -->
-                <div class="row mb-4">
-                  <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
-
-                  <div class="col-sm-9">
-                    <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
-                  </div>
-                </div>
-                <!-- End Form -->
-
-                <!-- Form -->
-                <div class="row mb-4">
-                  <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
-
-                  <div class="col-sm-9">
-                    <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
-                  </div>
-                </div>
-                <!-- End Form -->
-
-                <!-- Form -->
-                <div class="row mb-4">
-                  <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
-
-                  <div class="col-sm-9">
-                    <div class="mb-3">
-                      <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
-                    </div>
-
-                    <h5>Password requirements:</h5>
-
-                    <p class="card-text small">Ensure that these requirements are met:</p>
-
-                    <ul class="small">
-                      <li>Minimum 8 characters long - the more, the better</li>
-                      <li>At least one lowercase character</li>
-                      <li>At least one uppercase character</li>
-                      <li>At least one number, symbol, or whitespace character</li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- End Form -->
-                 <div class="d-flex justify-content-end gap-3">
-                  <a class="btn btn-white" href="javascript:;">Cancel</a>
-                  <button type="submit" class="btn btn-primary">Update Password</button>
-                </div>
-              </form>
-              <!-- End Form -->
-            </div>
-            <!-- End Body -->
-          </div>
         </div>
       </div>
 

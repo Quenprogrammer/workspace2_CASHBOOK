@@ -71,4 +71,6 @@ export class StatisticsComponent {
       this.savings = this.netBalance;
     });
   }
+
+
 }

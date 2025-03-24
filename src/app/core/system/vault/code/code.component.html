@@ -1,0 +1,46 @@
+<!--
+<div class="container mt-4">
+  <h2>Upload Your Programming Code</h2>
+  <form [formGroup]="codeUploadForm" (ngSubmit)="onSubmit()">
+
+    &lt;!&ndash; File Upload &ndash;&gt;
+    <div class="mb-3">
+      <label class="form-label">Upload Your Code</label>
+      <input type="file" class="form-control" (change)="onFileSelect($event)" formControlName="codeFile">
+      <div *ngIf="codeUploadForm.get('codeFile').invalid && codeUploadForm.get('codeFile').touched" class="text-danger">
+        <small *ngIf="codeUploadForm.get('codeFile').hasError('required')">File is required</small>
+      </div>
+    </div>
+
+    &lt;!&ndash; Description &ndash;&gt;
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" formControlName="description" rows="4" placeholder="Describe your code here..."></textarea>
+      <div *ngIf="codeUploadForm.get('description').invalid && codeUploadForm.get('description').touched" class="text-danger">
+        <small *ngIf="codeUploadForm.get('description').hasError('required')">Description is required</small>
+      </div>
+    </div>
+
+    &lt;!&ndash; Programming Language &ndash;&gt;
+    <div class="mb-3">
+      <label class="form-label">Programming Language</label>
+      <select class="form-select" formControlName="language">
+        <option value="">Select Language</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
+        <option value="C++">C++</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Go">Go</option>
+        <option value="Other">Other</option>
+      </select>
+      <div *ngIf="codeUploadForm.get('language').invalid && codeUploadForm.get('language').touched" class="text-danger">
+        <small *ngIf="codeUploadForm.get('language').hasError('required')">Programming language is required</small>
+      </div>
+    </div>
+
+    &lt;!&ndash; Submit Button &ndash;&gt;
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="codeUploadForm.invalid">Submit</button>
+  </form>
+</div>
+-->

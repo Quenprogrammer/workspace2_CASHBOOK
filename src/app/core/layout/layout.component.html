@@ -1,6 +1,13 @@
 
 
-<main id="content" role="main">
-  <router-outlet></router-outlet>
-</main>
+<div style="min-height: 100vh">
 
+
+  <router-outlet></router-outlet>
+</div>
+@defer (on viewport) {
+
+}@placeholder {
+  <div></div>
+}
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

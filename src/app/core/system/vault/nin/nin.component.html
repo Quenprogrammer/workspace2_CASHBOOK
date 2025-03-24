@@ -1,0 +1,77 @@
+<div class="container mt-4">
+  <h2>NIN Registration Form</h2>
+  <form [formGroup]="ninForm" (ngSubmit)="onSubmit()">
+
+    <!-- Full Name -->
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-control" formControlName="fullName">
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+      <label class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" formControlName="dateOfBirth">
+    </div>
+
+    <!-- Address -->
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" formControlName="address">
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <select class="form-control" formControlName="gender">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <!-- Nationality -->
+    <div class="mb-3">
+      <label class="form-label">Nationality</label>
+      <input type="text" class="form-control" formControlName="nationality">
+    </div>
+
+    <!-- Unique National ID Number -->
+    <div class="mb-3">
+      <label class="form-label">Unique NIN</label>
+      <input type="text" class="form-control" formControlName="uniqueNIN">
+    </div>
+
+    <!-- Photograph Upload -->
+    <div class="mb-3">
+      <label class="form-label">Photograph</label>
+      <input type="file" class="form-control" (change)="onFileSelect($event, 'photograph')">
+    </div>
+
+    <!-- Signature Upload (Optional) -->
+    <div class="mb-3">
+      <label class="form-label">Signature (Optional)</label>
+      <input type="file" class="form-control" (change)="onFileSelect($event, 'signature')">
+    </div>
+
+    <!-- Issue Date -->
+    <div class="mb-3">
+      <label class="form-label">Issue Date</label>
+      <input type="date" class="form-control" formControlName="issueDate">
+    </div>
+
+    <!-- Expiry Date (Optional) -->
+    <div class="mb-3">
+      <label class="form-label">Expiry Date (Optional)</label>
+      <input type="date" class="form-control" formControlName="expiryDate">
+    </div>
+
+    <!-- Issuing Authority -->
+    <div class="mb-3">
+      <label class="form-label">Issuing Authority</label>
+      <input type="text" class="form-control" formControlName="issuingAuthority">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

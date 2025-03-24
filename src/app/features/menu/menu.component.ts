@@ -10,11 +10,14 @@ import { StandByComponent } from './stand-by/stand-by.component';
 import {BalanceComponent} from './balance/balance.component';
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
 
-import {headingTextColor} from "../../core/system/config";
+
 import {MenuStatsComponent} from './menu-stats/menu-stats.component';
 
 import {TimeComponent} from './time/time.component';
 import {MenuItemsComponent} from './menu-items/menu-items.component';
+import {TextComponent} from "../../core/components/text/text.component";
+import {HeadingComponent} from '../../core/components/heading/heading.component';
+import {IntegrationComponent} from './integration/integration.component';
 
 
 @Component({
@@ -29,10 +32,11 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
 
     TotalCreditedComponent,
 
-    MenuStatsComponent,
-
 
     MenuItemsComponent,
+    TextComponent,
+    HeadingComponent,
+    IntegrationComponent,
 
   ],
   templateUrl: './menu.component.html',
@@ -40,6 +44,8 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
 })
 export class MenuComponent implements OnInit, OnDestroy {
 
+  integrationTagLine:string='Visit links like company mail, public website, google drive with one click'
+textHeading:string='Connected accounts'
   isOnline: boolean = true;
   currentDate: string;
   currentTime: string = ''; // Initialize as an empty string
@@ -75,6 +81,6 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
 
-    protected readonly headingTextColor = headingTextColor;
+
 
 }

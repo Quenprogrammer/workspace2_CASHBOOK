@@ -1,6 +1,6 @@
 import {Component, signal, WritableSignal} from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
-import {Clipboard} from "@angular/cdk/clipboard";
+
 import {window} from 'rxjs';
 @Component({
   selector: 'app-share',

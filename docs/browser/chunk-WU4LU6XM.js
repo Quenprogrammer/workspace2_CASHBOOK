@@ -1,0 +1,1 @@
+import{la as n}from"./chunk-QLK2YSBK.js";var i=class e{transform(r,t){return r?!r||r.length<=t?r:r.substring(0,t)+"...":""}static \u0275fac=function(t){return new(t||e)};static \u0275pipe=n({name:"truncateText",type:e,pure:!0,standalone:!0})};export{i as a};

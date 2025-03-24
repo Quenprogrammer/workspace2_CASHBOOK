@@ -4,8 +4,8 @@
     <div class="page-header page-header-dark">
       <div class="row align-items-center">
         <div class="col">
-          <h1 class="page-header-title mt-4  mt-lg-2" [style.color]="headingTextColor">{{companyName}}</h1>
-        </div>
+          <app-heading [text]="companyName"></app-heading>
+          </div>
         <!-- End Col -->
 
 
@@ -230,7 +230,8 @@
                     <!-- Header -->
                     <div class="header">
                       <img src="logo.png" alt="Company Logo">
-                      <h1 [style.color]="headingTextColor">{{companyName}}</h1>
+
+                      <h1 >{{companyName}}</h1>
                       <p>1{{address}}</p>
                       <p>Phone: {{phone}} | Email: {{email}}</p>
                     </div>

@@ -1,0 +1,122 @@
+<div class="container mt-4">
+  <h2>Bank Account Form</h2>
+  <form [formGroup]="bankForm" (ngSubmit)="onSubmit()">
+
+    <!-- Account Holder Information -->
+    <h4>Account Holder Information</h4>
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-control" formControlName="fullName">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" formControlName="address">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Phone</label>
+      <input type="tel" class="form-control" formControlName="phone">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email">
+    </div>
+
+    <!-- Bank Information -->
+    <h4>Bank Information</h4>
+    <div class="mb-3">
+      <label class="form-label">Bank Name</label>
+      <input type="text" class="form-control" formControlName="bankName">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Branch Information</label>
+      <input type="text" class="form-control" formControlName="branchInfo">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">SWIFT/BIC Code</label>
+      <input type="text" class="form-control" formControlName="swiftCode">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">IBAN</label>
+      <input type="text" class="form-control" formControlName="iban">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Routing Number</label>
+      <input type="text" class="form-control" formControlName="routingNumber">
+    </div>
+
+    <!-- Account Type -->
+    <h4>Account Type</h4>
+    <div class="mb-3">
+      <select class="form-select" formControlName="accountType">
+        <option value="">Select Account Type</option>
+        <option value="Savings Account">Savings Account</option>
+        <option value="Checking Account">Checking Account</option>
+        <option value="Business Account">Business Account</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Bank Account Number</label>
+      <input type="text" class="form-control" formControlName="accountNumber">
+    </div>
+
+    <!-- Security Information -->
+    <h4>Security Information</h4>
+    <div class="mb-3">
+      <label class="form-label">PIN</label>
+      <input type="password" class="form-control" formControlName="pin">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Security Question</label>
+      <input type="text" class="form-control" formControlName="securityQuestion">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Answer</label>
+      <input type="text" class="form-control" formControlName="securityAnswer">
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="twoFactorAuth">
+      <label class="form-check-label">Enable Two-Factor Authentication (2FA)</label>
+    </div>
+
+    <!-- Transaction History -->
+    <h4>Transaction History</h4>
+    <div class="mb-3">
+      <label class="form-label">Recent Transactions</label>
+      <textarea class="form-control" rows="3" formControlName="transactions"></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Balance</label>
+      <input type="text" class="form-control" formControlName="balance">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Transaction Date</label>
+      <input type="date" class="form-control" formControlName="transactionDate">
+    </div>
+
+    <!-- Debit/Credit Card Information -->
+    <h4>Debit/Credit Card Information</h4>
+    <div class="mb-3">
+      <label class="form-label">Card Number</label>
+      <input type="text" class="form-control" formControlName="cardNumber">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Expiration Date</label>
+      <input type="month" class="form-control" formControlName="expiryDate">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">CVV/CVC</label>
+      <input type="text" class="form-control" formControlName="cvv">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Cardholder Name</label>
+      <input type="text" class="form-control" formControlName="cardholderName">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

@@ -29,6 +29,7 @@ export const routes: Routes = [
   {path: 'config', loadComponent: () => import ('./core/system/config/config.component').then(c => c.ConfigComponent)},
   {path: 'home', component: HomeComponent},
    {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
+   {path: 'inbox', loadComponent: () => import ('./features/menu/inbox/inbox.component').then(c => c.InboxComponent)},
   {path: 'users', loadComponent: () => import ('./features/users/users.component').then(c => c.UsersComponent)},
     {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
   {path: 'tax', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
@@ -52,10 +53,19 @@ export const routes: Routes = [
    {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
    {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
 
+   {path: 'Public_site_dashboard', loadComponent: () => import ('../publicSite/public-site-dashboard/public-site-dashboard.component').then(c => c.PublicSiteDashboardComponent)},
 
 
 
 
+/*
+
+  {path: 'account', loadComponent: () => import ('./core/system/vault/bank/bank.component').then(c => c.BankComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/code/code.component').then(c => c.CodeComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/contact-saver/contact-saver.component').then(c => c.ContactSaverComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/credentials/credentials.component').then(c => c.CredentialsComponent)},
+
+*/
 
 
 

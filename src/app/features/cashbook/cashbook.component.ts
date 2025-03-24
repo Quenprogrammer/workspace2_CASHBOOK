@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {CreditComponent} from "./credit/credit.component";
 import {address, companyName, email, phone} from '../data/companyInformation';
-import {headingTextColor} from '../../core/system/config';
+
 import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavOutlet} from '@ng-bootstrap/ng-bootstrap';
+import {HeadingComponent} from '../../core/components/heading/heading.component';
 
 
 
@@ -21,6 +22,7 @@ import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavOutlet} from '@ng-b
     NgbNavItem,
     NgbNavLink,
     NgbNavOutlet,
+    HeadingComponent,
 
 
   ],
@@ -30,7 +32,7 @@ import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink, NgbNavOutlet} from '@ng-b
 export class CashbookComponent {
 
   protected readonly companyName = companyName;
-  protected readonly headingTextColor = headingTextColor;
+
   protected readonly email = email;
   protected readonly address = address;
   protected readonly phone = phone;

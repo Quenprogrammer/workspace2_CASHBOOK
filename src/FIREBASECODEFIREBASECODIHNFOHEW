@@ -1,0 +1,45 @@
+import { Component, OnInit } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+
+@Component({
+  selector: 'app-rent-option',
+  standalone: true,
+  templateUrl: './rent-option.component.html',
+  imports: [
+    NgIf,
+    NgForOf,
+    AsyncPipe
+  ],
+  styleUrl: './rent-option.component.scss'
+})
+export class RentOptionComponent implements OnInit{
+  items$!: Observable<any[]>; // Observable to hold Firestore collection data
+
+  constructor(private firestore: Firestore) {}
+
+  ngOnInit(): void {
+    // Fetch the collection from Firestore
+    const collectionRef = collection(this.firestore, 'AGENTS');
+    this.items$ = collectionData(collectionRef, { idField: 'id' });
+  }
+}
+
+
+
+
+
+<div class="card-body">
+  <h1 class="mt-4">Browse properties for sale</h1>
+  <h2>Firestore Collection Data</h2>
+  <ul *ngIf="(items$ | async)?.length; else noData">
+    <li *ngFor="let item of items$ | async">
+      <strong>{{ item.agentName }}</strong>: {{ item.description }}
+    </li>
+  </ul>
+
+  <ng-template #noData>
+    <p>No data available.</p>
+  </ng-template>
+</div>

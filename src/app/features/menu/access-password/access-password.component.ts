@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {interval} from 'rxjs';
 import { AuthGenerateService } from '../../../services/auth/auth-generate.service';
-import {headingTextColor} from '../../../core/system/config';
 
 @Component({
   selector: 'app-access-password',
@@ -13,7 +12,7 @@ import {headingTextColor} from '../../../core/system/config';
         font-size: 10px;
       }
     </style>
-    <h2 [style.color]="headingTextColor" class="mb-0"> {{ randomNumber }}</h2>
+    <h2  class="mb-0"> {{ randomNumber }}</h2>
     <p class="mb-0 sub" > Key {{ currentInterval }}</p>
     <p class="mb-0 sub"> Interval {{ totalInterval }}</p>
 
@@ -38,5 +37,5 @@ export class AccessPasswordComponent implements OnInit {
     });
   }
 
-  protected readonly headingTextColor = headingTextColor;
+
 }

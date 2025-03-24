@@ -8,7 +8,7 @@
     <!-- Body -->
     <div class="card-body ">
 
-      <div class="h3" [style.color]="headingTextColor">
+      <div class="h3" >
 
                 <span class="badge bg-soft-info text-info rounded-pill">
                   <i class="bi-check-circle-fill me-1"></i> On track
@@ -22,7 +22,7 @@
       <div #statisticsSection>
 <div class="" *ngFor="let stat of statistics; let i = index">
 <h6 style="color: red">{{ stat.label }}</h6>
-  <h3 [style.color]="headingTextColor">{{ stat.animatedValue || 0 | currency:'₦' }}</h3>
+  <h3 >{{ stat.animatedValue || 0 | currency:'₦' }}</h3>
 
 </div>    <!-- End Row -->
     </div>
