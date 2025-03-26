@@ -1,10 +1,11 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-overview',
   standalone: true,
   imports: [
-
+    NgForOf
 
 
   ],
@@ -12,51 +13,117 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
   styleUrl: './overview.component.css'
 })
 export class OverviewComponent {
-  @ViewChild('barChart') barChart!: ElementRef;
-
-  data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: [{
-      label: 'Series 1',
-      data: [100, 20, 70, 40, 50, 110, 70, 120, 90, 100, 110, 120],
-      backgroundColor: 'rgba(255, 0, 0, 0.2)',
-      borderColor: 'rgba(255, 0, 0, 1)',
-      borderWidth: 1
-    }]
-  };
+  @ViewChild('expensesCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
   ngAfterViewInit() {
-    this.drawChart();
-  }
-
-  drawChart() {
-    const ctx = this.barChart.nativeElement.getContext('2d');
-    const barWidth = 50;
-    const barSpacing = 10;
-
-    // Draw bars
-    for (let i = 0; i < this.data.datasets[0].data.length; i++) {
-      const barHeight = this.data.datasets[0].data[i];
-      ctx.fillStyle = this.data.datasets[0].backgroundColor;
-      ctx.fillRect(50 + i * (barWidth + barSpacing), 400 - barHeight, barWidth, barHeight);
-    }
-
-    // Draw labels
-    ctx.font = '16px Arial';
-    ctx.color = 'red';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    for (let i = 0; i < this.data.labels.length; i++) {
-      ctx.fillText(this.data.labels[i], 50 + i * (barWidth + barSpacing) + barWidth / 2, 410);
-    }
-
-    // Draw values
-    ctx.font = '14px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'bottom';
-    for (let i = 0; i < this.data.datasets[0].data.length; i++) {
-      ctx.fillText(this.data.datasets[0].data[i], 50 + i * (barWidth + barSpacing) + barWidth / 2, 400 - this.data.datasets[0].data[i] - 5);
+    if (this.canvasRef) {
+      this.drawBarChart();
+    } else {
+      console.error('Canvas element not found!');
     }
   }
+
+  drawBarChart() {
+    const canvas = this.canvasRef?.nativeElement;
+    if (!canvas) {
+      console.error('Canvas is not initialized.');
+      return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Chart Configurations
+    const data = [0, 100, 200, 175, 100, 50, 75, 0, 0, 50, 50, 50, 0, 100, 0];
+    const labels = ['D1', ' ', 'D3', ' ', 'D5', 'D6', ' ', 'D8', ' ', ' ', 'D11', 'D12', 'D13', 'D14', 'D15'];
+    const padding = 50;
+    const maxWidth = canvas.width;
+    const maxHeight = canvas.height;
+    const graphWidth = maxWidth - padding * 2;
+    const graphHeight = maxHeight - padding * 2;
+    const maxData = Math.max(...data);
+    const barWidth = graphWidth / data.length - 5; // Bar width with spacing
+
+    ctx.clearRect(0, 0, maxWidth, maxHeight);
+
+    // Draw X and Y Axes
+    ctx.strokeStyle = 'rgba(133,140,151,.18)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, maxHeight - padding);
+    ctx.moveTo(padding, maxHeight - padding);
+    ctx.lineTo(maxWidth - padding, maxHeight - padding);
+    ctx.stroke();
+
+    // Grid Lines & Y-Axis Labels
+    ctx.fillStyle = 'black';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'right';
+
+    for (let i = 0; i <= maxData; i += 50) {
+      const y = maxHeight - padding - (i / maxData) * graphHeight;
+      ctx.fillText(i.toString(), padding - 10, y + 5);
+      ctx.strokeStyle = 'rgba(133,140,151,.18)';
+      ctx.beginPath();
+      ctx.moveTo(padding, y);
+      ctx.lineTo(maxWidth - padding, y);
+      ctx.stroke();
+    }
+
+    // X-axis Labels
+    ctx.textAlign = 'center';
+    labels.forEach((label, index) => {
+      const x = padding + index * (graphWidth / labels.length) + barWidth / 2;
+      ctx.fillText(label, x, maxHeight - 30);
+    });
+
+    // Draw Bar Chart
+    ctx.fillStyle = '#A67A3B';
+    data.forEach((value, index) => {
+      const x = padding + index * (graphWidth / data.length);
+      const barHeight = (value / maxData) * graphHeight;
+      const y = maxHeight - padding - barHeight;
+
+      ctx.fillRect(x, y, barWidth, barHeight);
+    });
+  }
+
+   firebaseDetails: [number, string, string][] = [
+   /* [1, "Uptime", "99.95%"],
+    [2, "Response Time (Realtime Database)", "<50ms"],
+    [3, "Response Time (Cloud Firestore)", "<20ms"],
+    [4, "Response Time (Cloud Functions)", "<100ms"],
+    [5, "Firewall", "Built-in"],
+    [6, "Load Average", "Automatically scales"],
+    [7, "Data Center", "Global network"],
+    [8, "Bandwidth", "0.12 GB"],
+
+    [10, "Storage Type (Cloud Firestore)", "NoSQL document"],
+    [11, "Storage Type (Cloud Storage)", "Object storage"],
+    [12, "Storage Speed (Realtime Database)", "Low-latency"],
+    [13, "Storage Speed (Cloud Firestore)", "High-performance"],
+    [14, "Storage Speed (Cloud Storage)", "High-throughput"],
+    [15, "Scalability", "Horizontal scaling"],
+    [16, "Security", "End-to-end encryption"],*/
+  ];
+
+  fireStore: [ string, string][] = [
+        [ "Reads operation", "10,000 docs per second"],
+        [ "Writes operation", "5,000 docs per second"],
+        [ "Read upload", "100 Mbps"],
+        [ "write latency", "100 Mbps"],
+
+  ];
+
+  storageHardWare=[
+    {name:'Storage Usage', value:'' },
+    {name:'CRUD', value:'' },
+
+    {name:'RSA SecurID Auth', value:'' },
+    {name:'Authentication', value:'' },
+    {name:'Sessions', value:'' },
+
+  ]
 
 }

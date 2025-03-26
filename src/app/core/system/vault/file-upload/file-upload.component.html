@@ -1,0 +1,157 @@
+<main id="content" role="main" class="main">
+  <div class="content container-fluid">
+    <h2>Property Rent Options</h2>
+    <button (click)="addModule(); isModalOpen = true;">Add Module</button>
+
+  </div>
+
+
+</main>
+
+<button class="btn btn-primary btn-sm" (click)="isModalOpen = true"
+        style="font-size:14px; padding: 5px 19px 5px 5px;width:90%">
+  <img src="assets/icons/file.svg" alt="Create new Rent Option" style="width:25px; height:25px;">
+  OPEN MODAL
+</button>
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-content">
+    <div class="card h-100">
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Course contents</h2> <!-- Keeps title on the left -->
+        <a class="btn btn-ghost-danger btn-sm" (click)="addModule();">Add new module </a>
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
+      </div>
+
+      <!-- End Header -->
+
+      <div class="card-body-height p-3">
+
+        <div class="row mb-2 justify-content-center">
+          <div class="col-sm-12 text-center">
+            <!-- Loop through Rent Modules -->
+
+            <div *ngFor="let module of rentModules; let moduleIndex = index">
+
+              <div ngbAccordion #accordion="ngbAccordion" class="mb-2">
+                <div ngbAccordionItem="first">
+                  <h1  ngbAccordionHeader>
+                    <button style="font-size:20px" ngbAccordionButton>{{ module.nameOfmodule }}</button>
+                  </h1>
+                  <div ngbAccordionCollapse>
+                    <div ngbAccordionBody>
+                      <ng-template>
+                        <div class="row g-1 mt-3">
+                          <div class="col-md-8">
+                            <input class="form-control mb-2 w-100" [(ngModel)]="module.nameOfmodule" placeholder="Lectures">
+                          </div>
+                          <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
+                            <button class="btn btn-primary w-100" style="padding:5px" (click)="addOption(moduleIndex)">
+                              <i class="bi-pencil-fill me-1" ></i> Add Option
+                            </button>
+                          </div>
+                          <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
+                            <button class="btn btn-danger w-100" style="padding:5px" (click)="removeModule(moduleIndex)">
+                              <i class="bi-trash me-1"></i> Remove Module
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card card-body rounded-0">
+                          <div *ngFor="let option of module.Options; let optionIndex = index">
+                            <div class="mt-4 mb-4">
+                              <div class="row g-1">
+                                <div class="col-md-6">
+                                  <div class="row g-1">
+                                    <!-- Option Name Input -->
+                                    <div class="col-12">
+                                      <input class="form-control w-100" [(ngModel)]="option.name" placeholder="Module">
+                                    </div>
+                                    <div class="col-12">
+                                      <div class="row g-0 g-md-1">
+                                        <div class="col-8 col-md-9">
+                                          <input type="file" class="form-control mt-2 mb-1"
+                                                 (change)="BrowsePropertyOnFileSelected($event, moduleIndex, optionIndex)"
+                                                 accept="*/*" />
+
+
+                                        </div>
+                                        <div class="col-2 col-md-auto mt-3">
+                                          <button type="button" class="btn float-end btn-soft-primary btn-sm">
+                                            <i class="bi bi-eye"></i>
+                                          </button>
+                                        </div>
+                                        <div class="col-2 col-md-auto mt-3">
+                                          <button type="button" class="btn float-end btn-soft-primary btn-sm"
+                                                  (click)="removeOption(moduleIndex, optionIndex)">
+                                            <i class="bi bi-trash"></i>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-12">
+                                      <div *ngIf="BrowsePropertyUploadProgress() > 0">
+                                        <p class="text-start">Uploading: {{ BrowsePropertyUploadProgress() | number: '1.0-0' }}%</p>
+                                        <progress class="progress" [value]="BrowsePropertyUploadProgress()" max="100"></progress>
+                                      </div>
+                                    </div>
+
+                                    <!-- Button to Remove Option -->
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="col-12">
+                          <textarea class="form-control mb-1 w-100" [(ngModel)]="option.details"
+                                    placeholder="Enter option name" rows="4"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Body -->
+    </div>
+  </div>
+</div>
+
+
+
+<div class="d-flex justify-content-between align-items-center">
+  <h5>Video</h5>
+  <a *ngIf="videoSrc" (click)="removeVideo()" style="cursor: pointer;" class="link">Remove video</a>
+</div>
+
+<!-- Video Player -->
+<div *ngIf="videoSrc; else uploadVideo">
+  <video class="img-fluid w-100 rounded-1" autoplay muted loop controls
+         style="object-fit: cover; object-position: center center; height: 100%;">
+    <source [src]="videoSrc" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- File Input for Uploading Video -->
+<ng-template #uploadVideo>
+  <input type="file" (change)="onFileSelected($event)" accept="video/*" class="form-control mt-2 mb-2">
+</ng-template>

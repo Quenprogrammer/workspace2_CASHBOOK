@@ -49,11 +49,21 @@ export const routes: Routes = [
   {path: 'notifications', loadComponent: () => import ('./features/notifications/notifications.component').then(c => c.NotificationsComponent)},
   {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
   {path: 'dashboard', loadComponent: () => import ('./features/dashboard/dashboard.component').then(c => c.DashboardComponent)},
-   {path: 'vault', loadComponent: () => import ('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent)},
-   {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
-   {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
+  {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
 
-   {path: 'Public_site_dashboard', loadComponent: () => import ('../publicSite/public-site-dashboard/public-site-dashboard.component').then(c => c.PublicSiteDashboardComponent)},
+
+
+
+  {path: 'vault', loadComponent: () => import ('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent)},
+  {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
+  {path: 'fileUpload', loadComponent: () => import ('./core/system/vault/file-upload/file-upload.component').then(c => c.FileUploadComponent)},
+
+
+
+
+
+
+  {path: 'Public_site_dashboard', loadComponent: () => import ('../publicSite/public-site-dashboard/public-site-dashboard.component').then(c => c.PublicSiteDashboardComponent)},
 
 
 
