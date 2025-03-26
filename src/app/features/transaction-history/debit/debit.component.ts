@@ -122,6 +122,81 @@ export class DebitComponent implements OnInit{
       alert('Transaction ID not found.');
     }
   }
+  downloadJSON() {
+    this.filteredAccounts$?.subscribe(accounts => {
+      if (accounts && accounts.length > 0) {
+        const jsonData = JSON.stringify(accounts, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'debit-transactions.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        alert('No data available to download.');
+      }
+    });
+  }
+  downloadTXT() {
+    this.filteredAccounts$?.subscribe(accounts => {
+      if (accounts && accounts.length > 0) {
+        let textData = '';
+
+        accounts.forEach((account, index) => {
+          const sn = `SN: ${String(index + 1).padStart(3, '0')}`.padEnd(10); // Align SN
+          const date = `DATE: ${account.date}`.padEnd(20);
+          const name = `Name: ${account.payee}`.padEnd(25);
+          const amount = `Amount: ₦${account.amount}`.padEnd(20);
+          const status = `Status: Pending`;
+
+          textData += `${sn}${date}${name}${amount}${status}\n\n`; // Double line break
+        });
+
+        const blob = new Blob([textData], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'debit-transactions.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        alert('No data available to download.');
+      }
+    });
+  }
+  downloadCSV() {
+    this.filteredAccounts$?.subscribe(accounts => {
+      if (accounts && accounts.length > 0) {
+        let csvData = 'SN,DATE,NAME,AMOUNT,STATUS\n'; // CSV Header
+
+        accounts.forEach((account, index) => {
+          const sn = String(index + 1).padStart(3, '0'); // Serial number with zero padding
+          const date = account.date;
+          const name = account.payee;
+          const amount = `₦${account.amount}`;
+          const status = 'Pending';
+
+          csvData += `${sn},${date},${name},${amount},${status}\n`; // Add data row
+        });
+
+        const blob = new Blob([csvData], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'debit-transactions.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        alert('No data available to download.');
+      }
+    });
+  }
+
+
 
 
 }
