@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Firestore, collection, collectionData, doc, docData, deleteDoc } from '@angular/fire/firestore';
+import { combineLatest, map, Observable } from 'rxjs';
+import { Firestore, collection, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
 
 export interface Account {
   id?: string; // ✅ Add ID to identify records for deletion
@@ -22,19 +22,33 @@ export class FirestoreService {
   /** ✅ Fetch credited transactions */
   getAccounts(): Observable<Account[]> {
     const accountCollection = collection(this.firestore, 'credit'); // Collection name
-    return collectionData(accountCollection, { idField: 'id' }) as Observable<Account[]>;
+    return collectionData<Account>(accountCollection, { idField: 'id' }); // Using generics for type safety
   }
 
   /** ✅ Fetch debited transactions */
   getDebit(): Observable<Account[]> {
-    const accountCollection = collection(this.firestore, 'debit'); // ✅ Corrected to 'debit'
-    return collectionData(accountCollection, { idField: 'id' }) as Observable<Account[]>;
+    const accountCollection = collection(this.firestore, 'debit'); // Collection name for debit transactions
+    return collectionData<Account>(accountCollection, { idField: 'id' }); // Using generics for type safety
   }
 
   /** ✅ Delete an account entry from Firestore */
-  deleteAccount(accountId: string): Promise<void> {
-    const accountDocRef = doc(this.firestore, 'credit', accountId);
-    return deleteDoc(accountDocRef);
+  async deleteAccount(accountId: string, collectionName: string): Promise<void> {
+    const accountDocRef = doc(this.firestore, collectionName, accountId);
+    try {
+      await deleteDoc(accountDocRef);
+      console.log('Account deleted successfully');
+    } catch (error) {
+      console.error('Error deleting account: ', error);
+      throw new Error('Failed to delete account');
+    }
   }
 
+  /** ✅ Fetch both credited and debited transactions at once */
+  getAllTransactions(): Observable<{ credited: Account[]; debited: Account[] }> {
+    const credited$ = this.getAccounts();
+    const debited$ = this.getDebit();
+    return combineLatest([credited$, debited$]).pipe(
+      map(([credited, debited]) => ({ credited, debited })) // Combine the two observables into one object
+    );
+  }
 }

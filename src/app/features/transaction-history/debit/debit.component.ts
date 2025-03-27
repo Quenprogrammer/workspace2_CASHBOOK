@@ -1,10 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {BehaviorSubject, combineLatest, map, Observable} from 'rxjs';
-import {Account, FirestoreService} from '../../../services/firestore/firestore.service';
-import {AsyncPipe, CurrencyPipe, DatePipe, NgForOf, NgIf} from '@angular/common';
-import {LoadingComponent} from '../../../core/system/loading/loading.component';
-import {NgbCollapse} from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
+import { Account, FirestoreService } from '../../../services/firestore/firestore.service';
+import { AsyncPipe, CurrencyPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
+import { LoadingComponent } from '../../../core/system/loading/loading.component';
+import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-debit',
@@ -23,7 +27,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   templateUrl: './debit.component.html',
   styleUrl: './debit.component.css'
 })
-export class DebitComponent implements OnInit{
+export class DebitComponent implements OnInit {
   isLoading = true;
   isCollapsed = true;
   showFilters = true;
@@ -38,36 +42,15 @@ export class DebitComponent implements OnInit{
   isModalOpen = false;
   selectedAccount: Account | null = null;
 
-  /** ✅ Delete Popup Variables */
   isDeletePopupOpen = false;
   accountToDelete: Account | null = null;
 
   constructor(private firestoreService: FirestoreService, private datePipe: DatePipe) {}
 
   ngOnInit() {
-    this.accounts$ = this.firestoreService.getDebit();
-
-    this.filteredAccounts$ = combineLatest([
-      this.accounts$,
-      this.searchAmount,
-      this.searchDate,
-      this.searchRef,
-      this.searchPayee
-    ]).pipe(
-      map(([accounts, amount, date, ref, payee]) => {
-        return accounts.filter(account =>
-          (amount ? account.amount?.toString().includes(amount.trim()) : true) &&
-          (date ? this.getFormattedDate(account.date) === date.trim() : true) &&
-          (ref ? account.referenceNumber?.toLowerCase().includes(ref.trim().toLowerCase()) : true) &&
-          (payee ? account.payee?.toLowerCase().includes(payee.trim().toLowerCase()) : true)
-        );
-      })
-    );
-
-    this.accounts$.subscribe(() => {
-      this.isLoading = false;
-    });
+    this.refreshAccounts();
   }
+
 
   getFormattedDate(date: string | Date | undefined): string {
     if (!date) return 'Invalid Date';
@@ -97,106 +80,71 @@ export class DebitComponent implements OnInit{
     this.selectedAccount = null;
   }
 
-  /** ✅ OPEN DELETE POPUP */
   openDeletePopup(account: Account) {
     this.accountToDelete = account;
     this.isDeletePopupOpen = true;
   }
 
-  /** ✅ CLOSE DELETE POPUP */
   closeDeletePopup() {
     this.isDeletePopupOpen = false;
     this.accountToDelete = null;
   }
 
-  /** ✅ CONFIRM DELETE */
   confirmDelete() {
     if (this.accountToDelete?.id) {
-      this.firestoreService.deleteAccount(this.accountToDelete.id)
+      // Dynamically choose the collection based on the account type (credit or debit)
+      const collectionName = this.accountToDelete.type === 'credit' ? 'credit' : 'debit';
+      this.firestoreService.deleteAccount(this.accountToDelete.id, collectionName)
         .then(() => {
-
-          this.closeDeletePopup(); // ✅ Close popup after delete
+          this.closeDeletePopup();
         })
         .catch(err => alert('Error deleting transaction: ' + err.message));
     } else {
       alert('Transaction ID not found.');
     }
   }
-  downloadJSON() {
+
+
+  downloadMarkdown() {
     this.filteredAccounts$?.subscribe(accounts => {
       if (accounts && accounts.length > 0) {
-        const jsonData = JSON.stringify(accounts, null, 2);
-        const blob = new Blob([jsonData], { type: 'application/json' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'debit-transactions.json';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      } else {
-        alert('No data available to download.');
-      }
-    });
-  }
-  downloadTXT() {
-    this.filteredAccounts$?.subscribe(accounts => {
-      if (accounts && accounts.length > 0) {
-        let textData = '';
+        let mdData = `# Debit Transactions\n\n`;
 
         accounts.forEach((account, index) => {
-          const sn = `SN: ${String(index + 1).padStart(3, '0')}`.padEnd(10); // Align SN
-          const date = `DATE: ${account.date}`.padEnd(20);
-          const name = `Name: ${account.payee}`.padEnd(25);
-          const amount = `Amount: ₦${account.amount}`.padEnd(20);
-          const status = `Status: Pending`;
-
-          textData += `${sn}${date}${name}${amount}${status}\n\n`; // Double line break
+          mdData += `**SN:** ${String(index + 1).padStart(3, '0')}\n`;
+          mdData += `**DATE:** ${account.date}\n`;
+          mdData += `**NAME:** ${account.payee}\n`;
+          mdData += `**AMOUNT:** ₦${account.amount}\n`;
+          mdData += `**STATUS:** Pending\n\n---\n\n`;
         });
 
-        const blob = new Blob([textData], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'debit-transactions.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      } else {
-        alert('No data available to download.');
-      }
-    });
-  }
-  downloadCSV() {
-    this.filteredAccounts$?.subscribe(accounts => {
-      if (accounts && accounts.length > 0) {
-        let csvData = 'SN,DATE,NAME,AMOUNT,STATUS\n'; // CSV Header
-
-        accounts.forEach((account, index) => {
-          const sn = String(index + 1).padStart(3, '0'); // Serial number with zero padding
-          const date = account.date;
-          const name = account.payee;
-          const amount = `₦${account.amount}`;
-          const status = 'Pending';
-
-          csvData += `${sn},${date},${name},${amount},${status}\n`; // Add data row
-        });
-
-        const blob = new Blob([csvData], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'debit-transactions.csv';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        const blob = new Blob([mdData], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'debit-transactions.md';
+        link.click();
       } else {
         alert('No data available to download.');
       }
     });
   }
 
-
-
-
+  refreshAccounts() {
+    this.filteredAccounts$ = combineLatest([
+      this.firestoreService.getDebit(),
+      this.searchAmount,
+      this.searchDate,
+      this.searchRef,
+      this.searchPayee
+    ]).pipe(
+      map(([accounts, amount, date, ref, payee]) =>
+        accounts.filter(account =>
+          (amount ? account.amount?.toString().includes(amount.trim()) : true) &&
+          (date ? this.getFormattedDate(account.date) === date.trim() : true) &&
+          (ref ? account.referenceNumber?.toLowerCase().includes(ref.trim().toLowerCase()) : true) &&
+          (payee ? account.payee?.toLowerCase().includes(payee.trim().toLowerCase()) : true)
+        )
+      )
+    );
+  }
 }

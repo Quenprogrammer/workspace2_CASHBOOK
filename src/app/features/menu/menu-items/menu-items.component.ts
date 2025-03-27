@@ -32,7 +32,7 @@ export class MenuItemsComponent {
     { name: 'Statistics', icon: 'icons/statis.svg', link: '/statistics' },
     { name: 'Public Site', icon: 'bg/inbox.svg', link: '/Public_site_dashboard' },
     { name: 'Map', icon: 'touch-click-svgrepo-com.svg', link: '/records' },
-    { name: 'Invoice', icon: 'machine-vision-svgrepo-com.svg', link: '/invoice' },
+    { name: 'invoice', icon: 'machine-vision-svgrepo-com.svg', link: '/invoice' },
     { name: 'Vault', icon: 'cloud-backup-svgrepo-com.svg', link: '/vault' },
 
     { name: 'Apps', icon: 'mobile-app-svgrepo-com.svg', link: '/appsHome' },
