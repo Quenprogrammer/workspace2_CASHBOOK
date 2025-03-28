@@ -26,9 +26,10 @@ export class MenuItemsComponent {
   isModal1Open = false;
   isModal2Open = false;
   MENU_ITEMS: MenuItem[] = [
-    { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
-    { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
     { name: 'Dashboard', icon: 'data-analysis-svgrepo-com.svg', link: '/dashboard' },
+    { name: 'CashBook', icon: 'interface-control-svgrepo-com.svg', link: '/cashbook' },
+    { name: 'staffs', icon: 'interface-control-svgrepo-com.svg', link: '/staffs' },
+    { name: 'history', icon: 'ddos-protection-svgrepo-com.svg', link: '/transaction-history' },
     { name: 'Statistics', icon: 'icons/statis.svg', link: '/statistics' },
     { name: 'Public Site', icon: 'bg/inbox.svg', link: '/Public_site_dashboard' },
     { name: 'Map', icon: 'touch-click-svgrepo-com.svg', link: '/records' },

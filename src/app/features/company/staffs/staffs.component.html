@@ -1,0 +1,582 @@
+<div class="container content-space-2 content-space-lg-3">
+  <!-- Heading -->
+  <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+    <span class="d-block small font-weight-bold text-cap mb-2">Our Team</span>
+    <h2>Trust the professionals</h2>
+  </div>
+  <!-- End Heading -->
+
+  <div class="row mb-7">
+    <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+     <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Christina Kray</h4>
+          <p class="card-text">Project Manager</p>
+        </div>
+      </div>
+      <!-- End Team -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img29.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Jeff Fisher</h4>
+          <p class="card-text">CEO, Director</p>
+        </div>
+      </div>
+      <!-- End Team -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-sm-6 col-md-3 mb-5 mb-sm-0">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img30.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Lida Reidy</h4>
+          <p class="card-text">Marketer</p>
+        </div>
+      </div>
+      <!-- End Team -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-sm-6 col-md-3">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img27.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Amy Forren</h4>
+          <p class="card-text">Lead Designer</p>
+        </div>
+      </div>
+      <!-- End Team -->
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+  <!-- Card Info -->
+  <div class="text-center">
+    <div class="card card-info-link card-sm">
+      <div class="card-body">
+        Want to work with us? <a class="card-link ms-2" href="./page-hire-us.html">We're hiring <span class="bi-chevron-right small ms-1"></span></a>
+      </div>
+    </div>
+  </div>
+  <!-- End Card Info -->
+</div>
+
+
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-content">
+
+
+    <div class="card h-100">
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Course Features</h2> <!-- Keeps title on the left -->
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
+
+      </div>
+
+      <!-- End Header -->
+
+      <div class="card-body-height p-3">
+        <div class="">
+
+
+          <!-- Form -->
+      <!--    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="row g-2">
+              <div class="col-md-6"> <div class="form-group mb-2">
+                <input id="name" formControlName="name" class="form-control" placeholder="Name" />
+              </div></div>
+              <div class="col-md-6"><div class="form-group mb-2">
+
+                <input id="email" formControlName="email" type="email" class="form-control" placeholder="Email"/>
+              </div></div>
+              <div class="col-md-6"><div class="form-group mb-2">
+                <input placeholder="Phone Number" id="phoneNumber" formControlName="phoneNumber" class="form-control" />
+              </div></div>
+              <div class="col-md-6"> <div class="form-group mb-2">
+
+                <input placeholder="Address" id="address" formControlName="address" class="form-control" />
+              </div></div>
+            </div>
+
+
+
+
+
+
+
+            <div formGroupName="socialMedia">
+              <div class="row">
+                <div class="col-md-6 mb-2"> <div class="form-group">
+                  <label for="behance">Behance</label>
+                  <input id="behance" formControlName="behance" class="form-control" />
+                </div></div>
+                <div class="col-md-6 mb-2"> <div class="form-group">
+                  <label for="whatsapp">Whatsapp</label>
+                  <input id="whatsapp" formControlName="whatsapp" class="form-control" />
+                </div></div>
+                <div class="col-md-6 mb-2"><div class="form-group">
+                  <label for="twitter">Twitter</label>
+                  <input id="twitter" formControlName="twitter" class="form-control" />
+                </div></div>
+                <div class="col-md-6 mb-2"><div class="form-group">
+                  <label for="facebook">Facebook</label>
+                  <input id="facebook" formControlName="facebook" class="form-control" />
+                </div></div>
+              </div>
+
+
+
+
+
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+          </form>-->
+
+        </div>
+
+      </div>
+      <!-- End Body -->
+    </div>
+
+
+
+  </div>
+</div>
+<div class="col-auto mt-2">
+  <a class="badge bg-soft-primary text-primary p-2" (click)="isModalOpen = true"
+     style="width: 100%; display: inline-block; text-align: center;">Edit</a>
+</div>
+
+<!-- Content -->
+<div class="container col-md-8">
+  <div class="d-grid gap-3 gap-lg-5">
+    <!-- Card -->
+    <div class="card">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Basic info</h4>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+        <form>
+          <!-- Form -->
+          <div class="row mb-4">
+            <label class="col-sm-3 col-form-label form-label">Profile photo</label>
+
+            <div class="col-sm-9">
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <!-- Avatar -->
+                <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
+                  <img id="avatarImg" class="avatar-img" src="../assets/img/160x160/img9.jpg" alt="Image Description">
+                </label>
+
+                <div class="d-grid d-sm-flex gap-2 ms-4">
+                  <div class="form-attachment-btn btn btn-primary btn-sm">Upload photo
+                    <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
+                           data-hs-file-attach-options='{
+                              "textTarget": "#avatarImg",
+                              "mode": "image",
+                              "targetAttr": "src",
+                              "resetTarget": ".js-file-attach-reset-img",
+                              "resetImg": "../assets/img/160x160/img1.jpg",
+                              "allowTypes": [".png", ".jpeg", ".jpg"]
+                           }'>
+                  </div>
+                  <!-- End Avatar -->
+
+                  <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Delete</button>
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+          </div>
+          <!-- End Form -->
+
+          <!-- Form -->
+          <div class="row mb-4">
+            <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Full name <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
+
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input type="text" class="form-control" name="firstName" id="firstNameLabel" placeholder="Clarice" aria-label="Clarice" value="Natalie">
+                <input type="text" class="form-control" name="lastName" id="lastNameLabel" placeholder="Boone" aria-label="Boone" value="Curtis">
+              </div>
+            </div>
+          </div>
+          <!-- End Form -->
+
+          <!-- Form -->
+          <div class="row mb-4">
+            <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
+
+            <div class="col-sm-9">
+              <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@example.com" aria-label="clarice@example.com" value="natalie@example.com">
+            </div>
+          </div>
+          <!-- End Form -->
+
+          <!-- Form -->
+          <div class="js-add-field row mb-4"
+               data-hs-add-field-options='{
+                  "template": "#addPhoneFieldTemplate",
+                  "container": "#addPhoneFieldContainer",
+                  "defaultCreated": 0
+                }'>
+            <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Phone <span class="form-label-secondary">(Optional)</span></label>
+
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input type="text" class="js-input-mask form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" value="+1(605)5618929"
+                       data-hs-mask-options='{
+                         "mask": "+{0}(000)000-00-00"
+                       }'>
+
+                <!-- Select -->
+                <div class="tom-select-custom">
+                  <select class="js-select form-select" name="phoneSelect"
+                          data-hs-tom-select-options='{
+                            "width": "8rem",
+                            "hideSearch": true
+                          }'>
+                    <option value="Mobile" selected>Mobile</option>
+                    <option value="Home">Home</option>
+                    <option value="Work">Work</option>
+                    <option value="Fax">Fax</option>
+                    <option value="Direct">Direct</option>
+                  </select>
+                </div>
+                <!-- End Select -->
+              </div>
+
+
+            </div>
+          </div>
+          <!-- End Form -->
+
+          <!-- Add Phone Input Field -->
+          <div id="addPhoneFieldTemplate" style="display: none; position: relative;">
+            <div class="input-group input-group-add-field">
+              <input type="text" class="js-input-mask-dynamic form-control" data-name="additionlPhone" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx"
+                     data-hs-mask-options='{
+                       "mask": "+{0}(000)000-00-00"
+                     }'>
+
+              <!-- Select -->
+              <div class="tom-select-custom">
+                <select class="js-select-dynamic form-select" data-name="additionlPhoneSelect"
+                        data-hs-tom-select-options='{
+                            "width": "8rem",
+                            "hideSearch": true
+                          }'>
+                  <option value="Mobile" selected>Mobile</option>
+                  <option value="Home">Home</option>
+                  <option value="Work">Work</option>
+                  <option value="Fax">Fax</option>
+                  <option value="Direct">Direct</option>
+                </select>
+              </div>
+              <!-- End Select -->
+            </div>
+
+            <a class="js-delete-field input-group-add-field-delete" href="javascript:;">
+              <i class="bi-x-lg"></i>
+            </a>
+          </div>
+          <!-- End Add Phone Input Field -->
+
+          <!-- Form -->
+          <div class="row mb-4">
+            <label class="col-sm-3 col-form-label form-label">Gender</label>
+
+            <div class="col-sm-9">
+              <div class="input-group input-group-md-down-break">
+                <!-- Radio Check -->
+                <label class="form-control" for="genderTypeRadio1">
+                  <span class="form-check">
+                    <input type="radio" class="form-check-input" name="genderTypeRadio" id="genderTypeRadio1">
+                    <span class="form-check-label">Male</span>
+                  </span>
+                </label>
+                <!-- End Radio Check -->
+
+                <!-- Radio Check -->
+                <label class="form-control" for="genderTypeRadio2">
+                  <span class="form-check">
+                    <input type="radio" class="form-check-input" name="genderTypeRadio" id="genderTypeRadio2" checked>
+                    <span class="form-check-label">Female</span>
+                  </span>
+                </label>
+                <!-- End Radio Check -->
+
+
+              </div>
+            </div>
+          </div>
+          <!-- End Form -->
+
+
+        </form>
+      </div>
+      <!-- End Body -->
+
+      <!-- Footer -->
+      <div class="card-footer pt-0">
+        <div class="d-flex justify-content-end gap-3">
+          <a class="btn btn-white" href="javascript:;">Cancel</a>
+          <a class="btn btn-primary" href="javascript:;">Save changes</a>
+        </div>
+      </div>
+      <!-- End Footer -->
+    </div>
+    <!-- End Card -->
+
+    <!-- Card -->
+    <div id="editAddressCard" class="card">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Address</h4>
+      </div>
+
+      <!-- Body -->
+      <div class="card-body">
+        <form>
+          <!-- Form -->
+          <div class="row mb-4">
+            <label for="locationLabel" class="col-sm-3 col-form-label form-label">Location</label>
+
+            <div class="col-sm-9">
+
+
+              <div class="mb-3">
+                <input type="text" class="form-control" name="city" id="cityLabel" placeholder="City" aria-label="City" value="London">
+              </div>
+              <input type="text" class="form-control" name="state" id="stateLabel" placeholder="State" aria-label="State">
+            </div>
+          </div>
+          <!-- End Form -->
+
+          <!-- Form -->
+          <div class="row mb-4">
+            <label for="addressLine1Label" class="col-sm-3 col-form-label form-label">Address line 1</label>
+
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="addressLine1" id="addressLine1Label" placeholder="Your address" aria-label="Your address" value="45 Roker Terrace, Latheronwheel">
+            </div>
+          </div>
+          <!-- End Form -->
+
+
+          <!-- Add Phone Input Field -->
+          <div id="addAddressFieldTemplate" style="display: none; position: relative;">
+            <div class="input-group-add-field">
+              <input type="text" class="form-control" data-name="addressLine" placeholder="Your address" aria-label="Your address">
+            </div>
+
+            <a class="js-delete-field input-group-add-field-delete" href="javascript:;">
+              <i class="bi-x-lg"></i>
+            </a>
+          </div>
+          <!-- End Add Phone Input Field -->
+
+
+        </form>
+      </div>
+
+
+
+      <!-- Card -->
+      <div class="card">
+        <div class="card-header border-bottom">
+          <h5 class="card-header-title">Connected accounts</h5>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+          <p class="card-text">Integrated features from these accounts make it easier to collaborate with people you know on Front.</p>
+
+          <!-- Form -->
+          <form>
+            <!-- List Group -->
+            <div class="list-group list-group-flush list-group-no-gutters">
+              <!-- Item -->
+              <div class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3" src="../assets/svg/brands/google-icon.svg" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="mb-1">Google</h6>
+                        <span class="d-block small text-body">Calendar and contacts</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <!-- Form Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="connectedAccounts1">
+                          <label class="form-check-label" for="connectedAccounts1"></label>
+                        </div>
+                        <!-- End Form Switch -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <div class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3" src="../assets/svg/brands/dropbox-icon.svg" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="mb-1">Dropbox</h6>
+                        <span class="d-block small text-body">File hosting</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <!-- Form Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="connectedAccounts2">
+                          <label class="form-check-label" for="connectedAccounts2"></label>
+                        </div>
+                        <!-- End Form Switch -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <div class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3" src="../assets/svg/brands/slack-icon.svg" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="mb-1">Slack</h6>
+                        <span class="d-block small text-body">Communication <a class="link" href="#">Learn more</a></span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <!-- Form Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="connectedAccounts3" checked>
+                          <label class="form-check-label" for="connectedAccounts3"></label>
+                        </div>
+                        <!-- End Form Switch -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <div class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3" src="../assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="mb-1">Mailchimp</h6>
+                        <span class="d-block small text-body">Email marketing service</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <!-- Form Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="connectedAccounts4" checked>
+                          <label class="form-check-label" for="connectedAccounts4"></label>
+                        </div>
+                        <!-- End Form Switch -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <div class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3" src="../assets/svg/brands/jira-icon.svg" alt="Image Description">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h6 class="mb-1">Jira</h6>
+                        <span class="d-block small text-body">Issue tracking <a class="link" href="#">Learn more</a></span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <!-- Form Switch -->
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" id="connectedAccounts5">
+                          <label class="form-check-label" for="connectedAccounts5"></label>
+                        </div>
+                        <!-- End Form Switch -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Item -->
+            </div>
+            <!-- End List Group -->
+          </form>
+          <!-- End Form -->
+        </div>
+        <!-- End Body -->
+      </div>
+      <!-- End Card -->
+    </div>
+
+
+  </div>
+</div>
+<!-- End Content -->

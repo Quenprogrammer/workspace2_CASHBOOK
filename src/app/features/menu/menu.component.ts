@@ -18,6 +18,7 @@ import {MenuItemsComponent} from './menu-items/menu-items.component';
 import {TextComponent} from "../../core/components/text/text.component";
 import {HeadingComponent} from '../../core/components/heading/heading.component';
 import {IntegrationComponent} from './integration/integration.component';
+import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
 
 
 @Component({
@@ -37,6 +38,7 @@ import {IntegrationComponent} from './integration/integration.component';
     TextComponent,
     HeadingComponent,
     IntegrationComponent,
+    WindowsViewComponent,
 
   ],
   templateUrl: './menu.component.html',
