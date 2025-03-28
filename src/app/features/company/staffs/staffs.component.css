@@ -82,6 +82,10 @@ div{
   }
 }
 
+.card-bodys {
+  max-height: 500px;  /* Set the height limit for scrolling */
+  overflow-y: auto;   /* Enables vertical scrolling */
+}
 
 /* Close button for the modal */
 .close {
