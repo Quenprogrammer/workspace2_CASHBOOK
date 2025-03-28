@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -19,6 +19,7 @@ import {TextComponent} from "../../core/components/text/text.component";
 import {HeadingComponent} from '../../core/components/heading/heading.component';
 import {IntegrationComponent} from './integration/integration.component';
 import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
+import {addDoc, collection, doc, Firestore, setDoc} from '@angular/fire/firestore';
 
 
 @Component({
@@ -53,11 +54,12 @@ textHeading:string='Connected accounts'
   currentTime: string = ''; // Initialize as an empty string
   private timer: any;
 
-  constructor(private networkService: NetworkService) {
+  constructor(private networkService: NetworkService, @Inject(Firestore) private firestore: Firestore) {
     const today = new Date();
     this.currentDate = today.toLocaleDateString();
     this.updateTime();
   }
+
 
   ngOnInit(): void {
     this.networkService.getOnlineStatus().subscribe(status => {
@@ -81,6 +83,29 @@ textHeading:string='Connected accounts'
       this.updateTime();
     }, 1000);
   }
+
+
+  addData() {
+    const data = {
+      name: 'John Doe',
+      age: 30,
+      occupation: 'Software Developer',
+      date: this.currentDate
+    };
+
+    // Reference to the "HOMESETTINGS/SetDATA" document
+    const setDataDocRef = doc(this.firestore, 'HOMESETTINGS/SetDATA');
+
+    // Set data in the document (this will overwrite any existing data in 'SetDATA')
+    setDoc(setDataDocRef, data)
+      .then(() => {
+        console.log('Data added successfully!');
+      })
+      .catch((error) => {
+        console.error('Error adding data: ', error);
+      });
+  }
+
 
 
 

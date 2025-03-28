@@ -188,261 +188,10 @@
     </div>
     <!-- End Navbar -->
   </div>
-  <div class="col-md-8 mb-3"><div class="">
-    <div class="d-grid gap-3 gap-lg-5">
-      <!-- Card for Basic Info -->
-      <!-- Basic Info Card -->
-      <div class="card">
-        <div class="card-header border-bottom">
-          <h4 class="card-header-title">Basic info</h4>
-        </div>
 
-        <!-- Body -->
-        <div class="card-body">
-          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-            <!-- Profile photo -->
-            <div class="row mb-4">
-              <label class="col-sm-3 col-form-label form-label">Profile photo</label>
-              <div class="col-sm-9">
-                <div class="d-flex align-items-center">
-                  <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
-                    <img id="avatarImg" class="avatar-img" src="../assets/img/160x160/img9.jpg" alt="Image Description">
-                  </label>
-                  <div class="d-grid d-sm-flex gap-2 ms-4">
-                    <div class="form-attachment-btn btn btn-primary btn-sm">Upload photo
-                      <input type="file" formControlName="profilePhoto" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
-                             data-hs-file-attach-options='{
-                          "textTarget": "#avatarImg",
-                          "mode": "image",
-                          "targetAttr": "src",
-                          "resetTarget": ".js-file-attach-reset-img",
-                          "resetImg": "../assets/img/160x160/img1.jpg",
-                          "allowTypes": [".png", ".jpeg", ".jpg"]
-                       }'>
-                    </div>
-                    <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Full Name -->
-            <div class="row mb-4">
-              <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Full name</label>
-              <div class="col-sm-9">
-                <div class="input-group">
-                  <input type="text" class="form-control" formControlName="firstName" placeholder="Clarice">
-                  <input type="text" class="form-control" formControlName="lastName" placeholder="Boone">
-                </div>
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div class="row mb-4">
-              <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
-              <div class="col-sm-9">
-                <input type="email" class="form-control" formControlName="email" placeholder="clarice@example.com">
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="row mb-4">
-              <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Phone</label>
-              <div class="col-sm-9">
-                <div class="input-group">
-                  <input type="text" class="form-control" formControlName="phone" placeholder="+x(xxx)xxx-xx-xx">
-                </div>
-              </div>
-            </div>
-
-            <!-- Gender -->
-            <div class="row mb-4">
-              <label class="col-sm-3 col-form-label form-label">Gender</label>
-              <div class="col-sm-9">
-                <div class="input-group input-group-md-down-break">
-                  <label class="form-control" for="genderTypeRadio1">
-                    <input type="radio" class="form-check-input" formControlName="gender" value="Male">
-                    Male
-                  </label>
-                  <label class="form-control" for="genderTypeRadio2">
-                    <input type="radio" class="form-check-input" formControlName="gender" value="Female">
-                    Female
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-end gap-3">
-              <button type="button" class="btn btn-white" (click)="closeModal()">Cancel</button>
-              <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save changes</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <!-- End Basic Info Card -->
-
-      <!-- Connected Accounts Card -->
-      <div class="card">
-
-        <!-- Connected Accounts Card -->
-        <div class="card">
-          <div class="card-header border-bottom">
-            <h5 class="card-header-title">Connected accounts</h5>
-          </div>
-
-          <!-- Body -->
-          <div class="card-body">
-            <!-- Form -->
-            <form [formGroup]="userForm">
-              <!-- List Group -->
-              <div class="list-group list-group-flush list-group-no-gutters">
-                <!-- Loop through the connectedAccounts array -->
-                <div *ngFor="let account of connectedAccounts" class="list-group-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" [src]="account.image" alt="{{ account.name }} icon">
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                      <div class="row align-items-center">
-                        <div class="col">
-                          <h6 class="mb-1">{{ account.name }}</h6>
-                          <span class="d-block small text-body">{{ account.description }}</span>
-                        </div>
-                        <div class="col-auto">
-                          <!-- Form Switch for each account -->
-                          <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" [formControlName]="account.formControlName" id="connectedAccounts{{account.name}}">
-                            <label class="form-check-label" [for]="'connectedAccounts' + account.name"></label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- End Connected Accounts Card -->
-
-      </div>
-      <!-- End Connected Accounts Card -->
-      <div class="card">
-        <div class="d-grid gap-3 gap-lg-5">
-
-          <!-- Address Card -->
-          <div id="editAddressCard" class="card">
-            <div class="card-header border-bottom">
-              <h4 class="card-header-title">Address</h4>
-            </div>
-
-            <!-- Body -->
-            <div class="card-body">
-              <form [formGroup]="userForm">
-                <!-- Location Form -->
-                <div class="row mb-4">
-                  <label for="locationLabel" class="col-sm-3 col-form-label form-label">Location</label>
-                  <div class="col-sm-9">
-                    <div class="mb-3">
-                      <input type="text" formControlName="city" id="cityLabel" class="form-control" placeholder="City" aria-label="City">
-                    </div>
-                    <input type="text" formControlName="state" id="stateLabel" class="form-control" placeholder="State" aria-label="State">
-                  </div>
-                </div>
-
-                <!-- Address Line 1 Form -->
-                <div class="row mb-4">
-                  <label for="addressLine1Label" class="col-sm-3 col-form-label form-label">Address line 1</label>
-                  <div class="col-sm-9">
-                    <input type="text" formControlName="addressLine1" id="addressLine1Label" class="form-control" placeholder="Your address" aria-label="Your address">
-                  </div>
-                </div>
-
-                <!-- Address Line 2 Form (Optional) -->
-                <div class="js-add-field row mb-4" data-hs-add-field-options='{"template": "#addAddressFieldTemplate", "container": "#addAddressFieldContainer", "defaultCreated": 0}'>
-                  <label for="addressLine2Label" class="col-sm-3 col-form-label form-label">Address line 2 <span class="form-label-secondary">(Optional)</span></label>
-                  <div class="col-sm-9">
-                    <input type="text" formControlName="addressLine2" id="addressLine2Label" class="form-control" placeholder="Your address" aria-label="Your address">
-                    <div id="addAddressFieldContainer"></div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-      <!-- Card -->
-      <div class="card">
-        <div class="card-header border-bottom">
-          <h5 class="card-header-title">Password</h5>
-        </div>
-
-        <!-- Body -->
-        <div class="card-body">
-          <!-- Form -->
-          <form>
-            <!-- Form -->
-            <div class="row mb-4">
-              <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
-
-              <div class="col-sm-9">
-                <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
-              </div>
-            </div>
-            <!-- End Form -->
-
-            <!-- Form -->
-            <div class="row mb-4">
-              <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
-
-              <div class="col-sm-9">
-                <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
-              </div>
-            </div>
-            <!-- End Form -->
-
-            <!-- Form -->
-            <div class="row mb-4">
-              <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
-
-              <div class="col-sm-9">
-                <div class="mb-3">
-                  <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
-                </div>
-
-                <h5>Password requirements:</h5>
-
-                <p class="card-text small">Ensure that these requirements are met:</p>
-
-                <ul class="small">
-                  <li>Minimum 8 characters long - the more, the better</li>
-                  <li>At least one lowercase character</li>
-                  <li>At least one uppercase character</li>
-                  <li>At least one number, symbol, or whitespace character</li>
-                </ul>
-              </div>
-            </div>
-            <!-- End Form -->
-
-            <div class="d-flex justify-content-end gap-3">
-              <a class="btn btn-white" href="javascript:;">Cancel</a>
-              <button type="submit" class="btn btn-primary">Update Password</button>
-            </div>
-          </form>
-          <!-- End Form -->
-        </div>
-        <!-- End Body -->
-      </div>
-      <!-- End Card -->
-    </div>
-  </div></div>
 </div>
 
-
+<div class="col-md-8 mb-2">
 <div class="card shadow-none">
   <!-- Header -->
   <div class="card-header">
@@ -450,13 +199,264 @@
   </div>
   <!-- End Header -->
 
-  <!-- Body -->
+
   <div class="card-bodys ">
+    <div class=""><div class="">
+      <div class="d-grid gap-3 gap-lg-5">
+        <!-- Card for Basic Info -->
+        <!-- Basic Info Card -->
+        <div class="card">
+          <div class="card-header border-bottom">
+            <h4 class="card-header-title">Basic info</h4>
+          </div>
 
+          <!-- Body -->
+          <div class="card-body">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <!-- Profile photo -->
+              <div class="row mb-4">
+                <label class="col-sm-3 col-form-label form-label">Profile photo</label>
+                <div class="col-sm-9">
+                  <div class="d-flex align-items-center">
+                    <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
+                      <img id="avatarImg" class="avatar-img" src="../assets/img/160x160/img9.jpg" alt="Image Description">
+                    </label>
+                    <div class="d-grid d-sm-flex gap-2 ms-4">
+                      <div class="form-attachment-btn btn btn-primary btn-sm">Upload photo
+                        <input type="file" formControlName="profilePhoto" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
+                               data-hs-file-attach-options='{
+                          "textTarget": "#avatarImg",
+                          "mode": "image",
+                          "targetAttr": "src",
+                          "resetTarget": ".js-file-attach-reset-img",
+                          "resetImg": "../assets/img/160x160/img1.jpg",
+                          "allowTypes": [".png", ".jpeg", ".jpg"]
+                       }'>
+                      </div>
+                      <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Full Name -->
+              <div class="row mb-4">
+                <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Full name</label>
+                <div class="col-sm-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Clarice">
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Boone">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="row mb-4">
+                <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" formControlName="email" placeholder="clarice@example.com">
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="row mb-4">
+                <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Phone</label>
+                <div class="col-sm-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" formControlName="phone" placeholder="+x(xxx)xxx-xx-xx">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gender -->
+              <div class="row mb-4">
+                <label class="col-sm-3 col-form-label form-label">Gender</label>
+                <div class="col-sm-9">
+                  <div class="input-group input-group-md-down-break">
+                    <label class="form-control" for="genderTypeRadio1">
+                      <input type="radio" class="form-check-input" formControlName="gender" value="Male">
+                      Male
+                    </label>
+                    <label class="form-control" for="genderTypeRadio2">
+                      <input type="radio" class="form-check-input" formControlName="gender" value="Female">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end gap-3">
+                <button type="button" class="btn btn-white" (click)="closeModal()">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- End Basic Info Card -->
+
+        <!-- Connected Accounts Card -->
+        <div class="card">
+
+          <!-- Connected Accounts Card -->
+          <div class="card">
+            <div class="card-header border-bottom">
+              <h5 class="card-header-title">Connected accounts</h5>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+              <!-- Form -->
+              <form [formGroup]="userForm">
+                <!-- List Group -->
+                <div class="list-group list-group-flush list-group-no-gutters">
+                  <!-- Loop through the connectedAccounts array -->
+                  <div *ngFor="let account of connectedAccounts" class="list-group-item">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0">
+                        <img class="avatar avatar-xs avatar-4x3" [src]="account.image" alt="{{ account.name }} icon">
+                      </div>
+
+                      <div class="flex-grow-1 ms-3">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h6 class="mb-1">{{ account.name }}</h6>
+                            <span class="d-block small text-body">{{ account.description }}</span>
+                          </div>
+                          <div class="col-auto">
+                            <!-- Form Switch for each account -->
+                            <div class="form-check form-switch">
+                              <input class="form-check-input" type="checkbox" [formControlName]="account.formControlName" id="connectedAccounts{{account.name}}">
+                              <label class="form-check-label" [for]="'connectedAccounts' + account.name"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- End Connected Accounts Card -->
+
+        </div>
+        <!-- End Connected Accounts Card -->
+        <div class="card">
+          <div class="d-grid gap-3 gap-lg-5">
+
+            <!-- Address Card -->
+            <div id="editAddressCard" class="card">
+              <div class="card-header border-bottom">
+                <h4 class="card-header-title">Address</h4>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <form [formGroup]="userForm">
+                  <!-- Location Form -->
+                  <div class="row mb-4">
+                    <label for="locationLabel" class="col-sm-3 col-form-label form-label">Location</label>
+                    <div class="col-sm-9">
+                      <div class="mb-3">
+                        <input type="text" formControlName="city" id="cityLabel" class="form-control" placeholder="City" aria-label="City">
+                      </div>
+                      <input type="text" formControlName="state" id="stateLabel" class="form-control" placeholder="State" aria-label="State">
+                    </div>
+                  </div>
+
+                  <!-- Address Line 1 Form -->
+                  <div class="row mb-4">
+                    <label for="addressLine1Label" class="col-sm-3 col-form-label form-label">Address line 1</label>
+                    <div class="col-sm-9">
+                      <input type="text" formControlName="addressLine1" id="addressLine1Label" class="form-control" placeholder="Your address" aria-label="Your address">
+                    </div>
+                  </div>
+
+                  <!-- Address Line 2 Form (Optional) -->
+                  <div class="js-add-field row mb-4" data-hs-add-field-options='{"template": "#addAddressFieldTemplate", "container": "#addAddressFieldContainer", "defaultCreated": 0}'>
+                    <label for="addressLine2Label" class="col-sm-3 col-form-label form-label">Address line 2 <span class="form-label-secondary">(Optional)</span></label>
+                    <div class="col-sm-9">
+                      <input type="text" formControlName="addressLine2" id="addressLine2Label" class="form-control" placeholder="Your address" aria-label="Your address">
+                      <div id="addAddressFieldContainer"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="card">
+          <div class="card-header border-bottom">
+            <h5 class="card-header-title">Password</h5>
+          </div>
+
+          <!-- Body -->
+          <div class="card-body">
+            <!-- Form -->
+            <form>
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
+
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
+
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <!-- Form -->
+              <div class="row mb-4">
+                <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
+
+                <div class="col-sm-9">
+                  <div class="mb-3">
+                    <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
+                  </div>
+
+                  <h5>Password requirements:</h5>
+
+                  <p class="card-text small">Ensure that these requirements are met:</p>
+
+                  <ul class="small">
+                    <li>Minimum 8 characters long - the more, the better</li>
+                    <li>At least one lowercase character</li>
+                    <li>At least one uppercase character</li>
+                    <li>At least one number, symbol, or whitespace character</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Form -->
+
+              <div class="d-flex justify-content-end gap-3">
+                <a class="btn btn-white" href="javascript:;">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update Password</button>
+              </div>
+            </form>
+            <!-- End Form -->
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Card -->
+      </div>
+    </div></div>
   </div>
-  <!-- End Body -->
-</div>
 
+</div>
+</div>
 
 
 
