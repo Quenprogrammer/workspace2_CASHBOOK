@@ -1,0 +1,5 @@
+.card-img-top {
+  max-width: 600px; /* Set a fixed height */
+  object-fit: cover; /* Ensures the image fills the area and crops any excess */
+  height:350px; /* Ensures the image takes the full width */      /* Centers image horizontally */
+}

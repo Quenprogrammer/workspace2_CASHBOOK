@@ -1,0 +1,391 @@
+
+<div class="container content-space-1 ">
+  <div class="text-center">
+    <ul ngbNav #nav="ngbNav" class="nav nav-pills nav-fill mb-6" role="tablist">
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link btn-custom-hover" id="nav-one-eg1-tab" data-bs-toggle="pill" data-bs-target="#nav-one-eg1"
+           role="tab" aria-controls="nav-one-eg1" aria-selected="true"  >Core Values</a>
+        <ng-template ngbNavContent>
+
+<app-core-values></app-core-values>
+        </ng-template>
+
+      </li>
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link btn-custom-hover" id="nav-one-eg2-tab" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
+           aria-controls="nav-two-eg1" aria-selected="false">Objectives</a>
+        <ng-template ngbNavContent>
+          <app-objectives></app-objectives>
+        </ng-template>
+      </li>
+
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link btn-custom-hover" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+           aria-controls="nav-two-eg1" aria-selected="false">Students Conduct and Discipline</a>
+        <ng-template ngbNavContent>
+          <app-student-decipline-and-conduct></app-student-decipline-and-conduct>
+        </ng-template>
+      </li>
+
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link btn-custom-hover" data-bs-toggle="pill" data-bs-target="#nav-two-eg3" role="tab"
+           aria-controls="nav-two-eg1" aria-selected="false">Institutional Policies</a>
+        <ng-template ngbNavContent>
+          <app-instituation-policies></app-instituation-policies>
+        </ng-template>
+      </li>
+
+
+
+    </ul>
+  </div>
+  <!-- End Nav -->
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+  <!-- End Tab Content -->
+</div>
+
+
+<!--
+<div class="container mt-3 mb-3">
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div>
+        <button
+          type="button"
+          class="accordion-button dropdown collapsed"
+          (click)="toggleCollapse(2)"
+          [attr.aria-expanded]="!isCollapsed[2]"
+          aria-controls="collapseExample2"
+        >
+          <h3 class="text-white">Core values</h3>
+        </button>
+        <hr style="color: white; margin: 8px">
+      </div>
+      <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed[2]">
+        <div class="card">
+          <div class="card-body">
+
+            <ul class="list-checked list-checked-lg list-checked-bg-primary">
+              <li class="list-checked-item">
+                <strong>Integrity:</strong> Upholding the highest ethical standards in education, research, and community engagement, ensuring transparency and accountability in all our actions.
+              </li>
+              <li class="list-checked-item">
+                <strong>Sustainability:</strong> Committing to practices that promote environmental stewardship, resource conservation, and the long-term health of aquatic ecosystems.
+              </li>
+              <li class="list-checked-item">
+                <strong>Innovation:</strong> Fostering a culture of creativity and adaptability, encouraging new ideas and technologies that enhance fisheries practices and education.
+              </li>
+              <li class="list-checked-item">
+                <strong>Collaboration:</strong> Building strong partnerships with industries, communities, and stakeholders to promote knowledge sharing and collective efforts in fisheries development.
+              </li>
+              <li class="list-checked-item">
+                <strong>Excellence:</strong> Striving for the highest quality in our academic programs, research initiatives, and community services, ensuring that our graduates are well-prepared for their careers.
+              </li>
+              <li class="list-checked-item">
+                <strong>Inclusivity:</strong> Embracing diversity and promoting equal opportunities in education and professional development for all individuals interested in fisheries studies.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class=" ">
+        <button
+          type="button"
+          class="accordion-button dropdown collapsed"
+          (click)="toggleCollapse(1)"
+          [attr.aria-expanded]="!isCollapsed[1]"
+          aria-controls="collapseExample1"
+          >
+          <h3 class="text-white">Objectives</h3>
+
+        </button>
+        <hr style="color: white; margin: 8px">
+      </div>
+
+
+
+      <div #collapse1="ngbCollapse" [(ngbCollapse)]="isCollapsed[1]">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-checked list-checked-lg list-checked-bg-primary">
+              <li class="list-checked-item">Provide top-notch facilities and training programs that equip graduates with practical skills and expertise in fisheries and aquaculture management.</li>
+              <li class="list-checked-item">Develop academic programs leading to diplomas and certifications, emphasizing sustainable practices and innovative technologies in fisheries.</li>
+              <li class="list-checked-item">Advance research focused on sustainable fisheries practices and environmental challenges, benefiting the socio-economic growth of Kano State.</li>
+              <li class="list-checked-item">Promote continuous learning and scholarship, ensuring our graduates contribute effectively to the fisheries sector's development.</li>
+              <li class="list-checked-item">Foster collaborations with industries and communities to enhance fisheries and aquaculture sectors in Kano State, addressing local environmental and economic needs.</li>
+              <li class="list-checked-item">Support initiatives for the conservation of aquatic ecosystems and food security while upholding the highest educational standards in fisheries studies.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <button
+          type="button"
+          class="accordion-button dropdown collapsed"
+          (click)="toggleCollapse(3)"
+          [attr.aria-expanded]="!isCollapsed[3]"
+          aria-controls="collapseExample3"
+        >
+          <h3 class="text-white">Institution Principals Officers</h3>
+        </button>
+         <hr style="color: white; margin: 8px">
+      </div>
+      <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed[3]">
+        <div class="card">
+          <div class="card-body">
+            <div #targetElement1  class="container content-space-1 content-space-lg-1">
+
+
+
+
+              <div  class="w-md-80 w-lg-75 text-center mx-md-auto mb-5 mb-md-5">
+
+                <h1  class="display-5">Instituation  <span style="color: red"> Principal Officers </span></h1>
+              </div>
+              &lt;!&ndash; End Heading &ndash;&gt;
+
+              <div class="row mb-7">
+                <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+                  &lt;!&ndash; Team &ndash;&gt;
+                  <img class="card-img rounded-2" src="./assets/img/400x500/img28.jpg" alt="Image Description">
+                  <div class="card card-sm text-center mt-n7 mx-3">
+                    <div class="card-body">
+                      <h4 class="card-title">Christina Kray</h4>
+                      <p class="card-text">Project Manager</p>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Team &ndash;&gt;
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+                  &lt;!&ndash; Team &ndash;&gt;
+                  <img class="card-img rounded-2" src="./assets/img/400x500/img29.jpg" alt="Image Description">
+                  <div class="card card-sm text-center mt-n7 mx-3">
+                    <div class="card-body">
+                      <h4 class="card-title">Jeff Fisher</h4>
+                      <p class="card-text">CEO, Director</p>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Team &ndash;&gt;
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-sm-6 col-md-3 mb-5 mb-sm-0">
+                  &lt;!&ndash; Team &ndash;&gt;
+                  <img class="card-img rounded-2" src="./assets/img/400x500/img30.jpg" alt="Image Description">
+                  <div class="card card-sm text-center mt-n7 mx-3">
+                    <div class="card-body">
+                      <h4 class="card-title">Lida Reidy</h4>
+                      <p class="card-text">Marketer</p>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Team &ndash;&gt;
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-sm-6 col-md-3">
+                  &lt;!&ndash; Team &ndash;&gt;
+                  <img class="card-img rounded-2" src="./assets/img/400x500/img27.jpg" alt="Image Description">
+                  <div class="card card-sm text-center mt-n7 mx-3">
+                    <div class="card-body">
+                      <h4 class="card-title">Amy Forren</h4>
+                      <p class="card-text">Lead Designer</p>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Team &ndash;&gt;
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+              </div>
+              &lt;!&ndash; End Row &ndash;&gt;
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <button
+          type="button"
+          class="accordion-button dropdown collapsed"
+          (click)="toggleCollapse(4)"
+          [attr.aria-expanded]="!isCollapsed[4]"
+          aria-controls="collapseExample3"
+        >
+          <h3 class="text-white">Facts And Figures</h3>
+        </button>
+        <hr style="color: white; margin: 8px">
+      </div>
+      <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed[4]">
+        <div class="card">
+          <div class="card-body">
+            <div #targetElement1  class="container content-space-1 content-space-lg-1">
+
+
+
+
+              <app-facts-and-figures></app-facts-and-figures>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div>
+        <button
+          type="button"
+          class="accordion-button dropdown collapsed"
+          (click)="toggleCollapse(5)"
+          [attr.aria-expanded]="!isCollapsed[5]"
+          aria-controls="collapseExample3"
+        >
+          <h3 class="text-white">Students Conduct and Discipline</h3>
+        </button>
+        <hr style="color: white; margin: 8px">
+      </div>
+      <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed[5]">
+        <div class="card">
+          <div class="card-body">
+            <div #targetElement1  class="container content-space-1 content-space-lg-1">
+
+
+              <div class="container">
+                <h1 class="text-center">Students Conduct and Discipline</h1>
+
+                 <h2  class=" mt-5 mb-5">Introduction</h2>
+                <p>
+                  As a premier institution for aquatic studies, the <strong>Bagauda School of Fisheries Studies</strong> is a diverse learning environment that brings together individuals from various backgrounds. It is a place where students acquire knowledge and skills while respecting each other's cultural, racial, and religious identities. Graduating from this institution signifies your development into a knowledgeable and responsible citizen.
+                </p>
+
+                 <h2  class=" mt-5 mb-5">Campus Life</h2>
+                <p>
+                  Campus life at Bagauda School of Fisheries Studies offers numerous opportunities but also presents challenges. Students, especially those in their teens and twenties, may encounter:
+                </p>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Peer pressure</li>
+                  <li class="list-pointer-item mx-lg-5">Temptations related to substance abuse</li>
+                  <li class="list-pointer-item mx-lg-5">Involvement in inappropriate activities</li>
+                </ul>
+                <p>
+                  Navigating these challenges requires maturity and a commitment to positive behavior.
+                </p>
+
+                 <h2  class=" mt-5 mb-5">Conduct Expectations</h2>
+                <p>
+                  Students are expected to demonstrate responsible conduct and adhere to school regulations. When a student fails to maintain proper behavior, their peers and faculty are encouraged to provide guidance. However, serious breaches of conduct may lead to referral to the Student Disciplinary Committee, which includes both staff and student representatives.
+                </p>
+
+                 <h2  class=" mt-5 mb-5">Dress Code</h2>
+                <p>
+                  In line with institutional policies, students are required to adhere to a specific dress code to promote professionalism and respect within the school community. The following guidelines apply:
+                </p>
+
+                 <h3  class=" mt-5">Male Students</h3>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Collared shirt and trousers</li>
+                  <li class="list-pointer-item mx-lg-5">Complete native attire or two-piece native dress</li>
+                  <li class="list-pointer-item mx-lg-5">Decent jeans or formal wear</li>
+                </ul>
+
+                 <h3  class=" mt-5">Female Students</h3>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Knee-length skirts or long trousers</li>
+                  <li class="list-pointer-item mx-lg-5">Long or short sleeve blouses</li>
+                  <li class="list-pointer-item mx-lg-5">Kaftan or Boubou</li>
+                  <li class="list-pointer-item mx-lg-5">Complete native dress or formal attire</li>
+                </ul>
+
+                 <h3  class=" mt-5">Prohibited Dress</h3>
+                <p>The following attire is not permitted:</p>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Body-hugging clothing, spaghetti tops, and tubes</li>
+                  <li class="list-pointer-item mx-lg-5">Transparent apparel or clothing that exposes sensitive body parts</li>
+                  <li class="list-pointer-item mx-lg-5">Inappropriate headwear (e.g., face caps, panama hats)</li>
+                </ul>
+
+                 <h2  class=" mt-5 mb-5">Misconduct</h2>
+                <p>
+                  Misconduct includes any behavior that violates school regulations, covering various aspects of campus life, such as:
+                </p>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Examination conduct</li>
+                  <li class="list-pointer-item mx-lg-5">Regulations governing dormitory occupancy</li>
+                  <li class="list-pointer-item mx-lg-5">Traffic rules on campus</li>
+                  <li class="list-pointer-item mx-lg-5">Student registration protocols</li>
+                  <li class="list-pointer-item mx-lg-5">Club and association activities</li>
+                  <li class="list-pointer-item mx-lg-5">Dress code adherence</li>
+                </ul>
+
+                 <h3  class=" mt-5">Responsibility</h3>
+                <p>Each student is individually responsible for their actions and is expected to encourage their peers to comply with school regulations.</p>
+
+                 <h2  class=" mt-5 mb-5">Offenses and Sanctions</h2>
+                <p>The following are examples of offenses and corresponding sanctions:</p>
+
+                 <h3  class=" mt-5">General Offenses</h3>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Illegal rallies or assemblies: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Disturbances or conflicts between student groups: Warning or Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Religious intolerance: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Possession or distribution of illegal materials: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Fighting fellow students: Warning, Rustication, or Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Willful damage to school property: Replacement cost or warning/expulsion</li>
+                </ul>
+
+                 <h3  class=" mt-5">Serious Offenses</h3>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Theft: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Physical assault: Warning or Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">False claims or forgery: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Rape: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Substance abuse: Expulsion and referral to appropriate authorities</li>
+                  <li class="list-pointer-item mx-lg-5">Possession of weapons: Expulsion and referral to authorities</li>
+                </ul>
+
+                 <h3  class=" mt-5">Additional Misconduct</h3>
+                <ul class="list-pointer list-pointer-lg list-pointer-bg-primary">
+                  <li class="list-pointer-item mx-lg-5">Unauthorized use of school premises: Warning or Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Harboring individuals without permission: Expulsion</li>
+                  <li class="list-pointer-item mx-lg-5">Failure to return school property: Withholding of academic results and certificates</li>
+                </ul>
+              </div>
+
+
+
+              &lt;!&ndash; End Row &ndash;&gt;
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+</div>
+-->

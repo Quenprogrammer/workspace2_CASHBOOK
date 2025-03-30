@@ -9,6 +9,8 @@ import {ExpensisComponent} from './expensis/expensis.component';
 import {BalanceComponent} from './balance/balance.component';
 import {StatsComponent} from './stats/stats.component';
 import {ServerComponent} from './server/server.component';
+import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
+import {MobileViewComponent} from '../../core/windows-view/mobile-view/mobile-view.component';
 
 
 interface MessageInquiries {
@@ -32,6 +34,8 @@ interface MessageInquiries {
     BalanceComponent,
     StatsComponent,
     ServerComponent,
+    WindowsViewComponent,
+    MobileViewComponent,
 
 
   ],

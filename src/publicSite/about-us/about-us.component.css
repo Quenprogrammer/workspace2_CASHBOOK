@@ -1,0 +1,36 @@
+.btn-custom-hover {
+  color: white;
+  font-size: 20px;
+
+}
+
+.btn-custom-hover:hover {
+  background-color: green;
+  color: white; /* Keep text white on hover */
+  border-color: green; /* Optional: border turns green on hover */
+}
+
+
+
+.image-container {
+  width: 100%;  /* Adjust this to control the container width */
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 8px; /* Matches the rounded corners you want */
+}
+
+.zoomed-img {
+  width: 100%;       /* Full width of the container */
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+  transform-origin: center;        /* Ensures the zoom effect is centered */
+}
+
+.image-container:hover .zoomed-img {
+  transform: scale(1.5); /* Adjust this scale factor for more or less zoom */
+}
+
+
+
+.radius{
+  border-radius: 10px;
+}

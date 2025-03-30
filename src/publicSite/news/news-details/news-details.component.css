@@ -1,0 +1,5 @@
+.imgsrc{
+  width:1200px;
+  max-height: 400px;
+  object-fit: cover;
+}

@@ -1,0 +1,74 @@
+
+<div class="navbar-dark bg-primary" style="background-image: url(/custome/footer-bg.png);">
+
+  <div class="container" style="padding: 5rem 0;">
+    <div class="w-md-65 w-lg-100 d-flex justify-content-center align-items-center">
+      <div>
+        <h1 class="display-3 text-white" style="margin-top: 5rem; padding: 0">Notice Board</h1>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="container content-space-1">
+  <div class="row">
+  <div class="col-12 col-md-9 mb-5">
+  @for (i of events; track i.title){
+  <div  class="card p-3 mb-5">
+    <div class="row">
+      <div class="col-9 d-flex align-items-center mb-2">
+        <h3 class="m-0">{{ i.title }}</h3>
+      </div>
+
+      <div class="col-3 bg-primary text-center d-flex flex-column align-items-center py-3">
+        <div>
+          <h1 class="display-4 text-white mb-1">{{ i.day }}</h1>
+        </div>
+        <div>
+          <p class="text-white mb-0">{{ i.monthYear }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+  </div>
+  <div class="col-lg-3">
+    <!-- Navbar -->
+    <div class="navbar-expand-lg navbar-light">
+      <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+        <!-- Card -->
+        <div class="card flex-grow-1 mb-5">
+          <div class="card-body">
+            <!-- Avatar -->
+            <div class="d-none d-lg-block text-center">
+              <div class="avatar avatar-xxl avatar-circle ">
+                <img class="avatar-img" src="./logo/logotest.svg" alt="Image Description">
+                </div>
+            </div>
+            <!-- End Avatar -->
+
+            <!-- Nav -->
+            <span class="text-cap text-center mt-2">ALL Previous Notices</span>
+
+            <!-- List -->
+            <ul class="nav nav-sm nav-tabs nav-vertical mb-4">
+              @for (i of events; track i.title){
+              <li class="nav-item">
+                <a class="nav-link " href="./account-overview.html">
+                  <i class="bi-bell nav-icon"></i> {{ i.day }} / {{ i.monthYear }}
+                </a>
+              </li>
+              }
+            </ul>
+
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+    </div>
+    <!-- End Navbar -->
+  </div>
+  </div>
+</div>

@@ -22,6 +22,13 @@ export const banks:info[] = [
     image: path + "gtbank.png"
   },
   {
+    name: "Zenith Bank",
+    sn: "41",
+    link: "https://www.zenithbank.com",
+    image: path + "zenithBank.png"
+  },
+
+  {
     name: "Jaiz Bank",
     sn: "19",
     link: "https://jaizbankplc.com",
@@ -50,13 +57,8 @@ export const banks:info[] = [
     sn: "37",
     link: "https://www.unitybankng.com",
     image: path + "unitybank.png"
-  },
-  {
-    name: "Zenith Bank",
-    sn: "41",
-    link: "https://www.zenithbank.com",
-    image: path + "zenithBank.png"
   }
+
 ]
 
 export const paymentChannels:info[] = [

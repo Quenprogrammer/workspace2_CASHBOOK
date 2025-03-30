@@ -16,7 +16,7 @@ import {addDoc, collection, Firestore, getFirestore} from '@angular/fire/firesto
 })export class StaffsComponent implements OnInit {
   userForm!: FormGroup;
   firestore: Firestore;
-
+  isModal1Open = false;
   constructor(private fb: FormBuilder) {
     this.firestore = inject(Firestore);
   }
@@ -104,5 +104,20 @@ import {addDoc, collection, Firestore, getFirestore} from '@angular/fire/firesto
   closeModal(): void {
     // Logic for closing the modal goes here
   }
+
+  test=[
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+    {name:''},
+  ]
 }
 

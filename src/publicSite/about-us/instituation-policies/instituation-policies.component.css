@@ -1,0 +1,20 @@
+
+.card {
+  font-size: 1.1rem; /* Adjust the base font size for the entire card */
+  line-height: 1.6;  /* Increase line spacing for readability */
+}
+
+.card h2 {
+  font-size: 1.5rem; /* Larger font size for section headings */
+  margin-top: 2rem;  /* Add more space before each heading */
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1.1rem; /* Ensure the font size for paragraphs is consistent with the card */
+  margin-bottom: 0.8rem; /* Space out each paragraph for readability */
+}
+
+.card .edit {
+  font-weight: bold; /* Emphasize strong text */
+}

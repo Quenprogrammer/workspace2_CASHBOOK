@@ -123,8 +123,7 @@ a, button {
 
 .wrapper{
   margin:0 auto;
-  padding-left:12%;
-  padding-right:12%;
+
 }
 .heading{
   font-size: 4em;
@@ -133,9 +132,9 @@ a, button {
 }
 
 .wrap{
-  width: 830px;
+  width: 1200px;
   height: auto;
-  margin: 70px 0px;
+  margin: 10px 0px;
   float: left;
 }
 .fa{
@@ -159,8 +158,12 @@ div[class^="btn"]:hover{
 div[class^="btn"]:active{
   transform: scale(.98,.98);
 }
-.btn-big{width: 200px;}
-.btn-small{width: 95px;}
+.red{
+
+}
+.btn-big{width: 250px;}
+.btn-big{height: 250px;}
+.btn-small{width:105px;}
 .last{margin-right: 0 !important;}
 .Start{
   color: white;
@@ -273,3 +276,4 @@ div[class^="icon"]{
     opacity: 0;
   }
 }
+

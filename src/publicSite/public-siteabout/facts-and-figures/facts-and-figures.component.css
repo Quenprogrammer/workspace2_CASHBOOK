@@ -1,0 +1,46 @@
+.highlight {
+  text-align: center;
+
+  &--bordered {
+    padding: 10px;
+    margin: 10px 0;
+    border-right: 1px solid #ddd; /* Vertical line between columns */
+  }
+
+  .highlight-head {
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    color: #333;
+  }
+
+  .highlight-body {
+    font-family: 'Verdana', sans-serif; /* Removed the extra single quote */
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* Remove the right border for the last column in each row */
+  .no-border-right {
+    border-right: none;
+  }
+}
+
+.row {
+  display: flex;
+}
+
+.highlight-column {
+  position: relative;
+}
+
+/* Add vertical line for the column (use border-right) */
+.highlight-column:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  /* On smaller screens, remove vertical lines */
+  .highlight-column {
+    border-right: none;
+  }
+}

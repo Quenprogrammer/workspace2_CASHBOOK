@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-barchart',
@@ -8,61 +8,79 @@ import {Component} from '@angular/core';
     styleUrl: './barchart.component.css'
 })
 export class BarchartComponent {
+  @ViewChild('expensesCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
+
   ngAfterViewInit() {
-    this.drawChart();
+    if (this.canvasRef) {
+      this.drawBarChart();
+    } else {
+      console.error('Canvas element not found!');
+    }
   }
 
-  drawChart() {
-    const canvas = document.getElementById('pie') as HTMLCanvasElement;
-    if (!canvas) return;
+  drawBarChart() {
+    const canvas = this.canvasRef?.nativeElement;
+    if (!canvas) {
+      console.error('Canvas is not initialized.');
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const data = [100, 200, 175, 250, 180]; // Example values
-    const labels = ['A', 'B', 'C', 'D', 'E'];
-    const colors = ['#A67A3B', '#FF5733', '#3498DB', '#2ECC71', '#F1C40F'];
+    // Chart Configurations
+    const data = [70, 100,];
+    const labels = ['D1', 'D2', ];
+    const padding = 50;
+    const maxWidth = canvas.width;
+    const maxHeight = canvas.height;
+    const graphWidth = maxWidth - padding * 2;
+    const graphHeight = maxHeight - padding * 2;
+    const maxData = Math.max(...data);
+    const barWidth = graphWidth / data.length - 5; // Bar width with spacing
 
-    const total = data.reduce((sum, value) => sum + value, 0);
-    let startAngle = 0;
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const radius = Math.min(canvas.width, canvas.height) / 2 - 20;
+    ctx.clearRect(0, 0, maxWidth, maxHeight);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw X and Y Axes
+    ctx.strokeStyle = 'rgba(133,140,151,.18)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, maxHeight - padding);
+    ctx.moveTo(padding, maxHeight - padding);
+    ctx.lineTo(maxWidth - padding, maxHeight - padding);
+    ctx.stroke();
 
-    // Draw Pie Chart
-    data.forEach((value, index) => {
-      const sliceAngle = (value / total) * 2 * Math.PI;
-      const endAngle = startAngle + sliceAngle;
+    // Grid Lines & Y-Axis Labels
+    ctx.fillStyle = 'black';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'right';
 
+    for (let i = 0; i <= maxData; i += 50) {
+      const y = maxHeight - padding - (i / maxData) * graphHeight;
+      ctx.fillText(i.toString(), padding - 10, y + 5);
+      ctx.strokeStyle = 'rgba(133,140,151,.18)';
       ctx.beginPath();
-      ctx.moveTo(centerX, centerY);
-      ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-      ctx.closePath();
-      ctx.fillStyle = colors[index];
-      ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
+      ctx.moveTo(padding, y);
+      ctx.lineTo(maxWidth - padding, y);
       ctx.stroke();
+    }
 
-      startAngle = endAngle;
+    // X-axis Labels
+    ctx.textAlign = 'center';
+    labels.forEach((label, index) => {
+      const x = padding + index * (graphWidth / labels.length) + barWidth / 2;
+      ctx.fillText(label, x, maxHeight - 30);
     });
 
-    // Add Labels
-    startAngle = 0;
-    ctx.fillStyle = 'black';
-    ctx.font = '14px Inter, sans-serif';
-    ctx.textAlign = 'center';
-
+    // Draw Bar Chart
+    ctx.fillStyle = '#A67A3B';
     data.forEach((value, index) => {
-      const sliceAngle = (value / total) * 2 * Math.PI;
-      const angle = startAngle + sliceAngle / 2;
-      const x = centerX + Math.cos(angle) * (radius / 1.5);
-      const y = centerY + Math.sin(angle) * (radius / 1.5);
+      const x = padding + index * (graphWidth / data.length);
+      const barHeight = (value / maxData) * graphHeight;
+      const y = maxHeight - padding - barHeight;
 
-      ctx.fillText(labels[index], x, y);
-      startAngle += sliceAngle;
+      ctx.fillRect(x, y, barWidth, barHeight);
     });
   }
 

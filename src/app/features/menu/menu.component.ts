@@ -20,6 +20,7 @@ import {HeadingComponent} from '../../core/components/heading/heading.component'
 import {IntegrationComponent} from './integration/integration.component';
 import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
 import {addDoc, collection, doc, Firestore, setDoc} from '@angular/fire/firestore';
+import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLinkBase} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -40,6 +41,10 @@ import {addDoc, collection, doc, Firestore, setDoc} from '@angular/fire/firestor
     HeadingComponent,
     IntegrationComponent,
     WindowsViewComponent,
+    NgbNavItem,
+    NgbNavLinkBase,
+    NgbNavContent,
+    NgbNav,
 
   ],
   templateUrl: './menu.component.html',

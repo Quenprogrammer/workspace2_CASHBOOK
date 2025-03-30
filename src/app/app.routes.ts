@@ -67,6 +67,8 @@ export const routes: Routes = [
 
 
   {path: 'Public_site_dashboard', loadComponent: () => import ('../publicSite/public-site-dashboard/public-site-dashboard.component').then(c => c.PublicSiteDashboardComponent)},
+  {path: 'Public_site_homePage', loadComponent: () => import ('../publicSite/public-site-home-page/public-site-home-page.component').then(c => c.PublicSiteHomePageComponent)},
+  {path: 'about', loadComponent: () => import ('../publicSite/public-siteabout/public-siteabout.component').then(c => c.PublicSiteaboutComponent)},
 
 
 

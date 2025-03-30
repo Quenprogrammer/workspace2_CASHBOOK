@@ -34,7 +34,7 @@ export class VisitorsComponent implements AfterViewInit {
     // Draw X and Y Axes
     ctx.beginPath();
     ctx.strokeStyle = 'rgba(133,140,151,.18)';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
 
     // Y-Axis
     ctx.moveTo(padding, padding);
@@ -48,7 +48,7 @@ export class VisitorsComponent implements AfterViewInit {
     // Grid Lines & Y-Axis Labels
     ctx.fillStyle = 'black';
     ctx.font = '12px Inter, sans-serif';
-    ctx.textAlign = 'right';
+    ctx.textAlign = 'center';
 
     for (let i = 0; i <= maxData; i += 50) {
       const y = maxHeight - padding - (i / maxData) * graphHeight;
@@ -69,7 +69,7 @@ export class VisitorsComponent implements AfterViewInit {
 
     // Draw Line Chart
     ctx.beginPath();
-    ctx.strokeStyle = 'rgb(166,122,59)';
+    ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     ctx.fillStyle = 'rgba(166,122,59,.1)';
 
@@ -90,7 +90,7 @@ export class VisitorsComponent implements AfterViewInit {
     ctx.fill();
 
     // Draw Points (Without Labels)
-    ctx.fillStyle = '#A67A3B';
+    ctx.fillStyle = 'black';
     data.forEach((value, index) => {
       const x = padding + (index / (data.length - 1)) * graphWidth;
       const y = maxHeight - padding - (value / maxData) * graphHeight;
