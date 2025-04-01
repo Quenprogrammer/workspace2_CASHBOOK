@@ -17,13 +17,13 @@ export class FactsAndFiguresComponent implements AfterViewInit {
   @ViewChild('statisticsSection') statisticsSection!: ElementRef;
 
   statistics: Statistic[] = [
-    { value: 6, label: 'Programs' },
+    { strings:'+' , value: 6, label: 'Programs' },
     { value: 1131, label: 'successfully jobs' },
-    { value: +40, label: 'Staffs' },
+    { value: +40, label: 'Skilled staffs' },
     { value: 12, label: 'State of operation' },
-    { value: +20, label: 'Fish Nursery' },
+    { value: +20, label: 'Happy clients' },
     { value: 800, label: 'Clients' },
-    { value: 5, label: 'years of service' },
+    {strings:'+', value: 5, label: 'years of service' },
     { value: 3, label: 'Standard Cafteria' },
 
 
