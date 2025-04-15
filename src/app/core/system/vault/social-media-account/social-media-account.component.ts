@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-social-media-account',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './social-media-account.component.html',
   styleUrl: './social-media-account.component.css'
 })
 export class SocialMediaAccountComponent {
-  socialMediaForm: FormGroup;
+  socialMediaForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.socialMediaForm = this.fb.group({

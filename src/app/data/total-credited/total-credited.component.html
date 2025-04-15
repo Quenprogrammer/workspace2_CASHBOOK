@@ -1,10 +1,9 @@
 
-<div class="col-12 mb-2">
-  <!-- Card -->
-  <div class="card  card-bordered shadow-none h-100" *ngIf="income$ | async as docs; else noData">
-    <div class="text-primary p-3" *ngFor="let doc of docs">
-      <h3 class="card-title ">Income </h3>
-      <div class="progress" style="height: 15px;">
+<div class="col-12 ">
+  <div class="card  card-bordered shadow-none p-2  mb-1" *ngIf="income$ | async as docs; else noData">
+    <div class="text-primary " *ngFor="let doc of docs">
+
+      <div class="progress" style="height: 5px;">
         <div class="progress-bar bg-dark" role="progressbar"
              [style.width.%]="creditPercentage"
              [attr.aria-valuenow]="creditPercentage"
@@ -13,31 +12,23 @@
       </div>
 
       <div class="row mt-2">
-
-        <div class="col-auto d-flex justify-content-center"><h2 style="font-family: Arial, sans-serif; font-size: 24px;">{{ creditPercentage | number:'1.2-2' }}
-          %</h2></div>
+        <div class="col-auto ms-auto"><h6 class="card-title ">Income </h6></div>
+        <div class="col-auto d-flex justify-content-center"><h5 style="font-family: Arial, sans-serif; ">{{ creditPercentage | number:'1.2-2' }}
+          %</h5></div>
         <div class="col-auto ms-auto">
-          <h2 style="font-family: Arial, sans-serif; font-size: 24px;">
+          <h5 style="font-family: Arial, sans-serif;  ">
             {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
-          </h2>
+          </h5>
         </div>
       </div>
     </div>
 
 
   </div>
-  <!-- End Card -->
-</div>  <ng-template #noData>
-  <div class="text-center mt-3">
-    <p>No data available.</p>
-  </div>
-</ng-template>
-<div class="col-12 mb-2">
-  <!-- Card -->
-  <div class="card  card-bordered shadow-none h-100" *ngIf="expenses$ | async as docs; else noData">
-    <div class="text-primary p-3" *ngFor="let doc of docs">
-      <h3 class="card-title ">Expenses </h3>
-      <div class="progress" style="height: 15px;">
+  <div class="card  card-bordered shadow-none p-2 mb-1 " *ngIf="expenses$ | async as docs; else noData">
+    <div class="text-primary " *ngFor="let doc of docs">
+
+      <div class="progress" style="height: 5px;">
         <div class="progress-bar bg-dark" role="progressbar"
              [style.width.%]="debitPercentage"
              [attr.aria-valuenow]="debitPercentage"
@@ -46,22 +37,37 @@
       </div>
 
       <div class="row mt-2">
-
-        <div class="col-auto d-flex justify-content-center"><h2 style="font-family: Arial, sans-serif; font-size: 24px;">{{debitPercentage | number:'1.2-2' }}%</h2></div>
-        <div class="col-auto ms-auto">
-          <h2 style="font-family: Arial, sans-serif; font-size: 24px;">
+        <div class="col-4"><h6 class="card-title ">Expenses </h6></div>
+        <div class="col-3 d-flex justify-content-center"><h5 style="font-family: Arial, sans-serif; ">{{debitPercentage | number:'1.2-2' }}%</h5></div>
+        <div class="col-5">
+          <h5 style="font-family: Arial, sans-serif; ">
             {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
-          </h2>
+          </h5>
         </div>
+
       </div>
     </div>
 
 
   </div>
-  <!-- End Card -->
-</div>  <ng-template #noData>
+</div>
+
+
+
+
+
+
+
+
+
+
+<ng-template #noData>
   <div class="text-center mt-3">
     <p>No data available.</p>
   </div>
 </ng-template>
-
+<ng-template #noData>
+  <div class="text-center mt-3">
+    <p>No data available.</p>
+  </div>
+</ng-template>

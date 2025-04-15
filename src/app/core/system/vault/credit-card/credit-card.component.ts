@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-credit-card',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './credit-card.component.html',
   styleUrl: './credit-card.component.css'
 })
 export class CreditCardComponent {
-  creditCardForm: FormGroup;
+  creditCardForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.creditCardForm = this.fb.group({

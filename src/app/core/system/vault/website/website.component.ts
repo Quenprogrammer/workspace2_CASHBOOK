@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-website',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './website.component.html',
   styleUrl: './website.component.css'
 })
 export class WebsiteComponent {
-  websiteForm: FormGroup;
+  websiteForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.websiteForm = this.fb.group({

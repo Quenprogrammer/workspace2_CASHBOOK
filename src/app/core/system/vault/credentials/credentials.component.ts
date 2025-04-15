@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import {AbstractControl} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-credentials',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './credentials.component.html',
   styleUrl: './credentials.component.css'
 })
 export class CredentialsComponent {
-  credentialsForm: FormGroup;
+  credentialsForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 

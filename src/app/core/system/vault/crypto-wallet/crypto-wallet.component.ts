@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-crypto-wallet',
@@ -11,7 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
   styleUrl: './crypto-wallet.component.css'
 })
 export class CryptoWalletComponent {
-  cryptoWalletForm: FormGroup;
+  cryptoWalletForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.cryptoWalletForm = this.fb.group({

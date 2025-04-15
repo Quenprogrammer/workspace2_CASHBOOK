@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-emails',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './emails.component.html',
   styleUrl: './emails.component.css'
 })
 export class EmailsComponent {
-  emailAccountForm: FormGroup;
+  emailAccountForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.emailAccountForm = this.fb.group({

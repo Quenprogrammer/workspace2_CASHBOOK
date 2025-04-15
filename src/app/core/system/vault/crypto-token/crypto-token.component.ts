@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-crypto-token',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './crypto-token.component.html',
   styleUrl: './crypto-token.component.css'
 })
 export class CryptoTokenComponent {
-  tokenForm: FormGroup;
+  tokenForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.tokenForm = this.fb.group({

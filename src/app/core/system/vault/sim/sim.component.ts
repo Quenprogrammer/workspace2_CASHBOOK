@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sim',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './sim.component.html',
   styleUrl: './sim.component.css'
 })
 export class SimComponent {
-  simCardForm: FormGroup;
+  simCardForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.simCardForm = this.fb.group({
@@ -32,5 +35,5 @@ export class SimComponent {
       console.log('Invalid Form');
     }
   }
-}
+
 }

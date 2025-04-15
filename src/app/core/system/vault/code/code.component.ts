@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-code',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './code.component.css'
 })
 export class CodeComponent {
-  codeUploadForm: FormGroup;
+  codeUploadForm!: FormGroup;
   selectedFile: File | null = null;
 
   constructor(private fb: FormBuilder) {}

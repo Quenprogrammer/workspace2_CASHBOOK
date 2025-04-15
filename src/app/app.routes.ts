@@ -75,15 +75,25 @@ export const routes: Routes = [
 
 
 
+// Vault Routes
 
-/*
-
-  {path: 'account', loadComponent: () => import ('./core/system/vault/bank/bank.component').then(c => c.BankComponent)},
-  {path: 'account', loadComponent: () => import ('./core/system/vault/code/code.component').then(c => c.CodeComponent)},
-  {path: 'account', loadComponent: () => import ('./core/system/vault/contact-saver/contact-saver.component').then(c => c.ContactSaverComponent)},
-  {path: 'account', loadComponent: () => import ('./core/system/vault/credentials/credentials.component').then(c => c.CredentialsComponent)},
-
-*/
+  { path: 'bank', loadComponent: () => import('./core/system/vault/bank/bank.component').then(c => c.BankComponent) },
+  { path: 'code', loadComponent: () => import('./core/system/vault/code/code.component').then(c => c.CodeComponent) },
+  { path: 'contact-saver', loadComponent: () => import('./core/system/vault/contact-saver/contact-saver.component').then(c => c.ContactSaverComponent) },
+  { path: 'credentials', loadComponent: () => import('./core/system/vault/credentials/credentials.component').then(c => c.CredentialsComponent) },
+  { path: 'credit-card', loadComponent: () => import('./core/system/vault/credit-card/credit-card.component').then(c => c.CreditCardComponent) },
+  { path: 'crypto-token', loadComponent: () => import('./core/system/vault/crypto-token/crypto-token.component').then(c => c.CryptoTokenComponent) },
+  { path: 'crypto-wallet', loadComponent: () => import('./core/system/vault/crypto-wallet/crypto-wallet.component').then(c => c.CryptoWalletComponent) },
+  { path: 'debit', loadComponent: () => import('./core/system/vault/debit/debit.component').then(c => c.DebitComponent) },
+  { path: 'digital-assets', loadComponent: () => import('./core/system/vault/digital-assets/digital-assets.component').then(c => c.DigitalAssetsComponent) },
+  { path: 'emails', loadComponent: () => import('./core/system/vault/emails/emails.component').then(c => c.EmailsComponent) },
+  { path: 'file-upload', loadComponent: () => import('./core/system/vault/file-upload/file-upload.component').then(c => c.FileUploadComponent) },
+  { path: 'location', loadComponent: () => import('./core/system/vault/location/location.component').then(c => c.LocationComponent) },
+  { path: 'nin', loadComponent: () => import('./core/system/vault/nin/nin.component').then(c => c.NINComponent) },
+  { path: 'sim', loadComponent: () => import('./core/system/vault/sim/sim.component').then(c => c.SimComponent) },
+  { path: 'social-media-account', loadComponent: () => import('./core/system/vault/social-media-account/social-media-account.component').then(c => c.SocialMediaAccountComponent) },
+  { path: 'vault-password', loadComponent: () => import('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent) },
+  { path: 'website', loadComponent: () => import('./core/system/vault/website/website.component').then(c => c.WebsiteComponent) },
 
 
 

@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-nin',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './nin.component.html',
   styleUrl: './nin.component.css'
 })
 export class NINComponent {
-  ninForm: FormGroup;
+  ninForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.ninForm = this.fb.group({

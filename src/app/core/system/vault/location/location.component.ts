@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule
+  ],
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
 })
 export class LocationComponent {
-  addressForm: FormGroup;
+  addressForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({
