@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="row g-1">
+    <div *ngFor="let button of buttons" [class]="button.col">
+      <div [style.height]="button.height" [class]="button.class">
+        <img class="img" src="" alt="">
+        <span class="label bottom">{{ button.label }}</span>
+      </div>
+    </div>
+  </div>
+</div>

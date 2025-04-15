@@ -1,0 +1,97 @@
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+/* Modal content (box that holds the description) */
+.modal-content {
+
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%; /* Adjusted to 80% */
+  max-width: 1000px; /* Optional: You can set a max width to ensure it doesn't get too large */
+   height: 90vh; /* Optional: Limit the height to 80% of the viewport */
+
+  overflow-y: hidden; /* Make the content scrollable vertically */
+
+
+}
+
+/* Close button for the modal */
+.close {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  font-size: 70px;
+  cursor: pointer;
+  color: red;
+  margin-top: 15px;
+}
+
+/* Optional: You can add some styles for the buttons */
+button {
+  cursor: pointer;
+}
+.modal-head{
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.text{
+  font-size: 18px;
+}
+
+
+.upload-container {
+
+  margin: 20px;
+}
+
+
+
+.progress {
+  width: 100%;
+  height: 10px;
+  margin-top: -10px ;
+}
+
+
+
+.fileUpload{
+  /*  min-width:450px;*/
+  max-width:60px;
+}
+.upload-container {
+  text-align: center;
+  margin: 20px;
+}
+
+
+
+.progress {
+  width: 100%;
+  height: 10px;
+  margin-top: -10px ;
+}
+
+
+.card-body-height{
+  height: 80vh;
+}
+.custom-hover-btn:hover {
+  background-color: black; /* Primary color (Bootstrap default primary color) */
+  color: white; /* Text color on hover */
+  border-color:black; /* Optional: add border color to match */
+}

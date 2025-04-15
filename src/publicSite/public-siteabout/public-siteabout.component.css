@@ -1,0 +1,105 @@
+.btn-custom-hover {
+  color: white;
+  font-size: 20px;
+
+}
+
+.btn-custom-hover:hover {
+  background-color: green;
+  color: white; /* Keep text white on hover */
+  border-color: green; /* Optional: border turns green on hover */
+}
+
+
+
+.image-container {
+  width: 100%;  /* Adjust this to control the container width */
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 8px; /* Matches the rounded corners you want */
+}
+
+.zoomed-img {
+  width: 70%;       /* Full width of the container */
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+  transform-origin: center;        /* Ensures the zoom effect is centered */
+}
+
+.image-container:hover .zoomed-img {
+  transform: scale(1.5); /* Adjust this scale factor for more or less zoom */
+}
+
+
+
+.radius{
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+/* Modal overlay (background behind modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+/* Modal content (box that holds the description) */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%; /* Adjusted to 80% */
+  max-width: 1000px; /* Optional: You can set a max width to ensure it doesn't get too large */
+  min-height: 70vh; /* Optional: Limit the height to 80% of the viewport */
+  max-height: 90vh; /* Optional: Limit the height to 80% of the viewport */
+  overflow-y: auto; /* Make the content scrollable vertically */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Close button for the modal */
+.close {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  font-size: 70px;
+  cursor: pointer;
+  color: red;
+  margin-top: 15px;
+}
+
+/* Optional: You can add some styles for the buttons */
+button {
+  cursor: pointer;
+}
+.modal-head{
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.text{
+  font-size: 18px;
+}
+.dropdown{
+  border: solid 1px silver;
+  font-size: 8px;
+
+  border-radius: 5px;
+  padding:6px;
+  margin: 2px;
+
+}

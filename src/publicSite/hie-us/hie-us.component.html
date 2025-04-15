@@ -1,0 +1,348 @@
+<main #scrollTarget id="content" role="main">
+  <!-- Hero -->
+  <div class="container content-space-2">
+    <div class="row justify-content-md-between align-items-sm-center">
+      <div class="col-8 col-sm-6 col-md-5 mb-5 mb-sm-0">
+        <img class="img-fluid" src="bg/Picture1.png" alt="Image Description"/>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-6">
+        <div class="mb-5">
+          <h1 class="display-4 mb-3">
+            Unlock your
+            <br>
+            <span class="text-primary text-highlight-warning">
+                <span class="js-typedjs"></span>
+              </span>
+          </h1>
+          <p class="lead">With our platform, you can quantify your skills, grow in your role and stay relevant on critical topics.</p>
+        </div>
+
+        <div class="d-grid d-md-flex gap-3 align-items-md-center">
+          <button class="btn btn-primary">Learn more</button>
+
+
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Hero -->
+
+  <!-- Card Grid -->
+  <div class="content-space-b-2 content-space-b-lg-3 bg-img-start" style="background: url(/assets/svg/components/shape-5.svg) center no-repeat;">
+    <div class="position-relative">
+      <div class="container content-space-2">
+        <div class="row align-items-md-center mb-7">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h2>Check out our newest and most popular programs</h2>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-md-6 text-md-end">
+            <a class="link" >See all programs <i class="bi-chevron-right small ms-1"></i></a>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <!-- Swiper Slider -->
+      <!--  <div class="">
+          <div class="">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+              <div *ngFor="let card of courses$ | async" class="col mb-5">
+                &lt;!&ndash; Card &ndash;&gt;
+                <div class="card card-bordered h-100">
+                  &lt;!&ndash; Card Pinned &ndash;&gt;
+                  <div class="card-pinned">
+                    <img class="card-img-top" [src]="card.imageUrl" alt="Image Description" />
+
+                    <div class="card-pinned-top-start">
+                      <small class="badge bg-success rounded-pill">Bestseller</small>
+                    </div>
+
+                    <div class="card-pinned-bottom-start">
+                      <div class="d-flex align-items-center flex-wrap">
+                        &lt;!&ndash; Rating &ndash;&gt;
+                        &lt;!&ndash; Add rating display if needed &ndash;&gt;
+                      </div>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Card Pinned &ndash;&gt;
+
+                  &lt;!&ndash; Card Body &ndash;&gt;
+                  <div class="card-body">
+                    &lt;!&ndash; Remove subtitle if it's not in courseInterface &ndash;&gt;
+                    <small class="card-subtitle">{{ card.description }}</small>
+
+                    <div class="mb-3">
+                      <h3 class="card-title">
+                        <a class="text-dark">{{ card.tittle }}</a>
+                      </h3>
+                    </div>
+
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <div class="avatar-group avatar-group-xs">
+                          <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip" data-placement="top" title="Author">
+                            <img class="avatar-img" [src]="card.authorImageUrl" alt="Image Description" />
+                          </a>
+                        </div>
+                      </div>
+                      &lt;!&ndash; End Col &ndash;&gt;
+
+                      <div class="col-auto">
+                        <ul class="list-inline list-separator small ms-auto">
+                          <li class="list-inline-item">
+                            <i class="bi-book me-1"></i> {{ card.lessons }} lessons
+                          </li>
+                          <li class="list-inline-item">
+                            <i class="bi-clock me-1"></i> {{ card.duration }}
+                          </li>
+                        </ul>
+                      </div>
+                      &lt;!&ndash; End Col &ndash;&gt;
+                    </div>
+                    &lt;!&ndash; End Row &ndash;&gt;
+                  </div>
+                  &lt;!&ndash; End Card Body &ndash;&gt;
+
+                  &lt;!&ndash; Card Footer &ndash;&gt;
+                  <div class="card-footer pt-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="me-2">
+                        <h5 class="card-title">{{ card.price }}</h5>
+                      </div>
+                      <a class="btn btn-primary btn-sm btn-transition">Preview</a>
+                    </div>
+                  </div>
+                  &lt;!&ndash; End Card Footer &ndash;&gt;
+                </div>
+                &lt;!&ndash; End Card &ndash;&gt;
+              </div>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- End Swiper Slider -->
+      </div>
+
+      <div class="w-100 w-md-65 bg-light position-absolute top-0 end-0 bottom-0 zi-n1"></div>
+    </div>
+  </div>
+  <!-- End Card Grid -->
+
+  <!-- Card Grid -->
+  <div class="container content-space-sm-2">
+    <!-- Title -->
+    <div class="w-md-75 text-center mx-md-auto mb-9">
+      <h2>Featured courses</h2>
+      <p>Discover your perfect program in our courses.</p>
+    </div>
+    <!-- End Title -->
+
+ <!--   <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-5">
+      <div *ngFor="let card of feauturedCourses$ | async" class="col mb-5">
+        &lt;!&ndash; Card &ndash;&gt;
+        <div class="card card-bordered h-100">
+          &lt;!&ndash; Card Pinned &ndash;&gt;
+          <div class="card-pinned">
+            <img class="card-img-top" [src]="card.imageUrl" alt="Image Description" />
+
+            <div class="card-pinned-top-start">
+              <small class="badge bg-success rounded-pill">Bestseller</small>
+            </div>
+
+            <div class="card-pinned-bottom-start">
+              <div class="d-flex align-items-center flex-wrap">
+                &lt;!&ndash; Rating &ndash;&gt;
+                &lt;!&ndash; Add rating display if needed &ndash;&gt;
+              </div>
+            </div>
+          </div>
+          &lt;!&ndash; End Card Pinned &ndash;&gt;
+
+          &lt;!&ndash; Card Body &ndash;&gt;
+          <div class="card-body">
+            &lt;!&ndash; Remove subtitle if it's not in courseInterface &ndash;&gt;
+            <small class="card-subtitle">{{ card.description }}</small>
+
+            <div class="mb-3">
+              <h3 class="card-title">
+                <a class="text-dark">{{ card.tittle }}</a>
+              </h3>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="avatar-group avatar-group-xs">
+                  <a class="avatar avatar-xs avatar-circle" data-toggle="tooltip" data-placement="top" title="Author">
+                    <img class="avatar-img" [src]="card.authorImageUrl" alt="Image Description" />
+                  </a>
+                </div>
+              </div>
+              &lt;!&ndash; End Col &ndash;&gt;
+
+              <div class="col-auto">
+                <ul class="list-inline list-separator small ms-auto">
+                  <li class="list-inline-item">
+                    <i class="bi-book me-1"></i> {{ card.lessons }} lessons
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="bi-clock me-1"></i> {{ card.duration }}
+                  </li>
+                </ul>
+              </div>
+              &lt;!&ndash; End Col &ndash;&gt;
+            </div>
+            &lt;!&ndash; End Row &ndash;&gt;
+          </div>
+          &lt;!&ndash; End Card Body &ndash;&gt;
+
+          &lt;!&ndash; Card Footer &ndash;&gt;
+          <div class="card-footer pt-0">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="me-2">
+                <h5 class="card-title">{{ card.price }}</h5>
+              </div>
+              <a class="btn btn-primary btn-sm btn-transition">Preview</a>
+            </div>
+          </div>
+          &lt;!&ndash; End Card Footer &ndash;&gt;
+        </div>
+        &lt;!&ndash; End Card &ndash;&gt;
+      </div>
+    </div>
+    &lt;!&ndash; End Row &ndash;&gt;
+-->
+    @if(false){  <div class="text-center">
+      <a class="btn btn-link" href="@@autopath/demo-course/courses.html">See all courses <i class="bi-chevron-right small ms-1"></i></a>
+    </div>}
+  </div>
+  <!-- End Card Grid -->
+
+
+
+
+
+  <!-- Signup Form -->
+  <div class="container content-space-2 content-space-lg-3">
+    <div class="row justify-content-lg-between align-items-md-center">
+      <div class="col-md-5 mb-7 mb-md-0">
+        <div class="mb-5">
+          <h2>Connect with a Mentor:</h2>
+          <p>Our mentorship program connects aspiring professionals with seasoned experts to navigate challenges, build valuable skills, and achieve your real estate goals.</p>
+        </div>
+
+        <h4>A mentor will provide these benefits:</h4>
+
+        <!-- List Checked -->
+        <ul class="list-checked list-checked-primary">
+          <li class="list-checked-item">Guidance and Expertise</li>
+          <li class="list-checked-item">Networking Opportunities</li>
+          <li class="list-checked-item">Personalized Support and Accountability</li>
+        </ul>
+        <!-- End List Checked -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-md-7 col-lg-6">
+        <!-- Form -->
+
+        <!-- Form -->
+        <form [formGroup]="mentorInquiriesMessage" (ngSubmit)="onSubmit()">
+          <div class="row gx-3">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label visually-hidden" for="hireUsFormFirstName">First name</label>
+                <input type="text" formControlName="firstName"
+                       [ngClass]="firstName?.invalid && (firstName?.dirty || firstName?.touched)?'is-invalid':''"
+                       class="form-control form-control-lg" id="hireUsFormFirstName"
+                       placeholder="First name" aria-label="First name">
+                <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="text-danger">
+                  <div *ngIf="firstName?.errors?.['required']">First name is required.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label visually-hidden" for="hireUsFormLastName">Last name</label>
+                <input type="text" formControlName="lastName" class="form-control form-control-lg" id="hireUsFormLastName" placeholder="Last name" aria-label="Last name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row gx-3">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label visually-hidden" for="hireUsFormWorkEmail">Email address</label>
+                <input formControlName="email"
+                       [ngClass]="email?.invalid && (email?.dirty || email?.touched)?'is-invalid':''"
+                       type="email" class="form-control form-control-lg" id="hireUsFormWorkEmail" placeholder="email@site.com" aria-label="email@site.com">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
+                  <div *ngIf="email?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="email?.errors?.['email']">Enter a valid email.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label visually-hidden" for="hireUsFormCompanyName">Phone Number</label>
+                <input type="text" formControlName="phoneNumber"
+                       [ngClass]="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)?'is-invalid':''"
+                       class="form-control form-control-lg" id="hireUsFormCompanyName" placeholder="Phone Number" aria-label="Phone Number">
+                <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="text-danger">
+                  <div *ngIf="phoneNumber?.errors?.['pattern']">Enter a valid phone number.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="form-check small mb-4">
+            <input type="checkbox" class="form-check-input" id="signupFormPrivacyCheck" name="signupFormPrivacyCheck" required="" data-msg="Please accept our Privacy Policy.">
+            <label class="form-check-label" for="signupFormPrivacyCheck"> Yes, I'd like to receive occasional marketing emails from Front. I have the right to opt out at any time. <a class="link" href="./page-privacy.html">View privacy policy.</a></label>
+          </div>
+
+          <div class="d-grid">
+            @if (isSubmitting){
+              <button class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Submitting...
+              </button>
+            } @else{
+              <button type="submit" [disabled]="mentorInquiriesMessage.invalid" class="btn btn-primary btn-lg">Submit</button>
+
+            }
+
+          </div>
+        </form>
+
+
+
+        <!-- End Form -->
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Signup Form -->
+
+  <!-- CTA -->
+  <div class="container content-space-b-2">
+    <div class="text-center bg-img-start py-6" style="background: url(/assets/svg/components/shape-6.svg) center no-repeat;">
+      <div class="mb-5">
+        <h2>Find the right learning path for you</h2>
+        <p>Answer a few questions and match your goals to our programs.</p>
+      </div>
+
+    </div>
+  </div>
+  <!-- End CTA -->
+</main>

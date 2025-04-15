@@ -1,0 +1,152 @@
+<!-- Hero -->
+<!--<div class="overflow-hidden">
+  <div class="container content-space-t-4 content-space-b-3">
+    <div class="row justify-content-lg-between align-items-md-center">
+      <div class="col-md-6 col-lg-5 mb-7 mb-md-0">
+        &lt;!&ndash; Heading &ndash;&gt;
+        <div class="mb-5">
+          <span class="text-cap">Who we are?</span>
+          <h1 class="display-4 mb-3">Design agency that inspires</h1>
+          <p class="lead">Our team aims to deliver the most outstanding work in every pixel.</p>
+        </div>
+        &lt;!&ndash; End Title & Description &ndash;&gt;
+
+        <div class="d-grid d-sm-flex gap-3">
+          <a class="btn btn-primary btn-transition" href="#caseStudies">Case studies</a>
+          <a class="btn btn-link" href="#">Learn more <i class="bi-chevron-right small ms-1"></i></a>
+        </div>
+      </div>
+      &lt;!&ndash; End Col &ndash;&gt;
+
+      <div class="col-md-6">
+        <div class="position-relative">
+          <img class="img-fluid rounded-2" src="./custome/svgcover.png" alt="Image Description">
+          <div class="position-absolute top-0 end-0 w-100 h-100 bg-soft-primary rounded-2 zi-n1 mt-5 me-n5"></div>
+        </div>
+      </div>
+      &lt;!&ndash; End Col &ndash;&gt;
+    </div>
+    &lt;!&ndash; End Row &ndash;&gt;
+  </div>
+</div>-->
+<!-- End Hero -->
+
+
+<!-- Hero -->
+<div class="position-relative content-space-lg-2">
+  <!-- Swiper Main Slider -->
+  <div class="js-swiper-blog-journal-hero swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide d-flex gradient-x-overlay-sm-dark bg-img-start" style="background-image: url(./custome/bgCover5.webp); min-height: 40rem;">
+        <!-- Container -->
+        <div class="container d-flex align-items-center" style="min-height: 40rem;">
+          <div class="w-lg-50 me-3">
+            <!-- Media -->
+            <div class="d-flex align-items-center mb-3">
+              <div class="flex-shrink-0">
+                <div class="avatar  avatar-xxl avatar-circle ">
+                  <img class="avatar-img " src="./logo/logotest.svg" alt="Image Description">
+                </div>
+              </div>
+
+            </div>
+            <!-- End Media -->
+
+            <div class="mb-5">
+              <h1 class="display-1 text-white">Latest News</h1>
+            </div>
+
+                 </div>
+        </div>
+        <!-- End Container -->
+      </div>
+    </div>
+
+   </div>
+  <!-- End Swiper Main Slider -->
+
+  <!-- Swiper Thumbs Slider -->
+  <div class="d-none d-lg-block container translate-middle-y position-absolute top-50 start-0 end-0 zi-2">
+    <div class="translate-middle-y position-absolute top-50 end-0">
+      <div class="js-swiper-blog-journal-hero-thumbs swiper" style="opacity:0;max-width: 13rem;">
+        <div class="swiper-wrapper">
+          <!-- Slide -->
+          <div class="swiper-slide swiper-pagination-progress swiper-pagination-progress-light">
+
+            <div class="swiper-pagination-progress-body">
+              <div class="js-swiper-pagination-progress-body-helper swiper-pagination-progress-body-helper"></div>
+            </div>
+          </div>
+          <!-- End Slide -->
+
+          <!-- Slide -->
+          <div class="swiper-slide swiper-pagination-progress swiper-pagination-progress-light">
+
+            <div class="swiper-pagination-progress-body">
+              <div class="js-swiper-pagination-progress-body-helper swiper-pagination-progress-body-helper"></div>
+            </div>
+          </div>
+          <!-- End Slide -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Swiper Thumbs Slider -->
+</div>
+<!-- End Hero -->
+
+
+<div class="container overflow-hidden ">
+  <div class="w-lg-75 text-center mx-lg-auto mb-9">
+    <h1 class="display-5 mb-4 mt-md-5"> Bagauda’s Latest News and Insights</h1>
+    <p class="lead">Keeping you connected with the latest developments and achievements at Bagauda Institution of fisheries studies</p>
+  </div>
+</div>
+
+
+
+
+
+<main id="content" role="main">
+  <div class="container content-space-b-2 content-space-b-lg-3">
+
+      <div class="row">
+
+      @for (item of News; track item.id) {
+          <div class="col-sm-12 col-lg-6 mb-6">
+              <app-news-card [newsArticle]="item"></app-news-card>
+              <!-- End Blog Card -->
+          </div>
+
+      }
+      </div>
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link"  aria-label="Previous">
+              <span aria-hidden="true">
+                <i class="bi-chevron-double-left small"></i>
+              </span>
+          </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+
+        <li class="page-item disabled"><a class="page-link" >.........</a></li>
+
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">
+                <i class="bi-chevron-double-right small"></i>
+              </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Pagination -->
+  </div>
+  <!-- End Card Grid -->
+</main>

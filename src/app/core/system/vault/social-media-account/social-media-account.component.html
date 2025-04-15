@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <h2>Social Media Account Form</h2>
+  <form [formGroup]="socialMediaForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username -->
+    <div class="mb-3">
+      <label class="form-label">Username/Handle</label>
+      <input type="text" class="form-control" formControlName="username">
+    </div>
+
+    <!-- Full Name -->
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-control" formControlName="fullName">
+    </div>
+
+    <!-- Email Address -->
+    <div class="mb-3">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-control" formControlName="email">
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label class="form-label">Phone Number (if linked)</label>
+      <input type="tel" class="form-control" formControlName="phoneNumber">
+    </div>
+
+    <!-- Profile Picture -->
+    <div class="mb-3">
+      <label class="form-label">Profile Picture</label>
+      <input type="file" class="form-control" (change)="onFileSelect($event)">
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+      <label class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" formControlName="dateOfBirth">
+    </div>
+
+    <!-- Location -->
+    <div class="mb-3">
+      <label class="form-label">Location</label>
+      <input type="text" class="form-control" formControlName="location">
+    </div>
+
+    <!-- Privacy Settings -->
+    <div class="mb-3">
+      <label class="form-label">Privacy Settings</label>
+      <select class="form-select" formControlName="privacySettings">
+        <option value="">Select Privacy Setting</option>
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+      </select>
+    </div>
+
+    <!-- Security Information -->
+    <h4>Security Information</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="security.twoFactorAuth">
+      <label class="form-check-label">Enable Two-Factor Authentication (2FA)</label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Backup Codes</label>
+      <textarea class="form-control" rows="3" formControlName="security.backupCodes"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

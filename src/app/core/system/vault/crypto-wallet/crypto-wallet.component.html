@@ -1,0 +1,102 @@
+<div class="container mt-4">
+  <h2>Cryptocurrency Wallet Information</h2>
+  <form [formGroup]="cryptoWalletForm" (ngSubmit)="onSubmit()">
+
+    <!-- Wallet Name -->
+    <div class="mb-3">
+      <label class="form-label">Wallet Name</label>
+      <input type="text" class="form-control" formControlName="walletName" placeholder="Enter wallet name">
+    </div>
+
+    <!-- Wallet Address -->
+    <div class="mb-3">
+      <label class="form-label">Wallet Address</label>
+      <input type="text" class="form-control" formControlName="walletAddress" placeholder="Enter wallet address">
+    </div>
+
+    <!-- Private Key -->
+    <div class="mb-3">
+      <label class="form-label">Private Key</label>
+      <input type="password" class="form-control" formControlName="privateKey" placeholder="Enter private key">
+    </div>
+
+    <!-- Public Key -->
+    <div class="mb-3">
+      <label class="form-label">Public Key</label>
+      <input type="text" class="form-control" formControlName="publicKey" placeholder="Enter public key">
+    </div>
+
+    <!-- Seed Phrase -->
+    <div class="mb-3">
+      <label class="form-label">Seed Phrase</label>
+      <textarea class="form-control" formControlName="seedPhrase" rows="3" placeholder="Enter seed phrase (12-24 words)"></textarea>
+    </div>
+
+    <!-- Wallet Type -->
+    <div class="mb-3">
+      <label class="form-label">Wallet Type</label>
+      <select class="form-control" formControlName="walletType">
+        <option value="hot">Hot Wallet</option>
+        <option value="cold">Cold Wallet</option>
+        <option value="hardware">Hardware Wallet</option>
+        <option value="paper">Paper Wallet</option>
+      </select>
+    </div>
+
+    <!-- Blockchain Network -->
+    <div class="mb-3">
+      <label class="form-label">Blockchain Network</label>
+      <input type="text" class="form-control" formControlName="blockchainNetwork" placeholder="e.g., Bitcoin, Ethereum, Binance Smart Chain">
+    </div>
+
+    <!-- Multi-Signature -->
+    <div class="mb-3">
+      <label class="form-label">Multi-Signature Enabled</label>
+      <select class="form-control" formControlName="multiSignature">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+    <!-- 2FA Security -->
+    <div class="mb-3">
+      <label class="form-label">Two-Factor Authentication (2FA)</label>
+      <select class="form-control" formControlName="twoFactorAuth">
+        <option value="enabled">Enabled</option>
+        <option value="disabled">Disabled</option>
+      </select>
+    </div>
+
+    <!-- Backup Codes -->
+    <div class="mb-3">
+      <label class="form-label">Backup Codes</label>
+      <textarea class="form-control" formControlName="backupCodes" rows="2" placeholder="Enter backup codes"></textarea>
+    </div>
+
+    <!-- Linked Email -->
+    <div class="mb-3">
+      <label class="form-label">Linked Email</label>
+      <input type="email" class="form-control" formControlName="linkedEmail" placeholder="Enter linked email">
+    </div>
+
+    <!-- Linked Phone Number -->
+    <div class="mb-3">
+      <label class="form-label">Linked Phone Number</label>
+      <input type="text" class="form-control" formControlName="linkedPhoneNumber" placeholder="Enter linked phone number">
+    </div>
+
+    <!-- Wallet Balance -->
+    <div class="mb-3">
+      <label class="form-label">Wallet Balance</label>
+      <input type="text" class="form-control" formControlName="walletBalance" placeholder="Enter wallet balance">
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="mb-3">
+      <label class="form-label">Recent Transactions</label>
+      <textarea class="form-control" formControlName="recentTransactions" rows="3" placeholder="Enter recent transactions"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

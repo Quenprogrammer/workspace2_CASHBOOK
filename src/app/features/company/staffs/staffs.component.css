@@ -1,0 +1,160 @@
+i {
+  font-size: 1.0rem;
+}
+
+div {
+  font-size: 0.875rem;
+}
+
+.card-bodyOption {
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.custom-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.card-header .row {
+  margin-bottom: 0 !important;
+}
+
+.card-header .btn {
+  padding: 5px;
+}
+
+.card-header img {
+  width: 35px;
+  height: 35px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.modal-content {
+  background: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1000px;
+  height: 98vh;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    max-width: 500px;
+    min-height: 70vh;
+    height: 80vh;
+    overflow-y: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-content {
+    max-width: 900px;
+    height: auto;
+  }
+}
+
+.card-bodys {
+  height: 93vh;
+  overflow-y: auto;
+}
+
+.sideBar {
+  height: 93vh;
+}
+
+.close {
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  font-size: 55px;
+  cursor: pointer;
+  color: red;
+  margin-top: 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.modal-head {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.upload-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  margin-top: -10px;
+}
+
+.fileUpload {
+  min-width: 450px;
+  max-width: 650px;
+}
+
+.file-preview-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-wrapper {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-bodyAddModule {
+  height: 300px;
+  width: 500px;
+}
+
+.imgModal {
+  max-width: 600px;
+}
+
+.fileCard {
+  max-width: 500px;
+}

@@ -1,0 +1,40 @@
+.dropdown{
+  background-color: #B22222;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.list-checked {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.list-checked-item {
+  font-size: 18px; /* Set font size */
+  font-family: 'Arial', sans-serif; /* Change font family */
+  line-height: 1.6; /* Increase line spacing */
+  color: #333; /* Set text color */
+  margin-bottom: 10px; /* Add spacing between items */
+}
+
+
+.btn-custom-hover {
+  color: black;
+  font-size: 20px;
+
+}
+
+.btn-custom-hover:hover {
+  background-color: maroon;
+  color: white; /* Keep text white on hover */
+  border-color: maroon; /* Optional: border turns green on hover */
+}
+
+
+
+
+.active {
+  background-color: var(--bs-primary) !important; /* Ensure the red color is applied */
+  color: white; /* Adjust text color if needed */
+}

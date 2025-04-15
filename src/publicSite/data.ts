@@ -1,0 +1,70 @@
+export const whyChooseUs = [
+  "Expertise: We have extensive experience and expertise in transportation, oil and gas, and other industries.",
+  "Innovation: We are committed to innovation, and continuously seek new and better ways to do things.",
+  "Customer Focus: We are focused on delivering exceptional results for our customers, and strive to understand their needs and exceed their expectations.",
+  "Global Reach: We have a global presence, and can provide services and solutions to customers around the world.",
+  "State-of-the-Art Technology: We invest in the latest technology and equipment, to ensure that our services and solutions are always up-to-date and effective.",
+  "Safety: We prioritize safety, and have a strong commitment to ensuring the safety of our employees, customers, and the environment.",
+  "Sustainability: We are committed to sustainability, and strive to reduce our impact on the environment.",
+  "Quality: We are committed to delivering high-quality services and solutions, and continuously seek ways to improve.",
+  "Flexibility: We are flexible, and can adapt to changing customer needs and market conditions.",
+  "Partnerships: We build strong partnerships with our customers, employees, and partners, to ensure that everyone benefits.",
+  "Transportation Expertise: Our transportation business has extensive experience and expertise in logistics and transportation.",
+  "Oil and Gas Expertise: Our oil and gas business has extensive experience and expertise in exploration, production, and distribution.",
+  "Customer Service: We are committed to delivering exceptional customer service, and strive to build long-term relationships with our customers.",
+  "Reliability: We are reliable, and strive to deliver on our promises and commitments.",
+  "Innovative Solutions: We are committed to providing innovative solutions to complex problems, and strive to stay ahead of the competition.",
+  "Global Network: We have a global network of partners and suppliers, which enables us to provide services and solutions to customers around the world.",
+  "Local Knowledge: We have local knowledge and expertise, which enables us to provide tailored solutions to customers in different regions.",
+  "Strong Balance Sheet: We have a strong balance sheet, which enables us to invest in new opportunities and grow our business.",
+  "Experienced Team: We have an experienced team, with a deep understanding of the industries we operate in.",
+  "Commitment to Excellence: We are committed to excellence, and strive to continuously improve our services and solutions."
+];
+
+
+
+export const coreValues = [
+  "Innovation: We encourage creativity, experimentation, and continuous improvement.",
+  "Customer Satisfaction: We are committed to delivering exceptional value and results to our customers.",
+  "Integrity: We operate with transparency, honesty, and ethics in all our interactions.",
+  "Excellence: We strive for excellence in everything we do, and continuously seek ways to improve.",
+  "Collaboration: We believe in the power of teamwork, and work collaboratively to achieve our goals.",
+  "Respect: We treat our customers, employees, and partners with respect and dignity.",
+  "Sustainability: We are committed to sustainable business practices, and reducing our impact on the environment.",
+  "Accountability: We take ownership of our actions, and are accountable for our results.",
+  "Diversity: We value diversity, and strive to create an inclusive workplace where everyone can thrive.",
+  "Continuous Learning: We believe in continuous learning, and provide opportunities for our employees to grow and develop.",
+  "Community Involvement: We are committed to making a positive impact in the communities we serve.",
+  "Transparency: We operate with transparency, and are open and honest in our communication.",
+  "Trust: We build trust with our customers, employees, and partners, through our actions and decisions.",
+  "Innovative Spirit: We encourage innovation, and provide opportunities for our employees to think creatively.",
+  "Customer Focus: We are focused on delivering exceptional results for our customers.",
+  "Employee Engagement: We value our employees, and strive to create a workplace where they can thrive.",
+  "Social Responsibility: We are committed to social responsibility, and reducing our impact on the environment.",
+  "Partnerships: We build strong partnerships with our customers, employees, and partners.",
+  "Results-Oriented: We are focused on delivering exceptional results, and continuously seek ways to improve.",
+  "Fun and Enjoyable Workplace: We strive to create a fun and enjoyable workplace, where our employees can thrive."
+];
+
+export const missions = [
+  "To be the leading provider of innovative solutions, delivering exceptional value to our customers and stakeholders.",
+  "To create a world-class organization that makes a positive impact on the lives of our customers, employees, and the environment.",
+  "To provide the highest quality products and services, while building long-term relationships with our customers and partners.",
+  "To be the most trusted and respected company in our industry, known for our integrity, expertise, and commitment to excellence.",
+  "To drive growth and innovation, while making a positive difference in the communities we serve.",
+  "To deliver exceptional customer experiences, through our passion for innovation, quality, and customer satisfaction.",
+  "To be a leader in our industry, recognized for our expertise, creativity, and commitment to delivering outstanding results.",
+  "To build a culture of innovation, collaboration, and continuous improvement, that empowers our employees to achieve their full potential.",
+  "To provide solutions that make a real difference in people's lives, while maintaining a strong focus on sustainability and social responsibility.",
+  "To be a trusted partner to our customers, providing them with the best possible solutions and support.",
+  "To drive business growth and success, through our commitment to innovation, quality, and customer satisfaction.",
+  "To create a workplace that is inclusive, diverse, and empowering, where our employees can thrive and grow.",
+  "To make a positive impact on the environment, through our commitment to sustainability and responsible business practices.",
+  "To deliver exceptional results, through our focus on innovation, quality, and customer satisfaction.",
+  "To build long-term relationships with our customers, based on trust, respect, and a deep understanding of their needs.",
+  "To be a leader in our industry, recognized for our expertise, innovation, and commitment to excellence.",
+  "To create a culture that values innovation, creativity, and continuous improvement, and empowers our employees to achieve their full potential.",
+  "To provide solutions that are tailored to the specific needs of our customers, and deliver exceptional value and results.",
+  "To drive business success, through our commitment to innovation, quality, and customer satisfaction.",
+  "To make a positive difference in the lives of our customers, employees, and the environment, through our business practices and community involvement."
+];

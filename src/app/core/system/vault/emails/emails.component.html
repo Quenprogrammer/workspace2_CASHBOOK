@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <h2>Email Account Form</h2>
+  <form [formGroup]="emailAccountForm" (ngSubmit)="onSubmit()">
+
+    <!-- Email Address -->
+    <div class="mb-3">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-control" formControlName="emailAddress">
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control" formControlName="username">
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+
+    <!-- Recovery Email -->
+    <div class="mb-3">
+      <label class="form-label">Recovery Email</label>
+      <input type="email" class="form-control" formControlName="recoveryEmail">
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" formControlName="phoneNumber">
+    </div>
+
+    <!-- Security Information -->
+    <h4>Security Information</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="security.twoFactorAuth">
+      <label class="form-check-label">Enable Two-Factor Authentication (2FA)</label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Backup Codes</label>
+      <textarea class="form-control" rows="3" formControlName="security.backupCodes"></textarea>
+    </div>
+
+    <!-- Subscription Preferences -->
+    <h4>Subscription Preferences</h4>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.newsletters">
+      <label class="form-check-label">Receive Newsletters</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.marketingEmails">
+      <label class="form-check-label">Receive Marketing Emails</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

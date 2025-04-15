@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <h2>SIM Card Information</h2>
+  <form [formGroup]="simCardForm" (ngSubmit)="onSubmit()">
+
+    <!-- SIM Card Number -->
+    <div class="mb-3">
+      <label class="form-label">SIM Card Number (ICCID)</label>
+      <input type="text" class="form-control" formControlName="simNumber" placeholder="19-20 digit number">
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label class="form-label">Phone Number</label>
+      <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Enter phone number">
+    </div>
+
+    <!-- Carrier Name -->
+    <div class="mb-3">
+      <label class="form-label">Carrier/Service Provider</label>
+      <input type="text" class="form-control" formControlName="carrier">
+    </div>
+
+    <!-- Account Holder Name -->
+    <div class="mb-3">
+      <label class="form-label">Account Holder Name</label>
+      <input type="text" class="form-control" formControlName="accountHolderName">
+    </div>
+
+    <!-- Activation Date -->
+    <div class="mb-3">
+      <label class="form-label">Activation Date</label>
+      <input type="date" class="form-control" formControlName="activationDate">
+    </div>
+
+    <!-- PIN -->
+    <div class="mb-3">
+      <label class="form-label">SIM PIN</label>
+      <input type="password" class="form-control" formControlName="pin" maxlength="4">
+    </div>
+
+    <!-- PUK -->
+    <div class="mb-3">
+      <label class="form-label">PUK (Personal Unblocking Key)</label>
+      <input type="password" class="form-control" formControlName="puk" maxlength="8">
+    </div>
+
+    <!-- SIM Card Type -->
+    <div class="mb-3">
+      <label class="form-label">SIM Card Type</label>
+      <select class="form-control" formControlName="simType">
+        <option value="standard">Standard</option>
+        <option value="micro">Micro</option>
+        <option value="nano">Nano</option>
+      </select>
+    </div>
+
+    <!-- Roaming Settings -->
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" formControlName="roamingSettings">
+      <label class="form-check-label">Enable Roaming</label>
+    </div>
+
+    <!-- IMEI Number -->
+    <div class="mb-3">
+      <label class="form-label">IMEI Number</label>
+      <input type="text" class="form-control" formControlName="imeiNumber">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>

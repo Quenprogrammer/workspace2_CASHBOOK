@@ -1,0 +1,863 @@
+
+
+
+  <main id="content" role="main" class="bg-light">
+    <!-- Breadcrumb -->
+    <div class="navbar-dark bg-primary" style="background-image: url(publicSite/bg/hero-bg-pattern.png);">
+      <div class="container position-relative z-2 pt-2 pt-sm-4 pt-md-2" style="background-image: url(publicSite/bg/hero-bg-pattern.png);">
+        <div class="row justify-content-center pt-5">
+          <div class="col-lg-9 col-xl-8 text-center pt-5 mt-1">
+            <a href="#" class="d-inline-flex align-items-center fs-sm fw-semibold text-decoration-none bg-warning bg-opacity-10 text-warning rounded-pill py-2 px-3">
+              <span class="fw-semibold lh-sm">New Around v2.0</span>
+              <i class="ai-arrow-right fs-lg ms-2 me-n1"></i>
+            </a>
+            <h1 class="display-4 text-white pt-3 mt-3 mb-4">Powerful AI models to serve your business needs</h1>
+            <p class="text-white opacity-70 fs-xl content-space-b-2">Our robust platform is designed to handle large volumes of data and processing power, making it perfect for businesses of all sizes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Content Section -->
+    <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-n10">
+      <div *ngIf="isModalOpen" class="modal-overlay">
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h6 class="modal-head">{{ servicesProvided.title }}</h6>
+          <p class="">{{ servicesProvided.description }}</p>
+
+
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="tab-content" id="houseHeroTabContent">
+            <div class="tab-pane fade show active" id="forSale" role="tabpanel" aria-labelledby="forSale-tab">
+              <div class="image-container">
+              <div class="row gx-3 ">
+
+
+                <div class="col-sm-6 col-lg-4 mb-3  " *ngFor="let items of services; let i = index">
+                  <!-- Card -->
+                  <a (click)="openModal(i)" class="card  card-stretched-vertical card-transition shadow-none bg-img-start gradient-y-overlay-lg-dark "  [style.backgroundImage]="'url(' + items.image + ')'" style="min-height: 20rem; max-height: 25rem; " >
+                    <div class="card-body ">
+                      <div class="mb-1">
+                        <span class="badge bg-light text-dark">3521 offers</span>
+                      </div>
+
+                      <div class="card-footer">
+                        <h3 class="text-white mb-0">{{items.title}}</h3>
+                        <span class="d-block text-white">{{items.description | truncateText:70}}</span>
+                      </div>
+                    </div>
+                  </a>
+                  <!-- End Card -->
+                </div>
+
+
+                <!-- End Col -->
+              </div>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content Section -->
+  </main>
+  <div class="container pt-4">
+    <div class="page-header">
+      <!-- Media -->
+      <div class="d-sm-flex align-items-lg-center pt-1 px-3 pb-3">
+        <div class="flex-shrink-0 mb-2 mb-sm-0 me-4">
+          <img class="avatar avatar-xl profile-cover-avatar shadow-sm" [src]="logo" alt="Image Description">
+        </div>
+
+      </div>
+      <!-- End Media -->
+
+      <!-- Nav Scroller -->
+      <div id="pageHeaderTabParent" style="">
+        <div class="js-nav-scroller js-sticky-block hs-nav-scroller-horizontal bg-white zi-2" data-hs-sticky-block-options="{
+               &quot;parentSelector&quot;: &quot;#pageHeaderTabParent&quot;,
+               &quot;breakpoint&quot;: &quot;lg&quot;,
+               &quot;startPoint&quot;: &quot;#pageHeaderTabParent&quot;,
+               &quot;endPoint&quot;: &quot;#pageHeaderTabEndPoint&quot;
+             }" style="">
+            <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-left"></i>
+              </a>
+            </span>
+
+          <span class="hs-nav-scroller-arrow-next" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-right"></i>
+              </a>
+            </span>
+
+          <!-- Nav -->
+
+        </div>
+      </div>
+      <!-- End Nav Scroller -->
+    </div>
+  </div>
+  <!-- End Page Header -->
+
+
+  <!-- Content -->
+  <div id="about-section" class="container content-space-t-1">
+
+
+
+
+
+  </div>
+  <!-- Content -->
+
+  <main id="content" role="main" >
+
+    <div class="navbar-dark  custom-navbar" style="background-image: url(publicSite/bgCountry.png); background-color:black;">
+      <div class="container content-space-2 content-space-b-lg-1">
+
+        <div class="row align-items-center content-space-1">
+          <div class="col">
+            <p class="lead text-white">{{companyName}}</p>
+            <div class="d-flex align-items-center">
+
+              <h1 class="display-4 text-white ">{{theme}}</h1>
+            </div>
+          </div>
+        </div>
+        <!-- End Row -->
+      </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Content Section -->
+    <div class="container content-space-0 content-space-t-lg-0 content-space-b-2 mt-n10">
+      <div class="row">
+
+
+        <div class="position-relative ">
+          <div class="container">
+          <div class="row gx-0 align-items-md-center">
+
+
+            <div  class="col-md-6 mb-3 mb-md-0" #targetElement3>
+              <!-- Card -->
+              <div style="background-color: #B22222" class="card card-lg  ms-md-n2 aos-init aos-animate bg-primary" >
+                <div class="card-body text-white">
+
+                  <h1 class="card-title display-6"><a class="text-white"  >Our Mission</a></h1>
+                  <p class="mb-5" style="font-size: 18px; color:white;">{{mission}}</p>
+
+                </div>
+
+
+              </div>
+              <!-- End Card -->
+            </div>
+            <div  class="col-md-6 mt-n10 mt-md-0">
+              <!-- Card -->
+              <div class="card card-lg  ms-md-n2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" #targetElement>
+                <div style=" padding:15px;">
+
+                  <h1 class="card-title display-6"><a class="text-dark" >Our Vision</a></h1>
+
+                  <p class="mb-5" style="font-size: 18px">{{vision}}</p>
+
+                </div>
+
+
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+        <!-- CONTENT HERE -->
+
+
+
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content Section -->
+  </main>
+
+
+  <div class="container content-space-1">
+
+    <app-heading [text]="'Facts and figures'"></app-heading>
+   <app-facts-and-figures></app-facts-and-figures>
+
+  </div>
+
+
+
+  <!-- Divider -->
+  <div class="container">
+    <hr class="my-10">
+  </div>
+  <!-- End Divider -->
+
+  <!-- Reviews -->
+  <div id="reviews-section" class="container">
+
+
+    <div class="row">
+      <div class="col-md-8 mb-7 mb-md-0">
+
+
+        <div class="mb-8">
+          <div class="mb-4">
+            <app-heading [text]="'Core values'"></app-heading>
+          </div>
+
+          <!-- Step -->
+          <ul class="step step-icon-sm">
+            @for(items of coreValues.slice(0,3); track items.title){
+              <li class="step-item">
+                <div class="step-content-wrapper">
+                  <div class="step-avatar step-avatar-sm">
+                    <img style="width:40px; height:40px;" class="step-avatar-img" [src]="items.icons" alt="Image Description">
+                  </div>
+                  <div class="step-content">
+                    <app-heading-small [text]='items.title'></app-heading-small>
+                  <app-text class="text-body mb-0" [text]='items.description'></app-text>
+
+                  </div>
+                </div>
+              </li>
+            }
+
+
+            <a class="btn btn-outline-primary text-center" href="#">View all interviews <i class="bi-chevron-right small ms-1"></i></a>
+
+          </ul>
+          <!-- End Step -->
+        </div>
+        <div id="stickyBlockEndPoint"></div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col-md-4">
+        <div class="ps-md-4">
+          <!-- Sticky Block -->
+          <div id="stickyBlockStartPoint" style="">
+            <div class="js-sticky-block" data-hs-sticky-block-options="{
+                     &quot;parentSelector&quot;: &quot;#stickyBlockStartPoint&quot;,
+                     &quot;breakpoint&quot;: &quot;md&quot;,
+                     &quot;startPoint&quot;: &quot;#stickyBlockStartPoint&quot;,
+                     &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
+                     &quot;stickyOffsetTop&quot;: 20,
+                     &quot;stickyOffsetBottom&quot;: 20
+                   }" style="">
+              <!-- Card -->
+              <div class="card card-bordered">
+                <div class="card-body">
+                  <div class="mb-5">
+                    <h3 class="card-title">What would you say about your employer?</h3>
+                    <p class="card-text">Help fellow job seekers by sharing your unique experience.</p>
+                  </div>
+
+                  <div class="d-grid mb-5">
+                    <a class="btn btn-primary btn-sm" href="#">Select a subscription</a>
+                  </div>
+
+                  <img class="card-img-bottom" src="../assets/svg/illustrations/oc-chatting.svg" alt="Image Description">
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Sticky Block -->
+        </div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- Reviews -->
+
+  <!-- Divider -->
+  <div class="container">
+    <hr class="my-10">
+  </div>
+
+  <!-- Divider -->
+  <div class="container">
+    <hr class="my-10">
+  </div>
+  <!-- End Divider -->
+
+  <!-- Card Grid -->
+  <div id="locations-section" class="container content-space-b-2">
+    <div class="mb-4">
+      <h3>Locations we operate in</h3>
+    </div>
+
+    <div class="row g-1">
+     @for(items of locationsWeWork; track items.name){
+      <div class="col-6 col-md-3 mb-3">
+        <!-- Card -->
+        <a class="card card-sm card-bordered card-transition h-100" href="#">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-sm avatar-circle" src="services/Picture1.png" alt="SVG">
+                  </div>
+
+                  <div class="flex-grow-1 ms-3">
+                    <h5 class="card-title text-inherit">{{items.name}}</h5>
+                  </div>
+                </div>
+              </div>
+              <!-- End Col -->
+
+              <div class="col-auto">
+                  <span class="text-muted">
+                    <i class="bi-chevron-right small"></i>
+                  </span>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+        </a>
+        <!-- End Card -->
+      </div>
+     }
+
+
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- Card Grid -->
+
+
+<div class="col-4">
+<div class="card">
+  <!-- Card Header -->
+  <div class="card-header text-center">
+    <div class="mb-3">
+      <img class="avatar avatar-xxl avatar-circle avatar-centered" src="../assets/img/160x160/img10.jpg" alt="Image Description">
+    </div>
+
+    <span class="d-block text-body small mb-3"><app-text [text]="'Joined in 2017'"></app-text></span>
+
+    <a class="btn btn-outline-primary btn-transition" href="#">
+      <i class="bi-envelope me-2"></i> <app-text [text]="'Send Message'"></app-text>
+    </a>
+  </div>
+  <!-- End Card Header -->
+
+  <!-- Card Body -->
+  <div class="card-body">
+    <div class="row mb-7">
+      <div class="col-6 col-md-12 col-lg-6 mb-4">
+        <!-- Icon Block -->
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+                          <span class="avatar avatar-xs">
+                            <img class="avatar-img" src="../assets/svg/illustrations/review-rating-shield.svg" alt="Image Description">
+                          </span>
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <span class="text-body small"><app-text [text]='industry'></app-text></span>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-6 col-md-12 col-lg-6 mb-4">
+        <!-- Icon Block -->
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+                          <span class="avatar avatar-xs">
+                            <img class="avatar-img" src="../assets/svg/illustrations/star.svg" alt="Image Description">
+                          </span>
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <span class="text-body small"><app-text [text]='LGA'></app-text></span>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-6 col-md-12 col-lg-6 mb-4 col-6 col-md-12 mb-lg-0">
+        <!-- Icon Block -->
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+                          <span class="avatar avatar-xs">
+                            <img class="avatar-img" src="../assets/svg/illustrations/medal.svg" alt="Image Description">
+                          </span>
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <span class="text-body small"><app-text [text]='country'></app-text></span>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+      <!-- End Col -->
+
+
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+                          <span class="avatar avatar-xs">
+                            <img class="avatar-img" src="../assets/svg/illustrations/add-file.svg" alt="Image Description">
+                          </span>
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <span class="text-body small">
+<app-text [text]='email'></app-text></span>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+
+    <div class="mb-4">
+      <h4>Connected accounts</h4>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12 col-lg-6 mb-4">
+        <!-- Media -->
+        <a class="d-flex" href="#">
+          <div class="flex-shrink-0">
+            <div class="icon icon-xs icon-soft-secondary">
+              <i class="bi-github"></i>
+            </div>
+          </div>
+
+          <div class="flex-grow-1 mt-n1 ms-3">
+            <span class="d-block small fw-semibold">Behance</span>
+            <small class="d-block text-body">1.2k followers</small>
+          </div>
+        </a>
+        <!-- End Media -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-6 col-md-12 col-lg-6 mb-4">
+        <!-- Media -->
+        <a class="d-flex" href="#">
+          <div class="flex-shrink-0">
+            <div class="icon icon-xs icon-soft-secondary">
+              <i class="bi-slack"></i>
+            </div>
+          </div>
+
+          <div class="flex-grow-1 mt-n1 ms-3">
+            <span class="d-block small fw-semibold">Slack</span>
+            <small class="d-block text-body">4.5k followers</small>
+          </div>
+        </a>
+        <!-- End Media -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-6 col-md-12 col-lg-6 mb-0 mb-md-4 mb-lg-0">
+        <!-- Media -->
+        <a class="d-flex" href="#">
+          <div class="flex-shrink-0">
+            <div class="icon icon-xs icon-soft-secondary">
+              <i class="bi-twitter"></i>
+            </div>
+          </div>
+
+          <div class="flex-grow-1 mt-n1 ms-3">
+            <span class="d-block small fw-semibold">Twitter</span>
+            <small class="d-block text-body">2.7k followers</small>
+          </div>
+        </a>
+        <!-- End Media -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-6 col-md-12 col-lg-6">
+        <!-- Media -->
+        <a class="d-flex" href="#">
+          <div class="flex-shrink-0">
+            <div class="icon icon-xs icon-soft-secondary">
+              <i class="bi-facebook"></i>
+            </div>
+          </div>
+
+          <div class="flex-grow-1 mt-n1 ms-3">
+            <span class="d-block small fw-semibold">Facebook</span>
+            <small class="d-block text-body">3k followers</small>
+          </div>
+        </a>
+        <!-- End Media -->
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Card Body -->
+
+  <a class="card-footer text-body small text-center" href="#">
+    <i class="bi-flag me-1"></i> Report this author
+  </a>
+</div>
+
+
+
+
+
+
+
+
+  <div class="position-relative">
+    <div class="container content-space-lg-3">
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-9 mb-7 mb-md-0">
+          <!-- Heading -->
+          <div class="w-md-65 mb-7">
+            <h2 class="h1">Front helps you make better property decisions</h2>
+            <p>Front has England's largest collection of street and suburb reviews, empowering you to find the right area for you to move to. With tens of thousands of local community topics and discussions, find the answers to all your questions about an area, or ask the locals.</p>
+          </div>
+          <!-- End Heading -->
+
+          <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <!-- Card -->
+              <div class="card h-100">
+                <div class="card-body">
+                    <span class="svg-icon text-primary mb-3">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 3C5.67157 3 5 3.67157 5 4.5V6H3.5C2.67157 6 2 6.67157 2 7.5C2 8.32843 2.67157 9 3.5 9H5V19.5C5 20.3284 5.67157 21 6.5 21C7.32843 21 8 20.3284 8 19.5V9H20.5C21.3284 9 22 8.32843 22 7.5C22 6.67157 21.3284 6 20.5 6H8V4.5C8 3.67157 7.32843 3 6.5 3Z" fill="#035A4B"></path>
+                      <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M20.5 11H10V17.5C10 18.3284 10.6716 19 11.5 19H15.5C17.3546 19 19.0277 18.2233 20.2119 16.9775C20.1436 16.9922 20.0727 17 20 17C19.4477 17 19 16.5523 19 16V13C19 12.4477 19.4477 12 20 12C20.5523 12 21 12.4477 21 13V15.9657C21.6334 14.9626 22 13.7741 22 12.5C22 11.6716 21.3284 11 20.5 11Z" fill="#035A4B"></path>
+                      </svg>
+
+                    </span>
+                  <h4 class="card-title">Fleet and equipment</h4>
+                  <p class="card-text">Over 1 million+ homes for sale available on the website.</p>
+                  <a class="card-link" href="#">Properties for sale <i class="bi-chevron-right small ms-1"></i></a>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-md-4 mb-3 mb-md-0">
+              <!-- Card -->
+              <div class="card h-100">
+                <div class="card-body">
+                    <span class="svg-icon text-primary mb-3">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21.7 18.9L18.6 15.8C17.9 16.9 16.9 17.9 15.8 18.6L18.9 21.7C19.3 22.1 19.9 22.1 20.3 21.7L21.7 20.3C22.1 19.9 22.1 19.3 21.7 18.9Z" fill="#035A4B"></path>
+                      <path opacity="0.3" d="M11 20C6 20 2 16 2 11C2 6 6 2 11 2C16 2 20 6 20 11C20 16 16 20 11 20ZM11 4C7.1 4 4 7.1 4 11C4 14.9 7.1 18 11 18C14.9 18 18 14.9 18 11C18 7.1 14.9 4 11 4ZM8 11C8 9.3 9.3 8 11 8C11.6 8 12 7.6 12 7C12 6.4 11.6 6 11 6C8.2 6 6 8.2 6 11C6 11.6 6.4 12 7 12C7.6 12 8 11.6 8 11Z" fill="#035A4B"></path>
+                      </svg>
+
+                    </span>
+                  <h4 class="card-title">Find rental properties</h4>
+                  <p class="card-text">Fina a home or apartment with 35+ filters and custom keyword search.</p>
+                  <a class="card-link" href="#">Properties for rent <i class="bi-chevron-right small ms-1"></i></a>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+
+            <div class="col-md-4">
+              <!-- Card -->
+              <div class="card h-100">
+                <div class="card-body">
+                    <span class="svg-icon text-primary mb-3">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path opacity="0.3" d="M18 22H6C5.4 22 5 21.6 5 21V8C6.6 6.4 7.4 5.6 9 4H15C16.6 5.6 17.4 6.4 19 8V21C19 21.6 18.6 22 18 22ZM12 5.5C11.2 5.5 10.5 6.2 10.5 7C10.5 7.8 11.2 8.5 12 8.5C12.8 8.5 13.5 7.8 13.5 7C13.5 6.2 12.8 5.5 12 5.5Z" fill="#035A4B"></path>
+                      <path d="M12 7C11.4 7 11 6.6 11 6V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V6C13 6.6 12.6 7 12 7ZM15.1 10.6C15.1 10.5 15.1 10.4 15 10.3C14.9 10.2 14.8 10.2 14.7 10.2C14.6 10.2 14.5 10.2 14.4 10.3C14.3 10.4 14.3 10.5 14.2 10.6L9 19.1C8.9 19.2 8.89999 19.3 8.89999 19.4C8.89999 19.5 8.9 19.6 9 19.7C9.1 19.8 9.2 19.8 9.3 19.8C9.5 19.8 9.6 19.7 9.8 19.5L15 11.1C15 10.8 15.1 10.7 15.1 10.6ZM11 11.6C10.9 11.3 10.8 11.1 10.6 10.8C10.4 10.6 10.2 10.4 10 10.3C9.8 10.2 9.50001 10.1 9.10001 10.1C8.60001 10.1 8.3 10.2 8 10.4C7.7 10.6 7.49999 10.9 7.39999 11.2C7.29999 11.6 7.2 12 7.2 12.6C7.2 13.1 7.3 13.5 7.5 13.9C7.7 14.3 7.9 14.5 8.2 14.7C8.5 14.9 8.8 14.9 9.2 14.9C9.8 14.9 10.3 14.7 10.6 14.3C11 13.9 11.1 13.3 11.1 12.5C11.1 12.3 11.1 11.9 11 11.6ZM9.8 13.8C9.7 14.1 9.5 14.2 9.2 14.2C9 14.2 8.8 14.1 8.7 14C8.6 13.9 8.5 13.7 8.5 13.5C8.5 13.3 8.39999 13 8.39999 12.6C8.39999 12.2 8.4 11.9 8.5 11.7C8.5 11.5 8.6 11.3 8.7 11.2C8.8 11.1 9 11 9.2 11C9.5 11 9.7 11.1 9.8 11.4C9.9 11.7 10 12 10 12.6C10 13.2 9.9 13.6 9.8 13.8ZM16.5 16.1C16.4 15.8 16.3 15.6 16.1 15.4C15.9 15.2 15.7 15 15.5 14.9C15.3 14.8 15 14.7 14.6 14.7C13.9 14.7 13.4 14.9 13.1 15.3C12.8 15.7 12.6 16.3 12.6 17.1C12.6 17.6 12.7 18 12.9 18.4C13.1 18.7 13.3 19 13.6 19.2C13.9 19.4 14.2 19.5 14.6 19.5C15.2 19.5 15.7 19.3 16 18.9C16.4 18.5 16.5 17.9 16.5 17.1C16.7 16.8 16.6 16.4 16.5 16.1ZM15.3 18.4C15.2 18.7 15 18.8 14.7 18.8C14.4 18.8 14.2 18.7 14.1 18.4C14 18.1 13.9 17.7 13.9 17.2C13.9 16.8 13.9 16.5 14 16.3C14.1 16.1 14.1 15.9 14.2 15.8C14.3 15.7 14.5 15.6 14.7 15.6C15 15.6 15.2 15.7 15.3 16C15.4 16.2 15.5 16.6 15.5 17.2C15.5 17.7 15.4 18.1 15.3 18.4Z" fill="#035A4B"></path>
+                      </svg>
+
+                    </span>
+                  <h4 class="card-title">Locations we operate in</h4>
+                  <p class="card-text">Wanting to find a sold property price or see what sold on the weekend?</p>
+                  <a class="card-link" href="#">Sell properties <i class="fas bi-chevron-right small ms-1"></i></a>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+
+    <div class="banner-half-middle-x bg-img-start d-none d-md-block" style="background-image: url(../assets/img/900x900/img22.jpg);"></div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- Content -->
+  <div class="container content-space-1">
+    <div class="mb-4">
+      <h3>Student feedback</h3>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-lg-4">
+        <!-- Card -->
+        <div class="card card-sm bg-primary text-center mb-3">
+          <div class="card-body">
+            <span class="display-4 text-white">4.7</span>
+
+
+            <span class="text-white">Course rating</span>
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-lg-8">
+        <!-- Ratings -->
+        <div class="d-grid gap-2">
+          <a class="row align-items-center" href="#">
+            <div class="col-7">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <!-- End Col -->
+
+
+            <!-- End Col -->
+          </a>
+          <!-- End Row -->
+
+          <a class="row align-items-center" href="#">
+            <div class="col-7">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 53%;" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-2 text-end">
+              <div class="d-flex">
+                <div class="d-flex gap-1 me-2">
+                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+                  <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+                  <img src="../assets/svg/illustrations/star-muted.svg" alt="Review rating" width="16">
+                </div>
+                <span>55</span>
+              </div>
+            </div>
+            <!-- End Col -->
+          </a>
+          <!-- End Row -->
+
+          <a class="row align-items-center" href="#">
+            <div class="col-7">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-2 text-end">
+              <div class="d-flex">
+
+
+              </div>
+            </div>
+            <!-- End Col -->
+          </a>
+
+          <!-- End Row -->
+        </div>
+        <!-- End Ratings -->
+      </div>
+      <!-- End Col -->
+    </div>
+
+    <!-- Comment -->
+    <ul class="list-comment list-comment-divider mb-7">
+      <!-- Item -->
+      <li class="list-comment-item">
+        <!--<div class="d-flex gap-1 mb-3">
+          <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+          <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+          <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+          <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+          <img src="../assets/svg/illustrations/star.svg" alt="Review rating" width="16">
+        </div>-->
+
+        <!-- Media -->
+        <div class="d-flex align-items-center mb-3">
+          <div class="flex-shrink-0">
+            <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img3.jpg" alt="Image Description">
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+
+            </div>
+          </div>
+
+        <!-- End Media -->
+
+        <div class="mb-5">
+          <p>This course helped me in learning python in a very simple and effective way & boosts up my confidence. Concepts have been explained in a crystal clear way.</p>
+        </div>
+
+        <div class="mb-2">
+          <span class="text-dark fw-semibold">Dave</span>
+          <span>- Verified Purchase</span>
+        </div>
+
+        <!-- Media -->
+        <div class="d-flex align-items-center">
+          <span class="small me-2">Was this helpful?</span>
+
+          <div class="d-flex gap-2">
+            <a class="btn btn-white btn-xs" href="javascript:;">
+              <i class="bi-hand-thumbs-up me-1"></i> Yes <span>(45)</span>
+            </a>
+            <a class="btn btn-white btn-xs" href="javascript:;">
+              <i class="bi-hand-thumbs-down me-1"></i> No <span>(21)</span>
+            </a>
+          </div>
+        </div>
+        <!-- End Media -->
+      </li>
+      <!-- End Item -->
+
+    </ul>
+    <!-- End Comment -->
+
+    <div class="text-center">
+      <a class="btn btn-outline-primary btn-transition" href="#">See all reviews</a>
+    </div>
+  </div>
+  <!-- End Content -->
+  <!--<div *ngFor="let career of careers">
+    <h2>{{ career.title }}</h2>
+    <p>{{ career.description }}</p>
+
+    <div *ngIf="career.jobOpenings">
+      <h3>Job Openings:</h3>
+      <ul>
+        <li *ngFor="let job of career.jobOpenings">
+          <h4>{{ job.position }}</h4>
+          <ul>
+            <li *ngFor="let requirement of job.requirements">{{ requirement }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="career.applicationMethods">
+      <h3>How to Apply:</h3>
+      <ul>
+        <li *ngFor="let method of career.applicationMethods">{{ method }}</li>
+      </ul>
+      <p>{{ career.note }}</p>
+    </div>
+
+    <div *ngIf="career.benefits">
+      <h3>Employee Benefits:</h3>
+      <ul>
+        <li *ngFor="let benefit of career.benefits">{{ benefit }}</li>
+      </ul>
+    </div>
+  </div>-->
+
+
+
+
+
+  <div id="openRolesSection" class="container content-space-b-1 content-space-b-md-3">
+    <!-- Heading -->
+    <div class="w-md-50  text-center mx-md-auto mb-5 mb-md-9">
+      <h2></h2>
+      <app-heading [text]="'Work with us'"></app-heading>
+      <app-text [text]="'Work hard with highly motivated team of talented people and great teammates to launch perfectly crafted products you\'ll love.'"></app-text>
+      <p></p>
+    </div>
+
+
+
+    <div class="mb-4">
+      <button type="button" class="btn btn-ghost-secondary">
+        <i class="bi-bell me-1"></i> Create alert
+      </button>
+    </div>
+
+    <!-- List Group -->
+    <ul class="list-group list-group-lg">
+      <li class="list-group-item" *ngFor="let career of careers;let i = index">
+        <div class="row">
+          <div class="col-md-3 mb-0">
+            <app-heading-small [text]="career.title "></app-heading-small>
+          </div>
+          <!-- End Col -->
+
+
+
+          <div class=" col-md-6 mb-2 mb-sm-0">
+            <app-text [text]="career.description | truncateText:70"></app-text>
+
+          </div>
+
+
+          <div class="col-sm-3 text-sm-end">
+            <a (click)="openModal(i)">View <i class="bi-chevron-right small ms-1 small ms-1"></i></a>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </li>
+
+
+    </ul>
+    <!-- End List Group -->
+    <div *ngIf="careerModalOpen" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close" (click)="careerCloseModal()">&times;</span>
+        <h6 class="modal-head">{{ servicesProvided.title }}</h6>
+        <p class="">{{ servicesProvided.description }}</p>
+
+
+      </div>
+    </div>
+    <div class="w-lg-65 text-center mx-lg-auto mt-7">
+      <app-text [text]="footer"></app-text>
+      <a class="btn btn-outline-primary" href="./page-contacts-agency.html">Register your interest</a>
+    </div>
+  </div>

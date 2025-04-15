@@ -1,0 +1,440 @@
+<main id="content" role="main" class="main">
+  <div class="container mt-2">
+<div class="row">
+  <div class="col-md-9">
+    <div class=" card mb-5">
+      <div class="card-body " >
+        <div class="row justify-content-lg-center">
+          <div class="col-sm order-2 order-sm-1 mb-3">
+            <div class="mb-2">
+              <img class="avatar" [src]="logo" alt="Logo">
+            </div>
+
+            <h1 class="h2 text-primary">{{companyName}}</h1>
+            <p style="font-size: 14px; color:red; " class=" mt-n2 ">{{website}}</p>
+
+          </div>
+          <!-- End Col -->
+
+          <div class="col-sm-auto order-1 order-sm-2 text-sm-end mb-3">
+            <div class="mb-3">
+              <h2 class="text-center">Invoice #</h2>
+            </div>
+
+            <address class="text-dark text-center">
+              {{address}},
+              {{LGA}}<br>
+              {{stateLocated}} {{country}}<br>
+
+            </address>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="row justify-content-md-between mb-3">
+          <div class="col-md">
+            <h6>Bill to:</h6>
+            <h5>Sara Williams</h5>
+
+            <address>
+              280 Suzanne Throughway
+              Breannabury, OR 45801
+              United States
+            </address>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-md text-md-end">
+            <dl class="row">
+              <dt class="col-5">Invoice date:</dt>
+              <dd class="col-4">03/10/2018</dd>
+            </dl>
+            <dl class="row">
+              <dt class="col-5">Due date:</dt>
+              <dd class="col-4">03/11/2018</dd>
+            </dl>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-borderless table-nowrap table-align-middle">
+            <thead class="thead-light">
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th class="table-text-end">Amount</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+              <th>Design UX and UI</th>
+              <td>1</td>
+              <td>5</td>
+              <td class="table-text-end">$500</td>
+            </tr>
+
+            <tr>
+              <th>Web project</th>
+              <td>1</td>
+              <td>24</td>
+              <td class="table-text-end">$1250</td>
+            </tr>
+
+            <tr>
+              <th>SEO</th>
+              <td>1</td>
+              <td>6</td>
+              <td class="table-text-end">$2000</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- End Table -->
+
+
+ <div class="row">
+   <div class="col-6"></div>
+   <div class="col-6"></div>
+ </div>
+        <table class="table table-nowrap table-vertical-border-striped">
+          <thead class="table-text-center">
+          <tr>
+            <th scope="col" style="width: 40%;"></th>
+
+            <th scope="col" style="width: 20%;">
+              <span class="d-block">Professional</span>
+
+            </th>
+
+            <th scope="col" style="width: 20%;">
+              <span class="d-block text-danger">Tax <span class="badge bg-warning text-dark rounded-pill ms-1"></span></span>
+
+            </th>
+
+           </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <th scope="row" class="text-dark">Subtotal</th>
+            <td class="table-text-center">$2750.00</td>
+            <td class="table-text-center">20%</td>
+
+          </tr>
+          <tr>
+            <th scope="row" class="text-dark">Total</th>
+            <td class="table-text-center">250,000</td>
+            <td class="table-text-center">250,000</td>
+
+           </tr>
+
+
+
+
+
+
+
+
+          </tbody>
+        </table>
+<div class="mt-3">
+        @for(items of companyPaymentChannels; track items.name){
+<div class="row mb-2">
+  <div class="col-1 " style="width:10%; "  ><img class="rounded-2" [src]="items.image" style="height: 30px; width:30px;"></div>
+  <div class="col-2" style="width:25%;"> {{items.name}} </div>
+  <div class="col" style="width:45%;"> {{items.acct}} </div>
+  <div class="col" style="width:25%;"> {{items.acctNO}} </div>
+
+</div>
+        }
+</div>
+        <div class="small mb-0">
+
+          <p class="mb-2 mt-2">If you have any questions concerning this invoice, use the following contact information: {{email}}, {{phone}}</p>
+          <h3 class="text-center">Thank you!</h3>
+        </div>
+
+        <p class="small text-center mb-0">© 2025 Sahiz Group NIG
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card ">
+      <div id="stickyBlockStartPoint" style="height: auto;">
+      <div class="js-sticky-block" data-hs-sticky-block-options="{
+                   &quot;parentSelector&quot;: &quot;#stickyBlockStartPoint&quot;,
+                   &quot;breakpoint&quot;: &quot;lg&quot;,
+                   &quot;startPoint&quot;: &quot;#stickyBlockStartPoint&quot;,
+                   &quot;endPoint&quot;: &quot;#stickyBlockEndPoint&quot;,
+                   &quot;stickyOffsetTop&quot;: 20
+                 }" style="position: fixed; left: 1019.5px; width: 221px; top: 82px;">
+        <div class="d-grid gap-2 gap-sm-3 mb-2 mb-sm-3">
+          <a class="btn btn-primary" href="javascript:;">
+            <i class="bi-cursor-fill me-1"></i> Send invoice
+          </a>
+
+          <a class="btn btn-white" href="javascript:;">
+            <i class="bi-download me-1"></i> Download
+          </a>
+
+          <div class="row gx-3">
+            <div class="col-sm mb-2 mb-sm-0">
+              <div class="d-grid">
+                <a class="btn btn-white"  (click)="isModal2Open = true">Edit</a>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm">
+              <div class="d-grid">
+                <a class="btn btn-white" href="javascript:;">Save</a>
+              </div>
+            </div>
+            <!-- End Col -->
+            <!-- Footer -->
+
+          </div>
+        </div>
+        <div class="d-grid gap-2 gap-sm-3 mb-2 mb-sm-3">
+          <a class="btn btn-primary" href="javascript:;" onclick="window.print(); return false;">
+            <i class="bi-printer me-1"></i> Print details
+          </a>
+
+
+        </div>
+
+
+        <!-- End Row -->
+
+        <hr class="my-4">
+
+
+      </div>
+    </div></div>
+
+  </div>
+</div>
+  </div>
+  <div *ngIf="isModal2Open" class="modal-overlay">
+
+    <div class="modal-content">
+      <div class="modal-top-cover bg-primary text-center">
+
+
+        <div class="modal-close">
+          <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal" aria-label="Close" (click)="isModal2Open = false"></button>
+        </div>
+      </div>
+      <!-- End Header -->
+
+      <div class="modal-top-cover-avatar">
+        <img class="avatar avatar-lg avatar-circle avatar-centered border border-3 border-white shadow-sm" [src]="logo" alt="Logo">
+      </div>
+
+      <!-- Card -->
+      <div class="mt-5">
+
+
+        <!-- Body -->
+        <div class="card-body  ">
+          <!-- Form -->
+          <form>
+            <!-- Form -->
+            <div class="row g-2">
+              <div class="col-6 mb-2">
+                <input type="text" class="form-control" name="Received" id="Received" placeholder="Receiver Name" aria-label="Enter current text">
+              </div>
+              <div class="col-6 mb-2">
+                <input type="text" class="form-control" name="address" id="newPassword" placeholder="Address" aria-label="Address">
+              </div>
+              <div class="col-6 ">
+                <div class="row ">
+
+                  <div class="col-sm-12">
+
+                    <div class="mb-3">
+                      <select class="form-select form-select-lg" id="locationsJobCareers2" aria-label="Select location">
+                        <option selected>TAX</option>
+                        <option value="1">London</option>
+                        <option value="2">San Francisco</option>
+                        <option value="3">Others</option>
+                      </select>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 mb-2">
+                <div class="row ">
+
+                  <div class="col-sm-12">
+
+                    <div class="mb-3">
+                      <select class="form-select form-select-lg" id="locationsJobCareers" aria-label="Select location">
+                        <option selected>Currency</option>
+                        <option value="1">London</option>
+                        <option value="2">San Francisco</option>
+                        <option value="3">Others</option>
+                      </select>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+          </form>
+
+          <div class="card hovers  " >
+            <!-- Header -->
+            <div class=" d-flex justify-content-end   ">
+              <h6 class="card-header-title me-auto p-3">Course contents</h6> <!-- Keeps title on the left -->
+              <a class="btn btn-ghost-danger btn-sm" (click)="addModule();">Add new module </a>
+
+            </div>
+
+            <!-- End Header -->
+
+            <div class="card-body-height p-3 ">
+
+              <div class="row mb-2 justify-content-center">
+                <div class="col-sm-12 text-center">
+                  <!-- Loop through Rent Modules -->
+
+                  <div *ngFor="let module of rentModules; let moduleIndex = index">
+                    <div ngbAccordion #accordion="ngbAccordion" class="mb-2">
+                      <div ngbAccordionItem="first" #accordionItem="ngbAccordionItem">
+                        <h1 ngbAccordionHeader>
+                          <button
+                            style="font-size:20px"
+                            ngbAccordionButton
+                            [ngClass]="{'border border-danger': !module?.nameOfmodule || module.nameOfmodule.trim() === ''}">
+    <span *ngIf="accordionItem.collapsed">
+      <span *ngIf="module?.nameOfmodule && module.nameOfmodule.trim() !== ''">
+        {{ module.nameOfmodule }}
+      </span>
+      <span *ngIf="!module?.nameOfmodule || module.nameOfmodule.trim() === ''" style="font-size:12px; font-weight:normal; color:red;">
+       Invalid course module name!
+      </span>
+    </span>
+                          </button>
+                        </h1>
+
+
+                        <div ngbAccordionCollapse>
+                          <div ngbAccordionBody>
+                            <ng-template>
+                              <div class="row g-1 mt-3">
+                                <div class="col-md-7">
+                                  <input
+                                    class="form-control mb-2 w-100"
+                                    [(ngModel)]="module.nameOfmodule"
+                                    placeholder="Module"
+                                    [ngClass]="{'border border-danger': module?.nameOfmodule && module.nameOfmodule.length < 4}">
+                                  <div *ngIf="module?.nameOfmodule && module.nameOfmodule.length < 4" class="text-danger mb-1">
+                                    The module name must be at least 4 characters long.
+                                  </div>
+                                </div>
+
+                                <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
+                                  <button
+                                    class="btn btn-primary w-100"
+                                    style="padding:5px"
+                                    (click)="addOption(moduleIndex)"
+                                    [disabled]="!module?.nameOfmodule || module.nameOfmodule.length < 4">
+                                    <i class="bi-pencil-fill me-1"></i> Add item
+                                  </button>
+                                </div>
+
+                                <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
+                                  <button
+                                    class="btn btn-danger w-100"
+                                    style="padding:5px"
+                                    (click)="removeModule(moduleIndex)"
+                                    [disabled]="!module?.nameOfmodule || module.nameOfmodule.length < 4">
+                                    <i class="bi-trash me-1"></i> Remove item
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div class="card card-body rounded-0">
+                                <div *ngFor="let option of module.Options; let optionIndex = index">
+                                  <div class="mt-4 mb-4">
+                                    <div class="row g-1">
+                                      <div class="col-6 col-md-4">
+                                        <div class="row g-1">
+                                          <div class="col-12">
+                                            <input class="form-control w-100" [(ngModel)]="option.name" placeholder="Quantity">
+                                          </div>
+
+
+                                        </div>
+                                      </div>
+                                      <div class="col-6 col-md-4">
+                                        <div class="col-12">
+                                          <input class="form-control w-100" [(ngModel)]="option.details" placeholder="Amount">
+
+                                        </div>
+                                      </div>
+                                      <div class="col-6 col-md-3">
+                                        <div class="row g-1">
+                                          <div class="col-12">
+                                            <input class="form-control w-100" [(ngModel)]="option.name" placeholder="Rate">
+                                          </div>
+
+
+                                        </div>
+                                      </div>
+                                      <div class="col-6 col-md-1">
+
+                                          <button type="button" class="btn float-end btn-soft-primary btn-sm"
+                                                  (click)="removeOption(moduleIndex, optionIndex)">
+                                            <i class="bi bi-trash"></i>
+                                          </button>
+
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <!-- End Body -->
+          </div>
+
+        </div>
+        <!-- End Body -->
+      </div>
+      <!-- End Card -->
+    </div>
+  </div>
+</main>
+

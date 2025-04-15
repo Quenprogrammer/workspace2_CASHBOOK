@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h2>Token Information</h2>
+  <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
+
+    <!-- Token Name -->
+    <div class="mb-3">
+      <label class="form-label">Token Name</label>
+      <input type="text" class="form-control" formControlName="tokenName" placeholder="Enter token name">
+    </div>
+
+    <!-- Token Symbol -->
+    <div class="mb-3">
+      <label class="form-label">Token Symbol</label>
+      <input type="text" class="form-control" formControlName="tokenSymbol" placeholder="Enter token symbol">
+    </div>
+
+    <!-- Contract Address -->
+    <div class="mb-3">
+      <label class="form-label">Contract Address</label>
+      <input type="text" class="form-control" formControlName="contractAddress" placeholder="Enter contract address">
+    </div>
+
+    <!-- Blockchain Network -->
+    <div class="mb-3">
+      <label class="form-label">Blockchain Network</label>
+      <select class="form-control" formControlName="blockchainNetwork">
+        <option value="Ethereum">Ethereum</option>
+        <option value="Binance Smart Chain">Binance Smart Chain</option>
+        <option value="Polygon">Polygon</option>
+        <option value="Solana">Solana</option>
+      </select>
+    </div>
+
+    <!-- Total Supply -->
+    <div class="mb-3">
+      <label class="form-label">Total Supply</label>
+      <input type="number" class="form-control" formControlName="totalSupply" placeholder="Enter total supply">
+    </div>
+
+    <!-- Decimals -->
+    <div class="mb-3">
+      <label class="form-label">Decimals</label>
+      <input type="number" class="form-control" formControlName="decimals" placeholder="Enter number of decimals">
+    </div>
+
+    <!-- Owner Address -->
+    <div class="mb-3">
+      <label class="form-label">Owner Address</label>
+      <input type="text" class="form-control" formControlName="ownerAddress" placeholder="Enter owner address">
+    </div>
+
+    <!-- Token Standard -->
+    <div class="mb-3">
+      <label class="form-label">Token Standard</label>
+      <select class="form-control" formControlName="tokenStandard">
+        <option value="ERC-20">ERC-20</option>
+        <option value="BEP-20">BEP-20</option>
+        <option value="ERC-721">ERC-721 (NFT)</option>
+        <option value="ERC-1155">ERC-1155 (Multi-Token)</option>
+      </select>
+    </div>
+
+    <!-- Token Utility -->
+    <div class="mb-3">
+      <label class="form-label">Token Utility</label>
+      <textarea class="form-control" formControlName="tokenUtility" rows="3" placeholder="Describe the use case of the token"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>
+<p>crypto-token works!</p>

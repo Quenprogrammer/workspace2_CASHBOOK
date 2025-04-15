@@ -1,0 +1,10 @@
+<div #statisticsSection class="highlights">
+  <div class="row">
+    <div class="col-4 col-md-3  text-center mb-7 highlight-column" *ngFor="let stat of statistics; let i = index">
+      <div class="highlight highlight--bordered" [ngClass]="{ 'no-border-right': (i + 1) % 4 === 0 }">
+        <div class="highlight-head">{{stat.strings }} {{ stat.animatedValue || 0 }}</div>
+        <div class="highlight-body">{{ stat.label }}</div>
+      </div>
+    </div>
+  </div>
+</div>

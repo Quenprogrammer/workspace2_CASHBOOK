@@ -1,0 +1,492 @@
+
+
+<main class="my-3" id="content" role="main">
+
+<div class="container">
+  <h3> Good morning Oluwatobi Tibetan</h3>
+  <p>Here's what's happening to Tibet Realty Co. today.</p>
+<div class="row">
+
+@for(items of statistics; track items.title){
+      <div class="col-sm-6 col-md-3 mb-3">
+        <!-- Card -->
+        <div class="card card-bordered card-transition shadow-none h-100">
+          <a class="card-body" >
+            <div class="d-flex">
+              <div class="flex-shrink-0">
+                <img class="avatar avatar-sm" [src]="items.logo" alt="Logo">
+              </div>
+
+              <div class="flex-grow-1 ms-3">
+                <div class="d-flex align-items-center">
+                  <h5 class="card-title mb-0">{{items.name}}</h5>
+                 </div>
+                <p class="card-text text-body small">{{items.title}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- End Card -->
+      </div>
+}
+  <div class="col-lg-7 mb-3 mb-lg-0">
+        <div class="row <!--justify-content-lg-center--> mb-2">
+          @for(items of websitePages; track items.name){
+
+
+            <div class="col-3 col-md-2 mb-2 ">
+
+              <div class="card text-center">
+                <i [class]="items.icon" style="font-size: 60px;"></i>
+                <h6 class="text-center">{{items.name}}</h6>
+              </div>
+
+            </div>
+          }
+        </div>
+
+          <div class="card  ">
+
+            <div class="card-body">
+              <h4 class="card-header-title mb-2">Registered Agents</h4>
+              <div class="d-flex mb-2 flex-row justify-content-between ">
+                <p class="pt-3">Visit links like company mail, public website, google drive with one click</p>
+                <ul ngbNav #nav1="ngbNav" class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
+                  <li ngbNavItem class=" me-2" data-bs-toggle="chart-bar" data-datasets="thisWeek"
+                      data-trigger="click"
+                      data-action="toggle">
+
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab">Latest Leads</a>
+                    <ng-template ngbNavContent>
+                      <!--   <app-dashboard-latest-leads></app-dashboard-latest-leads>-->
+                    </ng-template>
+                  </li>
+                  <li ngbNavItem class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click"
+                      data-action="toggle">
+                    <a ngbNavLink class="nav-link" data-bs-toggle="tab">Agents</a>
+                    <ng-template ngbNavContent>
+                      <!--              <app-agents-dashboard-list></app-agents-dashboard-list>-->
+
+                    </ng-template>
+                  </li>
+                </ul>
+              </div>
+
+              <div [ngbNavOutlet]="nav1"></div>
+
+            </div>
+            <!-- End Body -->
+          </div>
+
+
+
+
+
+
+
+      </div>
+  <div class="col-lg-5 mb-3 mb-lg-5">
+        <!-- card shadow-none -->
+        <div class="card  h-100">
+
+
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="card-body">
+            <h4 class="card-header-title mb-2">Quick links</h4>
+            <p class="pt-3">Visit links like company mail, public website, google drive with one click</p>
+
+            <ul class="list-group list-group-flush list-group-no-gutters">
+
+              <!-- List Group Item -->
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3"
+                         src="publicSite/com004.svg"
+                         alt="Image Description">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h5 class="mb-0">Notifications</h5>
+                        <span
+                          class="d-block fs-6 text-body">Tibet realty Co. website {{ 'www.tibetrealtyco.com' }}</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                          Launch
+                          <i class="bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </li>
+              <!-- End List Group Item -->
+
+              <!-- List Group Item -->
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3"
+                         src="publicSite/elc008.svg" alt="Image Description">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h5 class="mb-0"> E-mail</h5>
+                        <span class="d-block fs-6 text-body">Company email service</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                          Launch
+                          <i class="bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </li>
+              <!-- End List Group Item -->
+
+              <!-- List Group Item -->
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3"
+                         src="publicSite/fin006.svg" alt="Image Description">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h5 class="mb-0">Database</h5>
+                        <span class="d-block fs-6 text-body">Cloud storage service</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                          Launch
+                          <i class="bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </li>
+              <!-- End List Group Item -->
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-xs avatar-4x3"
+                         src="publicSite/gen025.svg" alt="Image Description">
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h5 class="mb-0">Company</h5>
+                        <span class="d-block fs-6 text-body">Property listing site</span>
+                      </div>
+                      <!-- End Col -->
+
+                      <div class="col-auto">
+                        <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                          Launch
+                          <i class="bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End card shadow-none -->
+      </div>
+</div>
+
+
+
+  <div id="cardFullScreenEg" class="card overflow-hidden mb-3 mb-lg-5">
+
+    <!-- Body -->
+    <div class="card-body">
+      <div class="row col-sm-divider">
+        <div class="col-sm-3">
+          <!-- Stats -->
+          <div class="d-lg-flex align-items-lg-center">
+            <div class="flex-shrink-0">
+              <i class="bi-person fs-1"></i>
+            </div>
+
+            <div class="flex-grow-1 ms-lg-3">
+              <span class="d-block fs-6">Users</span>
+              <div class="d-flex align-items-center">
+                <h3 class="mb-0">34,413</h3>
+                <span class="badge bg-soft-success text-success ms-2">
+                      <i class="bi-graph-up"></i> 12.5%
+                    </span>
+              </div>
+            </div>
+          </div>
+          <!-- End Stats -->
+        </div>
+
+        <div class="col-sm-3">
+          <!-- Stats -->
+          <div class="d-lg-flex align-items-lg-center">
+            <div class="flex-shrink-0">
+              <i class="bi-clock-history fs-1"></i>
+            </div>
+
+            <div class="flex-grow-1 ms-lg-3">
+              <span class="d-block fs-6">Avg. session duration</span>
+              <div class="d-flex align-items-center">
+                <h3 class="mb-0">1m 3s</h3>
+              </div>
+            </div>
+          </div>
+          <!-- End Stats -->
+        </div>
+
+        <div class="col-sm-3">
+          <!-- Stats -->
+          <div class="d-lg-flex align-items-lg-center">
+            <div class="flex-shrink-0">
+              <i class="bi-files-alt fs-1"></i>
+            </div>
+
+            <div class="flex-grow-1 ms-lg-3">
+              <span class="d-block fs-6">Pages/Sessions</span>
+              <div class="d-flex align-items-center">
+                <h3 class="mb-0">1.78</h3>
+              </div>
+            </div>
+          </div>
+          <!-- End Stats -->
+        </div>
+
+        <div class="col-sm-3">
+          <!-- Stats -->
+          <div class="d-lg-flex align-items-lg-center">
+            <div class="flex-shrink-0">
+              <i class="bi-pie-chart fs-1"></i>
+            </div>
+
+            <div class="flex-grow-1 ms-lg-3">
+              <span class="d-block fs-6">Bounce rate</span>
+              <div class="d-flex align-items-center">
+                <h3 class="mb-0">62.9%</h3>
+              </div>
+            </div>
+          </div>
+          <!-- End Stats -->
+        </div>
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Body -->
+
+    <hr class="my-0">
+
+    <!-- Body -->
+    <div class="card-body">
+      <div class="row no-gutters">
+        <div class="col-lg-7">
+          <!-- JSVector Map -->
+
+          <!-- End JSVector Map -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-5">
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+              <thead>
+              <tr>
+                <th class="border-top-0">Country</th>
+                <th class="border-top-0">Visits</th>
+                <th class="border-top-0">Purchases</th>
+                <th class="border-top-0">Change</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description">
+                    </div>
+                    <div class="flex-grow-1 ms-2">USA</div>
+                  </div>
+                </td>
+                <td>10,013</td>
+                <td>$5,361</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    73.2% <i class="bi-graph-up text-success ms-1"></i>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/in.svg" alt="Image description">
+                    </div>
+                    <div class="flex-grow-1 ms-2">India</div>
+                  </div>
+                </td>
+                <td>8,545</td>
+                <td>$4,923</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    45.8% <i class="bi-graph-down text-danger ms-1"></i>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/ca.svg" alt="Image description">
+                    </div>
+                    <div class="flex-grow-1 ms-2">Canada</div>
+                  </div>
+                </td>
+                <td>6,837</td>
+                <td>$3,954</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    24.4% <i class="bi-graph-up text-success ms-1"></i>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description">
+                    </div>
+                    <div class="flex-grow-1 ms-2">Germany</div>
+                  </div>
+                </td>
+                <td>4,512</td>
+                <td>$2,512</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    12.8% <i class="bi-graph-up text-success ms-1"></i>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                      <img class="avatar-xss avatar-circle" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description">
+                    </div>
+                    <div class="flex-grow-1 ms-2">UK</div>
+                  </div>
+                </td>
+                <td>3,795</td>
+                <td>$1,173</td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    67.9% <i class="bi-graph-down text-danger ms-1"></i>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- End Table -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Body -->
+  </div>
+
+
+
+  <div class="text-center">
+    <ul ngbNav #nav="ngbNav" class="nav nav-segment nav-fill mb-7" role="tablist">
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link" id="nav-one-eg1-tab" data-bs-toggle="pill"
+           data-bs-target="#nav-one-eg1"
+           role="tab" aria-controls="nav-one-eg1" aria-selected="true">
+          Homepage
+        </a>
+        <ng-template ngbNavContent>
+          <h2>Company Services List</h2>
+        </ng-template>
+      </li>
+
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link" id="nav-one-eg2-tab" data-bs-toggle="pill"
+           data-bs-target="#nav-one-eg1"
+           role="tab" aria-controls="nav-one-eg1" aria-selected="true">
+          Services
+        </a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+      </li>
+
+
+
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link" id="nav-one-eg3-tab" data-bs-toggle="pill"
+           data-bs-target="#nav-one-eg1"
+           role="tab" aria-controls="nav-one-eg1" aria-selected="true">
+          About us
+        </a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+      </li>
+      <li ngbNavItem class="nav-item">
+        <a ngbNavLink class="nav-link" id="nav-one-eg4-tab" data-bs-toggle="pill"
+           data-bs-target="#nav-one-eg1"
+           role="tab" aria-controls="nav-one-eg1" aria-selected="true">
+          Blog
+        </a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+      </li>
+
+
+
+
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+</div>
+</main>
