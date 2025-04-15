@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit, signal} from '@angular/core';
 import { interval } from 'rxjs';
 import { AuthGenerateService } from '../../../services/auth/auth-generate.service';
-import {headingTextColor} from '../../../core/system/config';
+
 @Component({
   selector: 'app-stand-by',
   standalone: true,
   template: `
-    <h2 [style.color]="headingTextColor" class="mb-0"> {{ seconds }}s</h2>
+    <h2  class="mb-0"> {{ seconds }}s</h2>
  <!-- timer.component.html -->
 
 
@@ -38,6 +38,5 @@ export class StandByComponent implements OnInit, OnDestroy {
   }
 
 
-  protected readonly headingTextColor = headingTextColor;
 }
 

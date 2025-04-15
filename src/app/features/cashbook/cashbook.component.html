@@ -1,339 +1,208 @@
-<div class="bg-dark">
-  <div class="c" style="height: 23rem;">
-    <!-- Page Header -->
-    <div class="page-header page-header-dark">
-      <div class="row align-items-center">
-        <div class="col">
-          <h1 class="page-header-title mt-4  mt-lg-2" [style.color]="headingTextColor">{{companyName}}</h1>
-        </div>
-        <!-- End Col -->
 
+
+  <!-- End Alert -->
+
+  <!-- Step Timeline -->
+
+  <!-- End Step Timeline -->
+
+<main id="content" role="main" class="bg-light">
+  <!-- Breadcrumb -->
+  <div class="navbar-dark bg-primary" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="content-space-b-2 ">
+      <div class="row text-center d-sm-block d-md-none text-white">
+        <div class="col-4">
+          <ul class="step d-flex">
+            <div class="step-content-wrapper">
+        <span class="step-icon step-icon-soft-dark">
+          <i class="bi-calendar3 justify-content-center"></i>
+        </span>
+            </div>
+          </ul>
+          <h5 clas="text-white">Income</h5>
+          <h6>NGN23,OOO,OOO</h6>
+        </div>
+        <div class="col-4">
+          <ul class="step">
+            <div class="step-content-wrapper">
+        <span class="step-icon step-icon-soft-dark">
+          <i class="bi-calendar3"></i>
+        </span>
+            </div>
+          </ul>
+          <h5>Income</h5>
+          <h6>NGN23,OOO,OOO</h6>
+        </div>
+        <div class="col-4">
+          <ul class="step">
+            <div class="step-content-wrapper">
+        <span class="step-icon step-icon-soft-dark">
+          <i class="bi-calendar3"></i>
+        </span>
+            </div>
+          </ul>
+          <h5>Income</h5>
+          <h6>NGN23,OOO,OOO</h6>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-none d-lg-block">
+      <div class="row align-items-center ">
+        <ul class="step step-md step-centered  ">
+
+
+          <li class="step-item mt-3">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-danger">28%</span>
+              <div class="step-content">
+                <h5 class="text-white">Income</h5>
+                <p class="text-white">NGN23,000,000</p>
+
+              </div>
+            </div>
+          </li>
+          <li class="step-item mt-3">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-success">28%</span>
+              <div class="step-content">
+                <h5 class="text-white">Expenses</h5>
+                <p class="text-white">NGN23,000,000</p>
+
+              </div>
+            </div>
+          </li>
+          <li class="step-item mt-3">
+            <div class="step-content-wrapper">
+              <span class="spinner-grow" style="width: 3rem; height: 3rem;"><button class="btn  " type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" ></span>
+
+</button>
+ </span>
+              <div class="step-content">
+                <h5 class="text-white">Balance</h5>
+                <p class="text-white">NGN23,000,000</p>
+
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
 
         <!-- End Col -->
       </div>
-      <!-- End Row -->
-
-
+      </div>
     </div>
-    <!-- End Page Header -->
   </div>
-</div>
-<div class="content " style="margin-top: -17rem;">
-  <!-- Card -->
-  <div class="card mb-3 mb-lg-5">
-    <!-- Header -->
-    <div class="p-1 p-md-5 card-header-content-sm-between">
+  <!-- End Breadcrumb -->
 
+  <!-- Content Section -->
+  <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-n10">
+    <div class="row">
+      <div class="col-lg-5">
+        <!-- Navbar -->
+        <div class="navbar-expand-lg navbar-light">
 
-        <div class="d-flex align-items-md-center mb-3">
-          <div style="padding: 0" class="mt-2 ">
-            <img src="gif/sp.gif" class="img-fluid" alt="load" style="padding:0; width: 100%; height: 70px; object-fit: cover">
-          </div>
-
-          <div class="flex-grow-1 ms-3">
-            <div class="row mx-md-n3">
-              <div class="col-md-9 col-lg-10 column-md-divider px-md-4 ">
-
-
-                <!-- End Row -->
+          <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+            <!-- Card -->
+            <div class="card flex-grow-1 mb-5">
+              <div class="card-header d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
+                <h5 class="card-header-title">Latest transactions</h5>
+                <span>2 items</span>
               </div>
+
+              <div class="card-body">
+             <ul class="list-group list-group-flush list-group-no-gutters">
+               <app-heading-small [text]="'Credited'"></app-heading-small>
+
+               <li class="list-group-item" *ngIf="credit$ | async as accounts; "  >
+                 <div class="d-flex mb-3" *ngFor="let account of accounts">
+                   <div class="flex-grow-1 ms-3">
+                     <div class="row">
+                       <div class="col-7 col-md-5 order-md-1">
+                         <h5 class="mb-0">{{ account.payee }}</h5>
+                         <span class="fs-6 text-body">Subscription payment</span>
+                       </div>
+
+                       <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                         <h5 class="mb-0"><span>{{ account.amount | currency:'NGN' }}</span>
+                         </h5>
+                         <span class="fs-6 text-body">{{ account.date }}</span>
+                       </div>
+
+                       <div class="col-auto col-md-3 order-md-2">
+                         <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                       </div>
+                     </div>
+                     <!-- End Row -->
+                   </div>
+                   <hr>
+                 </div>
+               </li>
+
+
+               <app-heading-small [text]="'Debited'"></app-heading-small>
+               <li class="list-group-item" *ngIf="debit$ | async as accounts"  >
+                 <div class="d-flex mb-3" *ngFor="let account of accounts">
+                   <div class="flex-grow-1 ms-3">
+                     <div class="row">
+                       <div class="col-7 col-md-5 order-md-1">
+                         <h5 class="mb-0">{{ account.payee }}</h5>
+                         <span class="fs-6 text-body">Subscription payment</span>
+                       </div>
+
+                       <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                         <h5 class="mb-0"><span>{{ account.amount | currency:'NGN' }}</span>
+                         </h5>
+                         <span class="fs-6 text-body">{{ account.date }}</span>
+                       </div>
+
+                       <div class="col-auto col-md-3 order-md-2">
+                         <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
+                       </div>
+                     </div>
+                     <!-- End Row -->
+                   </div>
+                   <hr>
+                 </div>
+               </li>
+
+
+             </ul>
+           </div>
             </div>
-            <!-- End Row -->
+            <!-- End Card -->
           </div>
         </div>
+        <!-- End Navbar -->
+      </div>
+      <!-- End Col -->
 
-        <div class="">
-          <div class="text-center mb-3">
-
-            <ul ngbNav #nav="ngbNav" class="nav nav-segment nav-fill" role="tablist">
-
-
-              <li ngbNavItem class="nav-item">
-                <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
-                   aria-controls="nav-two-eg1" aria-selected="false">Docs</a>
-                <ng-template ngbNavContent>
-                  <div class="row">
-                    <div class="col-lg-7 mb-5 mb-lg-0">
-                      <div class="card-body shadow-lg">
-
-                        <h3 style="margin-bottom: 20px" class="text-center">Recent Transactions</h3>
-
-                      <!-- End Body -->
-
-                      <hr class="my-0">
-                        <app-credit class="mt-5"></app-credit>
-
-
-
-                      </div>
-                    </div>
-
-                    <div class="col-lg-5 d-none d-md-block">
-                      <div class="card h-100">
-                        <!-- Header -->
-                        <div class="card-header card-header-content-between">
-                          <h4 class="card-header-title">Latest transactions</h4>
-
-                          <!-- Dropdown -->
-                          <div class="dropdown">
-                            <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown3" data-bs-toggle="dropdown" aria-expanded="false">
-                              <i class="bi-three-dots-vertical"></i>
-                            </button>
-
-                            <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="reportsOverviewDropdown3">
-                              <span class="dropdown-header">Settings</span>
-
-                              <a class="dropdown-item" href="#">
-                                <i class="bi-share-fill dropdown-item-icon"></i> Share reports
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                <i class="bi-download dropdown-item-icon"></i> Download
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                <i class="bi-alt dropdown-item-icon"></i> Connect other apps
-                              </a>
-
-                              <div class="dropdown-divider"></div>
-
-                              <span class="dropdown-header">Feedback</span>
-
-                              <a class="dropdown-item" href="#">
-                                <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                              </a>
-                            </div>
-                          </div>
-                          <!-- End Dropdown -->
-                        </div>
-                        <!-- End Header -->
-
-                        <!-- Body -->
-                        <div class="card-body card-body-height">
-                          <ul class="list-group list-group-flush list-group-no-gutters">
-                            <!-- List Item -->
-                            <li class="list-group-item">
-                              <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                  <!-- Avatar -->
-                                  <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                                    <span class="avatar-initials">B</span>
-                                  </div>
-                                  <!-- End Avatar -->
-                                </div>
-
-                                <div class="flex-grow-1 ms-3">
-                                  <div class="row">
-                                    <div class="col-7 col-md-5 order-md-1">
-                                      <h5 class="mb-0">Bob Dean</h5>
-                                      <span class="fs-6 text-body">Transfer to bank account</span>
-                                    </div>
-
-                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
-                                      <h5 class="mb-0">-$290.00 USD</h5>
-                                      <span class="fs-6 text-body">15 May, 2020</span>
-                                    </div>
-
-                                    <div class="col-auto col-md-3 order-md-2">
-                                      <span class="badge bg-soft-warning text-warning rounded-pill">Pending</span>
-                                    </div>
-                                  </div>
-                                  <!-- End Row -->
-                                </div>
-                              </div>
-                            </li>
-                            <!-- End List Item -->
-
-                            <!-- List Item -->
-                            <li class="list-group-item">
-                              <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                  <!-- Avatar -->
-                                  <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/slack-icon.svg" alt="Image Description">
-                                  <!-- End Avatar -->
-                                </div>
-
-                                <div class="flex-grow-1 ms-3">
-                                  <div class="row">
-                                    <div class="col-7 col-md-5 order-md-1">
-                                      <h5 class="mb-0">Slack</h5>
-                                      <span class="fs-6 text-body">Subscription payment</span>
-                                    </div>
-
-                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
-                                      <h5 class="mb-0">-$11.00 USD</h5>
-                                      <span class="fs-6 text-body">12 May, 2020</span>
-                                    </div>
-
-                                    <div class="col-auto col-md-3 order-md-2">
-                                      <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
-                                    </div>
-                                  </div>
-                                  <!-- End Row -->
-                                </div>
-                              </div>
-                            </li>
-                            <!-- End List Item -->
-
-                            <!-- List Item -->
-                            <li class="list-group-item">
-                              <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                  <!-- Avatar -->
-                                  <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/bank-of-america-icon.svg" alt="Image Description">
-                                  <!-- End Avatar -->
-                                </div>
-
-                                <div class="flex-grow-1 ms-3">
-                                  <div class="row">
-                                    <div class="col-7 col-md-5 order-md-1">
-                                      <h5 class="mb-0">Bank of America</h5>
-                                      <span class="fs-6 text-body">Withdrawal to bank account</span>
-                                    </div>
-
-                                    <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
-                                      <h5 class="text-success mb-0">$3500.00 USD</h5>
-                                      <span class="fs-6 text-body">10 May, 2020</span>
-                                    </div>
-
-                                    <div class="col-auto col-md-3 order-md-2">
-                                      <span class="badge bg-soft-success text-success rounded-pill">Completed</span>
-                                    </div>
-                                  </div>
-                                  <!-- End Row -->
-                                </div>
-                              </div>
-                            </li>
-                            <!-- End List Item -->
-
-
-                          </ul>
-                        </div>
-                        <!-- End Body -->
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                </ng-template>
-              </li>
-
-
-
-              <li ngbNavItem class="nav-item">
-                <a ngbNavLink class="nav-link" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab"
-                   aria-controls="nav-two-eg1" aria-selected="false">Team</a>
-                <ng-template ngbNavContent>
-                  <!-- Content -->
-
-                  <!-- End Content -->
-                  <div class="receipt-container">
-                    <!-- Header -->
-                    <div class="header">
-                      <img src="logo.png" alt="Company Logo">
-                      <h1 [style.color]="headingTextColor">{{companyName}}</h1>
-                      <p>1{{address}}</p>
-                      <p>Phone: {{phone}} | Email: {{email}}</p>
-                    </div>
-
-                    <!-- Receipt Details -->
-                    <div class="details">
-                      <table style=" border-collapse: collapse; margin-top: 20px;">
-                        <tr>
-                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Reference:</td>
-                          <td style="padding: 10px;">001234</td>
-                        </tr>
-                        <tr>
-                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Date:</td>
-
-                          <td style="padding: 10px;">March 3, 2025</td>
-                        </tr>
-                        <tr>
-                          <td style="width: 40%; padding: 10px; font-weight: bold; text-align: right;">Payment Method:</td>
-                          <td style="padding: 10px;">Cash</td>
-                        </tr>
-                      </table>
-
-                    </div>
-
-                    <!-- Items Table -->
-                    <table class="table-container">
-                      <thead>
-                      <tr>
-                        <th></th>
-                        <th></th>
-
-                      </tr>
-                      </thead>
-                      <tbody>
-
-                      <tr>
-                        <td style="width: 50px; font-weight: bold; font-size: 20px; text-align: right;">Payee</td>
-                        <td>Product A</td>
-
-                      </tr>
-
-                      <tr>
-                        <td style="width: 50px; font-weight: bold; font-size: 20px; text-align: right; padding-bottom: 120px;">Description</td>
-                        <td style=" padding-bottom: 120px; color: white;">Product A</td>
-                      </tr>
-
-
-
-                      </tbody>
-                    </table>
-
-                    <!-- Total Calculation -->
-                    <div class="total-section">
-
-                      <h2> <strong>Total</strong></h2>
-                      <h3><strong> ₦14,512.50</strong></h3>
-                    </div>
-
-                    <!-- Signature -->
-                    <div class="signature">
-                      <p><strong>Authorized By:</strong></p>
-                      <p>__________________________</p>
-                      <p>Manager</p>
-                    </div>
-
-                    <!-- Print Button -->
-                    <button class="btn-print" onclick="window.print()">Print Receipt</button>
-
-                    <!-- Footer -->
-                    <div class="footer">
-                      <h4>Thank you for your business!</h4>
-                      <h3>Website: www.company.com </h3>
-                    </div>
-                  </div>
-
-                  <!-- End card shadow-none Grid -->
-                </ng-template>
-              </li>
-
-            </ul>
+      <div class="col-lg-7">
+        <!-- Card -->
+        <div class="card">
+          <div class="card-header d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
+            <h5 class="card-header-title">Cashbook</h5>
+            <span>2 items</span>
           </div>
-          <!-- End Nav -->
 
-          <!-- Tab Content -->
-          <div class="tab-content">
-            <div [ngbNavOutlet]="nav"></div>
+          <!-- Body -->
+          <div class="card-body">
+            <hr class="my-0">
+            <app-credit class="mt-5"></app-credit>
           </div>
-          <!-- End Tab Content -->
+          <!-- End Body -->
+
+          <a class="card-footer card-link text-center border-top" href="#">Continue shopping</a>
         </div>
-
-
-
-
-
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
     </div>
-    <!-- End Header -->
-
-    <!-- Body -->
-
-
+    <!-- End Row -->
   </div>
-
-</div>
+  <!-- End Content Section -->
+</main>
 
 
 

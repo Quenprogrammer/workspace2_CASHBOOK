@@ -29,6 +29,7 @@ export const routes: Routes = [
   {path: 'config', loadComponent: () => import ('./core/system/config/config.component').then(c => c.ConfigComponent)},
   {path: 'home', component: HomeComponent},
    {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
+   {path: 'inbox', loadComponent: () => import ('./features/menu/inbox/inbox.component').then(c => c.InboxComponent)},
   {path: 'users', loadComponent: () => import ('./features/users/users.component').then(c => c.UsersComponent)},
     {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
   {path: 'tax', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
@@ -43,19 +44,46 @@ export const routes: Routes = [
   {path: 'backupData', loadComponent: () => import ('./features/data/backup/backup.component').then(c => c.BackupComponent)},
   {path: 'backupDataPassword', loadComponent: () => import ('./features/data/backup-data-password/backup-data-password.component').then(c => c.BackupDataPasswordComponent)},
   {path: 'createUser', loadComponent: () => import ('./features/create-user/create-user.component').then(c => c.CreateUserComponent)},
+  {path: 'invoice', loadComponent: () => import ('./features/invoice/invoice.component').then(c => c.InvoiceComponent)},
+  {path: 'staffs', loadComponent: () => import ('./features/company/staffs/staffs.component').then(c => c.StaffsComponent)},
+  {path: 'StaffsView', loadComponent: () => import ('./features/company/staffs/staff-view/staff-view.component').then(c => c.StaffViewComponent)},
 
   {path: 'cashbook', loadComponent: () => import ('./features/cashbook/cashbook.component').then(c => c.CashbookComponent)},
   {path: 'notifications', loadComponent: () => import ('./features/notifications/notifications.component').then(c => c.NotificationsComponent)},
   {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
   {path: 'dashboard', loadComponent: () => import ('./features/dashboard/dashboard.component').then(c => c.DashboardComponent)},
-   {path: 'vault', loadComponent: () => import ('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent)},
-   {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
-   {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
+  {path: 'logs', loadComponent: () => import ('./core/system/logs/logs.component').then(c => c.LogsComponent)},
+
+
+
+
+  {path: 'vault', loadComponent: () => import ('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent)},
+  {path: 'vault-app', loadComponent: () => import ('./core/system/vault/vault.component').then(c => c.VaultComponent)},
+  {path: 'fileUpload', loadComponent: () => import ('./core/system/vault/file-upload/file-upload.component').then(c => c.FileUploadComponent)},
+  {path: 'login', loadComponent: () => import ('./core/login/check-identity/check-identity.component').then(c => c.CheckIdentityComponent)},
+  {path: 'create-user-account', loadComponent: () => import ('./core/create-user-account/create-user-account.component').then(c => c.CreateUserAccountComponent)},
 
 
 
 
 
+
+  {path: 'Public_site_dashboard', loadComponent: () => import ('../publicSite/public-site-dashboard/public-site-dashboard.component').then(c => c.PublicSiteDashboardComponent)},
+  {path: 'Public_site_homePage', loadComponent: () => import ('../publicSite/public-site-home-page/public-site-home-page.component').then(c => c.PublicSiteHomePageComponent)},
+  {path: 'about', loadComponent: () => import ('../publicSite/public-siteabout/public-siteabout.component').then(c => c.PublicSiteaboutComponent)},
+  {path: 'hireUs', loadComponent: () => import ('../publicSite/hie-us/hie-us.component').then(c => c.HieUsComponent)},
+
+
+
+
+/*
+
+  {path: 'account', loadComponent: () => import ('./core/system/vault/bank/bank.component').then(c => c.BankComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/code/code.component').then(c => c.CodeComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/contact-saver/contact-saver.component').then(c => c.ContactSaverComponent)},
+  {path: 'account', loadComponent: () => import ('./core/system/vault/credentials/credentials.component').then(c => c.CredentialsComponent)},
+
+*/
 
 
 

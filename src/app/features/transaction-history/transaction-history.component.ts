@@ -11,7 +11,7 @@ import {NgIf} from '@angular/common';
 import {CreditedComponent} from './credited/credited.component';
 import {MenuComponent} from '../menu/menu.component';
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
-import {headingTextColor} from "../../core/system/config";
+
 
 
 @Component({
@@ -23,5 +23,5 @@ import {headingTextColor} from "../../core/system/config";
 })
 export class TransactionHistoryComponent  {
   selectedOption: string = 'debit';
-    protected readonly headingTextColor = headingTextColor;
+
 }

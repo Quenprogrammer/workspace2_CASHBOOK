@@ -120,17 +120,75 @@
                       <li class="card card-bordered shadow-none mb-3">
                         <div class="card-body">
 
-
+<h3>Device Information</h3>
                           <hr>
 
-                          <div class="row">
-                            <div class="col-md-8">
-                              <h5>It's delivered!</h5>
+                          <div class="row  ">
+                            <div class="col-md-6 " >
+                              <div class="d-grid  ">
+<div class="row g-1">
+  <div class="col-md-6"> <a class="btn btn-white btn-sm w-100" routerLink="/create-user-account">
+    <i class="bi-basket small me-2"></i> Create Account
+  </a></div>
+  <div class="col-md-6"> <a class="btn btn-primary btn-sm w-100"  routerLink="/login"> LOGIN</a>
+  </div>
+</div>
+
+
+                                <app-system-info [os]="os" [platform]="platform" [browserVersion]="browserVersion"
+                                                 [device]="device" [browser]="browser"
+                                                 [screenResolution]="screenResolution"></app-system-info>
+
+                              </div>
+                            </div>
+                            <div class="col-md-6  ">
+                              <hr>
+                              <h3 class="mt-5 mb-md-1"> Aims<span style="color:red;">   <u>Tech</u>nology </span></h3>
+                              <div class="js-sortable-link sortablejs-custom sortablejs-custom-rotate sortablejs-custom-handle" data-href="#">
+
+
+                                    <div class="row mb-3">
+                                      <div class="col-4">
+                                        <!-- Stats -->
+                                        <div class="text-center">
+                                          <span class="d-block h4 mb-1">20</span>
+                                          <span class="d-block fs-6">Tasks</span>
+                                        </div>
+                                        <!-- End Stats -->
+                                      </div>
+                                      <!-- End Col -->
+
+                                      <div class="col-4">
+                                        <!-- Stats -->
+                                        <div class="text-center">
+                                          <span class="d-block h4 mb-1">0</span>
+                                          <span class="d-block fs-6">Complete</span>
+                                        </div>
+                                        <!-- End Stats -->
+                                      </div>
+                                      <!-- End Col -->
+
+                                      <div class="col-4">
+                                        <!-- Stats -->
+                                        <div class="text-center">
+                                          <span class="d-block h4 mb-1">0</span>
+                                          <span class="d-block fs-6">Completed</span>
+                                        </div>
+                                        <!-- End Stats -->
+                                      </div>
+                                      <!-- End Col -->
+                                    </div>
+                                    <!-- End Row -->
+
+                                    <!-- Progress -->
+
+
+                              </div>
 
                               <div class=" grid-page">
                                 <div class="row">
                                   @for(item of statMenu; track item.name){
-                                    <div class="col-4 col-lg-3 custom-hover">
+                                    <div class="col-3 col-lg-3 custom-hover">
                                       <a [routerLink]="item.link" class="card-link custom-hover">
                                         <img [src]="item.icon" alt="{{ item.name }}" class="card-icon"/>
                                         <app-text [text]="item.name"></app-text>
@@ -142,22 +200,7 @@
                               <!-- End Row -->
                             </div>
 
-                            <div class="col-md-4 " >
-                              <div class="d-grid gap-2">
-                                  <a class="btn btn-white btn-sm" href="#">
-                                  <i class="bi-truck small me-2"></i> login with Docs
-                                </a>
-                                <a class="btn btn-white btn-sm" href="#">
-                                  <i class="bi-arrow-counterclockwise small me-2"></i> Login with Token
-                                </a>
 
-                                <a class="btn btn-white btn-sm" href="#">
-                                  <i class="bi-basket small me-2"></i> Create Account
-                                </a>
-                                <a class="btn btn-primary btn-sm" href="#">PRES TO LOGIN. PASSWORD NOT SET</a>
-
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </li>
@@ -168,26 +211,7 @@
 
                   </div>
 
-                  <div class="tab-pane fade" id="accountOrdersTwo" role="tabpanel" aria-labelledby="accountOrdersTwo-tab">
-                    <!-- Empty State -->
-                    <div class="text-center content-space-1">
-                      <img class="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-state-no-data.svg" alt="Image Description">
-                      <p class="card-text">No data to show</p>
-                      <a class="btn btn-white btn-sm" href="#">Start shopping</a>
-                    </div>
-                    <!-- End Empty State -->
-                  </div>
-
-                  <div class="tab-pane fade" id="accountOrdersThree" role="tabpanel" aria-labelledby="accountOrdersThree-tab">
-                    <!-- Empty State -->
-                    <div class="text-center content-space-1">
-                      <img class="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-state-no-data.svg" alt="Image Description">
-                      <p class="card-text">No data to show</p>
-                      <a class="btn btn-white btn-sm" href="#">Start shopping</a>
-                    </div>
-                    <!-- End Empty State -->
-                  </div>
-                </div>
+                     </div>
                 <!-- End Tab Content -->
               </div>
               <!-- End Body -->
@@ -205,3 +229,26 @@
   <!-- End Row -->
 </div>
 
+<div *ngIf="moduleModalOpen" class="modal-overlay">
+  <div class="modal-content">
+    <div class="card h-100">
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Course contents</h2>
+
+        <a class="btn btn-ghost-danger btn-sm" (click)="moduleCloseModal()">Close</a>
+      </div>
+      <!-- End Header -->
+
+      <div class="card-body-height p-3">
+        <div class="row mb-2 justify-content-center">
+          <div class="col-sm-12 text-center">
+            <!-- Loop through Rent Modules -->
+
+          </div>
+        </div>
+      </div>
+      <!-- End Body -->
+    </div>
+  </div>
+</div>

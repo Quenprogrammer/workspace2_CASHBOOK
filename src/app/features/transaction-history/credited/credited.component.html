@@ -2,7 +2,11 @@
   <app-loading></app-loading>
 </div>
 
-<div *ngIf="!isLoading">
+
+
+
+<div class="" *ngIf="!isLoading">
+<div >
 
   <div class="container ">
     <form>
@@ -148,8 +152,9 @@
     <p><strong>Amount:</strong> ₦{{ selectedAccount?.amount }}</p>
 
     <div class="popup-buttons">
-      <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+     <!-- <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>-->
       <button class="btn btn-secondary" (click)="closeDeletePopup()">Cancel</button>
     </div>
   </div>
+</div>
 </div>

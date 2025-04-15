@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
@@ -6,6 +6,8 @@ import { addDoc, collection, collectionData, Firestore, Timestamp } from "@angul
 import { Observable } from "rxjs";
 import { NgClass, NgIf } from "@angular/common";
 import {ToastService} from '../../app/services/toast-services';
+import {RouterLink} from '@angular/router';
+import Typed from 'typed.js';
 
 interface MessageInquiries {
   firstName: string;
@@ -38,12 +40,13 @@ interface ContactUsLeadSubmission {
 
     ReactiveFormsModule,
     NgClass,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss'] // Corrected to styleUrls
 })
-export class ContactUsComponent {
+export class ContactUsComponent implements OnInit {
   @ViewChild('scrollTarget') scrollTarget!: ElementRef;
   isSubmitting = false;
   toastService = inject(ToastService);
@@ -127,4 +130,26 @@ export class ContactUsComponent {
   get aboutProject() {
     return this.GeneralInquiriesMessage.get('aboutProject');
   }
+
+  ngOnInit() {
+
+    const options = {
+      strings: ["modern", "creative", "professional"],
+      typeSpeed: 90,
+      backSpeed: 30,
+      backDelay: 2500,
+      showCursor: true,
+      cursorChar: '|',
+      loop: true
+    };
+
+    new Typed('.js-typedjs', options);
+  }
+
+  facebook:string='';
+  tiktok:string='';
+  instagram:string='';
+  youtube:string='';
+  number:string='+2349036014519'
+  address:string='Danladi Nasidi Estate KANO, Kano state Nigeria'
 }

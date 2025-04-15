@@ -8,7 +8,7 @@ import { NgClass, NgIf } from "@angular/common";
 
 import {StatsComponent} from '../../../shared/stats/stats.component';
 import {TruncateTextPipe} from "../../../shared/truncate-text-pipe/truncate-text.pipe";
-import {ShareComponent} from './share/share.component';
+
 
 export interface MessageInquiries {
   date: string;
@@ -28,9 +28,8 @@ export interface MessageInquiries {
     ReactiveFormsModule,
     NgIf,
     NgClass,
-    StatsComponent,
-    TruncateTextPipe,
-    ShareComponent
+
+
   ],
   templateUrl: './credit.component.html',
   styleUrls: ['./credit.component.scss']
@@ -45,7 +44,7 @@ export class CreditComponent implements OnInit {
     referenceNumber: new FormControl({ value: '', disabled: true }, [Validators.required]),
     description: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]), // ✅ Type field (Credit/Debit)
-    amount: new FormControl('', [Validators.required]),
+    amount: new FormControl('', [Validators.required, Validators.min(0)]),
     account: new FormControl('', [Validators.required]),
     payee: new FormControl('', [Validators.required]),
     paymentMode: new FormControl('', [Validators.required])
@@ -91,7 +90,7 @@ export class CreditComponent implements OnInit {
         // Reset the form and generate a new reference number
         this.GeneralInquiriesMessage.reset();
         this.generateRandomNumber();
-        this.GeneralInquiriesMessage.patchValue({ date: this.getCurrentDate() });
+        //here
 
         console.log(`Transaction saved successfully to ${transactionType} collection`);
         this.toastService.show('', `Transaction saved successfully to ${transactionType} collection`, 'success');
@@ -150,4 +149,6 @@ export class CreditComponent implements OnInit {
     const randomNum = (randomBuffer[0] % 900000000) + 100000000; // 9-digit number
     this.GeneralInquiriesMessage.patchValue({ referenceNumber: randomNum.toString() });
   }
+
+
 }

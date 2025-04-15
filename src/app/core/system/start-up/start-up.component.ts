@@ -1,13 +1,10 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {StatsLoadingComponent} from './stats-loading/stats-loading.component';
 import {TextComponent} from '../../components/text/text.component';
 import {RouterLink} from '@angular/router';
-export interface Statistic {
-  value: number;
-  icon:  number | string;
-  label: string;
-  animatedValue?: number; // Optional property for animated value
-}
+import {NgIf} from '@angular/common';
+import {SystemInfoComponent} from './system-info/system-info.component';
+
 
 @Component({
   selector: 'app-start-up',
@@ -15,58 +12,25 @@ export interface Statistic {
   imports: [
     StatsLoadingComponent,
     TextComponent,
-    RouterLink
+    RouterLink,
+    NgIf,
+    SystemInfoComponent
   ],
   templateUrl: './start-up.component.html',
-  styleUrl: './start-up.component.css'
+  styleUrls: ['./start-up.component.css','../../../../styles/modal.scss']
 })
 export class StartUpComponent implements AfterViewInit {
-
-  @ViewChild('lineChart') lineChart!: ElementRef;
-
-  data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: [{
-      label: 'Series 1',
-      data: [100, 20, 70, 40, 50, 110, 70, 120, 90, 100, 110, 120],
-      backgroundColor: 'rgba(255, 0, 0, 0.2)',
-      borderColor: 'rgba(255, 0, 0, 1)',
-      borderWidth: 1
-    }]
-  };
-
-  drawChart() {
-    const ctx = this.lineChart.nativeElement.getContext('2d');
-    ctx.beginPath();
-    ctx.moveTo(50, 400 - this.data.datasets[0].data[0]);
-    for (let i = 1; i < this.data.labels.length; i++) {
-      ctx.lineTo(50 + i * 50, 400 - this.data.datasets[0].data[i]);
-    }
-    ctx.strokeStyle = 'rgba(255, 0, 0, 1)';
-    ctx.stroke();
-    ctx.font = '16px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    for (let i = 0; i < this.data.labels.length; i++) {
-      ctx.fillText(this.data.labels[i], 50 + i * 50, 410);
-    }
-    ctx.font = '14px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'bottom';
-    for (let i = 0; i < this.data.datasets[0].data.length; i++) {
-      ctx.fillText(this.data.datasets[0].data[i], 50 + i * 50, 400 - this.data.datasets[0].data[i] - 5);
-    }
-  }
-
+  moduleModalOpen: boolean = false;
   path:string='homeScreen/'
   statMenu=[
     { name: 'Contact Us', icon: this.path +'contactus.svg', link: '/contactUs' },
     { name: 'FAQ', icon: this.path+'faq.svg', link: '/FAQ' },
-    { name: 'Privacy', icon: this.path+'privacy.svg', link: '/cashbook' },
-    { name: 'Services', icon: this.path+'services.svg', link: '/cashbook' },
+
     { name: 'Subscription', icon: this.path+'subscription.svg', link: '/subscription' },
+    { name: 'About', icon: this.path+'subscription.svg', link: '/subscription' },
     { name: 'Terms', icon: this.path+'terms.svg', link: '/terms' },
-    { name: 'services', icon: this.path+'configurations.svg', link: '/services' },
+      { name: 'Social handles', icon: this.path+'terms.svg', link: '/terms' },
+
     { name: 'technology', icon: this.path+'storage1.svg', link: '/technology' },
     { name: 'Industries', icon: this.path+'invoice1.svg', link: '/industry' },
 
@@ -86,7 +50,99 @@ export class StartUpComponent implements AfterViewInit {
         this.increaseProgress();
       }
     }, 1000);
-    this.drawChart();
+
   }
+  moduleCloseModal(): void {
+    this.moduleModalOpen = false;
+  }
+
+  os!: string;
+  platform!: string;
+  browser!: string;
+  browserVersion!: string;
+  device!: string;
+  screenResolution!: string;
+  language!: string;
+  timezone!: string;
+  processor!: string;
+  memory!: string;
+
+  ngOnInit(): void {
+    this.os = this.getOSName(navigator.userAgent);
+    this.platform = navigator.platform;
+    this.browser = this.getBrowserName(navigator.userAgent);
+    this.browserVersion = this.getBrowserVersion(navigator.userAgent);
+    this.device = this.getDeviceType(navigator.userAgent);
+    this.screenResolution = `${window.screen.width}x${window.screen.height}`;
+    this.language = navigator.language;
+    this.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    this.processor = this.getProcessorInfo();
+    this.memory = this.getMemoryInfo();
+  }
+
+  getOSName(userAgent: string): string {
+    if (userAgent.includes('Windows')) {
+      return 'Windows';
+    } else if (userAgent.includes('Macintosh')) {
+      return 'macOS';
+    } else if (userAgent.includes('Linux')) {
+      return 'Linux';
+    } else if (userAgent.includes('Android')) {
+      return 'Android';
+    } else if (userAgent.includes('iOS')) {
+      return 'iOS';
+    } else {
+      return 'Unknown';
+    }
+  }
+
+  getBrowserName(userAgent: string): string {
+    if (userAgent.includes('Chrome')) {
+      return 'Google Chrome';
+    } else if (userAgent.includes('Firefox')) {
+      return 'Mozilla Firefox';
+    } else if (userAgent.includes('Safari')) {
+      return 'Apple Safari';
+    } else if (userAgent.includes('Edge')) {
+      return 'Microsoft Edge';
+    } else if (userAgent.includes('MSIE')) {
+      return 'Internet Explorer';
+    } else {
+      return 'Unknown';
+    }
+  }
+
+  getBrowserVersion(userAgent: string): string {
+    const regex = /Chrome\/(\d+)|Firefox\/(\d+)|Safari\/(\d+)|Edge\/(\d+)|MSIE (\d+)/;
+    const match = userAgent.match(regex);
+    if (match) {
+      return match[1] || match[2] || match[3] || match[4] || match[5];
+    } else {
+      return 'Unknown';
+    }
+  }
+
+  getDeviceType(userAgent: string): string {
+    if (userAgent.includes('Mobile')) {
+      return 'Mobile';
+    } else if (userAgent.includes('Tablet')) {
+      return 'Tablet';
+    } else {
+      return 'Desktop';
+    }
+  }
+
+  getProcessorInfo(): string {
+    // Note: This is a very basic implementation and may not work for all systems.
+    // For a more accurate implementation, you may need to use a library or API that provides processor information.
+    return 'Unknown';
+  }
+
+  getMemoryInfo(): string {
+    // Note: This is a very basic implementation and may not work for all systems.
+    // For a more accurate implementation, you may need to use a library or API that provides memory information.
+    return 'Unknown';
+  }
+
 
 }

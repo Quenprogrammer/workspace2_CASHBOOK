@@ -102,7 +102,7 @@ export class CreditedComponent implements OnInit {
   }
 
   /** ✅ CONFIRM DELETE */
-  confirmDelete() {
+/*  confirmDelete() {
     if (this.accountToDelete?.id) {
       this.firestoreService.deleteAccount(this.accountToDelete.id)
         .then(() => {
@@ -113,7 +113,7 @@ export class CreditedComponent implements OnInit {
     } else {
       alert('Transaction ID not found.');
     }
-  }
+  }*/
 
   printDetails() {
     if (!this.selectedAccount) return;
