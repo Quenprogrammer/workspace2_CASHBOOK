@@ -12,7 +12,7 @@ export const routes: Routes = [
   {path: 'start', loadComponent: () => import ('./core/system/start-up/start-up.component').then(c => c.StartUpComponent)},
 
 
-  {path: 'debug', loadComponent: () => import ('./core/debug/debug.component').then(c => c.DebugComponent)},
+  {path: 'debug', loadComponent: () => import ('./features/debug/debug.component').then(c => c.DebugComponent)},
   {path: 'profile', loadComponent: () => import ('./core/system/profile/profile.component').then(c => c.ProfileComponent)},
   {path: 'contactUs', loadComponent: () => import ('../aims/contact-us/contact-us.component').then(c => c.ContactUsComponent)},
   {path: 'terms', loadComponent: () => import ('../aims/terms-of-service/terms-of-service.component').then(c => c.TermsOfServiceComponent)},
@@ -31,9 +31,7 @@ export const routes: Routes = [
    {path: 'menu', loadComponent: () => import ('./features/menu/menu.component').then(c => c.MenuComponent)},
    {path: 'inbox', loadComponent: () => import ('./features/menu/inbox/inbox.component').then(c => c.InboxComponent)},
   {path: 'users', loadComponent: () => import ('./features/users/users.component').then(c => c.UsersComponent)},
-    {path: 'apps', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
-  {path: 'tax', loadComponent: () => import ('./features/apps/apps.component').then(c => c.AppsComponent)},
-  {path: 'notepad', loadComponent: () => import ('./features/apps/notepad/notepad.component').then(c => c.NotepadComponent)},
+      {path: 'notepad', loadComponent: () => import ('./features/apps/notepad/notepad.component').then(c => c.NotepadComponent)},
   {path: 'calculator', loadComponent: () => import ('./features/apps/calculator/calculator.component').then(c => c.CalculatorComponent)},
   {path: 'appsHome', loadComponent: () => import ('./features/apps/app-home/app-home.component').then(c => c.AppHomeComponent)},
     {path: 'cashbook-accounts', loadComponent: () => import ('./features/create-account/create-account.component').then(c => c.CreateAccountComponent)},
@@ -45,6 +43,7 @@ export const routes: Routes = [
   {path: 'backupDataPassword', loadComponent: () => import ('./features/data/backup-data-password/backup-data-password.component').then(c => c.BackupDataPasswordComponent)},
   {path: 'createUser', loadComponent: () => import ('./features/create-user/create-user.component').then(c => c.CreateUserComponent)},
   {path: 'invoice', loadComponent: () => import ('./features/invoice/invoice.component').then(c => c.InvoiceComponent)},
+  {path: 'allInvoice', loadComponent: () => import ('./features/invoice/all-invoice/all-invoice.component').then(c => c.AllInvoiceComponent)},
   {path: 'staffs', loadComponent: () => import ('./features/company/staffs/staffs.component').then(c => c.StaffsComponent)},
   {path: 'StaffsView', loadComponent: () => import ('./features/company/staffs/staff-view/staff-view.component').then(c => c.StaffViewComponent)},
 
@@ -94,6 +93,9 @@ export const routes: Routes = [
   { path: 'social-media-account', loadComponent: () => import('./core/system/vault/social-media-account/social-media-account.component').then(c => c.SocialMediaAccountComponent) },
   { path: 'vault-password', loadComponent: () => import('./core/system/vault/vault-password/vault-password.component').then(c => c.VaultPasswordComponent) },
   { path: 'website', loadComponent: () => import('./core/system/vault/website/website.component').then(c => c.WebsiteComponent) },
+
+ //usres
+  { path: 'StaffsLogin', loadComponent: () => import('../staffs/staff-dasboard/staff-dasboard.component').then(c => c.StaffDasboardComponent) },
 
 
 

@@ -1,23 +1,23 @@
-<div class="gradient-x-three-sm-primary" style="background-color: black">
+<!--<div class="gradient-x-three-sm-primary" style="background-color: black">
   <div class="container content-space-1">
     <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
   </div></div>
 <main class="container">
 
 
-  <!-- End Breadcrumb -->
+  &lt;!&ndash; End Breadcrumb &ndash;&gt;
 
-  <!-- Card Grid -->
+  &lt;!&ndash; Card Grid &ndash;&gt;
 
     <div class="row col-lg-divider">
       <div class="col-lg-3">
-        <!-- Navbar -->
+        &lt;!&ndash; Navbar &ndash;&gt;
         <div class="navbar-expand-lg">
-          <!-- Navbar Toggle -->
+          &lt;!&ndash; Navbar Toggle &ndash;&gt;
 
-          <!-- End Navbar Toggle -->
+          &lt;!&ndash; End Navbar Toggle &ndash;&gt;
 
-          <!-- Navbar Collapse -->
+          &lt;!&ndash; Navbar Collapse &ndash;&gt;
           <div id="navbarVerticalNavMenu" class="navbar-collapse collapse" style="">
             <div class="d-grid gap-4 flex-grow-1">
               <div class="nav nav-sm nav-pills nav-vertical">
@@ -35,20 +35,20 @@
 
             </div>
           </div>
-          <!-- End Navbar Collapse -->
+          &lt;!&ndash; End Navbar Collapse &ndash;&gt;
         </div>
-        <!-- End Navbar -->
+        &lt;!&ndash; End Navbar &ndash;&gt;
       </div>
-      <!-- End Col -->
+      &lt;!&ndash; End Col &ndash;&gt;
 
       <div class="col-lg-9">
         <div class="ps-lg-2">
-          <!-- Search -->
+          &lt;!&ndash; Search &ndash;&gt;
           <div class="mb-4">
 
 
             <form class="mt-2">
-              <!-- Input Card -->
+              &lt;!&ndash; Input Card &ndash;&gt;
               <div class="input-card border">
                 <div class="input-card-form">
                   <label for="searchAppsForm" class="form-label visually-hidden">Search for apps</label>
@@ -63,15 +63,15 @@
                   <i class="bi-arrow-right"></i>
                 </button>
               </div>
-              <!-- End Input Card -->
+              &lt;!&ndash; End Input Card &ndash;&gt;
             </form>
           </div>
-          <!-- End Search -->
+          &lt;!&ndash; End Search &ndash;&gt;
 
           <div class="row gx-3">
             @for (items of settings; track items.name){
             <div class="col-sm-6 col-md-4 mb-3">
-              <!-- Card -->
+              &lt;!&ndash; Card &ndash;&gt;
               <div class="card card-bordered card-transition  h-100 shadow-lg">
                 <a class="card-body" [routerLink]="items.link">
                   <div class="d-flex">
@@ -88,319 +88,93 @@
                   </div>
                 </a>
               </div>
-              <!-- End Card -->
+              &lt;!&ndash; End Card &ndash;&gt;
             </div>
-            <!-- End Col -->
+            &lt;!&ndash; End Col &ndash;&gt;
             }
 
           </div>
-          <!-- End Row -->
+          &lt;!&ndash; End Row &ndash;&gt;
         </div>
       </div>
-      <!-- End Col -->
+      &lt;!&ndash; End Col &ndash;&gt;
     </div>
-    <!-- End Row -->
+    &lt;!&ndash; End Row &ndash;&gt;
 
-  <!-- End Card Grid -->
+  &lt;!&ndash; End Card Grid &ndash;&gt;
 </main>
-<!-- Button 1 -->
-<button class="btn btn-primary" (click)="isModal1Open = true">Open Modal 1</button>
-<div *ngIf="isModal1Open" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" (click)="isModal1Open = false">&times;</span>
-    <h2>Modal 1</h2>
-    <div class="card">
-      <div class="card-header border-bottom">
-        <h5 class="card-title">Preferences</h5>
-      </div>
+&lt;!&ndash; Button 1 &ndash;&gt;-->
+<div class="row gx-3">
 
-      <!-- Body -->
-      <div class="card-body">
-        <!-- Form -->
-        <form>
-          <!-- Form -->
-          <div class="row mb-4">
-            <label for="languageLabel-ts-control" class="col-sm-3 col-form-label form-label" id="languageLabel-ts-label">Language</label>
+    <div class="col-sm-6 col-md-4 mb-3" *ngFor="let item of navItems">
+      <!-- Card -->
+      <div class="card card-bordered card-transition  h-100 shadow-lg">
+        <a class="card-body" routerLink="items.link">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img class="avatar avatar-lg" [src]="item.logo" alt="Logo">
+            </div>
 
-            <div class="col-sm-9">
-              <!-- Select -->
-              <div class="tom-select-custom">
-                <select class="js-select form-select tomselected ts-hidden-accessible" id="languageLabel" tabindex="-1">
-                  <option value="language2" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/cn.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>中文 (繁體)</span></div></div>">中文 (繁體)</option>
-                  <option value="language3" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/cz.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Čeština</span></div></div>">Čeština</option>
-                  <option value="language4" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/dk.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Dansk</span></div></div>">Dansk</option>
-                  <option value="language5" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/nl.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Nederlands</span></div></div>">Nederlands</option>
-                  <option value="language6" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/us.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>English (US)</span></div></div>">English (US)</option>
-
-                  <option value="language8" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/ee.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Eesti</span></div></div>">Eesti</option>
-                  <option value="language9" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/fi.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Suomi</span></div></div>">Suomi</option>
-                  <option value="language10" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/fr.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Français</span></div></div>">Français</option>
-                  <option value="language11" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/de.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Deutsch</span></div></div>">Deutsch</option>
-                  <option value="language12" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/hu.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Magyar</span></div></div>">Magyar</option>
-                  <option value="language13" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/is.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Íslenska</span></div></div>">Íslenska</option>
-                  <option value="language14" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/it.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Italiano</span></div></div>">Italiano</option>
-                  <option value="language15" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/jp.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>日本語</span></div></div>">日本語</option>
-                  <option value="language16" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/kr.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>한국어</span></div></div>">한국어</option>
-                  <option value="language17" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/ee.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Eesti</span></div></div>">Eesti</option>
-                  <option value="language9" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/no.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Norsk</span></div></div>">Norsk</option>
-                  <option value="language18" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/pl.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Polski</span></div></div>">Polski</option>
-                  <option value="language19" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/br.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Português (Brasil)</span></div></div>">Português (Brasil)</option>
-                  <option value="language20" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/pt.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Português (Portugal)</span></div></div>">Português (Portugal)</option>
-                  <option value="language21" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/ro.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Română</span></div></div>">Română</option>
-                  <option value="language22" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/ru.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Русский</span></div></div>">Русский</option>
-                  <option value="language23" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/sk.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Slovenčina</span></div></div>">Slovenčina</option>
-                  <option value="language24" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/th.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>ภาษาไทย‎</span></div></div>">ภาษาไทย‎</option>
-                  <option value="language25" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/tr.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Türkçe</span></div></div>">Türkçe</option>
-                  <option value="language26" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/es.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Español</span></div></div>">Español</option>
-                  <option value="language27" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/ua.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>Українська</span></div></div>">Українська</option>
-                  <option value="language7" selected="" data-option-template="<div><div><img class=&quot;avatar avatar-xss avatar-circle me-2&quot; src=&quot;./assets/vendor/flag-icon-css/flags/1x1/gb.svg&quot; alt=&quot;Image description&quot; width=&quot;16&quot;/><span>English (UK)</span></div></div>">English (UK)</option></select><div class="ts-wrapper js-select form-select single plugin-change_listener plugin-hs_smart_position plugin-dropdown_input full has-items"><div class="ts-control" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="languageLabel-ts-dropdown" id="languageLabel-ts-control" aria-labelledby="languageLabel-ts-label" tabindex="0" aria-activedescendant="languageLabel-opt-6"><div data-value="language7" class="item" data-ts-item=""><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description" width="16"><span>English (UK)</span></div></div><input class="items-placeholder" tabindex="-1" placeholder=""></div><div class="tom-select-custom"><div class="ts-dropdown single plugin-change_listener plugin-hs_smart_position plugin-dropdown_input" style="display: none; visibility: visible; opacity: 1;"><div class="dropdown-input-wrap"><input type="select-one" autocomplete="off" size="1" tabindex="-1" class="dropdown-input"></div><div role="listbox" tabindex="-1" class="ts-dropdown-content" id="languageLabel-ts-dropdown" aria-labelledby="languageLabel-ts-label" style=""><div data-selectable="" data-value="language2" class="option" role="option" id="languageLabel-opt-1"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/cn.svg" alt="Image description" width="16"><span>中文 (繁體)</span></div></div><div data-selectable="" data-value="language3" class="option" role="option" id="languageLabel-opt-2"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/cz.svg" alt="Image description" width="16"><span>Čeština</span></div></div><div data-selectable="" data-value="language4" class="option" role="option" id="languageLabel-opt-3"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/dk.svg" alt="Image description" width="16"><span>Dansk</span></div></div><div data-selectable="" data-value="language5" class="option" role="option" id="languageLabel-opt-4"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/nl.svg" alt="Image description" width="16"><span>Nederlands</span></div></div><div data-selectable="" data-value="language6" class="option" role="option" id="languageLabel-opt-5"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"><span>English (US)</span></div></div><div data-selectable="" data-value="language7" class="option selected active" role="option" id="languageLabel-opt-6" aria-selected="true"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/gb.svg" alt="Image description" width="16"><span>English (UK)</span></div></div><div data-selectable="" data-value="language8" class="option" role="option" id="languageLabel-opt-7"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/ee.svg" alt="Image description" width="16"><span>Eesti</span></div></div><div data-selectable="" data-value="language9" class="option" role="option" id="languageLabel-opt-8"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/fi.svg" alt="Image description" width="16"><span>Suomi</span></div></div><div data-selectable="" data-value="language10" class="option" role="option" id="languageLabel-opt-9"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/fr.svg" alt="Image description" width="16"><span>Français</span></div></div><div data-selectable="" data-value="language11" class="option" role="option" id="languageLabel-opt-10"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description" width="16"><span>Deutsch</span></div></div><div data-selectable="" data-value="language12" class="option" role="option" id="languageLabel-opt-11"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/hu.svg" alt="Image description" width="16"><span>Magyar</span></div></div><div data-selectable="" data-value="language13" class="option" role="option" id="languageLabel-opt-12"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/is.svg" alt="Image description" width="16"><span>Íslenska</span></div></div><div data-selectable="" data-value="language14" class="option" role="option" id="languageLabel-opt-13"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/it.svg" alt="Image description" width="16"><span>Italiano</span></div></div><div data-selectable="" data-value="language15" class="option" role="option" id="languageLabel-opt-14"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/jp.svg" alt="Image description" width="16"><span>日本語</span></div></div><div data-selectable="" data-value="language16" class="option" role="option" id="languageLabel-opt-15"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/kr.svg" alt="Image description" width="16"><span>한국어</span></div></div><div data-selectable="" data-value="language17" class="option" role="option" id="languageLabel-opt-16"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/ee.svg" alt="Image description" width="16"><span>Eesti</span></div></div><div data-selectable="" data-value="language18" class="option" role="option" id="languageLabel-opt-17"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/pl.svg" alt="Image description" width="16"><span>Polski</span></div></div><div data-selectable="" data-value="language19" class="option" role="option" id="languageLabel-opt-18"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/br.svg" alt="Image description" width="16"><span>Português (Brasil)</span></div></div><div data-selectable="" data-value="language20" class="option" role="option" id="languageLabel-opt-19"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/pt.svg" alt="Image description" width="16"><span>Português (Portugal)</span></div></div><div data-selectable="" data-value="language21" class="option" role="option" id="languageLabel-opt-20"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/ro.svg" alt="Image description" width="16"><span>Română</span></div></div><div data-selectable="" data-value="language22" class="option" role="option" id="languageLabel-opt-21"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/ru.svg" alt="Image description" width="16"><span>Русский</span></div></div><div data-selectable="" data-value="language23" class="option" role="option" id="languageLabel-opt-22"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/sk.svg" alt="Image description" width="16"><span>Slovenčina</span></div></div><div data-selectable="" data-value="language24" class="option" role="option" id="languageLabel-opt-23"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/th.svg" alt="Image description" width="16"><span>ภาษาไทย‎</span></div></div><div data-selectable="" data-value="language25" class="option" role="option" id="languageLabel-opt-24"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/tr.svg" alt="Image description" width="16"><span>Türkçe</span></div></div><div data-selectable="" data-value="language26" class="option" role="option" id="languageLabel-opt-25"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/es.svg" alt="Image description" width="16"><span>Español</span></div></div><div data-selectable="" data-value="language27" class="option" role="option" id="languageLabel-opt-26"><div><img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/ua.svg" alt="Image description" width="16"><span>Українська</span></div></div></div></div></div></div>
+            <div class="flex-grow-1 ms-3">
+              <div class="d-flex align-items-center">
+                <h5 class="card-title mb-0">{{ item.name }}</h5>
               </div>
-              <!-- End Select -->
+              <p class="card-text text-body small"> item.description </p>
             </div>
           </div>
-          <!-- End Form -->
-
-          <!-- Form -->
-          <div class="row mb-4">
-            <label for="timeZoneLabel" class="col-sm-3 col-form-label form-label">Time zone</label>
-
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="currentPassword" id="timeZoneLabel" placeholder="Your time zone" aria-label="Your time zone" value="GMT+01:00" readonly="">
-            </div>
+          <div class="col-5">
+            <a class="btn btn-primary btn-sm w-100" (click)="openModal(item.name)">
+              <i class="bi bi-pencil-square me-1"></i> Edit
+            </a>
           </div>
-          <!-- End Form -->
-
-          <div class="d-grid gap-3">
-            <!-- Form Switch -->
-            <label class="row toggle-switch" for="accountPreferencesSwitch1">
-                    <span class="col-8 col-sm">
-                      <span class="card-text text-dark mb-0">Early release</span>
-                      <span class="card-text d-block small">Get included on early releases for new Front features.</span>
-                    </span>
-              <span class="col-4 col-sm-auto">
-                      <span class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="accountPreferencesSwitch1">
-                      </span>
-                    </span>
-            </label>
-            <!-- End Form Switch -->
-
-            <!-- Form Switch -->
-            <label class="row toggle-switch" for="accountPreferencesSwitch2">
-                    <span class="col-8 col-sm">
-                      <span class="card-text text-dark mb-0">See info about people who view my profile</span>
-                      <span class="card-text d-block small"><a class="link" href="#">More about viewer info</a>.</span>
-                    </span>
-              <span class="col-4 col-sm-auto">
-                      <span class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="accountPreferencesSwitch2">
-                      </span>
-                    </span>
-            </label>
-            <!-- End Form Switch -->
-          </div>
-
-          <div class="d-flex justify-content-end gap-3 mt-3">
-            <a class="btn btn-white" href="javascript:;">Cancel</a>
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </div>
-        </form>
-        <!-- End Form -->
+        </a>
       </div>
-      <!-- End Body -->
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ✅ Modal: Edit -->
+<div *ngIf="isModalOpen()" class="modal-overlay">
+  <div class="modal-content position-relative">
+    <div class="card" style=" min-height:90vh; max-height:95vh">
+
+      <div class="card-body">
+        <ng-container *ngIf="activeComponent() === 'Add User'">
+          <app-payment-setup></app-payment-setup>
+        </ng-container>
+        <ng-container *ngIf="activeComponent() === 'Payments'">
+          <app-payment-setup></app-payment-setup>
+        </ng-container>
+
+        <ng-container *ngIf="activeComponent() === 'Display'">
+           <app-display-config></app-display-config>
+        </ng-container>
+        <ng-container *ngIf="activeComponent() === 'Insurance'">
+          <app-credited></app-credited>
+        </ng-container>
+        <ng-container *ngIf="activeComponent() === 'Storage'">
+          <app-storage></app-storage>
+        </ng-container>
+        <ng-container *ngIf="activeComponent() === 'Security'">
+          <app-security></app-security>
+        </ng-container>
+        <ng-container *ngIf="activeComponent() === 'Company'">
+          <app-company-profile></app-company-profile>
+        </ng-container>
+
+
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Button 2 -->
-<button class="btn btn-secondary" (click)="isModal2Open = true">Open Modal 2</button>
-<div *ngIf="isModal2Open" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" (click)="isModal2Open = false">&times;</span>
-    <h2>Modal 2</h2>
-    <div class="card">
-      <div class="card-header border-bottom">
-        <h5 class="card-header-title">Password</h5>
-      </div>
-
-      <!-- Body -->
-      <div class="card-body">
-        <!-- Form -->
-        <form>
-          <!-- Form -->
-          <div class="row mb-4">
-            <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
-
-            <div class="col-sm-9">
-              <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
-            </div>
-          </div>
-          <!-- End Form -->
-
-          <!-- Form -->
-          <div class="row mb-4">
-            <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
-
-            <div class="col-sm-9">
-              <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
-            </div>
-          </div>
-          <!-- End Form -->
-
-          <!-- Form -->
-          <div class="row mb-4">
-            <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
-
-            <div class="col-sm-9">
-              <div class="mb-3">
-                <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
-              </div>
-
-              <h5>Password requirements:</h5>
-
-              <p class="card-text small">Ensure that these requirements are met:</p>
-
-              <ul class="small">
-                <li>Minimum 8 characters long - the more, the better</li>
-                <li>At least one lowercase character</li>
-                <li>At least one uppercase character</li>
-                <li>At least one number, symbol, or whitespace character</li>
-              </ul>
-            </div>
-          </div>
-          <!-- End Form -->
-
-          <div class="d-flex justify-content-end gap-3">
-            <a class="btn btn-white" href="javascript:;">Cancel</a>
-            <button type="submit" class="btn btn-primary">Update Password</button>
-          </div>
-        </form>
-        <!-- End Form -->
-      </div>
-      <!-- End Body -->
-    </div>
-  </div>
-</div>
-
-<!-- Button 3 -->
-<button class="btn btn-success" (click)="isModal3Open = true">Open Modal 3</button>
-<div *ngIf="isModal3Open" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" (click)="isModal3Open = false">&times;</span>
-    <h2>Modal 3</h2>
-    <div class="card">
-      <div class="card-header border-bottom">
-        <h5 class="card-header-title">Device history</h5>
-      </div>
-
-      <!-- Body -->
-      <div class="card-body">
-        <!-- Form -->
-        <form>
-          <!-- List Group -->
-          <div class="list-group list-group-flush list-group-no-gutters">
-            <!-- Item -->
-            <div class="list-group-item">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <i class="bi-laptop list-group-icon"></i>
-                </div>
-
-                <div class="flex-grow-1">
-                  <div class="row align-items-center">
-                    <div class="col-sm mb-1 mb-sm-0">
-                      <h6 class="mb-1">Dell XPS 15 <span class="badge bg-primary ms-1">Current</span></h6>
-                      <ul class="list-inline list-separator text-body small">
-                        <li class="list-inline-item"><span class="fw-semibold">IP address:</span> 213.230.93.79</li>
-                        <li class="list-inline-item"><span class="fw-semibold">Last active:</span> Now</li>
-                      </ul>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-sm-auto">
-                      <a class="btn btn-white btn-xs" href="javascript:;">Log out</a>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </div>
-            <!-- End Item -->
-
-            <!-- Item -->
-            <div class="list-group-item">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <i class="bi-display list-group-icon"></i>
-                </div>
-
-                <div class="flex-grow-1">
-                  <div class="row align-items-center">
-                    <div class="col-sm mb-1 mb-sm-0">
-                      <h6 class="mb-1">Microsoft Studio 2</h6>
-                      <ul class="list-inline list-separator text-body small">
-                        <li class="list-inline-item"><span class="fw-semibold">IP address:</span> 213.230.93.79</li>
-                        <li class="list-inline-item"><span class="fw-semibold">Last active:</span> 3 days ago</li>
-                      </ul>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-sm-auto">
-                      <a class="btn btn-white btn-xs" href="javascript:;">Log out</a>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </div>
-            <!-- End Item -->
-
-            <!-- Item -->
-            <div class="list-group-item">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <i class="bi-phone list-group-icon"></i>
-                </div>
-
-                <div class="flex-grow-1">
-                  <div class="row align-items-center">
-                    <div class="col-sm mb-1 mb-sm-0">
-                      <h6 class="mb-1">Google Pixel 3a</h6>
-                      <ul class="list-inline list-separator text-body small">
-                        <li class="list-inline-item"><span class="fw-semibold">IP address:</span> 213.230.93.79</li>
-                        <li class="list-inline-item"><span class="fw-semibold">Last active:</span> 22 minutes ago</li>
-                      </ul>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-sm-auto">
-                      <a class="btn btn-white btn-xs" href="javascript:;">Log out</a>
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </div>
-            <!-- End Item -->
-          </div>
-          <!-- End List Group -->
-        </form>
-        <!-- End Form -->
-      </div>
-      <!-- End Body -->
-    </div>
-  </div>
-</div>
-
-<!-- Button 4 -->
-<button class="btn btn-danger" (click)="isModal4Open = true">Open Modal 4</button>
-<div *ngIf="isModal4Open" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" (click)="isModal4Open = false">&times;</span>
-    <h2>Modal 4</h2>
-    <p>This is the content for Modal 4.</p>
-  </div>
-</div>

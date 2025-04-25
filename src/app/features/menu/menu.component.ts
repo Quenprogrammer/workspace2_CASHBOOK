@@ -1,4 +1,4 @@
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit, signal} from '@angular/core';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -21,6 +21,7 @@ import {IntegrationComponent} from './integration/integration.component';
 import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
 import {addDoc, collection, doc, Firestore, setDoc} from '@angular/fire/firestore';
 import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLinkBase} from '@ng-bootstrap/ng-bootstrap';
+import {LoadingComponent} from '../../core/system/loading/loading.component';
 
 
 @Component({
@@ -45,15 +46,15 @@ import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLinkBase} from '@ng-bootstrap/n
     NgbNavLinkBase,
     NgbNavContent,
     NgbNav,
+    LoadingComponent,
 
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
+  isLoading = signal<boolean>(false);
 
-  integrationTagLine:string='Visit links like company mail, public website, google drive with one click'
-textHeading:string='Connected accounts'
   isOnline: boolean = true;
   currentDate: string;
   currentTime: string = ''; // Initialize as an empty string

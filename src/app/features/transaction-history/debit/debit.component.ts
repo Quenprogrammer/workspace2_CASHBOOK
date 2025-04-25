@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { Account, FirestoreService } from '../../../services/firestore/firestore.service';
 import { AsyncPipe, CurrencyPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
@@ -18,14 +18,17 @@ import {DownloadService} from '../../../services/download.service';
     NgForOf,
 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoadingComponent,
+    NgIf
   ],
   providers: [DatePipe],
   templateUrl: './debit.component.html',
   styleUrl: './debit.component.css'
 })
 export class DebitComponent implements OnInit {
-  isLoading = true;
+  isLoading = signal<boolean>(false);
+
   accounts$: Observable<Account[]> | undefined;
   filteredAccounts$: Observable<Account[]> = new Observable<Account[]>(); // Initialize with empty Observable
 

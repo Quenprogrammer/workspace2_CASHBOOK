@@ -1,0 +1,254 @@
+<div class="row">
+<!--<div class="col-lg-7 mb-3 mb-lg-0">
+  <div class="row &lt;!&ndash;justify-content-lg-center&ndash;&gt; mb-2">
+    @for(items of websitePages; track items.name){
+
+
+      <div class="col-3 col-md-2 mb-2 ">
+
+        <div class="card text-center">
+          <i [class]="items.icon" style="font-size: 60px;"></i>
+          <h6 class="text-center">{{items.name}}</h6>
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <div class="card  ">
+
+    <div class="card-body">
+      <h4 class="card-header-title mb-2">Registered Agents</h4>
+      <div class="d-flex mb-2 flex-row justify-content-between ">
+        <p class="pt-3">Visit links like company mail, public website, google drive with one click</p>
+        <ul ngbNav #nav1="ngbNav" class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
+          <li ngbNavItem class=" me-2" data-bs-toggle="chart-bar" data-datasets="thisWeek"
+              data-trigger="click"
+              data-action="toggle">
+
+            <a ngbNavLink class="nav-link" data-bs-toggle="tab">Latest Leads</a>
+            <ng-template ngbNavContent>
+              &lt;!&ndash;   <app-dashboard-latest-leads></app-dashboard-latest-leads>&ndash;&gt;
+            </ng-template>
+          </li>
+          <li ngbNavItem class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click"
+              data-action="toggle">
+            <a ngbNavLink class="nav-link" data-bs-toggle="tab">Agents</a>
+            <ng-template ngbNavContent>
+              &lt;!&ndash;              <app-agents-dashboard-list></app-agents-dashboard-list>&ndash;&gt;
+
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+
+      <div [ngbNavOutlet]="nav1"></div>
+
+    </div>
+    &lt;!&ndash; End Body &ndash;&gt;
+  </div>
+
+
+
+
+
+
+
+</div>-->
+<!--
+<div class="col-lg-5 mb-3 mb-lg-5">
+  &lt;!&ndash; card shadow-none &ndash;&gt;
+  <div class="card  h-100">
+
+
+    &lt;!&ndash; End Header &ndash;&gt;
+
+    &lt;!&ndash; Body &ndash;&gt;
+    <div class="card-body">
+      <h4 class="card-header-title mb-2">Quick links</h4>
+      <p class="pt-3">Visit links like company mail, public website, google drive with one click</p>
+
+      <ul class="list-group list-group-flush list-group-no-gutters">
+
+        &lt;!&ndash; List Group Item &ndash;&gt;
+        <li class="list-group-item">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img class="avatar avatar-xs avatar-4x3"
+                   src="publicSite/com004.svg"
+                   alt="Image Description">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-0">Notifications</h5>
+                  <span
+                    class="d-block fs-6 text-body">Tibet realty Co. website {{ 'www.tibetrealtyco.com' }}</span>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-auto">
+                  <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                    Launch
+                    <i class="bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+              </div>
+              &lt;!&ndash; End Row &ndash;&gt;
+            </div>
+          </div>
+        </li>
+        &lt;!&ndash; End List Group Item &ndash;&gt;
+
+        &lt;!&ndash; List Group Item &ndash;&gt;
+        <li class="list-group-item">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img class="avatar avatar-xs avatar-4x3"
+                   src="publicSite/elc008.svg" alt="Image Description">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-0"> E-mail</h5>
+                  <span class="d-block fs-6 text-body">Company email service</span>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-auto">
+                  <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                    Launch
+                    <i class="bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+              </div>
+              &lt;!&ndash; End Row &ndash;&gt;
+            </div>
+          </div>
+        </li>
+        &lt;!&ndash; End List Group Item &ndash;&gt;
+
+        &lt;!&ndash; List Group Item &ndash;&gt;
+        <li class="list-group-item">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img class="avatar avatar-xs avatar-4x3"
+                   src="publicSite/fin006.svg" alt="Image Description">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-0">Database</h5>
+                  <span class="d-block fs-6 text-body">Cloud storage service</span>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-auto">
+                  <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                    Launch
+                    <i class="bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+              </div>
+              &lt;!&ndash; End Row &ndash;&gt;
+            </div>
+          </div>
+        </li>
+        &lt;!&ndash; End List Group Item &ndash;&gt;
+        <li class="list-group-item">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img class="avatar avatar-xs avatar-4x3"
+                   src="publicSite/gen025.svg" alt="Image Description">
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-0">Company</h5>
+                  <span class="d-block fs-6 text-body">Property listing site</span>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+
+                <div class="col-auto">
+                  <a class="btn btn-primary btn-sm" title="Launch importer" target="_blank">
+                    Launch
+                    <i class="bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </div>
+                &lt;!&ndash; End Col &ndash;&gt;
+              </div>
+              &lt;!&ndash; End Row &ndash;&gt;
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    &lt;!&ndash; End Body &ndash;&gt;
+  </div>
+  &lt;!&ndash; End card shadow-none &ndash;&gt;
+</div>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-3 mb-lg-5" *ngFor="let item of navItems">
+    <div class="card card-hover-shadow text-center h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-center mb-2">
+          <img class="avatar avatar-lg" [src]="item.logo" alt="Image Description">
+        </div>
+
+        <div class="mb-4 text-center">
+          <h2 class="mb-1">{{ item.name }}</h2>
+          <span class="fs-5">{{ item.lastUpdate }}</span>
+        </div>
+
+        <span class="d-block fs-5">{{ item.description }}</span>
+
+        <div class="row g-1 mt-2">
+          <div class="col-5">
+            <a class="btn btn-primary btn-sm w-100" (click)="openModal(item.name)">
+              <i class="bi bi-pencil-square me-1"></i> Edit
+            </a>
+          </div>
+          <div class="col-7">
+            <a class="btn btn-outline-primary btn-sm w-100" (click)="openPreviewModal(item.name)">
+              <i class="bi bi-eye me-1"></i> Preview
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="modal-content position-relative">
+    <div class="card" style=" min-height:75vh; max-height:95vh">
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="me-auto">Edit - {{ activeComponent }}</h2>
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
+      </div>
+
+      <div class="card-body">
+        <ng-container *ngIf="activeComponent === 'Property Catalogue'">
+          <app-menu></app-menu>
+        </ng-container>
+        <ng-container *ngIf="activeComponent === 'Insurance'">
+          <app-aims-social></app-aims-social>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+</div>

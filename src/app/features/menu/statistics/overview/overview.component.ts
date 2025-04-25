@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {NgForOf} from '@angular/common';
 
 @Component({
@@ -23,6 +23,12 @@ export class OverviewComponent {
     }
   }
 
+  // Make the chart responsive
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.drawBarChart();  // Redraw the chart on resize
+  }
+
   drawBarChart() {
     const canvas = this.canvasRef?.nativeElement;
     if (!canvas) {
@@ -33,9 +39,13 @@ export class OverviewComponent {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Resize the canvas to fit the container width
+    canvas.width = window.innerWidth * 0.7;  // Example: Set canvas width to 80% of the window width
+    canvas.height = window.innerHeight * 1.3;  // Adjust height to 40% of the window height (responsive height)
+
     // Chart Configurations
-    const data = [0, 100, 200, 175, 100, 50, 75, 0, 0, 50, 50, 50, 0, 100, 0];
-    const labels = ['D1', ' ', 'D3', ' ', 'D5', 'D6', ' ', 'D8', ' ', ' ', 'D11', 'D12', 'D13', 'D14', 'D15'];
+    const data = [8, 100, 200];
+    const labels = ['D1', ' ', 'D3'];
     const padding = 50;
     const maxWidth = canvas.width;
     const maxHeight = canvas.height;
@@ -58,7 +68,7 @@ export class OverviewComponent {
 
     // Grid Lines & Y-Axis Labels
     ctx.fillStyle = 'black';
-    ctx.font = '12px Inter, sans-serif';
+    ctx.font = '28px Inter, sans-serif';
     ctx.textAlign = 'right';
 
     for (let i = 0; i <= maxData; i += 50) {
@@ -90,7 +100,7 @@ export class OverviewComponent {
   }
 
    firebaseDetails: [number, string, string][] = [
-   /* [1, "Uptime", "99.95%"],
+    [1, "Uptime", "99.95%"],
     [2, "Response Time (Realtime Database)", "<50ms"],
     [3, "Response Time (Cloud Firestore)", "<20ms"],
     [4, "Response Time (Cloud Functions)", "<100ms"],
@@ -105,7 +115,7 @@ export class OverviewComponent {
     [13, "Storage Speed (Cloud Firestore)", "High-performance"],
     [14, "Storage Speed (Cloud Storage)", "High-throughput"],
     [15, "Scalability", "Horizontal scaling"],
-    [16, "Security", "End-to-end encryption"],*/
+    [16, "Security", "End-to-end encryption"],
   ];
 
   fireStore: [ string, string][] = [
@@ -120,7 +130,7 @@ export class OverviewComponent {
     {name:'Storage Usage', value:'' },
     {name:'CRUD', value:'' },
 
-    {name:'RSA SecurID Auth', value:'' },
+    {name:'RSA  Auth', value:'' },
     {name:'Authentication', value:'' },
     {name:'Sessions', value:'' },
 

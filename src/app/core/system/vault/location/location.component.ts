@@ -1,18 +1,26 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-location',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './location.component.html',
-  styleUrl: './location.component.css'
+  styleUrl: '../global.scss'
 })
 export class LocationComponent {
   addressForm!: FormGroup;
-
+  isModalOpen1= true;
+  closeModal(): void {
+    this.isModalOpen1= false;
+  }
+  openModal(): void {
+    this.isModalOpen1= true;
+  }
   constructor(private fb: FormBuilder) {
     this.addressForm = this.fb.group({
       streetAddress: ['', Validators.required],

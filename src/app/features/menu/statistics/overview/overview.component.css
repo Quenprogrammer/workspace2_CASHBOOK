@@ -1,0 +1,32 @@
+.responsive-canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+/* Add this to your CSS file */
+canvas {
+  width: 100%; /* 80% of the screen width */
+}
+
+@media (max-width: 768px) {
+  /* For smaller screens, you can adjust the width and height */
+  canvas {
+    width: 95%;  /* More width on smaller screens */
+    height: 70vh; /* Set height as a percentage of the viewport height */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  /* For medium screens (md), adjust height */
+  canvas {
+    width: 100%;
+    height: 90vh; /* Adjust height to 50% of the viewport height */
+  }
+}
+
+@media (min-width: 1200px) {
+  /* For large screens (lg), keep the canvas larger */
+  canvas {
+    width: 100%;
+    height: 90vh; /* Adjust height to 60% of the viewport height */
+  }
+}

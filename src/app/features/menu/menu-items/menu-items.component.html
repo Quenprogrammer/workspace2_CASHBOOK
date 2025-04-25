@@ -45,6 +45,49 @@
         <div class="modal-content">
           <span class="close" (click)="isModal2Open = false">&times;</span>
           <h2>Modal 2</h2>
+          <!-- blog-upload.component.html -->
+          <div class="container mt-5">
+            <h3 class="mb-4">Upload Blog Post</h3>
+            <form (ngSubmit)="submitBlog()" #blogForm="ngForm">
+              <div class="row g-1">
+                <div class="col-md-8">  <div class="mb-3">
+                  <label class="form-label">Title</label>
+                  <input type="text" class="form-control" [(ngModel)]="blog.title" name="title" required />
+                </div></div>
+                <div class="col-md-4"> <div class="mb-3">
+                  <label class="form-label">Category</label>
+                  <select class="form-control" [(ngModel)]="blog.category" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option *ngFor="let cat of categories()" [value]="cat">{{ cat }}</option>
+                  </select>
+                </div></div>
+              </div>
+
+
+
+
+              <div class="mb-3">
+               <!-- <p [innerHTML]="blog.description.replace('\n', '<br>')"></p>-->
+                <label class="form-label">Description</label>
+                <textarea class="form-control" rows="5" [(ngModel)]="blog.description" name="description" required></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Images (Multiple Upload)</label>
+                <input type="file" (change)="onImageSelected($event)" multiple class="form-control" />
+              </div>
+
+
+
+
+
+              <button type="submit" class="btn btn-primary">Submit Blog</button>
+            </form>
+
+            <div *ngIf="uploadStatus" class="mt-3 alert alert-info">
+              {{ uploadStatus }}
+            </div>
+          </div>
 
         </div>
       </div>

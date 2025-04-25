@@ -22,7 +22,7 @@ export class CreateUserComponent implements OnInit{
   private firestore: Firestore = inject(Firestore);
   private toastService: ToastService = inject(ToastService);
 
-  generalMessageInquiries = collection(this.firestore, 'General-inquiries');
+  generalMessageInquiries = collection(this.firestore, 'USERS');
   inquiriesMessage$: Observable<MessageInquiries[]> = collectionData(this.generalMessageInquiries, { idField: 'id' }) as Observable<MessageInquiries[]>;
 
   isSubmitting = false; // Button loading state
@@ -36,6 +36,8 @@ export class CreateUserComponent implements OnInit{
   GeneralInquiriesMessage = new FormGroup({
     userName: new FormControl<string>('', [Validators.required]),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
+    imageURL: new FormControl<string>('', [Validators.required]),
+    UID: new FormControl<string>('', [Validators.required]),
     phoneNumber: new FormControl<string>('', [Validators.required, Validators.pattern(/^\+?\d{10,15}$/)]),
     password: new FormControl<string>('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl<string>('', [Validators.required]),
@@ -47,6 +49,8 @@ export class CreateUserComponent implements OnInit{
       const formData = this.GeneralInquiriesMessage.value as {
         userName: string;
         email: string;
+        imageURL: string;
+        UID: string;
         phoneNumber: string;
         password: string;
         confirmPassword: string;
@@ -103,8 +107,10 @@ export class CreateUserComponent implements OnInit{
 
   get userName() { return this.GeneralInquiriesMessage.get('userName'); }
   get email() { return this.GeneralInquiriesMessage.get('email'); }
+  get UID() { return this.GeneralInquiriesMessage.get('UID'); }
   get phoneNumber() { return this.GeneralInquiriesMessage.get('phoneNumber'); }
   get password() { return this.GeneralInquiriesMessage.get('password'); }
   get confirmPassword() { return this.GeneralInquiriesMessage.get('confirmPassword'); }
   get recoveryPhrase() { return this.GeneralInquiriesMessage.get('recoveryPhrase'); }
+  get imageURL() { return this.GeneralInquiriesMessage.get('imageURL'); }
 }

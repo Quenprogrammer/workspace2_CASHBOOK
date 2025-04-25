@@ -137,3 +137,32 @@ button {
   height:200px;
   overflow-y: auto;
 }
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+
+  body {
+    margin: 0;
+    font-size: 12pt;
+    color: #000;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-wrapper {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    background: white;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}

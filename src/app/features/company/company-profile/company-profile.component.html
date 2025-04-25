@@ -44,14 +44,10 @@
   <!-- End Breadcrumb -->
 
   <!-- Content -->
-  <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+  <div class="container  mt-n10">
     <div class="row">
-      <div class="col-lg-3">
-       <app-side-bar></app-side-bar>
-      </div>
-      <!-- End Col -->
 
-      <div class="col-lg-9">
+      <div class="col">
         <div class="">
           <div class=" justify-content-center align-items-md-center mx-auto mt-3 ">
             <div class=" mx-auto  ">
@@ -83,13 +79,13 @@
 
                   <li class="list-inline-item">
                     <i class="bi-geo-alt me-1"></i>
-                    <a href="#">San Francisco,</a>
-                    <a href="#">US</a>
+                    <a href="#">{{address}}</a>
+                    <a href="#">{{LGA}}</a>
                   </li>
 
                   <li class="list-inline-item">
                     <i class="bi-calendar-week me-1"></i>
-                    <span>Joined March 2017</span>
+                    <span>{{founded}}</span>
                   </li>
                 </ul>
                 <!-- End List -->

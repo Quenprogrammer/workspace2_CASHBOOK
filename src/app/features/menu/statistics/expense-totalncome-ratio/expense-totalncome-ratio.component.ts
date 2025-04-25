@@ -8,6 +8,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
   styleUrl: './expense-totalncome-ratio.component.css'
 })
 export class ExpenseTotalncomeRatioComponent {
+
   @ViewChild('pieCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
   income = 70000;  // Example Income Value

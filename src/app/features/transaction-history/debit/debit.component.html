@@ -5,6 +5,16 @@
 
 &lt;!&ndash; Main Content Section &ndash;&gt;
 <div *ngIf="!isLoading">-->
+<!--@if (isLoading()) {
+  <app-loading></app-loading>
+} @else {-->
+<!--
+<div *ngIf="isLoading" class="text-center">
+  <app-loading></app-loading>
+</div>
+-->
+<h1>test</h1>
+
 <input type="text" (input)="updateSearch('amount', $event)" placeholder="Search by Amount">
 <input type="text" (input)="updateSearch('date', $event)" placeholder="Search by Date">
 <input type="text" (input)="updateSearch('ref', $event)" placeholder="Search by Reference">
@@ -71,6 +81,7 @@
       </div>
     </form>
   </div>
+
 <!--
 </div>
 -->

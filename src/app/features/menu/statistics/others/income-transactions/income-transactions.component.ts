@@ -22,9 +22,8 @@ export class IncomeTransactionsComponent {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const data = [0, 100, 200, 175, 100, 50, 75, 0, 0, 50, 50, 50, 0, 100, 0];
-    const labels = ['D1', 'D2', 'D3',  'D9', 'D10', 'D11', 'D12', 'D13', 'D14', 'D15'];
-
+    const data = [0, 100, 200, 175, 100, 50, 75, 0, 0, 50, 50, 50, 0 ];
+    const labels = ['D1', ' ', 'D3', 'D15'];
     const maxWidth = canvas.width;
     const maxHeight = canvas.height;
     const padding = 50;

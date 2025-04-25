@@ -1,0 +1,449 @@
+
+  <div class="container content-space-1">
+    <div class="page-header">
+      <div class="row align-items-end">
+
+        <!-- End Col -->
+
+        <div class="col-sm-auto">
+          <a class="btn btn-primary" href="./users-add-user.html">
+            <i class="bi-person-plus-fill me-1"></i> Add user
+          </a>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <!-- Card -->
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2">Total users</h6>
+
+            <div class="row align-items-center gx-2">
+              <div class="col">
+                <span class="js-counter display-6 text-dark" data-value="24">24</span>
+                <span class="text-body fs-5 ms-1">from 22</span>
+              </div>
+              <!-- End Col -->
+
+              <div class="col-auto">
+                  <span class="badge bg-soft-success text-success p-1">
+                    <i class="bi-graph-up"></i> 5.0%
+                  </span>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+
+      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <!-- Card -->
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2">Active members</h6>
+
+            <div class="row align-items-center gx-2">
+              <div class="col">
+                <span class="js-counter display-6 text-dark" data-value="12">12</span>
+                <span class="text-body fs-5 ms-1">from 11</span>
+              </div>
+
+              <div class="col-auto">
+                  <span class="badge bg-soft-success text-success p-1">
+                    <i class="bi-graph-up"></i> 1.2%
+                  </span>
+              </div>
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+
+      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <!-- Card -->
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2">New/returning</h6>
+
+            <div class="row align-items-center gx-2">
+              <div class="col">
+                <span class="js-counter display-6 text-dark" data-value="56">56</span>
+                <span class="display-6 text-dark">%</span>
+                <span class="text-body fs-5 ms-1">from 48.7</span>
+              </div>
+
+              <div class="col-auto">
+                  <span class="badge bg-soft-danger text-danger p-1">
+                    <i class="bi-graph-down"></i> 2.8%
+                  </span>
+              </div>
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+
+      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+        <!-- Card -->
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2">Active members</h6>
+
+            <div class="row align-items-center gx-2">
+              <div class="col">
+                <span class="js-counter display-6 text-dark" data-value="28">28</span>
+                <span class="display-6 text-dark">%</span>
+                <span class="text-body fs-5 ms-1">from 28.6%</span>
+              </div>
+
+              <div class="col-auto">
+                <span class="badge bg-soft-secondary text-secondary p-1">0.0%</span>
+              </div>
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+    </div>
+   <div class="mb-5">
+    <form>
+      <div class="row gx-2">
+        <div class="col-lg mb-2 mb-lg-0">
+          <!-- Form -->
+          <label for="searchPropertyFilterForm" class="visually-hidden form-label">Search property</label>
+          <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-search"></i>
+              </span>
+            <input type="text" class="form-control form-control-sm" id="searchPropertyFilterForm" placeholder="Search property" aria-label="Search property" value="London, England">
+          </div>
+          <!-- End Form -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto mb-2 mb-lg-0">
+          <!-- Dropdown -->
+          <div class="dropdown">
+            <a class="btn btn-white btn-sm dropdown-toggle" href="#" id="priceFilterFormDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Price</a>
+
+            <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="priceFilterFormDropdown" style="min-width: 21rem;">
+              <!-- Card -->
+              <div class="card card-sm">
+                <div class="card-body">
+                  <!-- Bar Chart -->
+                  <div class="position-relative overflow-hidden" style="height: 6rem; width: 18rem;">
+                    <div class="position-absolute w-100 overflow-hidden">
+                      <div style="height: 6rem; width: 18rem;">
+                        <canvas class="js-chart" width="0" data-hs-chartjs-options="{
+                                    &quot;type&quot;: &quot;bar&quot;,
+                                    &quot;data&quot;: {
+                                      &quot;labels&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;],
+                                      &quot;datasets&quot;: [{
+                                        &quot;data&quot;: [2, 3, 5, 7, 8, 5, 3, 2, 3, 6, 5, 4, 7, 5, 4, 3, 2],
+                                        &quot;backgroundColor&quot;: &quot;#e7eaf3&quot;,
+                                        &quot;borderColor&quot;: &quot;#e7eaf3&quot;
+                                      }]
+                                    },
+                                    &quot;options&quot;: {
+                                      &quot;animation&quot;: {
+                                        &quot;duration&quot;: 0
+                                      },
+                                      &quot;responsive&quot;: true,
+                                      &quot;scales&quot;: {
+                                        &quot;y&quot;: {
+                                          &quot;display&quot;: false,
+                                          &quot;gridLines&quot;: {
+                                            &quot;display&quot;: false,
+                                            &quot;drawBorder&quot;: false
+                                          },
+                                          &quot;ticks&quot;: {
+                                            &quot;beginAtZero&quot;: true
+                                          }
+                                        },
+                                        &quot;x&quot;: {
+                                          &quot;display&quot;: false,
+                                          &quot;gridLines&quot;: {
+                                            &quot;display&quot;: false,
+                                            &quot;drawBorder&quot;: false
+                                          }
+                                        }
+                                      },
+                                      &quot;plugins&quot;: {
+                                        &quot;tooltips&quot;: {
+                                          &quot;custom&quot;: false
+                                        }
+                                      }
+                                    }
+                                  }" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;"></canvas>
+                      </div>
+                    </div>
+
+                    <div id="foregroundBarChartDoubleResult" class="position-absolute overflow-hidden">
+                      <div style="height: 6rem; width: 18rem;">
+                        <canvas class="js-chart" data-hs-chartjs-options="{
+                                    &quot;type&quot;: &quot;bar&quot;,
+                                    &quot;data&quot;: {
+                                      &quot;labels&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;],
+                                      &quot;datasets&quot;: [{
+                                        &quot;data&quot;: [2, 3, 5, 7, 8, 5, 3, 2, 3, 6, 5, 4, 7, 5, 4, 3, 2],
+                                        &quot;backgroundColor&quot;: &quot;#377dff&quot;,
+                                        &quot;borderColor&quot;: &quot;#377dff&quot;
+                                      }]
+                                    },
+                                    &quot;options&quot;: {
+                                      &quot;animation&quot;: {
+                                        &quot;duration&quot;: 0
+                                      },
+                                      &quot;scales&quot;: {
+                                        &quot;y&quot;: {
+                                          &quot;display&quot;: false,
+                                          &quot;gridLines&quot;: {
+                                            &quot;display&quot;: false,
+                                            &quot;drawBorder&quot;: false
+                                          },
+                                          &quot;ticks&quot;: {
+                                            &quot;beginAtZero&quot;: true
+                                          }
+                                        },
+                                        &quot;x&quot;: {
+                                          &quot;display&quot;: false,
+                                          &quot;gridLines&quot;: {
+                                            &quot;display&quot;: false,
+                                            &quot;drawBorder&quot;: false
+                                          }
+                                        }
+                                      },
+                                      &quot;plugins&quot;: {
+                                        &quot;tooltips&quot;: {
+                                          &quot;custom&quot;: false
+                                        }
+                                      }
+                                    }
+                                  }" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Bar Chart -->
+
+                  <div class="range-slider">
+                    <div class="js-nouislider" data-hs-nouislider-options="{
+                               &quot;range&quot;: {
+                                 &quot;min&quot;: 0,
+                                 &quot;max&quot;: 1000
+                               },
+                               &quot;start&quot;: [250, 750],
+                               &quot;result_min_target_el&quot;: &quot;#rangeSliderExampleDouble4MinResult&quot;,
+                               &quot;result_max_target_el&quot;: &quot;#rangeSliderExampleDouble4MaxResult&quot;,
+                               &quot;foreground_target_el&quot;: &quot;#foregroundBarChartDoubleResult&quot;
+                             }">
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center mt-5">
+                    <div class="col">
+                      <span class="d-block small mb-1">Min price:</span>
+                      <input type="text" class="form-control form-control-sm" id="rangeSliderExampleDouble4MinResult">
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col">
+                      <span class="d-block small mb-1">Max price:</span>
+                      <input type="text" class="form-control form-control-sm" id="rangeSliderExampleDouble4MaxResult">
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+
+                <div class="card-footer border-top">
+                  <div class="d-flex justify-content-end gap-2">
+                    <a class="btn btn-white btn-sm" href="#">Clear</a>
+                    <a class="btn btn-primary btn-sm" href="#">Save</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Dropdown -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto mb-2 mb-lg-0">
+          <!-- Dropdown -->
+          <div class="dropdown">
+            <a class="btn btn-white btn-sm dropdown-toggle" href="#" id="bedsFilterFormDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">All beds</a>
+
+            <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="bedsFilterFormDropdown" style="min-width: 25rem;">
+              <!-- Card -->
+              <div class="card card-sm">
+                <div class="card-body">
+                  <!-- Radio Button Group -->
+                  <div class="btn-group btn-group-segment d-flex" role="group" aria-label="Beds radio button group">
+                    <input type="radio" class="btn-check flex-fill" name="bedsBtnRadio" id="bedsBtnRadioStudio" autocomplete="off" checked="">
+                    <label class="btn btn-sm" for="bedsBtnRadioStudio">Studio</label>
+
+                    <input type="radio" class="btn-check flex-fill" name="bedsBtnRadio" id="bedsBtnRadio1" autocomplete="off">
+                    <label class="btn btn-sm" for="bedsBtnRadio1">1+</label>
+
+                    <input type="radio" class="btn-check flex-fill" name="bedsBtnRadio" id="bedsBtnRadio2" autocomplete="off">
+                    <label class="btn btn-sm" for="bedsBtnRadio2">2+</label>
+
+                    <input type="radio" class="btn-check flex-fill" name="bedsBtnRadio" id="bedsBtnRadio3" autocomplete="off">
+                    <label class="btn btn-sm" for="bedsBtnRadio3">3+</label>
+
+                    <input type="radio" class="btn-check flex-fill" name="bedsBtnRadio" id="bedsBtnRadio4" autocomplete="off">
+                    <label class="btn btn-sm" for="bedsBtnRadio4">4+</label>
+                  </div>
+                  <!-- End Radio Button Group -->
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Dropdown -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto mb-2 mb-lg-0">
+          <!-- Dropdown -->
+          <div class="dropdown">
+            <a class="btn btn-white btn-sm dropdown-toggle" href="#" id="propertyTypeFilterFormDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Property type</a>
+
+            <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="propertyTypeFilterFormDropdown" style="min-width: 20rem;">
+              <!-- Card -->
+              <div class="card card-sm">
+                <div class="card-body">
+                  <div class="d-grid gap-2">
+                    <!-- Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="propertyTypeHouseCheckbox" checked="">
+                      <label class="form-check-label" for="propertyTypeHouseCheckbox">
+                        House
+                        <span class="d-block small text-muted">Find a cozy place</span>
+                      </label>
+                    </div>
+                    <!-- End Check -->
+
+                    <!-- Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="propertyTypeFlatsCheckbox">
+                      <label class="form-check-label" for="propertyTypeFlatsCheckbox">
+                        Flats
+                        <span class="d-block small text-muted">Flats for sale or to rent</span>
+                      </label>
+                    </div>
+                    <!-- End Check -->
+
+                    <!-- Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="propertyTypeMultiFamilyCheckbox" checked="">
+                      <label class="form-check-label" for="propertyTypeMultiFamilyCheckbox">
+                        Multi-family
+                        <span class="d-block small text-muted">Multi-family houses or flats</span>
+                      </label>
+                    </div>
+                    <!-- End Check -->
+
+                    <!-- Check -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="propertyTypeFarmsLandCheckbox">
+                      <label class="form-check-label" for="propertyTypeFarmsLandCheckbox">
+                        Farms/land
+                        <span class="d-block small text-muted">Own a property for farming</span>
+                      </label>
+                    </div>
+                    <!-- End Check -->
+                  </div>
+                </div>
+
+                <div class="card-footer border-top">
+                  <div class="d-flex justify-content-end gap-2">
+                    <a class="btn btn-white btn-sm" href="#">Clear</a>
+                    <a class="btn btn-primary btn-sm" href="#">Save</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <!-- End Dropdown -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto mb-2 mb-lg-0">
+          <a class="btn btn-white btn-sm" href="#" data-bs-toggle="modal" data-bs-target="#realEstateMoreFiltersModal">
+            <i class="bi-sliders me-2"></i> More
+          </a>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </form>
+   </div>
+    <div class="d-grid gap-5  mx-lg-auto">
+      <!-- Card -->
+      <a class="card card-bordered card-transition h-100" href="../demo-help-desk/article-overview.html">
+        <div class="card-body">
+          <!-- Media -->
+          <div class="d-block d-sm-flex">
+            <div class="flex-shrink-0">
+                <span class="svg-icon text-primary mb-2 mb-sm-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" d="M4.05424 15.1982C8.34524 7.76818 13.5782 3.26318 20.9282 2.01418C21.0729 1.98837 21.2216 1.99789 21.3618 2.04193C21.502 2.08597 21.6294 2.16323 21.7333 2.26712C21.8372 2.37101 21.9144 2.49846 21.9585 2.63863C22.0025 2.7788 22.012 2.92754 21.9862 3.07218C20.7372 10.4222 16.2322 15.6552 8.80224 19.9462L4.05424 15.1982ZM3.81924 17.3372L2.63324 20.4482C2.58427 20.5765 2.5735 20.7163 2.6022 20.8507C2.63091 20.9851 2.69788 21.1082 2.79503 21.2054C2.89218 21.3025 3.01536 21.3695 3.14972 21.3982C3.28408 21.4269 3.42387 21.4161 3.55224 21.3672L6.66524 20.1802L3.81924 17.3372ZM16.5002 5.99818C16.2036 5.99818 15.9136 6.08615 15.6669 6.25097C15.4202 6.41579 15.228 6.65006 15.1144 6.92415C15.0009 7.19824 14.9712 7.49984 15.0291 7.79081C15.0869 8.08178 15.2298 8.34906 15.4396 8.55884C15.6494 8.76862 15.9166 8.91148 16.2076 8.96935C16.4986 9.02723 16.8002 8.99753 17.0743 8.884C17.3484 8.77046 17.5826 8.5782 17.7474 8.33153C17.9123 8.08486 18.0002 7.79485 18.0002 7.49818C18.0002 7.10035 17.8422 6.71882 17.5609 6.43752C17.2796 6.15621 16.8981 5.99818 16.5002 5.99818Z" fill="#035A4B"></path>
+                  <path d="M4.05423 15.1982L2.24723 13.3912C2.15505 13.299 2.08547 13.1867 2.04395 13.0632C2.00243 12.9396 1.9901 12.8081 2.00793 12.679C2.02575 12.5498 2.07325 12.4266 2.14669 12.3189C2.22013 12.2112 2.31752 12.1219 2.43123 12.0582L9.15323 8.28918C7.17353 10.3717 5.4607 12.6926 4.05423 15.1982V15.1982ZM8.80023 19.9442L10.6072 21.7512C10.6994 21.8434 10.8117 21.9129 10.9352 21.9545C11.0588 21.996 11.1903 22.0083 11.3195 21.9905C11.4486 21.9727 11.5718 21.9252 11.6795 21.8517C11.7872 21.7783 11.8765 21.6809 11.9402 21.5672L15.7092 14.8442C13.6269 16.8245 11.3061 18.5377 8.80023 19.9442V19.9442ZM7.04023 18.1832L12.5832 12.6402C12.7381 12.4759 12.8228 12.2577 12.8195 12.032C12.8161 11.8063 12.725 11.5907 12.5653 11.4311C12.4057 11.2714 12.1901 11.1803 11.9644 11.1769C11.7387 11.1736 11.5205 11.2583 11.3562 11.4132L5.81323 16.9562L7.04023 18.1832Z" fill="#035A4B"></path>
+                  </svg>
+
+                </span>
+            </div>
+
+            <div class="flex-grow-1 ms-sm-4">
+              <h3 class="card-title">Getting started</h3>
+              <p class="card-text text-body">Welcome to Front! We're so glad you're here. Let's get started!</p>
+
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <!-- Avatar Group -->
+                  <div class="avatar-group avatar-group-xs">
+                    <div class="avatar avatar-xs avatar-circle">
+                      <img class="avatar-img" src="../assets/img/160x160/img1.jpg" alt="Image Description">
+                    </div>
+                    <div class="avatar avatar-xs avatar-circle">
+                      <img class="avatar-img" src="../assets/img/160x160/img8.jpg" alt="Image Description">
+                    </div>
+                  </div>
+                  <!-- End Avatar Group -->
+                </div>
+
+                <div class="flex-grow-1 ms-2">
+                  <p class="card-text text-dark small mb-0">1 article in this collection</p>
+                  <p class="card-text text-dark small">
+                    <span class="text-muted">Written by</span>
+                    Luisa Woodfine
+                    <span class="text-muted">and</span>
+                    Neil Galavan
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Media -->
+        </div>
+      </a>
+      <!-- End Card -->
+
+
+    </div>
+
+
+
+  </div>
+

@@ -23,8 +23,7 @@ export class TotalCreditedComponent implements OnInit {
   credit: number = 0;                       // Variable to store the combined income total
   debit: number = 0;                        // Variable to store the combined expenses total
   netBalance: number = 0;                   // Variable to store net balance (Income - Expenses)
-  profitMargin: number = 0;                 // Variable to store profit margin
-  expenseToIncomeRatio: number = 0;         // Variable to store expense-to-income ratio
+         // Variable to store expense-to-income ratio
   savings: number = 0;                      // Variable to store savings (surplus or deficit)
 creditPercentage:number=0;
 debitPercentage:number=0;
@@ -49,12 +48,6 @@ debitPercentage:number=0;
       this.debitPercentage=(this.debit/this.totalAmount)*100
       // Calculate net balance (income - expenses)
       this.netBalance = totalIncome - totalExpenses;
-
-      // Calculate profit margin (profit margin = (income - expenses) / income)
-      this.profitMargin = totalIncome > 0 ? (this.netBalance / totalIncome) : 0;
-
-      // Calculate expense-to-income ratio (expenses / income)
-      this.expenseToIncomeRatio = totalIncome > 0 ? (totalExpenses / totalIncome) : 0;
 
       // Calculate savings (net balance)
       this.savings = this.netBalance;

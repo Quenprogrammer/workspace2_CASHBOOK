@@ -15,4 +15,9 @@ export class SystemInfoComponent {
   @Input() device: string='';
   @Input() browser: string='';
   @Input() screenResolution: string='';
+  @Input() memory: string='';
+  @Input() processor: string='';
+  @Input() timezone: string='';
+  @Input() language: string='';
+
 }

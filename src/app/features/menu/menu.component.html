@@ -1,5 +1,7 @@
 <main id="content" role="main" class="main">
-  <!-- Content -->
+  @if (isLoading()) {
+<app-loading></app-loading>
+  } @else {
   <div class="bg-black">
     <div class="content container-fluid" style="height: 22rem;">
       <!-- Page Header -->
@@ -42,7 +44,6 @@
   </div>
   <!-- End Content -->
 
-  <!-- Content -->
   <div class="content container-fluid" style="margin-top: -17rem;">
     <!-- Card -->
     <div class="card mb-3 mb-lg-5">
@@ -177,6 +178,7 @@
     <button (click)="addData()">Add Data</button>
 
   </div>
+  }
 
 </main>
 

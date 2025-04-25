@@ -8,6 +8,11 @@ import { ExpenseTotalncomeRatioComponent } from './expense-totalncome-ratio/expe
 import { OthersComponent } from './others/others.component';
 import { OverviewComponent } from './overview/overview.component';
 import {TransferService} from '../../../services/transfer.service';
+import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink} from '@ng-bootstrap/ng-bootstrap';
+import {HeaderComponent} from './header/header.component';
+/*import {BarchartComponent} from '../../../../publicSite/public-site-dashboard/barchart/barchart.component';*/
+import {BarChartComponent} from './bar-chart/bar-chart.component';
+import {LatestTransactionComponent} from './latest-transaction/latest-transaction.component';
 
 interface FirebaseDocument {
   totalAmount?: number;
@@ -36,12 +41,27 @@ interface Statistic {
     DashChartComponent,
     ExpenseTotalncomeRatioComponent,
     OthersComponent,
-    OverviewComponent
+    OverviewComponent,
+    NgbNav,
+    NgbNavContent,
+    NgbNavItem,
+    NgbNavLink,
+    HeaderComponent,
+
+    BarChartComponent,
+    LatestTransactionComponent
   ],
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
+
+  data =[
+    { name: 'Total Listings', count: 0, title: 'See total Leads', logo: 'icons/customeimage/Rocket.svg' },
+    { name: 'Total Agents', count: 0, title: 'See Total registered agents', logo: 'icons/customeimage/Norah.svg' },
+    { name: 'Total Leads', count: 0, title: 'See Total Leads that were received', logo: 'icons/customeimage/Mousehand.svg' },
+
+  ]
   income$: Observable<FirebaseDocument[]>;  // Observable for income data
   expenses$: Observable<FirebaseDocument[]>; // Observable for expenses data
 
@@ -74,6 +94,20 @@ export class StatisticsComponent implements OnInit {
 
       // Populate statistics array with progress bar values
       this.statistics = [
+        {
+          title: 'Income',
+          value: totalIncome / 12,
+          displayValue: this.formatCurrency(totalIncome ),
+          type: 'currency',
+          progress: averageIncomeProgress // Add progress here for average income
+        },
+        {
+          title: 'Expenses',
+          value: totalExpenses / 12,
+          displayValue: this.formatCurrency(totalExpenses ),
+          type: 'currency',
+          progress: averageExpensesProgress // Add progress here for average expenses
+        },
         {
           title: 'Profit Margin',
           value: profitMargin,

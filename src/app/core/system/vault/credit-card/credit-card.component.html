@@ -56,6 +56,6 @@
       <input type="password" class="form-control" formControlName="pin" maxlength="4">
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="creditCardForm.invalid">Submit</button>
   </form>
 </div>

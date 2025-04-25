@@ -1,16 +1,25 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-sim',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './sim.component.html',
-  styleUrl: './sim.component.css'
+  styleUrl: '../global.scss'
 })
 export class SimComponent {
+  isModalOpen1= true;
+  closeModal(): void {
+    this.isModalOpen1= false;
+  }
+  openModal(): void {
+    this.isModalOpen1= true;
+  }
   simCardForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {

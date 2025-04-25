@@ -1,18 +1,26 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-emails',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './emails.component.html',
   styleUrl: './emails.component.css'
 })
 export class EmailsComponent {
   emailAccountForm!: FormGroup;
-
+  isModalOpen1= false;
+  closeModal(): void {
+    this.isModalOpen1= false;
+  }
+  openModal(): void {
+    this.isModalOpen1= true;
+  }
   constructor(private fb: FormBuilder) {
     this.emailAccountForm = this.fb.group({
       emailAddress: ['', [Validators.required, Validators.email]],
@@ -40,4 +48,5 @@ export class EmailsComponent {
       console.log('Invalid Form');
     }
   }
+
 }

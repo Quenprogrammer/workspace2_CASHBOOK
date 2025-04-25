@@ -1,0 +1,256 @@
+<div class="navbar-dark bg-primary" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+  <div class="container content-space-1 content-space-b-lg-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <div class=" ">
+          <h1 class="h2 text-white">Personal info</h1>
+        </div>
+
+        <!-- Breadcrumb -->
+
+        <!-- End Breadcrumb -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-auto">
+        <div class="d-none d-lg-block">
+          <a class="btn btn-soft-light btn-sm" href="#">Log out</a>
+        </div>
+
+        <!-- Responsive Toggle Button -->
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-default">
+                <i class="bi-list"></i>
+              </span>
+          <span class="navbar-toggler-toggled">
+                <i class="bi-x"></i>
+              </span>
+        </button>
+        <!-- End Responsive Toggle Button -->
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- End Row -->
+  </div>
+</div>
+
+<div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-n10">
+  <div class="row">
+
+    <div class="col-lg-12">
+      <!-- Card -->
+      <div class=" card card-body mb-5">
+
+
+        <div class="border-bottom pb-4 mb-4">
+          <div class="row align-items-center">
+            <div class="col-sm-6 mb-2 mb-sm-0">
+              <h3 class="mb-0">Reviews</h3>
+            </div>
+
+
+            <div class="col-sm-6">
+              <!-- Form -->
+              <form>
+                <div class="input-group input-group-merge">
+                  <input type="search" class="form-control" placeholder="Search reviews" aria-label="Search reviews">
+                  <div class="input-group-append input-group-text">
+                    <i class="bi-search"></i>
+                  </div>
+                </div>
+              </form>
+              <!-- End Form -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+
+
+
+      </div>
+
+      <div class="card  shadow-none mb-2">
+        <div class="d-grid gap-5 mb-10">
+          <!-- Card -->
+          <div class="card card-bordered" *ngFor="let invoice of invoice">
+            <div class="card-body">
+              <!-- Media -->
+              <div class="d-sm-flex">
+                <!-- Media -->
+                <div class="d-flex align-items-center align-items-sm-start mb-3">
+                  <div class="flex-shrink-0">
+                    <img class="avatar avatar-sm avatar-4x3" src="../assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
+                  </div>
+                  <div class="d-sm-none flex-grow-1 ms-3">
+                    <h6 class="card-title">
+
+                      <img class="avatar avatar-xss ms-1" src="../assets/svg/illustrations/top-vendor.svg" alt="Review rating" data-toggle="tooltip" data-placement="top" title="Claimed profile">
+                    </h6>
+                  </div>
+                </div>
+                <!-- End Media -->
+
+                <div class="flex-grow-1 ms-sm-3">
+                  <div class="row">
+                    <div class="col col-md-8">
+                      <h3 class="card-title">
+                        <a class="text-dark" href="../demo-jobs/employer.html">{{ invoice.name || 'Not specified' }}</a>
+                      </h3>
+                      <h6 class="card-title">
+                        <a class="text-dark" href="../demo-jobs/employer.html">{{ invoice.address || 'Not specified' }}</a>
+                      </h6>
+                      <div class="d-none d-sm-inline-block">
+                        <h6 class="card-title">
+                          <a class="text-dark" href="../demo-jobs/employer.html">Mailchimp</a>
+                          <img class="avatar avatar-xss ms-1" src="../assets/svg/illustrations/top-vendor.svg" alt="Review rating" data-toggle="tooltip" data-placement="top" title="Claimed profile">
+                        </h6>
+                      </div>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-auto order-md-3">
+                      <!-- Checkbbox Bookmark -->
+                      <div class="form-check form-check-bookmark">
+                        <input class="form-check-input" type="checkbox" value="" id="jobsCardBookmarkCheck1">
+                        <label class="form-check-label" for="jobsCardBookmarkCheck1">
+                            <span class="form-check-bookmark-default" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Save this job" data-bs-original-title="Save this job">
+                              <i class="bi-star"></i>
+                            </span>
+                          <span class="form-check-bookmark-active" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Saved" data-bs-original-title="Saved">
+                              <i class="bi-star-fill"></i>
+                            </span>
+                        </label>
+                      </div>
+                      <!-- End Checkbbox Bookmark -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-12 col-md mt-3 mt-md-0">
+                      <span class="d-block small text-body mb-1">{{ invoice.dueDate || 'Not specified' }}</span>
+
+                      <span class="badge bg-soft-info text-info me-2">
+                          <span class="legend-indicator bg-info"></span>{{ invoice.invoiceDate || 'Not specified' }}
+                        </span>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+              <!-- End Media -->
+            </div>
+
+            <div class="card-footer pt-0">
+              <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of invoice.items">
+                  <td>{{ item?.description || 'Not specified' }}</td>
+                  <td>{{ item?.quantity != null ? item.quantity : 'Not specified' }}</td>
+                  <td>₦{{ item?.price != null ? (item.price | number:'1.2-2') : 'Not specified' }}</td>
+                  <td>
+                    ₦{{
+                      item?.price != null && item?.quantity != null
+                        ? (item.price * item.quantity | number:'1.2-2')
+                        : 'Not specified'
+                    }}
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="mt-3">
+                <div class="row g-2">
+                  <div class="col-md-4 mb-3"> <p><strong>Subtotal:</strong> ₦{{ invoice.subtotal != null ? (invoice.subtotal | number:'1.2-2') : 'Not specified' }}</p>
+                  </div>
+                  <div class="col-md-4 mb-3"> <p><strong>Professional Tax:</strong> ₦{{ invoice.professionalTax != null ? (invoice.professionalTax | number:'1.2-2') : 'Not specified' }}</p>
+                  </div>
+                  <div class="col-md-4 mb-3"> <h5><strong>Total:</strong> ₦{{ invoice.total != null ? (invoice.total | number:'1.2-2') : 'Not specified' }}</h5>
+                  </div>
+                </div>
+                </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Hero -->
+
+
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search by name, address, or date"
+    [(ngModel)]="searchTerm"
+    (input)="searchInvoices()"
+  />
+</div>
+
+<div *ngFor="let invoice of filteredInvoice" class="card p-4 mb-3">
+
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h3>{{ invoice.name || 'Not specified' }}</h3>
+    <button class="btn btn-sm btn-danger" (click)="deleteInvoice(invoice.id)">Delete</button>
+  </div>
+
+  <p><strong>Address:</strong> {{ invoice.address || 'Not specified' }}</p>
+  <p><strong>Invoice Date:</strong> {{ invoice.invoiceDate || 'Not specified' }}</p>
+  <p><strong>Due Date:</strong> {{ invoice.dueDate || 'Not specified' }}</p>
+
+
+    <h5 class="mt-3">Items</h5>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of invoice.items">
+        <td>{{ item.description || 'Not specified' }}</td>
+        <td>{{ item.quantity != null ? item.quantity : 'Not specified' }}</td>
+        <td>₦{{ item.price != null ? (item.price | number:'1.2-2') : 'Not specified' }}</td>
+        <td>
+          ₦{{
+            item.price != null && item.quantity != null
+              ? (item.price * item.quantity | number:'1.2-2')
+              : 'Not specified'
+          }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  <ng-template #noItems>
+    <p class="text-muted">No items listed.</p>
+  </ng-template>
+
+  <div class="mt-3">
+    <p><strong>Subtotal:</strong> ₦{{ invoice.subtotal != null ? (invoice.subtotal | number:'1.2-2') : 'Not specified' }}</p>
+    <p><strong>Professional Tax:</strong> ₦{{ invoice.professionalTax != null ? (invoice.professionalTax | number:'1.2-2') : 'Not specified' }}</p>
+    <h5><strong>Total:</strong> ₦{{ invoice.total != null ? (invoice.total | number:'1.2-2') : 'Not specified' }}</h5>
+  </div>
+
+</div>

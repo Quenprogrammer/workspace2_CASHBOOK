@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, signal, ViewChild, WritableSignal} from '@angular/core';
 import { NgForOf } from '@angular/common';
 
 export interface Statistic {
@@ -21,7 +21,7 @@ export interface Statistic {
 })
 export class StatsLoadingComponent implements AfterViewInit {
   @ViewChild('statisticsSection') statisticsSection!: ElementRef;
-  progress = 'h';
+
 
   statistics: Statistic[] = [
     { value: 20000 , unit: 'ML', label: 'Records', icon: 'assets/icons/programs.svg', classStyle: 'bi-person fs-1 text-primary', duration: 10000, interval: 100 },
@@ -53,25 +53,25 @@ export class StatsLoadingComponent implements AfterViewInit {
   private animateStatistics(): void {
     this.statistics.forEach(stat => {
       stat.animatedValue = 0;
-      const total = stat.value;
-      const duration = stat.duration ?? 5000; // Default to 5000ms if not set
-      const intervalTime = stat.interval ?? 10; // Default to 10ms if not set
+     const total: WritableSignal<number> = signal(stat.value);
 
-      const steps = duration / intervalTime;
-      const increment = Math.ceil(total / steps);
+      const duration: WritableSignal<number> = signal( stat.duration ?? 5000); // Default to 5000ms if not set
+      const intervalTime : WritableSignal<number> = signal( stat.interval ?? 10); // Default to 10ms if not set
+      const steps:WritableSignal<number> = signal(duration() / intervalTime());
+      const increment: WritableSignal<number> =signal(Math.ceil(total() / steps()));
       let current = 0;
 
       const interval = setInterval(() => {
-        if (current < total) {
-          current += increment;
-          if (current > total) {
-            current = total;
+        if (current < total()) {
+          current += increment();
+          if (current > total()) {
+            current = total();
           }
           stat.animatedValue = current;
         } else {
           clearInterval(interval);
         }
-      }, intervalTime);
+      }, intervalTime());
     });
   }
 }

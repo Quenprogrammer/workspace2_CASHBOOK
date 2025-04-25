@@ -48,6 +48,38 @@
             </div>
 
             <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="imageURL"
+                         [ngClass]="imageURL?.invalid && (imageURL?.dirty || imageURL?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="imageURL"
+                         placeholder="Image URL">
+                  <div *ngIf="imageURL?.invalid && (imageURL?.dirty || imageURL?.touched)" class="text-danger">
+                    <div *ngIf="imageURL?.errors?.['required']">Image URL.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="mb-3">
+
+                  <input type="text" formControlName="imageURL"
+                         [ngClass]="UID?.invalid && (UID?.dirty || UID?.touched) ? 'is-invalid' : ''"
+                         class="form-control form-control-lg" id="UID"
+                         placeholder="Image URL">
+                  <div *ngIf="UID?.invalid && (UID?.dirty || UID?.touched)" class="text-danger">
+                    <div *ngIf="UID?.errors?.['required']">Image URL.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row gx-3">
               <div class="col-sm-6">
                 <div class="mb-3">
 

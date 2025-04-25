@@ -11,6 +11,7 @@ import {NgIf} from '@angular/common';
 import {CreditedComponent} from './credited/credited.component';
 import {MenuComponent} from '../menu/menu.component';
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
+import {DataServiceService} from '../../services/dataService';
 
 
 
@@ -23,5 +24,25 @@ import {TotalCreditedComponent} from '../../data/total-credited/total-credited.c
 })
 export class TransactionHistoryComponent  {
   selectedOption: string = 'debit';
+  isLoading = signal<boolean>(false);
+  constructor(private firestoreService: DataServiceService) {}
 
+  ngOnInit(): void {
+    this.addLogTrack();
+  }
+
+  addLogTrack(): void {
+    const now = new Date();
+    const logTrack = {
+      date: now.toLocaleDateString(),  // e.g., "17/04/2025"
+      time: now.toLocaleTimeString(),  // e.g., "10:34:56 AM"
+      action: 'Company Profile',
+      user: 'admin',
+
+    };
+
+    this.firestoreService.addData('logs', logTrack)
+      .then(() => console.log('LogTrack saved to Firestore'))
+      .catch(error => console.error('Error saving LogTrack:', error));
+  }
 }

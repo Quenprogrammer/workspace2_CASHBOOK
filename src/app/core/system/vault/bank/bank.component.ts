@@ -1,20 +1,28 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { NgIf } from '@angular/common';
+import {DataServiceService} from '../../../../services/dataService';
+  // adjust path as needed
 
 @Component({
   selector: 'app-bank',
   standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf
+  ],
   templateUrl: './bank.component.html',
-  styleUrl: './bank.component.css'
+  styleUrl: '../global.scss'
 })
 export class BankComponent {
+  isModalOpen1: boolean = false;
   bankForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private firestoreService: DataServiceService
+  ) {
     this.bankForm = this.fb.group({
       accountHolder: this.fb.group({
         fullName: ['', Validators.required],
@@ -60,9 +68,24 @@ export class BankComponent {
 
   onSubmit() {
     if (this.bankForm.valid) {
-      console.log('Form Data:', this.bankForm.value);
+      const formData = this.bankForm.value;
+      this.firestoreService.addData('banks', formData).then(() => {
+        console.log('Bank data saved to Firestore');
+        this.bankForm.reset();
+        this.closeModal();
+      }).catch(error => {
+        console.error('Error saving bank data:', error);
+      });
     } else {
       console.log('Invalid Form');
     }
+  }
 
-}}
+  closeModal(): void {
+    this.isModalOpen1 = false;
+  }
+
+  openModal(): void {
+    this.isModalOpen1 = true;
+  }
+}

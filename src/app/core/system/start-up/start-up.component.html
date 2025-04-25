@@ -35,7 +35,7 @@
         <div class="card-header border-bottom">
           <div class=" ">
 
-              <app-stats-loading></app-stats-loading>
+            <app-stats-loading></app-stats-loading>
 
 
 
@@ -66,11 +66,12 @@
                 </nav>
                 <!-- End Breadcrumb -->
               </div>
+
               <div id="progress-bar">
-                <div id="progress-bar-fill" [style.width]="progress + '%'"></div>
+                <div  id="progress-bar-fill" [style.width]="progress() + '%'"></div>
               </div>
 
-              <span id="progress-percentage display-5">{{ progress }}%</span>
+              <span id="progress-percentage display-5">{{ progress() }}%</span>
             </div>
             <!-- Card -->
             <div class="">
@@ -93,19 +94,60 @@
       </span>
 
                   <!-- Nav -->
-                  <ul class="nav nav-segment nav-fill mb-7" id="featuresTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <a class="nav-link active" href="#accountOrdersOne" id="accountOrdersOne-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersOne" role="tab" aria-controls="accountOrdersOne" aria-selected="true">Orders</a>
+                  <ul
+                    class="nav nav-segment nav-fill mb-7"
+                    id="featuresTab"
+                    role="tablist"
+                    [style.pointerEvents]="progress() < 100 ? 'none' : 'auto'"
+                    [style.opacity]="progress() < 100 ? '0.5' : '1'"
+                    [title]="progress() < 100 ? 'Please wait, loading in progress...' : ''"
+                  >
+                    <li class="nav-item" role="presentation" style="margin-right: 5px">
+                      <a
+                        class="nav-link active"
+                        href="#accountOrdersOne"
+                        id="accountOrdersOne-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#accountOrdersOne"
+                        role="tab"
+                        aria-controls="accountOrdersOne"
+                        aria-selected="true"
+                      >
+                        Orders
+                      </a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                      <a class="nav-link" href="#accountOrdersTwo" id="accountOrdersTwo-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersTwo" role="tab" aria-controls="accountOrdersTwo" aria-selected="false">Open Orders</a>
+                      <a
+                        class="nav-link"
+                        id="accountOrdersTwo-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#accountOrdersTwo"
+                        role="tab"
+                        aria-controls="accountOrdersTwo"
+                        aria-selected="false"
+                        routerLink="/login"
+                      >
+                        Login
+                      </a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                      <a class="nav-link" href="#accountOrdersThree" id="accountOrdersThree-tab" data-bs-toggle="tab" data-bs-target="#accountOrdersThree" role="tab" aria-controls="accountOrdersThree" aria-selected="false">Canceled Orders</a>
+                      <a
+                        class="nav-link"
+                        id="accountOrdersThree-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#accountOrdersThree"
+                        role="tab"
+                        aria-controls="accountOrdersThree"
+                        aria-selected="false"
+                        routerLink="/create-user-account"
+                      >
+                        Create Account
+                      </a>
                     </li>
                   </ul>
+
                   <!-- End Nav -->
                 </div>
                 <!-- End Nav Scroller -->
@@ -118,88 +160,88 @@
                     <ul class="list-unstyled mb-5">
                       <!-- Card -->
                       <li class="card card-bordered shadow-none mb-3">
-                        <div class="card-body">
+                        <div class="p-2 p-md-3">
 
-<h3>Device Information</h3>
+                          <h3>Device Information</h3>
                           <hr>
 
-                          <div class="row  ">
+                          <div class="row p-3 ">
                             <div class="col-md-6 " >
                               <div class="d-grid  ">
-<div class="row g-1">
-  <div class="col-md-6"> <a class="btn btn-white btn-sm w-100" routerLink="/create-user-account">
-    <i class="bi-basket small me-2"></i> Create Account
-  </a></div>
-  <div class="col-md-6"> <a class="btn btn-primary btn-sm w-100"  routerLink="/login"> LOGIN</a>
-  </div>
-</div>
 
 
-                                <app-system-info [os]="os" [platform]="platform" [browserVersion]="browserVersion"
-                                                 [device]="device" [browser]="browser"
-                                                 [screenResolution]="screenResolution"></app-system-info>
+
+                                <table class="table table-nowrap table-vertical-border-striped">
+                                  <tbody>
+                                  <tr *ngIf="progress() >= 10">
+                                    <th scope="row" class="text-dark">Operating System</th>
+                                    <td><i class="bi-check-circle text-success me-2"></i>{{ os() }}</td>
+                                  </tr>
+
+                                  <tr *ngIf="progress() >= 25">
+                                    <th scope="row" class="text-dark">Device</th>
+                                    <td><i class="bi-check-circle text-success me-2"></i>{{ device() }}</td>
+                                  </tr>
+
+                                  <tr *ngIf="progress() >= 39">
+                                    <th scope="row" class="text-dark">Browser</th>
+                                    <td><i class="bi-check-circle text-success me-2"></i>{{ browser() }}</td>
+                                  </tr>
+                                  <tr *ngIf="progress() >= 50">
+                                    <th scope="row" class="text-dark">Browser</th>
+                                    <td>
+                                      <i class="bi-check-circle text-success me-2"></i>  {{ processor() | truncateText:20 }}
+                                    </td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                                <div class="row g-1">
+                                  <div class="col">
+                                    <a
+                                      class="btn btn-white btn-sm w-100"
+                                      (click)="openModal()"
+                                      [class.disabled]="progress() < 100"
+                                      [style.pointerEvents]="progress() < 100 ? 'none' : 'auto'"
+                                      [style.opacity]="progress() < 100 ? '0.5' : '1'"
+                                      [style.cursor]="progress() < 100 ? 'not-allowed' : 'pointer'"
+                                    >
+                                      <i class="bi-basket small me-2"></i> View more
+                                    </a>
+                                  </div>
+
+                                </div>
 
                               </div>
                             </div>
-                            <div class="col-md-6  ">
-                              <hr>
-                              <h3 class="mt-5 mb-md-1"> Aims<span style="color:red;">   <u>Tech</u>nology </span></h3>
-                              <div class="js-sortable-link sortablejs-custom sortablejs-custom-rotate sortablejs-custom-handle" data-href="#">
 
+                            <div class="col-md-6">
+                              <a
+                                class="js-create-field form-link"
+                                (click)="progress() === 100 && openSocialModal()"
+                                [class.disabled]="progress() < 100"
+                                [style.pointerEvents]="progress() < 100 ? 'none' : 'auto'"
+                                [style.opacity]="progress() < 100 ? '0.5' : '1'"
+                              >
+                                <i class="bi-plus"></i> Social Media
+                              </a>
 
-                                    <div class="row mb-3">
-                                      <div class="col-4">
-                                        <!-- Stats -->
-                                        <div class="text-center">
-                                          <span class="d-block h4 mb-1">20</span>
-                                          <span class="d-block fs-6">Tasks</span>
-                                        </div>
-                                        <!-- End Stats -->
-                                      </div>
-                                      <!-- End Col -->
-
-                                      <div class="col-4">
-                                        <!-- Stats -->
-                                        <div class="text-center">
-                                          <span class="d-block h4 mb-1">0</span>
-                                          <span class="d-block fs-6">Complete</span>
-                                        </div>
-                                        <!-- End Stats -->
-                                      </div>
-                                      <!-- End Col -->
-
-                                      <div class="col-4">
-                                        <!-- Stats -->
-                                        <div class="text-center">
-                                          <span class="d-block h4 mb-1">0</span>
-                                          <span class="d-block fs-6">Completed</span>
-                                        </div>
-                                        <!-- End Stats -->
-                                      </div>
-                                      <!-- End Col -->
-                                    </div>
-                                    <!-- End Row -->
-
-                                    <!-- Progress -->
-
-
-                              </div>
-
-                              <div class=" grid-page">
+                              <div class="grid-page">
                                 <div class="row">
                                   @for(item of statMenu; track item.name){
-                                    <div class="col-3 col-lg-3 custom-hover">
+                                    <div
+                                      class="col-4 col-lg-3 custom-hover"
+                                      [style.pointerEvents]="progress() < 100 ? 'none' : 'auto'"
+                                      [style.opacity]="progress() < 100 ? '0.5' : '1'"
+                                    >
                                       <a [routerLink]="item.link" class="card-link custom-hover">
-                                        <img [src]="item.icon" alt="{{ item.name }}" class="card-icon"/>
-                                        <app-text [text]="item.name"></app-text>
+                                        <img [src]="item.icon" alt="{{ item.name }}" class="card-icon" />
+                                        <p style="font-size: 12px">{{item.name}}</p>
                                       </a>
                                     </div>
                                   }
                                 </div>
                               </div>
-                              <!-- End Row -->
                             </div>
-
 
                           </div>
                         </div>
@@ -211,7 +253,7 @@
 
                   </div>
 
-                     </div>
+                </div>
                 <!-- End Tab Content -->
               </div>
               <!-- End Body -->
@@ -229,22 +271,53 @@
   <!-- End Row -->
 </div>
 
-<div *ngIf="moduleModalOpen" class="modal-overlay">
+<div *ngIf="moduleModalOpen()" class="modal-overlay">
   <div class="modal-content">
     <div class="card h-100">
       <!-- Header -->
       <div class="card-header d-flex justify-content-end gap-2">
         <h2 class="card-header-title me-auto">Course contents</h2>
 
-        <a class="btn btn-ghost-danger btn-sm" (click)="moduleCloseModal()">Close</a>
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
       </div>
       <!-- End Header -->
 
       <div class="card-body-height p-3">
-        <div class="row mb-2 justify-content-center">
-          <div class="col-sm-12 text-center">
-            <!-- Loop through Rent Modules -->
+        <app-system-info [os]="os()" [platform]="platform()" [browserVersion]="browserVersion()"
+                         [device]="device()" [browser]="browser()"
+                         [screenResolution]="screenResolution()" [memory]="memory()" [processor]="processor()" [timezone]="timezone()" [language]="language()"></app-system-info>
+      </div>
+      <!-- End Body -->
+    </div>
+  </div>
+</div>
 
+<div *ngIf="socialModal()" class="modal-overlay">
+  <div class="modal-content">
+    <div class="card h-100">
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Course contents</h2>
+
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeSocialModal()">Close</a>
+      </div>
+      <!-- End Header -->
+
+      <div class="card-body-height p-3">
+        <div class="grid-page">
+          <div class="row">
+            @for(item of socialMediaPlatforms; track item.name){
+              <div
+                class="col-4 col-lg-2 custom-hover"
+                [style.pointerEvents]="progress() < 100 ? 'none' : 'auto'"
+                [style.opacity]="progress() < 100 ? '0.5' : '1'"
+              >
+                <a [routerLink]="item.link" class="card-link custom-hover">
+                  <img [src]="item.logo" alt="{{ item.name }}" class="card-icon" />
+                  <p style="font-size: 12px">{{item.name}}</p>
+                </a>
+              </div>
+            }
           </div>
         </div>
       </div>

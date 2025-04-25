@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-social-media-account',
@@ -13,7 +14,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 export class SocialMediaAccountComponent {
   socialMediaForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private firestore: Firestore) {
     this.socialMediaForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
       fullName: ['', Validators.required],
@@ -32,11 +33,41 @@ export class SocialMediaAccountComponent {
     });
   }
 
-  onSubmit() {
+  ngOnInit(): void {}
+
+  async onSubmit(): Promise<void> {
     if (this.socialMediaForm.valid) {
-      console.log('Form Data:', this.socialMediaForm.value);
+      const formData = {
+        username: this.socialMediaForm.value.username,
+        fullName: this.socialMediaForm.value.fullName,
+        email: this.socialMediaForm.value.email,
+        phoneNumber: this.socialMediaForm.value.phoneNumber,
+        profilePicture: this.socialMediaForm.value.profilePicture || null,
+        password: this.socialMediaForm.value.password,
+        dateOfBirth: this.socialMediaForm.value.dateOfBirth,
+        location: this.socialMediaForm.value.location || null,
+        privacySettings: this.socialMediaForm.value.privacySettings,
+        security: {
+          twoFactorAuth: this.socialMediaForm.value.security.twoFactorAuth,
+          backupCodes: this.socialMediaForm.value.security.backupCodes || null
+        },
+        submittedAt: new Date()
+      };
+
+      try {
+        // Save the data to Firestore in the 'socialMediaAccounts' collection
+        await addDoc(collection(this.firestore, 'socialMediaAccounts'), formData);
+        console.log('Social Media Account data saved to Firestore');
+        alert('Social Media Account information submitted successfully!');
+
+        // Reset the form after successful submission
+        this.socialMediaForm.reset();
+      } catch (error) {
+        console.error('Error saving data to Firestore:', error);
+        alert('There was an error submitting the form.');
+      }
     } else {
-      console.log('Invalid Form');
+      alert('Please fill all required fields correctly.');
     }
   }
 }

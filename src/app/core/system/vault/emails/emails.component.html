@@ -1,59 +1,148 @@
-<div class="container mt-4">
-  <h2>Email Account Form</h2>
-  <form [formGroup]="emailAccountForm" (ngSubmit)="onSubmit()">
+<div class="container content-space-2 content-space-lg-3">
+  <!-- Heading -->
+  <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+    <span class="d-block small font-weight-bold text-cap mb-2">Our Team</span>
+    <h2>Trust the professionals</h2>
+  </div>
+  <!-- End Heading -->
 
-    <!-- Email Address -->
-    <div class="mb-3">
-      <label class="form-label">Email Address</label>
-      <input type="email" class="form-control" formControlName="emailAddress">
+  <div class="row mb-7">
+    <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img28.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Christina Kray</h4>
+          <p class="card-text">Project Manager</p>
+        </div>
+      </div>
+      <!-- End Team -->
     </div>
+    <!-- End Col -->
 
-    <!-- Username -->
-    <div class="mb-3">
-      <label class="form-label">Username</label>
-      <input type="text" class="form-control" formControlName="username">
+    <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img29.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Jeff Fisher</h4>
+          <p class="card-text">CEO, Director</p>
+        </div>
+      </div>
+      <!-- End Team -->
     </div>
+    <!-- End Col -->
 
-    <!-- Password -->
-    <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password">
+    <div class="col-sm-6 col-md-3 mb-5 mb-sm-0">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img30.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Lida Reidy</h4>
+          <p class="card-text">Marketer</p>
+        </div>
+      </div>
+      <!-- End Team -->
     </div>
+    <!-- End Col -->
 
-    <!-- Recovery Email -->
-    <div class="mb-3">
-      <label class="form-label">Recovery Email</label>
-      <input type="email" class="form-control" formControlName="recoveryEmail">
+    <div class="col-sm-6 col-md-3">
+      <!-- Team -->
+      <img class="card-img rounded-2" src="./assets/img/400x500/img27.jpg" alt="Image Description">
+      <div class="card card-sm text-center mt-n7 mx-3">
+        <div class="card-body">
+          <h4 class="card-title">Amy Forren</h4>
+          <p class="card-text">Lead Designer</p>
+        </div>
+      </div>
+      <!-- End Team -->
     </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
 
-    <!-- Phone Number -->
-    <div class="mb-3">
-      <label class="form-label">Phone Number</label>
-      <input type="tel" class="form-control" formControlName="phoneNumber">
+  <!-- Card Info -->
+  <div class="text-center">
+    <div class="card card-info-link card-sm">
+      <div class="card-body">
+        Want to work with us? <a class="card-link ms-2" href="./page-hire-us.html">We're hiring <span class="bi-chevron-right small ms-1"></span></a>
+      </div>
     </div>
+  </div>
+  <!-- End Card Info -->
+</div>
 
-    <!-- Security Information -->
-    <h4>Security Information</h4>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" formControlName="security.twoFactorAuth">
-      <label class="form-check-label">Enable Two-Factor Authentication (2FA)</label>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Backup Codes</label>
-      <textarea class="form-control" rows="3" formControlName="security.backupCodes"></textarea>
-    </div>
 
-    <!-- Subscription Preferences -->
-    <h4>Subscription Preferences</h4>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.newsletters">
-      <label class="form-check-label">Receive Newsletters</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.marketingEmails">
-      <label class="form-check-label">Receive Marketing Emails</label>
-    </div>
+<div *ngIf="isModalOpen1" class="modal-overlay">
+  <div class="modal-contents">
+    <div class="card h-100 modal-card" >
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Tibet Realty agents</h2> <!-- Keeps title on the left -->
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
+      </div>
+      <div class="card-body-height p-3">
 
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-  </form>
+        <div class="container ">
+          <h2>Email Account Form</h2>
+          <form [formGroup]="emailAccountForm" (ngSubmit)="onSubmit()">
+
+            <!-- Email Address -->
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" formControlName="emailAddress">
+            </div>
+
+            <!-- Username -->
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" formControlName="username">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password">
+            </div>
+
+            <!-- Recovery Email -->
+            <div class="mb-3">
+              <label class="form-label">Recovery Email</label>
+              <input type="email" class="form-control" formControlName="recoveryEmail">
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-3">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" formControlName="phoneNumber">
+            </div>
+
+            <!-- Security Information -->
+            <h4>Security Information</h4>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" formControlName="security.twoFactorAuth">
+              <label class="form-check-label">Enable Two-Factor Authentication (2FA)</label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Backup Codes</label>
+              <textarea class="form-control" rows="3" formControlName="security.backupCodes"></textarea>
+            </div>
+
+            <!-- Subscription Preferences -->
+            <h4>Subscription Preferences</h4>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.newsletters">
+              <label class="form-check-label">Receive Newsletters</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" formControlName="subscriptionPreferences.marketingEmails">
+              <label class="form-check-label">Receive Marketing Emails</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

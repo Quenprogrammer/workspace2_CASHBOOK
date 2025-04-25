@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-lg-5 mb-3 mb-lg-5">
+  <div class="col-lg-7 mb-3 mb-lg-5">
     <!-- Card -->
-    <div class="card h-100">
+    <div class="card ">
       <!-- Header -->
       <div class="card-header card-header-content-between">
         <h4 class="card-header-title">Import data into Front Dashboard</h4>
@@ -15,19 +15,23 @@
 
         @for(items of storageHardWare;track items.name){
 <div class="mb-4">
-<div class="row">
-  <div class="col-6"><h4>{{items.name}}</h4></div>
-  <div class="col-6"><div class="text-end">100</div>
+<div class="row g-2">
+  <div class="col-4"><h6 class="text-end">{{items.name}}</h6></div>
+  <div class="col-6">
+    <div class="progress rounded-pill mb-2">
+      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+           aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
+           data-bs-original-title="Gross value"></div>
+
+
+    </div>
+  </div>
+  <div class="col-2">
+    <div class="text-end">100</div>
   </div>
 </div>
 
-  <div class="progress rounded-pill mb-2">
-    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-         aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
-         data-bs-original-title="Gross value"></div>
 
-
-  </div>
 
   <!-- End Progress -->
 </div>
@@ -36,42 +40,86 @@
 
 
         <!-- Table -->
-        <div class="table-responsive">
-          <table class="table table-lg table-nowrap card-table mb-0">
-            <tbody>
 
-            <tr *ngFor="let details of firebaseDetails; let i =index">
-
-              <td>{{details[1]}}</td>
-              <td>{{details[2]}}</td>
-
-
-            </tr>
-
-            </tbody>
-          </table>
-        </div>
         <!-- End Table -->
       </div>
       <!-- End Body -->
     </div>
     <!-- End Card -->
   </div>
+
   <!-- End Col -->
 
-  <div class="col-lg-7 mb-3 mb-lg-5">
+  <div class="col-lg-5 mb-3 mb-lg-5">
     <!-- Card -->
     <div class="card h-100">
 
       <!-- Body -->
       <div class="card-body">
-        <canvas #expensesCanvas width="600" height="400"></canvas>
-
-        <!-- End Bar Chart -->
+        <canvas #expensesCanvas class="responsive-canvas"></canvas>
       </div>
+
+
       <!-- End Body -->
     </div>
     <!-- End Card -->
   </div>
   <!-- End Col -->
+</div>
+
+
+
+<div class="row">
+  <div class="col-lg-5 mb-3 mb-lg-5">
+    <!-- Card -->
+    <div class="card h-100">
+
+      <!-- Body -->
+      <div class="card-body">
+        <canvas #expensesCanvas class="responsive-canvas"></canvas>
+      </div>
+
+
+      <!-- End Body -->
+    </div>
+    <!-- End Card -->
+  </div>
+<div class="col-lg-7 mb-3 mb-lg-5">
+  <!-- Card -->
+  <div class="card" >
+    <!-- Header -->
+    <div class="card-header card-header-content-between">
+      <h2 class="card-header-title">Database Details</h2>
+
+
+    </div>
+
+    <div class="card-body">
+
+
+
+
+
+      <!-- Table -->
+      <div class="table-responsive" style="height: 350px; overflow-y: auto;">
+        <table class="table table-lg table-nowrap card-table mb-0">
+          <tbody>
+
+          <tr *ngFor="let details of firebaseDetails; let i =index">
+
+            <td>{{details[1]}}</td>
+            <td>{{details[2]}}</td>
+
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- End Table -->
+    </div>
+    <!-- End Body -->
+  </div>
+  <!-- End Card -->
+</div>
 </div>

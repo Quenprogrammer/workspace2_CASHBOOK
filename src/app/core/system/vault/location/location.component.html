@@ -1,37 +1,142 @@
-<div class="container mt-4">
-  <h2>Address Information</h2>
-  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
-
-    <!-- Street Address -->
-    <div class="mb-3">
-      <label class="form-label">Street Address</label>
-      <input type="text" class="form-control" formControlName="streetAddress" placeholder="Enter street address">
+<div class="border-top">
+  <div class="container content-space-2 content-space-lg-3">
+    <!-- Heading -->
+    <div class="w-lg-50 text-center mx-lg-auto mb-7">
+      <span class="text-cap">What's included</span>
+      <h2>3 Color skins included</h2>
+      <p>Easily construct new pages using any of 12 pre-made grids and a huge amount of components and elements.</p>
     </div>
+    <!-- End Heading -->
 
-    <!-- City -->
-    <div class="mb-3">
-      <label class="form-label">City</label>
-      <input type="text" class="form-control" formControlName="city" placeholder="Enter city">
+    <div class="row mb-7">
+      <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+        <!-- Card -->
+        <div class="card bg-soft-primary shadow-none text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-body">
+            <img class="img-fluid" src="./assets/img/mockups/img7.png" alt="Image Description">
+
+            <h3 class="card-title">Standard</h3>
+            <p class="card-text">Available in:</p>
+
+            <div class="mb-4">
+              <img class="avatar avatar-xss avatar-4x3 me-2" src="./assets/svg/brands/figma-icon.svg" alt="Figma">
+              <img class="avatar avatar-xss avatar-4x3" src="./assets/svg/brands/adobe-xd-icon.svg" alt="Adobe XD">
+            </div>
+
+            <div class="d-grid">
+              <a class="btn btn-primary btn-transition" href="#">Preview <i class="bi-eye ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-6 col-lg-4 mb-5 mb-lg-0">
+        <!-- Card -->
+        <div class="card bg-soft-dark shadow-none text-center aos-init aos-animate" data-aos="fade-up">
+          <div class="card-body">
+            <img class="img-fluid" src="./assets/img/mockups/img8.png" alt="Image Description">
+
+            <h3 class="card-title">Dark</h3>
+            <p class="card-text">Available in:</p>
+
+            <div class="mb-4">
+              <img class="avatar avatar-xss avatar-4x3 me-2" src="./assets/svg/brands/figma-icon.svg" alt="Figma">
+            </div>
+
+            <div class="d-grid">
+              <a class="btn bg-white btn-transition disabled" href="#">Coming soon ...</a>
+            </div>
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+
+      <div class="col-sm-6 col-lg-4">
+        <!-- Card -->
+        <div class="card bg-soft-success shadow-none text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-body">
+            <img class="img-fluid" src="./assets/img/mockups/img9.png" alt="Image Description">
+
+            <h3 class="card-title">Wireframe</h3>
+            <p class="card-text">Available in:</p>
+
+            <div class="mb-4">
+              <img class="avatar avatar-xss avatar-4x3 me-2" src="./assets/svg/brands/figma-icon.svg" alt="Figma">
+              <img class="avatar avatar-xss avatar-4x3" src="./assets/svg/brands/adobe-xd-icon.svg" alt="Adobe XD">
+            </div>
+
+            <div class="d-grid">
+              <a class="btn bg-white btn-transition disabled" href="#">Coming soon ...</a>
+            </div>
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
     </div>
+    <!-- End Row -->
 
-    <!-- State -->
-    <div class="mb-3">
-      <label class="form-label">State</label>
-      <input type="text" class="form-control" formControlName="state" placeholder="Enter state">
+    <!-- Fancybox -->
+    <div class="text-center">
+      <a class="video-player btn btn-outline-primary" href="https://www.youtube.com/watch?v=d4eDWc8g0e0" role="button" data-fslightbox="youtube-video">
+        <i class="bi-play-circle-fill me-1"></i> Watch and learn how it works
+      </a>
     </div>
+    <!-- End Fancybox -->
+  </div>
+</div>
 
-    <!-- Country -->
-    <div class="mb-3">
-      <label class="form-label">Country</label>
-      <input type="text" class="form-control" formControlName="country" placeholder="Enter country">
+<div *ngIf="isModalOpen1" class="modal-overlay">
+  <div class="modal-contents">
+    <div class="card h-100 modal-card" >
+      <!-- Header -->
+      <div class="card-header d-flex justify-content-end gap-2">
+        <h2 class="card-header-title me-auto">Tibet Realty agents</h2> <!-- Keeps title on the left -->
+        <a class="btn btn-ghost-danger btn-sm" (click)="closeModal()">Close</a>
+      </div>
+      <div class="card-body-height p-3">
+        <div class="container ">
+          <h2>Address Information</h2>
+          <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+
+            <!-- Street Address -->
+            <div class="mb-3">
+
+              <input type="text" class="form-control" formControlName="streetAddress" placeholder=" street address">
+            </div>
+
+            <!-- City -->
+            <div class="mb-3">
+
+              <input   type="text" class="form-control" formControlName="city" placeholder=" city">
+            </div>
+
+            <!-- State -->
+            <div class="mb-3">
+
+              <input type="text" class="form-control" formControlName="state" placeholder=" state">
+            </div>
+
+            <!-- Country -->
+            <div class="mb-3">
+
+              <input type="text" class="form-control" formControlName="country" placeholder=" country">
+            </div>
+
+            <!-- Zip Code -->
+            <div class="mb-3">
+
+              <input type="text" class="form-control" formControlName="zipCode" placeholder=" zip code">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+        </div>
+
+      </div>
     </div>
-
-    <!-- Zip Code -->
-    <div class="mb-3">
-      <label class="form-label">Zip Code</label>
-      <input type="text" class="form-control" formControlName="zipCode" placeholder="Enter zip code">
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-  </form>
+  </div>
 </div>

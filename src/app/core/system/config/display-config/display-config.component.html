@@ -1,0 +1,103 @@
+<div id="openRolesSection" class="container content-space-1">
+  <!-- Heading -->
+  <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+    <h2>Current opportunities</h2>
+    <p>We’re a truly global team with 17 offices around the world.</p>
+  </div>
+
+
+  <form>
+    <div class="row gx-2 gx-md-3 mb-2">
+
+
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="locationsJobCareers" style="padding-left:15px;">Headers
+          FontSize</label>
+
+
+        <select class="form-select form-select-lg" id="locationsJobCareers" aria-label="Select location">
+          <option value="" disabled selected>Select Icon</option>
+          <option *ngFor="let fontSize of font" [value]="fontSize.value">
+            {{ fontSize.value }}
+          </option>
+        </select>
+        <!-- End Select -->
+      </div>
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="fontSize" style="padding-left:15px;">Font</label>
+
+
+        <select class="form-select form-select-lg" id="fontSize" aria-label="Select location">
+          <option value="" disabled selected>Select Icon</option>
+          <option *ngFor="let fontSize of font" [value]="fontSize.value">
+            {{ fontSize.value }}
+          </option>
+        </select>
+        <!-- End Select -->
+      </div>
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="backgroundColor" style="padding-left:15px;">Background Colour</label>
+
+
+        <select class="form-select form-select-lg" id="backgroundColor" aria-label="Select location">
+          <option value="" disabled selected>Select Icon</option>
+          <option *ngFor="let colour of appBackgroundColor" [value]="colour.value">
+            {{ colour.value }}
+          </option>
+        </select>
+        <!-- End Select -->
+      </div>
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="backgroundColor" style="padding-left:15px;">Theme</label>
+
+
+        <select class="form-select form-select-lg" id="backgroundColor" aria-label="Select location">
+          <option value="" disabled selected>Select Icon</option>
+          <option *ngFor="let colour of appBackgroundColor" [value]="colour.value">
+            {{ colour.value }}
+          </option>
+        </select>
+        <!-- End Select -->
+      </div>
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="backgroundColor" style="padding-left:15px;">Lock screen</label>
+
+
+        <select class="form-select form-select-lg" id="backgroundColor" aria-label="Select location">
+          <option value="" disabled selected>Select Icon</option>
+          <option *ngFor="let colour of appBackgroundColor" [value]="colour.value">
+            {{ colour.value }}
+          </option>
+        </select>
+        <!-- End Select -->
+      </div>
+      <div class="col-sm-6 col-md-6 mb-3 mb-md-3">
+        <label class="form-label mt-0 mb-0" for="backgroundColor" style="padding-left:15px;">Menu</label>
+        <div class="row g-1">
+          <div class="col-8"><input value="10 items" type="text" class="form-control" formControlName="title"
+                                    placeholder="Enter Title" readonly>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-soft-primary w-100">config</button>
+          </div>
+        </div>
+        <!-- End Select -->
+      </div>
+
+    </div>
+    <!-- End Row -->
+  </form>
+  <!-- End Form -->
+
+  <button type="button" class="btn btn-ghost-secondary">
+    <i class="bi-bell me-1"></i> Save
+  </button>
+  <div>
+
+
+
+  <!-- Example HTML -->
+
+
+</div>
+</div>
