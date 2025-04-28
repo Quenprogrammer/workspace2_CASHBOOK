@@ -185,5 +185,146 @@
   </div>
   <!-- End Content -->
 
+  <div class="content container-fluid">
+    <div class="gradient-x-three-sm-primary">
+      <div class="container content-space-2">
+        <form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+          <h1>System Logs</h1>
+
+          <div class="input-card input-card-sm mb-3">
+            <div class="input-card-form">
+              <label for="jobTitleForm" class="form-label visually-hidden">Job Title</label>
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-search"></i>
+              </span>
+                <input type="text" class="form-control" id="jobTitleForm" formControlName="jobTitle" placeholder="Job, title, skills, or company" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-geo-alt"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="location" placeholder="Location" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-check-circle"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="status" placeholder="Status" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-calendar"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="date" placeholder="Date (e.g., monday-27-june-2025)" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-bell"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="action" placeholder="Action" />
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mx-1 mb-2 mb-md-0">Save Log</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <ol class="odd">
+    <li class='hex'></li>
+    <li class='hex'></li>
+    <li class='hex'></li>
+    <li class='hex'></li>
+  </ol>
+  <ol class="even">
+    <li class='hex'></li>
+    <li class='hex'></li>
+    <li class='hex'></li>
+  </ol>
+
+
+
+  <div class="content container-fluid">
+    <div class="gradient-x-three-sm-primary">
+      <div class="container content-space-2">
+        <form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+          <h1>System Logs</h1>
+
+          <div class="input-card input-card-sm mb-3">
+            <div class="input-card-form">
+              <label for="jobTitleForm" class="form-label visually-hidden">Job Title</label>
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-search"></i>
+              </span>
+                <input type="text" class="form-control" id="jobTitleForm" formControlName="jobTitle" placeholder="Job, title, skills, or company" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-geo-alt"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="location" placeholder="Location" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-check-circle"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="status" placeholder="Status" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-calendar"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="date" placeholder="Date (e.g., monday-27-june-2025)" />
+              </div>
+            </div>
+
+            <div class="input-card-form">
+              <div class="input-group input-group-merge">
+              <span class="input-group-prepend input-group-text">
+                <i class="bi-bell"></i>
+              </span>
+                <input type="text" class="form-control" formControlName="action" placeholder="Action" />
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary mx-1 mb-2 mb-md-0">Save Log</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 </main>
