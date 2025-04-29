@@ -1,14 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-credentials',
   standalone: true,
   imports: [
+    CommonModule,
     ReactiveFormsModule
   ],
   templateUrl: './credentials.component.html',
-  styleUrl: './credentials.component.css'
+  styleUrls: ['./credentials.component.css']
 })
 export class CredentialsComponent {
   credentialsForm!: FormGroup;
@@ -16,16 +18,14 @@ export class CredentialsComponent {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // Initialize the form group
     this.credentialsForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       securityQuestion: ['', Validators.required],
       securityAnswer: ['', Validators.required],
-      twoFactorAuth: [false]  // boolean for 2FA
+      twoFactorAuth: [false]
     }, {
-      // Custom validator for password confirmation
       validators: this.passwordMatchValidator
     });
   }
@@ -35,6 +35,7 @@ export class CredentialsComponent {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
     if (password && confirmPassword && password.value !== confirmPassword.value) {
+      confirmPassword.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
     }
     return null;
@@ -47,4 +48,10 @@ export class CredentialsComponent {
       console.log('Form is invalid');
     }
   }
+
+  // Getters for cleaner template
+  get username() { return this.credentialsForm.get('username'); }
+  get password() { return this.credentialsForm.get('password'); }
+  get confirmPassword() { return this.credentialsForm.get('confirmPassword'); }
+  get securityAnswer() { return this.credentialsForm.get('securityAnswer'); }
 }
