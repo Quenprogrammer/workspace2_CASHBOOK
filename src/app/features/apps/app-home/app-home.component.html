@@ -1,10 +1,10 @@
 <main id="content" role="main">
   <!-- Hero -->
-  <div class="bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+  <div class="bg-primary" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
     <div class="container content-space-2 content-space-lg-3">
       <div class="w-lg-65 text-center mx-lg-auto">
-        <span class="badge bg-warning text-dark rounded-pill mb-3">Customer success story</span>
-        <h1 class="text-white mb-0">Millions turn to Amazon for a great customer experience</h1>
+        <span class="badge bg-warning text-dark rounded-pill mb-3">Aims Apps</span>
+        <h1 class="text-white mb-0">Find tools to improve your workflow - right within AimsStore.</h1>
       </div>
     </div>
   </div>
@@ -13,7 +13,7 @@
   <!-- Content -->
   <div class="container content-space-2 content-space-lg-0">
     <div class="row">
-      <div class="col-lg-4 mt-lg-n10 mb-7 mb-lg-0">
+      <div class="col-lg-4 mt-lg-n10 mb-7 mb-lg-0 d-none d-lg-block">
         <!-- Sticky Block -->
         <div id="stickyBlockStartPoint" style="">
           <div class="js-sticky-block"   style="">
@@ -173,7 +173,7 @@
               <div class="col-4 col-lg-2 custom-hover">
                 <a [routerLink]="item.link" class="card-link custom-hover">
                   <img [src]="item.image" alt="{{ item.name }}" class="card-icon rounded-3"/>
-                  <app-text [text]="item.name | truncateText:14"></app-text>
+                  <app-text [text]="item.name | truncateText:12"></app-text>
                 </a>
               </div>
             }
@@ -189,90 +189,7 @@
   </div>
   <!-- End Content -->
 
-  <!-- Testimonials -->
-  <div class="container content-space-b-2 content-space-lg-3">
-    <div class="text-center mb-5">
-      <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-person-2.svg" alt="Illustration">
-    </div>
 
-    <!-- Blockquote -->
-    <figure class="w-md-75 text-center mx-md-auto">
-      <blockquote class="blockquote">“ I just wanted to say that I'm very happy with my purchase of Front so far. The documentation is outstanding - clear and detailed. ”</blockquote>
-
-      <figcaption class="blockquote-footer text-center">
-        Martin
-        <span class="blockquote-footer-source">Product Manager</span>
-      </figcaption>
-    </figure>
-    <!-- End Blockquote -->
-  </div>
-  <!-- End Testimonials -->
-
-  <!-- Card Grid -->
-  <div class="container content-space-b-2 content-space-b-lg-3">
-    <!-- Heading -->
-    <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-      <h2>Related stories</h2>
-    </div>
-    <!-- End Heading -->
-
-    <div class="row">
-      <div class="col-sm-6 col-md-6 mb-5 mb-md-0 p-5">
-        <!-- Card -->
-        <div class="card h-100">
-               <div class="card-body">
-              </div>
-
-          <div class="card-footer pt-0">
-             </div>
-        </div>
-        <!-- End Card -->
-      </div>
-      <!-- End Col -->
-
-      <div class="col-sm-6 col-md-4 mb-5 mb-md-0">
-        <!-- Card -->
-        <div class="card h-100">
-          <img class="card-img-top" src="./assets/img/480x320/img17.jpg" alt="Image Description">
-
-          <div class="card-body">
-            <div class="mb-3">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/mapbox.svg" alt="Logo">
-            </div>
-            <p class="card-text">Mapbox empowers marketers to create digital marketing dashboards easily and share them with their team.</p>
-          </div>
-
-          <div class="card-footer pt-0">
-            <a class="card-link" href="./page-customer-story.html">Read story <i class="bi-chevron-right small ms-1"></i></a>
-          </div>
-        </div>
-        <!-- End Card -->
-      </div>
-      <!-- End Col -->
-
-      <div class="col-sm-6 col-md-4">
-        <!-- Card -->
-        <div class="card h-100">
-          <img class="card-img-top" src="./assets/img/480x320/img16.jpg" alt="Image Description">
-
-          <div class="card-body">
-            <div class="mb-3">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/forbes.svg" alt="Logo">
-            </div>
-            <p class="card-text">Netflix's mission is to create a planet run by the sun. In order to achieve this goal, they needed to find a way to make solar simple.</p>
-          </div>
-
-          <div class="card-footer pt-0">
-            <a class="card-link" href="./page-customer-story.html">Read story <i class="bi-chevron-right small ms-1"></i></a>
-          </div>
-        </div>
-        <!-- End Card -->
-      </div>
-      <!-- End Col -->
-    </div>
-    <!-- End Row -->
-  </div>
-  <!-- End Card Grid -->
 </main>
 
 

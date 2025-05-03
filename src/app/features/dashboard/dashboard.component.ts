@@ -11,6 +11,12 @@ import {StatsComponent} from './stats/stats.component';
 import {ServerComponent} from './server/server.component';
 import {WindowsViewComponent} from '../../core/windows-view/windows-view.component';
 import {MobileViewComponent} from '../../core/windows-view/mobile-view/mobile-view.component';
+import {companyName} from '../data/companyInformation';
+import {LatestTransactionsComponent} from './latest-transactions/latest-transactions.component';
+import {LatestNotificationsComponent} from './latest-notifications/latest-notifications.component';
+import {LogsComponent} from './logs/logs.component';
+import {AccountsComponent} from './accounts/accounts.component';
+import {IncomeVsExpensisComponent} from './income-vs-expensis/income-vs-expensis.component';
 
 
 interface MessageInquiries {
@@ -36,6 +42,11 @@ interface MessageInquiries {
     ServerComponent,
     WindowsViewComponent,
     MobileViewComponent,
+    LatestTransactionsComponent,
+    LatestNotificationsComponent,
+    LogsComponent,
+    AccountsComponent,
+    IncomeVsExpensisComponent,
 
 
   ],
@@ -54,9 +65,16 @@ export class DashboardComponent /*implements OnInit*/ {
     this.drawChart();
   }
 
-  drawChart() {
+  drawChart(): void {
     const canvas = document.getElementById('myCanvas') as HTMLCanvasElement;
     if (!canvas) return;
+
+    // Make it responsive: set internal resolution based on rendered size
+    const parent = canvas.parentElement;
+    if (!parent) return;
+
+    canvas.width = parent.clientWidth;
+    canvas.height = parent.clientHeight;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -73,21 +91,15 @@ export class DashboardComponent /*implements OnInit*/ {
 
     ctx.clearRect(0, 0, maxWidth, maxHeight);
 
-    // Draw X and Y Axes
     ctx.beginPath();
     ctx.strokeStyle = 'rgba(133,140,151,.18)';
     ctx.lineWidth = 2;
-
-    // Y-Axis
     ctx.moveTo(padding, padding);
     ctx.lineTo(padding, maxHeight - padding);
-
-    // X-Axis
     ctx.moveTo(padding, maxHeight - padding);
     ctx.lineTo(maxWidth - padding, maxHeight - padding);
     ctx.stroke();
 
-    // Grid Lines & Y-Axis Labels
     ctx.fillStyle = 'black';
     ctx.font = '12px Inter, sans-serif';
     ctx.textAlign = 'right';
@@ -102,14 +114,12 @@ export class DashboardComponent /*implements OnInit*/ {
       ctx.stroke();
     }
 
-    // X-axis Labels
     ctx.textAlign = 'center';
     labels.forEach((label, index) => {
       const x = padding + (index / (labels.length - 1)) * graphWidth;
       ctx.fillText(label, x, maxHeight - 30);
     });
 
-    // Draw Line Chart
     ctx.beginPath();
     ctx.strokeStyle = 'rgb(166,122,59)';
     ctx.lineWidth = 2;
@@ -125,13 +135,11 @@ export class DashboardComponent /*implements OnInit*/ {
 
     ctx.stroke();
 
-    // Fill Area Below Line
     ctx.lineTo(maxWidth - padding, maxHeight - padding);
     ctx.lineTo(padding, maxHeight - padding);
     ctx.closePath();
     ctx.fill();
 
-    // Draw Points (Without Labels)
     ctx.fillStyle = '#A67A3B';
     data.forEach((value, index) => {
       const x = padding + (index / (data.length - 1)) * graphWidth;
@@ -141,4 +149,7 @@ export class DashboardComponent /*implements OnInit*/ {
       ctx.fill();
     });
   }
+
+
+  protected readonly companyName = companyName;
 }

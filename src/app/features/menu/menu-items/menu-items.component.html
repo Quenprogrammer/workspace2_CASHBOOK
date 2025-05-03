@@ -7,7 +7,7 @@
       <div class=" grid-page">
         <div class="row">
           @for(item of MENU_ITEMS; track item.name){
-          <div class="col-4 col-lg-2 custom-hover">
+          <div class="col-4 col-md-3 col-lg-2 custom-hover">
             <a [routerLink]="item.link" class="card-link custom-hover">
               <img [src]="item.icon" alt="{{ item.name }}" class="card-icon"/>
               <app-text [text]="item.name"></app-text>
@@ -21,12 +21,7 @@
       <div class=" grid-page">
         <div class="row">
 
-            <div class="col-4 col-lg-2 custom-hover">
-              <a (click)="isModal1Open = true" class="card-link custom-hover">
-                <img src="icons/statis.svg" alt=" item.name " class="card-icon"/>
-                <app-text [text]="'Statistics'"></app-text>
-              </a>
-            </div>
+
             <div class="col-4 col-lg-2 custom-hover">
               <a (click)="isModal2Open = true" class="card-link custom-hover">
                 <img src="item.icon" alt=" item.name " class="card-icon"/>

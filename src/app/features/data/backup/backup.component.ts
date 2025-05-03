@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { Observable } from 'rxjs';
 import { BackupService } from '../../../services/backup.service';
 import {DataServiceService} from '../../../services/dataService';
@@ -7,6 +7,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import {allIcons} from '../../../../../public/icons/icons';
 import {RouterLink} from '@angular/router';
 import {companyName} from '../companyInformation';
+import {SystemComponent} from '../system/system.component';
 interface collectionsDataInterface{
   name: string;
   icon: string;
@@ -18,13 +19,15 @@ interface collectionsDataInterface{
   imports: [
     NgIf,
     NgForOf,
-    RouterLink
+    RouterLink,
+    SystemComponent
   ],
   templateUrl: './backup.component.html',
   styleUrl: './backup.component.css'
 })
 export class BackupComponent implements OnInit {
   isModalOpen=false
+  authModal = signal<boolean>(false);
   constructor(private firestoreService: DataServiceService,private getDocs: GetCollectionCountService) {}
 
   ngOnInit(): void {
@@ -78,6 +81,15 @@ export class BackupComponent implements OnInit {
 
   }
 
+  openAuthModal() {
+
+    this.authModal.set(true) ;
+  }
+
+  closeAuthModal() {
+    this.authModal.set(false) ;
+
+  }
 
 
   protected readonly allIcons = allIcons;

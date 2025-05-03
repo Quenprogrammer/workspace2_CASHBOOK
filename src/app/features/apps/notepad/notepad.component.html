@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div style="height: 100vh" class="p-3 p-md-5 ">
   <div class="p-3 border rounded bg-light">
     <div class="row">
       <div class="col-md-6 mb-2">
@@ -24,7 +24,7 @@
             </button>
           </div>
           <div class="col-auto g-1">
-            <button type="button" class="btn btn-outline-primary" style="padding: 5px">Save</button>
+            <button (click)="saveNoteToCloud()" type="button" class="btn btn-outline-primary" style="padding: 5px">Save to cloud</button>
           </div>
           <div class="col-auto g-1">
             <button type="button" class="btn btn-outline-primary" style="padding: 5px" (click)="clearTextArea()">New</button>
@@ -50,6 +50,10 @@
                     <select class="form-select form-select-sm" [(ngModel)]="selectedFormat">
                       <option value="text">Text</option>
                       <option value="json">JSON</option>
+                      <option value="json">PDF</option>
+                      <option value="json">Word</option>
+                      <option value="json">Excel</option>
+
                     </select>
                   </div>
                   <div class="col-auto mb-2">
@@ -75,20 +79,105 @@
         </div>
 
         <div class="row mt-1">
-          <div class="col-auto">
-            <p style="font-size: 10px"><strong>Characters:</strong> {{ charCount }}</p>
+          <div class="col-auto mt-3">
+            <p style="font-size: 12px"><strong>Characters:</strong> {{ charCount() }}</p>
+          </div>
+          <div class="col-auto mt-3">
+            <p style="font-size: 12px"><strong>Size:</strong> {{ sizeInKB().toFixed(2) }} KB</p>
           </div>
           <div class="col-auto">
-            <p style="font-size: 10px"><strong>Size:</strong> {{ sizeInKB.toFixed(2) }} KB</p>
+            <input
+              type="text"
+              class="form-control form-control-lg w-100"
+              name="fileName"
+              id="fileName"
+              placeholder="Enter File Name"
+              [(ngModel)]="fileName"
+              required
+            />        </div>
+      </div>
+    </div>
+    <div *ngIf="searchResults.length > 0" class="ms-2 text-nowrap">
+      Match {{ currentSearchIndex + 1 }} of {{ searchResults.length }}
+    </div>
+    <textarea style="height: 70vh" id="textArea" class="form-control" [(ngModel)]="text" (input)="saveState(); onTextChange($event)" [style.fontSize.px]="fontSize"></textarea>
+  </div>
+
+
+</div>
+<div class="container">
+
+
+  <!-- Font Size Selector -->
+
+
+  <!-- Saved Notes List with Open Button -->
+  <div class="saved-notes">
+
+    <ul>
+      <li *ngFor="let note of savedNotes">
+        {{ note.content | slice: 0:30 }}...
+        <button (click)="openNoteFromList(note.id)">Open</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Buttons for Actions -->
+
+  <div *ngIf="adminSiteModalOpen()" class="modal-overlay">
+    <div class="modal-content position-relative">
+      <div class="card" style=" min-height:75vh; max-height:95vh">
+        <div class="card-header d-flex justify-content-end gap-2">
+
+          <a class="btn btn-ghost-danger btn-sm" (click)="closeAdminSiteModal()">Close</a>
+        </div>
+        <div class="card-body">
+          <div class=" shadow-none">
+
+            <!--<div class="table-responsive">
+              <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                <thead class="thead-light">
+                <tr>
+                  <th scope="col">User</th>
+                  <th scope="col" style="width: 5%">Visits</th>
+                  <th scope="col">Last Visit</th>
+                  <th scope="col" ></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <a class="d-flex align-items-center" href=".">
+                      <div class="flex-grow-1 ms-3">
+                        <h3 class="text-inherit mb-0">{{ doc.id }}</h3>
+                      </div>
+                    </a>
+                  </td>
+                  <td><h4>{{ doc.logins }}</h4></td>
+                  <td>{{ doc.lastLogin ? (doc.lastLogin | date: 'medium') : 'No login yet' }}</td>
+                  <td colspan="2">
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                      <button class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-eye me-1"></i> View
+                      </button>
+                      <button class="btn btn-danger btn-sm">
+                        Delete Log
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>-->
+            <!-- Body -->
+            <div class="card-body-height">
+
+            </div>
+            <!-- End Body -->
           </div>
         </div>
       </div>
     </div>
-
-    <textarea style="height: 70vh" id="textArea" class="form-control" [(ngModel)]="text" (input)="saveState(); onTextChange($event)" [style.fontSize.px]="fontSize"></textarea>
   </div>
 
-  <div *ngIf="searchResults.length > 0" class="ms-2 text-nowrap">
-    Match {{ currentSearchIndex + 1 }} of {{ searchResults.length }}
-  </div>
 </div>

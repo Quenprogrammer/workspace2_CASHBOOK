@@ -1,6 +1,6 @@
 
 <div class="col-12 ">
-  <div class="card  card-bordered shadow-none p-2  mb-1" *ngIf="income$ | async as docs; else noData">
+  <div class="card    shadow-none p-2  mb-1" *ngIf="income$ | async as docs; else noData">
     <div class="text-primary " *ngFor="let doc of docs">
 
       <div class="progress" style="height: 5px;">
@@ -12,20 +12,24 @@
       </div>
 
       <div class="row mt-2">
-        <div class="col-auto ms-auto"><h6 class="card-title ">Income </h6></div>
-        <div class="col-auto d-flex justify-content-center"><h5 style="font-family: Arial, sans-serif; ">{{ creditPercentage | number:'1.2-2' }}
-          %</h5></div>
-        <div class="col-auto ms-auto">
+        <div class="col-4 ">
+          <h6 class="card-title ">Income </h6>
+        </div>
+        <div class="col-6">
           <h5 style="font-family: Arial, sans-serif;  ">
             {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
           </h5>
         </div>
+        <div class="col-2 d-flex justify-content-center">
+          <h5 style="font-family: Arial, sans-serif; ">{{ creditPercentage | number:'1.2-2' }}%</h5>
+        </div>
+
       </div>
     </div>
 
 
   </div>
-  <div class="card  card-bordered shadow-none p-2 mb-1 " *ngIf="expenses$ | async as docs; else noData">
+  <div class="card    shadow-none p-2 mb-1 " *ngIf="expenses$ | async as docs; else noData">
     <div class="text-primary " *ngFor="let doc of docs">
 
       <div class="progress" style="height: 5px;">
@@ -38,12 +42,13 @@
 
       <div class="row mt-2">
         <div class="col-4"><h6 class="card-title ">Expenses </h6></div>
-        <div class="col-3 d-flex justify-content-center"><h5 style="font-family: Arial, sans-serif; ">{{debitPercentage | number:'1.2-2' }}%</h5></div>
-        <div class="col-5">
+        <div class="col-6">
           <h5 style="font-family: Arial, sans-serif; ">
             {{ doc.totalAmount | currency:'₦':'symbol':'1.2-2' }}
           </h5>
         </div>
+        <div class="col-2 d-flex justify-content-center"><h5 style="font-family: Arial, sans-serif; ">{{debitPercentage | number:'1.2-2' }}%</h5></div>
+
 
       </div>
     </div>

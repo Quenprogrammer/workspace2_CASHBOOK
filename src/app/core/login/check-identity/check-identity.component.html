@@ -5,7 +5,7 @@
       <div class="row align-items-center">
         <div class="col">
           <div class=" ">
-            <h1 class="h2 text-white">Personal info</h1>
+            <h1 class="h2 text-white">Authorization</h1>
           </div>
 
 
@@ -37,14 +37,14 @@
 
   <!-- Content Section -->
   <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-n10">
-    <div class="row g-3">
-      <div class="col-md-5 order-2 order-sm-2">
+    <div class="row g-1 g-lg-3">
+      <div class="col-lg-5 order-2 order-sm-2">
 
 
 
-        <div class="mx-auto">
+        <div class="mx-auto ">
           <!-- Card -->
-          <div class="card card-lg mb-5" style="height: 380px">
+          <div class="card card-lg mb-5 h-100" >
             <div class="card-body">
               <!-- Form -->
               <form class="js-validate needs-validation" novalidate="">
@@ -78,6 +78,10 @@
                       </div>
                     </div>
 
+                    <div class="row g-1 mt-3">
+                      <div class="col-7"><button type="button" class="btn btn-primary btn-lg w-100">Create Account</button></div>
+                      <div class="col-5"><button type="button" class="btn btn-primary btn-lg w-100">Log in</button></div>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -88,15 +92,16 @@
         </div>
       </div>
 
-      <div class="col-md-7 order-1 order-sm-1">
+      <div class="col-lg-7 order-1 order-sm-1 h-100">
 
         <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4 mb-4"  style="min-height: 90%">
           <div class="d-flex justify-content-center align-items-center mb-3">
           <!-- Show loading GIF only when userInfo is not available -->
-          <img  style="max-width: 310px; height: auto;" *ngIf="!userInfo" src="gif/g.gif" alt="">
+          <img  style="max-width: 250px; height: auto;" *ngIf="!userInfo" src="gif/lod4.gif" alt="">
 
           </div>
-          <h2 class="text-center" *ngIf="!userInfo" src="gif/g.gif">User Details</h2>
+          <h1 class="text-center display-2" >{{EndTime}}</h1>
+          <h2 class="text-center" *ngIf="!userInfo" src="gif/g.gif">Shutting down system</h2>
           <!-- Show user profile only when userInfo exists -->
           <div class="card-body" *ngIf="userInfo">
             <!-- The rest of your content stays the same -->

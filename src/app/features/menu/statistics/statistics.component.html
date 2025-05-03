@@ -1,150 +1,364 @@
 <main id="content" role="main" class="main">
 
-  <app-header></app-header> <div class="p-md-5 ">
-  <div class="w-lg-75 mx-auto  ">
-<app-overview></app-overview>
-
-    <app-others class="mb-5"></app-others>
-
-    <ng-template #noData>
-      <div class="text-center mt-3">
-        <p>No data available.</p>
-      </div>
-    </ng-template>
- <ng-template #noData>
-      <div class="text-center mt-3">
-        <p>No data available.</p>
-      </div>
-    </ng-template>
+  <div class=" p-3 p-md-5  content-space-2 content-space-b-lg-3">
+    <app-header></app-header>
+    <app-overview></app-overview>
 
 
 
-<div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="p-1 border-bottom">
-          <h5 class="card-header-title">Social accounts</h5>
-        </div>
 
-        <!-- Body -->
-        <div class=" mt-4">
-          <!-- Form -->
-          <form>
-            <!-- List Group -->
-            <div class="list-group list-group-flush list-group-no-gutters">
-              <div class="" *ngFor="let stat of statistics">
-                <!-- Exclude Average Income and Average Expenses from being displayed -->
-                <div class="mb-4" *ngIf="stat.title !== 'Average Income' && stat.title !== 'Average Expenses'">
-                  <div class="row">
-                    <div class="col-7">
-                      <div class="">
-                        <div class="row align-items-center">
-                          <div class="col-12 mb-sm-0">
-                            <div class="row">
-                              <div class="col-2">
-                                <i [class]="'bi ' + getIconForStat(stat) + ' list-group-icon'" style="width: 30px;"></i>
-                              </div>
-                              <div class="col-auto">
-                                <h6 class="mb-1">{{ stat.title }}</h6>
-                              </div>
-                            </div>
 
-                            <div class="progress rounded-pill">
-                              <div class="progress-bar" role="progressbar" [style.width.%]="stat.value * 100"
-                                   [attr.aria-valuenow]="stat.value * 100" aria-valuemin="0" aria-valuemax="100"
-                                   [attr.data-bs-original-title]="stat.displayValue" data-bs-toggle="tooltip"
-                                   data-bs-placement="top">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4">
-                      <a class="btn btn-white btn-xs w-100 mt-3"
-                         onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
-                         onmouseout="this.style.backgroundColor=''; this.style.color='';">
-                        {{ stat.displayValue }}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-            </div>
-          </form>
-          <!-- End Form -->
-        </div>
-        <div class=" ">
-          <!-- Form -->
-          <form>
-            <!-- List Group -->
-            <div class="list-group list-group-flush list-group-no-gutters">
-              <div class="" *ngFor="let stat of statistics">
-                <!-- Only display stats that are not the ones to be removed, but bring back 'Average Income' -->
-                <div class="mb-4" *ngIf="stat.title !== 'Profit Margin' &&
-                    stat.title !== 'Savings (Surplus/Deficit)' &&
-                    stat.title !== 'Expense-to-Income Ratio' &&
-                    stat.title !== 'Debt-to-Income Ratio'">
-                  <div class="row">
-                    <div class="col-7">
-                      <div class="">
-                        <div class="row align-items-center">
-                          <div class="col-12 mb-sm-0">
-                            <div class="row">
-                              <div class="col-2">
-                                <i [class]="'bi ' + getIconForStat(stat) + ' list-group-icon'" style="width: 30px;"></i>
-                              </div>
-                              <div class="col-auto">
-                                <h6 class="mb-1">{{ stat.title }}</h6>
-                              </div>
-                            </div>
 
-                            <!-- Only show progress bar if 'progress' exists -->
-                            <div *ngIf="stat.progress !== undefined">
-                              <div class="progress rounded-pill">
-                                <div class="progress-bar" role="progressbar" [style.width.%]="stat.progress"
-                                     [attr.aria-valuenow]="stat.progress" aria-valuemin="0" aria-valuemax="100"
-                                     [attr.data-bs-original-title]="stat.displayValue" data-bs-toggle="tooltip"
-                                     data-bs-placement="top">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card shadow-none border-1" >
+
+
+            <!-- Body -->
+            <div class="  ">
+              <!-- Form -->
+              <form>
+                <!-- List Group -->
+                <div class="list-group list-group-flush list-group-no-gutters">
+                  <div class="" *ngFor="let stat of statistics">
+                    <!-- Exclude Average Income and Average Expenses from being displayed -->
+                    <div class="mb-4" *ngIf="stat.title !== 'Average Income' && stat.title !== 'Average Expenses'">
+                      <div class="row">
+                        <div class="col-7">
+                          <div class="">
+                            <div class="row align-items-center">
+                              <div class="col-12 mb-sm-0">
+                                <div class="row">
+                                  <div class="col-2">
+                                    <i [class]="'bi ' + getIconForStat(stat) + ' list-group-icon'" style="width: 30px;"></i>
+                                  </div>
+                                  <div class="col-auto">
+                                    <h6 class="mb-1">{{ stat.title }}</h6>
+                                  </div>
+                                </div>
+
+                                <div class="progress rounded-pill">
+                                  <div class="progress-bar" role="progressbar" [style.width.%]="stat.value * 100"
+                                       [attr.aria-valuenow]="stat.value * 100" aria-valuemin="0" aria-valuemax="100"
+                                       [attr.data-bs-original-title]="stat.displayValue" data-bs-toggle="tooltip"
+                                       data-bs-placement="top">
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="col-4">
+                          <a class="btn btn-white btn-xs w-100 mt-3"
+                             onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
+                             onmouseout="this.style.backgroundColor=''; this.style.color='';">
+                            {{ stat.displayValue }}
+                          </a>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-4">
-                      <a class="btn btn-white btn-xs w-100 mt-3"
-                         onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
-                         onmouseout="this.style.backgroundColor=''; this.style.color='';">
-                        {{ stat.displayValue }}
-                      </a>
+                  </div>
+                  <!-- End Item -->
+                </div>
+              </form>
+              <!-- End Form -->
+            </div>
+
+            <div class=" ">
+              <!-- Form -->
+              <form>
+                <!-- List Group -->
+                <div class="list-group list-group-flush list-group-no-gutters">
+                  <div class="" *ngFor="let stat of statistics">
+                    <!-- Only display stats that are not the ones to be removed, but bring back 'Average Income' -->
+                    <div class="mb-4" *ngIf="stat.title !== 'Profit Margin' &&
+                    stat.title !== 'Savings (Surplus/Deficit)' &&
+                    stat.title !== 'Expense-to-Income Ratio' &&
+                    stat.title !== 'Debt-to-Income Ratio'">
+                      <div class="row">
+                        <div class="col-7">
+                          <div class="">
+                            <div class="row align-items-center">
+                              <div class="col-12 mb-sm-0">
+                                <div class="row">
+                                  <div class="col-2">
+                                    <i [class]="'bi ' + getIconForStat(stat) + ' list-group-icon'" style="width: 30px;"></i>
+                                  </div>
+                                  <div class="col-auto">
+                                    <h6 class="mb-1">{{ stat.title }}</h6>
+                                  </div>
+                                </div>
+
+                                <!-- Only show progress bar if 'progress' exists -->
+                                <div *ngIf="stat.progress !== undefined">
+                                  <div class="progress rounded-pill">
+                                    <div class="progress-bar" role="progressbar" [style.width.%]="stat.progress"
+                                         [attr.aria-valuenow]="stat.progress" aria-valuemin="0" aria-valuemax="100"
+                                         [attr.data-bs-original-title]="stat.displayValue" data-bs-toggle="tooltip"
+                                         data-bs-placement="top">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <a class="btn btn-white btn-xs w-100 mt-3"
+                             onmouseover="this.style.backgroundColor='red'; this.style.color='white';"
+                             onmouseout="this.style.backgroundColor=''; this.style.color='';">
+                            {{ stat.displayValue }}
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <!-- End Item -->
                 </div>
-              </div>
-              <!-- End Item -->
+              </form>
+              <!-- End Form -->
             </div>
-          </form>
-          <!-- End Form -->
+
+            <!-- End Body -->
+          </div>
+
         </div>
+        <div class="col-lg-6">
+          <div class="col mb-3">
+            <!-- Card -->
+            <div class="card h-100 shadow-none border-1  " >
+              <!-- Header -->
 
 
-        <!-- End Body -->
+              <div class="  p-md-4">
+                <h2 class="d-block mb-4 ">$7,431.14 USD</h2>
+
+                <!-- Progress -->
+                <div class="progress rounded-pill mb-2">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                       aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
+                       data-bs-original-title="Gross value"></div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-4">
+
+                  <span>100%</span>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table class="table table-lg table-nowrap card-table mb-0">
+                    <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary"></span>Gross value
+                      </th>
+                      <td>$3,500.71</td>
+                      <td>
+                        <span class="badge bg-soft-success text-success">+12.1%</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary opacity-50"></span>Net volume from sales
+                      </th>
+                      <td>$2,980.45</td>
+                      <td>
+                        <span class="badge bg-soft-warning text-warning">+6.9%</span>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End Table -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <div class="col mb-3">
+
+            <div class="card h-100 shadow-none border-1">
+              <!-- Header -->
+
+
+              <div class="  p-md-4">
+                <h2 class="d-block mb-4 ">$7,431.14 USD</h2>
+
+                <!-- Progress -->
+                <div class="progress rounded-pill mb-2">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                       aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
+                       data-bs-original-title="Gross value"></div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-4">
+
+                  <span>100%</span>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table class="table table-lg table-nowrap card-table mb-0">
+                    <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary"></span>Gross value
+                      </th>
+                      <td>$3,500.71</td>
+                      <td>
+                        <span class="badge bg-soft-success text-success">+12.1%</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary opacity-50"></span>Net volume from sales
+                      </th>
+                      <td>$2,980.45</td>
+                      <td>
+                        <span class="badge bg-soft-warning text-warning">+6.9%</span>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End Table -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="col mb-3">
+            <!-- Card -->
+            <div class="card h-100 shadow-none border-1  " >
+              <!-- Header -->
+
+
+              <div class="  p-md-4">
+                <h2 class="d-block mb-4 ">$7,431.14 USD</h2>
+
+                <!-- Progress -->
+                <div class="progress rounded-pill mb-2">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                       aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
+                       data-bs-original-title="Gross value"></div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-4">
+
+                  <span>100%</span>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table class="table table-lg table-nowrap card-table mb-0">
+                    <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary"></span>Gross value
+                      </th>
+                      <td>$3,500.71</td>
+                      <td>
+                        <span class="badge bg-soft-success text-success">+12.1%</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary opacity-50"></span>Net volume from sales
+                      </th>
+                      <td>$2,980.45</td>
+                      <td>
+                        <span class="badge bg-soft-warning text-warning">+6.9%</span>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End Table -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <div class="col mb-3">
+
+            <div class="card h-100 shadow-none border-1">
+              <!-- Header -->
+
+
+              <div class="  p-md-4">
+                <h2 class="d-block mb-4 ">$7,431.14 USD</h2>
+
+                <!-- Progress -->
+                <div class="progress rounded-pill mb-2">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                       aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Gross value"
+                       data-bs-original-title="Gross value"></div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-4">
+
+                  <span>100%</span>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Table -->
+                <div class="table-responsive">
+                  <table class="table table-lg table-nowrap card-table mb-0">
+                    <tbody>
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary"></span>Gross value
+                      </th>
+                      <td>$3,500.71</td>
+                      <td>
+                        <span class="badge bg-soft-success text-success">+12.1%</span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary opacity-50"></span>Net volume from sales
+                      </th>
+                      <td>$2,980.45</td>
+                      <td>
+                        <span class="badge bg-soft-warning text-warning">+6.9%</span>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- End Table -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
       </div>
+
     </div>
-  <div class="col-md-6 mb-3 mb-lg-0">
-    <app-expense-totalncome-ratio></app-expense-totalncome-ratio>
-
-  </div>
-</div>
-    <app-latest-transaction></app-latest-transaction>
-  </div>
 
 
 
- </div>
+
 </main>
 
 

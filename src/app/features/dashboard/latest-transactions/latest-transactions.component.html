@@ -1,0 +1,51 @@
+
+
+<div class="card h-100">
+  <!-- Header -->
+  <div class="card-header card-header-content-between">
+    <h2 class="card-header-title">Latest transactions</h2>
+
+  </div>
+  <!-- End Header -->
+
+  <!-- Body -->
+  <div class="card-body card-body-height">
+    <ul class="list-group list-group-flush list-group-no-gutters">
+
+
+      <li class="list-group-item" *ngFor="let record of records">
+        <div class="d-flex">
+          <div class="flex-shrink-0">
+            <!-- Avatar -->
+            <img class="avatar avatar-sm avatar-circle" src="./assets/svg/brands/slack-icon.svg"
+                 alt="Image Description">
+            <!-- End Avatar -->
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <div class="row">
+              <div class="col-7 col-md-5 order-md-1">
+                <h5 class="mb-0"> {{ record.payee }}</h5>
+                <span class="fs-6 text-body">{{ record.description }}</span>
+              </div>
+
+              <div class="col-5 col-md-4 order-md-3 text-end mt-2 mt-md-0">
+                <h5 class="mb-0">₦{{ record.amount }}</h5>
+
+                <span class="fs-6 text-body">{{ record.paymentMode }}</span>
+              </div>
+
+              <div class="col-auto col-md-3 order-md-2">
+                <span class="badge bg-soft-success text-success rounded-pill">{{ record.type }}</span><br>
+                <span class="fs-6 text-body">{{ record.date }}</span>
+              </div>
+            </div>
+            <!-- End Row -->
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  <!-- End Body -->
+</div>

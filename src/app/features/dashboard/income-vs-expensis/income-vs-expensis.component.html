@@ -1,0 +1,48 @@
+<div class="card h-100">
+  <!-- Header --><div class="stats-box text-center">
+   </div>
+
+  <p><strong>Expense % of Income:</strong> {{ expensePercentage() | number:'1.0-2' }}%</p>
+  <p><strong>Income Share:</strong> {{ incomePercentage() | number:'1.0-2' }}%</p>
+
+  <div class="card-body text-center">
+    <canvas #pieCanvas width="500" height="350"></canvas>
+
+
+    <div class="h3">
+                <span class="badge bg-soft-info text-info rounded-pill">
+                  <i class="bi-check-circle-fill me-1"></i> On track
+                </span>
+    </div>
+    <!-- End Badge -->
+
+    <!-- Chart Half -->
+    <div class="chartjs-doughnut-custom-stat">
+      <small class="text-cap">Balance</small>
+      <h2  >₦{{ balance() | currency:' ' }}</h2>
+    </div>
+
+    <hr>
+
+    <div class="row col-divider">
+      <div class="col text-end">
+        <span class="d-block h4 mb-0">$72.46</span>
+        <span class="d-block">last transaction</span>
+      </div>
+
+      <div class="col text-start">
+                  <span class="d-block h4 text-success mb-0">
+                    <i class="bi-graph-up"></i> 12%
+                  </span>
+        <span class="d-block">since last visit</span>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+  <!-- End Body -->
+</div>
+
+<!-- Card -->
+
+
+

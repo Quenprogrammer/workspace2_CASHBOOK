@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {website} from '../../data/companyInformation';
 
 @Component({
   selector: 'app-integration',
@@ -15,4 +16,5 @@ integrationList=[
   {name:'Drive', icon:'', link:'', tagLine:'' },
   {name:'Inbox', icon:'', link:'inbox.svg' , tagLine:''},
 ]
+  protected readonly website = website;
 }

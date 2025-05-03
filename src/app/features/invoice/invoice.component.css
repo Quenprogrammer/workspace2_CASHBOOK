@@ -166,3 +166,9 @@ button {
     page-break-before: always;
   }
 }
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+

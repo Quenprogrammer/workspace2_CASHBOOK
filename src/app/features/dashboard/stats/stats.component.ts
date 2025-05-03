@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {TransactionsService} from '../../../services/transactions/transactions.service';
 import {DecimalPipe, NgClass} from '@angular/common';
@@ -13,7 +13,7 @@ import {DecimalPipe, NgClass} from '@angular/common';
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.css'
 })
-export class StatsComponent {
+export class StatsComponent implements OnInit,OnDestroy{
 
   profitPercentage: number = 0;
   private subscriptions: Subscription = new Subscription();

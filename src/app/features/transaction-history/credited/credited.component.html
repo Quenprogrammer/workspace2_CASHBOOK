@@ -1,55 +1,46 @@
-<!--
-<div *ngIf="isLoading" class="text-center">
-  <app-loading></app-loading>
-</div>
--->
+<div class="container ">
+  <form>
 
-
-
-
-<div class="" *ngIf="!isLoading">
-<div >
-
-  <div class="container ">
-    <form>
-
-      <div class="input-card input-card-sm">
-        <div class="input-card-form">
-          <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
-          <div style="border: 2px solid black" class="input-group input-group-merge">
+    <div class="input-card input-card-sm">
+      <div class="input-card-form">
+        <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+        <div style="border: 2px solid black" class="input-group input-group-merge">
                     <span class="input-group-prepend input-group-text">
                       <i class="bi-search"></i>
                     </span>
-            <input  type="text" class="form-control" id="jobTitleForm" placeholder="PaidBy" aria-label="Job, title, skills, or company"
-                    (input)="updateSearch('payee', $event)"
-            >
-          </div>
+          <input  type="text" class="form-control" id="jobTitleForm" placeholder="PaidBy" aria-label="Job, title, skills, or company"
+                  (input)="updateSearch('payee', $event)"
+          >
         </div>
-
-
-        <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
-                [attr.aria-expanded]="!isCollapsed">Advance Search
-        </button>
       </div>
 
-    </form>
-    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-      <div class="row mb-3" *ngIf="showFilters">
-        <div class="col-12 col-md-4 mb-2">
-          <input type="text" class="form-control" placeholder="Search Amount" (input)="updateSearch('amount', $event)">
-        </div>
-        <div class="col-6 col-md-4">
-          <input type="date" class="form-control" (input)="updateSearch('date', $event)">
-        </div>
-        <div class="col-6 col-md-4">
-          <input type="text" class="form-control" placeholder="Search Reference" (input)="updateSearch('ref', $event)">
-        </div>
+
+      <button type="button" class="btn btn-primary btn-lg" (click)="collapse.toggle()"
+              [attr.aria-expanded]="!isCollapsed">Advance Search
+      </button>
+    </div>
+
+  </form>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+    <div class="row mb-3 g-1" *ngIf="showFilters">
+      <div class="col-12 col-md-4 mb-2">
+        <input type="text" class="form-control" placeholder="Search Amount" (input)="updateSearch('amount', $event)">
+      </div>
+      <div class="col-6 col-md-4">
+        <input type="date" class="form-control" (input)="updateSearch('date', $event)">
+      </div>
+      <div class="col-6 col-md-4">
+        <input type="text" class="form-control" placeholder="Search Reference" (input)="updateSearch('ref', $event)">
       </div>
     </div>
+    <a class="js-create-field form-link" href="javascript:;" (click)="openPublicSiteModal()">
+      <i class="bi-plus"></i> Sync Data
+    </a>
   </div>
 </div>
 
 <div class="container ">
+
   <div class="card mb-4">
     <div class="table-responsive mb-4">
       <table class="table table-bordered table-hover text-center">
@@ -65,7 +56,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let account of filteredAccounts$ | async" >
-          <td>{{ getFormattedDate(account.date) }}
+          <td>{{ account.date }}
           </td>
           <td>{{ account.payee }}</td>
           <td>{{ account.amount || 0 | currency:'₦' }}</td>
@@ -108,7 +99,7 @@
         <tbody>
         <tr>
           <th>Date</th>
-          <td>{{ getFormattedDate(selectedAccount?.date) }}</td>
+          <td>{{ selectedAccount?.date }}</td>
         </tr>
         <tr>
           <th>Payee</th>
@@ -137,26 +128,64 @@
         <div class="d-flex gap-1">
           <button class="btn btn-primary">Edit</button>
 
-          <button class="btn btn-primary">Save as PDF</button>
+          <button class="btn btn-primary" (click)="saveModalAsPDF()">Save as PDF</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- Delete Confirmation Popup -->
 <div class="popup-overlay" *ngIf="isDeletePopupOpen">
   <div class="popup">
     <h3>Confirm Deletion</h3>
     <p>Are you sure you want to delete this transaction?</p>
-    <p><strong>Payee:</strong> {{ selectedAccount?.payee }}</p>
-    <p><strong>Amount:</strong> ₦{{ selectedAccount?.amount }}</p>
+
+
+      <div class="row g-1 mb-0">
+        <div class="col-7"> <p class="text-end"><strong>Reference Number:</strong></p></div>
+        <div class="col-5">  <p> {{ accountToDelete?.referenceNumber }}</p></div>
+        </div>
+      <div class="row g-1 mb-0">
+        <div class="col-7"> <p class="text-end"><strong>Amount:</strong></p></div>
+        <div class="col-5">  <p> ₦{{ accountToDelete?.amount }}</p></div>
+        </div>
+      <div class="row g-1 mb-0">
+        <div class="col-7"> <p class="text-end"><strong>Date:</strong></p></div>
+        <div class="col-5">  <p> ₦{{ accountToDelete?.date }}</p></div>
+        </div>
+
+
+
+
 
     <div class="popup-buttons">
-     <!-- <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>-->
+      <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
       <button class="btn btn-secondary" (click)="closeDeletePopup()">Cancel</button>
     </div>
   </div>
 </div>
+
+<div *ngIf="publicSiteModalOpen()" class="modal-overlay">
+  <div class="modal-content position-relative">
+
+    <div class="card" style=" min-height:75vh; max-height:95vh">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <a class="btn btn-ghost-danger btn-sm" (click)="closePublicSiteModal()">Close</a>
+      </div>
+      <div class="card-body">
+
+
+        <div class="button-group mt-3">
+          <button (click)="downloadCSV()" class="btn btn-primary">Download CSV</button>
+          <button (click)="downloadExcel()" class="btn btn-success">Download Excel</button>
+          <button (click)="downloadJSON()" class="btn btn-info">Download JSON</button>
+          <button (click)="downloadTXT()" class="btn btn-warning">Download TXT</button>
+          <button (click)="downloadPDF()" class="btn btn-warning">Download PDF</button>
+          <button (click)="downloadAsWord()" class="btn btn-warning">Download PDF</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,16 +3,11 @@ import { Observable } from 'rxjs';
 import { TransactionsService } from '../../../services/transactions/transactions.service';
 import { AsyncPipe, CurrencyPipe, NgClass, NgForOf, NgIf, PercentPipe } from '@angular/common';
 import { combineLatest } from 'rxjs';
-import { DashChartComponent } from './dash-chart/dash-chart.component';
-import { ExpenseTotalncomeRatioComponent } from './expense-totalncome-ratio/expense-totalncome-ratio.component';
-import { OthersComponent } from './others/others.component';
+
 import { OverviewComponent } from './overview/overview.component';
 import {TransferService} from '../../../services/transfer.service';
-import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLink} from '@ng-bootstrap/ng-bootstrap';
-import {HeaderComponent} from './header/header.component';
-/*import {BarchartComponent} from '../../../../publicSite/public-site-dashboard/barchart/barchart.component';*/
-import {BarChartComponent} from './bar-chart/bar-chart.component';
-import {LatestTransactionComponent} from './latest-transaction/latest-transaction.component';
+ import {HeaderComponent} from './header/header.component';
+
 
 interface FirebaseDocument {
   totalAmount?: number;
@@ -33,23 +28,12 @@ interface Statistic {
   selector: 'app-statistics',
   standalone: true,
   imports: [
-    AsyncPipe,
-    CurrencyPipe,
     NgForOf,
     NgIf,
-    NgClass,
-    DashChartComponent,
-    ExpenseTotalncomeRatioComponent,
-    OthersComponent,
+
     OverviewComponent,
-    NgbNav,
-    NgbNavContent,
-    NgbNavItem,
-    NgbNavLink,
     HeaderComponent,
 
-    BarChartComponent,
-    LatestTransactionComponent
   ],
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css']

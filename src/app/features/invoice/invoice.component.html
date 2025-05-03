@@ -1,7 +1,12 @@
 <main id="content" role="main" class="main">
-  <div class="container mt-2">
-<div class="row">
-<div id="print-section" [ngClass]="{'col-md-9': !isExpanded, 'col-12': isExpanded}">
+  <!-- Only show button when not printing -->
+  <button class="btn btn-primary mb-3 no-print" (click)="expandAndPrint()">Print</button>
+
+  <div class="container mt-3">
+<div class="row g-1">
+
+
+<div id="print-section" [ngClass]="{'col-md-8': !isExpanded, 'col-12': isExpanded}">
   <div [ngClass]="{'card': true, 'shadow-none': isExpanded, 'mb-5': true}">
       <div class="card-body " >
 
@@ -36,25 +41,25 @@
 
         <div class="row justify-content-md-between mb-3">
           <div class="col-md">
-            <h6>Bill to:</h6>
-            <h5>Sara Williams</h5>
 
-            <address>
-              280 Suzanne Throughway
-              Breannabury, OR 45801
-              United States
+            <h4>Bill To</h4>
+
+
+            <h5>{{ billToName || 'Name' }}</h5>
+            <address style="width:200px">
+              {{  BillToAddress || 'Name' }}
             </address>
           </div>
           <!-- End Col -->
 
           <div class="col-md text-md-end">
             <dl class="row">
-              <dt class="col-5">Invoice date:</dt>
+              <dt class="col-5" (click)="isModal2Open = true">Invoice date:</dt>
               <dd class="col-4">03/10/2018</dd>
             </dl>
             <dl class="row">
               <dt class="col-5">Due date:</dt>
-              <dd class="col-4">03/11/2018</dd>
+              <dd class="col-4">     <h5>{{ dueDate || 'Name' }}</h5></dd>
             </dl>
           </div>
           <!-- End Col -->
@@ -100,10 +105,7 @@
         <!-- End Table -->
 
 
- <div class="row">
-   <div class="col-6"></div>
-   <div class="col-6"></div>
- </div>
+
         <table class="table table-nowrap table-vertical-border-striped">
           <thead class="table-text-center">
           <tr>
@@ -167,55 +169,112 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3"  >
-    <div class="card shadow-none">
+  <div class="col-md-4 some-section no-print">
 
-      <div class="js-sticky-block"   style="position: fixed;  ">
-        <div class="d-grid gap-2 gap-sm-3 mb-2 mb-sm-3">
-          <a class="btn btn-primary w-100" routerLink="/allInvoice">
-            <i class="bi-cursor-fill me-1"></i> All invoice
-          </a>
-          <a class="btn btn-primary" href="javascript:;">
-            <i class="bi-cursor-fill me-1"></i> Send invoice
-          </a>
 
-          <a class="btn btn-white" href="javascript:;">
-            <i class="bi-download me-1"></i> Download
-          </a>
-
-          <div class="row gx-3">
-            <div class="col-sm mb-2 mb-sm-0">
-              <div class="d-grid">
-                <a class="btn btn-white"  (click)="isModal2Open = true">Edit</a>
-              </div>
+        <!-- Card -->
+        <div class="card card-sm shadow-sm mb-4">
+          <div class="card-body">
+            <div class="border-bottom pb-4 mb-4">
+              <h3 class="card-header-title">Order summary</h3>
             </div>
-            <!-- End Col -->
-
-            <div class="col-sm">
-              <div class="d-grid">
-                <a class="btn btn-white" href="javascript:;">Save</a>
-              </div>
+            <div class="border-bottom pb-4 mb-1">
+              <input [(ngModel)]="billToName" type="text" class="form-control" name="name" placeholder="Enter promo code" aria-label="Enter promo code">
             </div>
-            <!-- End Col -->
-            <!-- Footer -->
+            <div class="border-bottom pb-4 mb-1">
+              <input [(ngModel)]=" BillToAddress" type="text" class="form-control" name="name" placeholder="Enter promo code" aria-label="Enter promo code">
+            </div>
 
+            <div class="border-bottom pb-4 mb-1">
+              <input [(ngModel)]="dueDate" type="date" class="form-control" name="dueDate" placeholder="Due date" aria-label="Enter due date">
+            </div>
+
+            <form>
+
+
+              <div class="border-bottom pb-4 mb-4">
+                <div class="d-grid gap-3">
+                  <dl class="row">
+                    <dt class="col-sm-6">Item subtotal (2)</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">$73.98</dd>
+                  </dl>
+                  <!-- End Row -->
+
+                  <dl class="row">
+                    <dt class="col-sm-6">Delivery</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">Free</dd>
+                  </dl>
+                  <!-- End Row -->
+                </div>
+              </div>
+
+              <div class="border-bottom pb-4 mb-4">
+                <div class="d-grid gap-3">
+                  <!-- Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliveryRadioName" id="deliveryRadio1" checked="">
+                    <label class="form-check-label text-dark" for="deliveryRadio1">
+                      Free - Standard delivery
+                      <span class="d-block text-muted small">Shipment may take 5-6 business days</span>
+                    </label>
+                  </div>
+                  <!-- End Check -->
+
+                  <!-- Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliveryRadioName" id="deliveryRadio2">
+                    <label class="form-check-label text-dark" for="deliveryRadio2">
+                      $7.99 - Express delivery
+                      <span class="d-block text-muted small">Shipment may take 2-3 business days</span>
+                    </label>
+                  </div>
+                  <!-- End Check -->
+                </div>
+              </div>
+
+              <div class="d-grid gap-3 mb-4">
+                <dl class="row">
+                  <dt class="col-sm-6">Estimated tax</dt>
+                  <dd class="col-sm-6 text-sm-end mb-0">$0.00</dd>
+                </dl>
+                <!-- End Row -->
+
+                <dl class="row">
+                  <dt class="col-sm-6">Total</dt>
+                  <dd class="col-sm-6 text-sm-end mb-0">$73.98</dd>
+                </dl>
+                <!-- End Row -->
+              </div>
+
+              <div class="d-grid">
+                <a class="btn btn-primary btn-lg" href="../demo-shop/checkout.html">Checkout</a>
+              </div>
+            </form>
+          </div>
+          <!-- End Card -->
+        </div>
+
+        <!-- Media -->
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+            <div class="svg-icon svg-icon-sm text-primary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.1671 18.1421C22.4827 18.4577 23.0222 18.2331 23.0206 17.7868L23.0039 13.1053V5.52632C23.0039 4.13107 21.8729 3 20.4776 3H8.68815C7.2929 3 6.16183 4.13107 6.16183 5.52632V9H13C14.6568 9 16 10.3431 16 12V15.6316H19.6565L22.1671 18.1421Z" fill="#035A4B"></path>
+                <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M1.98508 18V13C1.98508 11.8954 2.88051 11 3.98508 11H11.9851C13.0896 11 13.9851 11.8954 13.9851 13V18C13.9851 19.1046 13.0896 20 11.9851 20H4.10081L2.85695 21.1905C2.53895 21.4949 2.01123 21.2695 2.01123 20.8293V18.3243C1.99402 18.2187 1.98508 18.1104 1.98508 18ZM5.99999 14.5C5.99999 14.2239 6.22385 14 6.49999 14H11.5C11.7761 14 12 14.2239 12 14.5C12 14.7761 11.7761 15 11.5 15H6.49999C6.22385 15 5.99999 14.7761 5.99999 14.5ZM9.49999 16C9.22385 16 8.99999 16.2239 8.99999 16.5C8.99999 16.7761 9.22385 17 9.49999 17H11.5C11.7761 17 12 16.7761 12 16.5C12 16.2239 11.7761 16 11.5 16H9.49999Z" fill="#035A4B"></path>
+              </svg>
+
+            </div>
+          </div>
+          <div class="flex-grow-1 ms-2">
+            <span class="small me-1">Need Help?</span>
+            <a class="link small" href="#">Chat now</a>
           </div>
         </div>
-        <button class="btn btn-primary mb-3" (click)="expandAndPrint()">
-          <i class="bi-printer me-1"></i>  Print
-        </button>
-
-
-
+        <!-- End Media -->
       </div>
 
 
-        <!-- End Row -->
 
-        <hr class="my-4">
-
-
-    </div></div>
   </div>
 </div>
 
@@ -243,15 +302,15 @@
         <div class="card-body  " style="height: 400px; overflow-y: auto;">
           <!-- Form -->
           <form>
-            <div class="container mt-4">
-              <h2>Create Invoice</h2>
+            <div class="container ">
+
               <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
 
                 <!-- Bill To Section -->
                 <h4>Bill To</h4>
                 <div class="mb-3">
                   <label class="form-label">Address</label>
-                  <input type="text" class="form-control" formControlName="address" placeholder="Enter address">
+                  <input [(ngModel)]="billToName" type="text" class="form-control" formControlName="address" placeholder="Enter address">
                 </div>
 
                 <div class="mb-3">
@@ -296,8 +355,7 @@
 
                 <button type="button" class="btn btn-secondary mt-2" (click)="addItem()">Add Item</button>
 
-                <!-- Summary Section -->
-                <h4>Summary</h4>
+
                 <div class="mb-3">
                   <label class="form-label">Professional Tax (%)</label>
                   <input type="number" class="form-control" formControlName="professionalTax" (input)="calculateTotal()">
@@ -322,132 +380,48 @@
 
           <div class="card hovers  " >
             <!-- Header -->
-            <div class=" d-flex justify-content-end   ">
-              <h6 class="card-header-title me-auto p-3">Course contents</h6> <!-- Keeps title on the left -->
-              <a class="btn btn-ghost-danger btn-sm" (click)="addModule();">Add new module </a>
 
-            </div>
 
             <!-- End Header -->
 
-            <div class="card-body-height p-3 ">
 
-              <div class="row mb-2 justify-content-center">
-                <div class="col-sm-12 text-center">
-                  <!-- Loop through Rent Modules -->
-
-                  <div *ngFor="let module of rentModules; let moduleIndex = index">
-                    <div ngbAccordion #accordion="ngbAccordion" class="mb-2">
-                      <div ngbAccordionItem="first" #accordionItem="ngbAccordionItem">
-                        <h1 ngbAccordionHeader>
-                          <button
-                            style="font-size:20px"
-                            ngbAccordionButton
-                            [ngClass]="{'border border-danger': !module?.nameOfmodule || module.nameOfmodule.trim() === ''}">
-    <span *ngIf="accordionItem.collapsed">
-      <span *ngIf="module?.nameOfmodule && module.nameOfmodule.trim() !== ''">
-        {{ module.nameOfmodule }}
-      </span>
-      <span *ngIf="!module?.nameOfmodule || module.nameOfmodule.trim() === ''" style="font-size:12px; font-weight:normal; color:red;">
-       Invalid course module name!
-      </span>
-    </span>
-                          </button>
-                        </h1>
+              <div class="col"  >
+                <div class="card shadow-none">
 
 
-                        <div ngbAccordionCollapse>
-                          <div ngbAccordionBody>
-                            <ng-template>
-                              <div class="row g-1 mt-3">
-                                <div class="col-md-7">
-                                  <input
-                                    class="form-control mb-2 w-100"
-                                    [(ngModel)]="module.nameOfmodule"
-                                    placeholder="Module"
-                                    [ngClass]="{'border border-danger': module?.nameOfmodule && module.nameOfmodule.length < 4}">
-                                  <div *ngIf="module?.nameOfmodule && module.nameOfmodule.length < 4" class="text-danger mb-1">
-                                    The module name must be at least 4 characters long.
-                                  </div>
-                                </div>
 
-                                <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
-                                  <button
-                                    class="btn btn-primary w-100"
-                                    style="padding:5px"
-                                    (click)="addOption(moduleIndex)"
-                                    [disabled]="!module?.nameOfmodule || module.nameOfmodule.length < 4">
-                                    <i class="bi-pencil-fill me-1"></i> Add item
-                                  </button>
-                                </div>
-
-                                <div class="col-auto mt-1 mt-md-2 mb-2 mb-md-0">
-                                  <button
-                                    class="btn btn-danger w-100"
-                                    style="padding:5px"
-                                    (click)="removeModule(moduleIndex)"
-                                    [disabled]="!module?.nameOfmodule || module.nameOfmodule.length < 4">
-                                    <i class="bi-trash me-1"></i> Remove item
-                                  </button>
-                                </div>
-                              </div>
-
-                              <div class="card card-body rounded-0">
-                                <div *ngFor="let option of module.Options; let optionIndex = index">
-                                  <div class="mt-4 mb-4">
-                                    <div class="row g-1">
-                                      <div class="col-6 col-md-4">
-                                        <div class="row g-1">
-                                          <div class="col-12">
-                                            <input class="form-control w-100" [(ngModel)]="option.name" placeholder="Quantity">
-                                          </div>
-
-
-                                        </div>
-                                      </div>
-                                      <div class="col-6 col-md-4">
-                                        <div class="col-12">
-                                          <input class="form-control w-100" [(ngModel)]="option.details" placeholder="Amount">
-
-                                        </div>
-                                      </div>
-                                      <div class="col-6 col-md-3">
-                                        <div class="row g-1">
-                                          <div class="col-12">
-                                            <input class="form-control w-100" [(ngModel)]="option.name" placeholder="Rate">
-                                          </div>
-
-
-                                        </div>
-                                      </div>
-                                      <div class="col-6 col-md-1">
-
-                                          <button type="button" class="btn float-end btn-soft-primary btn-sm"
-                                                  (click)="removeOption(moduleIndex, optionIndex)">
-                                            <i class="bi bi-trash"></i>
-                                          </button>
-
-                                      </div>
-
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                            </ng-template>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="row g-1">
+                    <div class="col-md-3">  <a class="btn btn-primary w-100" routerLink="/allInvoice">
+                      <i class="bi-cursor-fill me-1"></i> All invoice
+                    </a></div>
+                    <div class="col-md-3">   <a class="btn btn-primary w-100" href="javascript:;">
+                      <i class="bi-cursor-fill me-1"></i> Send invoice
+                    </a></div>
+                    <div class="col-md-3"> <a class="btn btn-white w-100" href="javascript:;">
+                      <i class="bi-download me-1"></i> Download
+                    </a></div>
+                    <div class="col-md-3"> <button class="btn btn-primary mb-3 w-100zz" (click)="expandAndPrint()">
+                      <i class="bi-printer me-1"></i>  Print
+                    </button></div>
                   </div>
 
 
 
 
 
-                </div>
-              </div>
-            </div>
+
+
+
+
+                  <!-- End Row -->
+
+                  <hr class="my-4">
+
+
+                </div></div>
+
+
+
             <!-- End Body -->
           </div>
 
@@ -456,6 +430,8 @@
       </div>
       <!-- End Card -->
     </div>
+
   </div>
 </main>
+
 

@@ -87,6 +87,7 @@ export class CreateUserComponent implements OnInit{
         // If email and phone don't exist, add user
         await addDoc(this.generalMessageInquiries, formData);
         this.toastService.show('Success', 'Account created successfully', 'success');
+       await this.addNotifications()
         this.resetForm();
       } catch (error) {
         this.toastService.show('Error', 'Error encountered while creating account', 'danger');
@@ -113,4 +114,15 @@ export class CreateUserComponent implements OnInit{
   get confirmPassword() { return this.GeneralInquiriesMessage.get('confirmPassword'); }
   get recoveryPhrase() { return this.GeneralInquiriesMessage.get('recoveryPhrase'); }
   get imageURL() { return this.GeneralInquiriesMessage.get('imageURL'); }
+
+  async addNotifications() {
+    const usersCollection = collection(this.firestore, 'NOTIFICATIONS');
+    try {
+      await addDoc(usersCollection, { type: 'New User Created', message: 'johndoe@example.com', date:'' , time:'' });
+      console.log('Operation completed');
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
 }

@@ -4,6 +4,7 @@ import {statistics} from "../../app/features/data/companyInformation";
 import {NgForOf, NgIf} from "@angular/common";
 import {MenuComponent} from "../../app/features/menu/menu.component";
 import {StatsComponent} from "../../app/features/apps/app-home/stats/stats.component";
+import {StandByComponent} from '../../app/core/stand-by/stand-by.component';
 interface statistics{
   name:string;
   logo:string;
@@ -20,7 +21,8 @@ interface statistics{
     NgIf,
     MenuComponent,
     StatsComponent,
-    NgForOf
+    NgForOf,
+    StandByComponent
   ],
   templateUrl: './public-site-dashboard.component.html',
   styleUrl: './public-site-dashboard.component.css'

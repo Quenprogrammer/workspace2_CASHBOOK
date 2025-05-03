@@ -1,108 +1,22 @@
-<!-- Hero -->
-<div class="gradient-x-overlay-sm-primary position-relative overflow-hidden">
-  <div class="container content-space-t-3 content-space-t-lg-4 content-space-b-1">
-    <div class="w-lg-65 text-center mx-lg-auto">
-      <!-- Heading -->
-      <div class="mb-5">
-        <h1 class="display-4 mb-3">The <span class="text-primary">#1</span> software development tool.</h1>
-        <p class="lead">Front Software is built for every member of your software team to plan, track, and release great software.</p>
-      </div>
-      <!-- End Heading -->
-
-      <div class="d-grid d-sm-flex justify-content-sm-center align-items-sm-center gap-3">
-        <a class="btn btn-primary btn-transition" href="#">Contact sales</a>
-
-        <a class="btn btn-soft-dark btn-transition" href="#">See pricing <i class="bi-chevron-right small ms-1"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mockup -->
-  <div class="container content-space-b-2 content-space-b-lg-3">
-    <div class="position-relative w-lg-75 text-center mx-lg-auto">
-      <!-- Browser Device -->
-      <figure class="device-browser">
-        <div class="device-browser-header">
-          <div class="device-browser-header-btn-list">
-            <span class="device-browser-header-btn-list-btn"></span>
-            <span class="device-browser-header-btn-list-btn"></span>
-            <span class="device-browser-header-btn-list-btn"></span>
+<div class="row g-1">
+  @for (items of data; track items.logo) {
+    <div class="col-12  col-md-4 col-lg-2 mb-2">
+      <!-- Card -->
+      <div class="card card-bordered card-transition shadow-none p-3 ">
+        <a class="card-bhody">
+          <div class="row g-1">
+            <div class="col-3">
+              <div class="flex-shrink-0">
+                <img class="avatar avatar-sm" [src]="items.logo" alt="Logo">
+              </div></div>
+            <div class="col-7 d-flex align-items-center"><h6 class="mt-2">{{items.name}}</h6></div>
           </div>
-          <div class="device-browser-header-browser-bar">www.htmlstream.com/front/</div>
-        </div>
-
-        <div class="device-browser-frame p-3">
-          <div class="row">  @for (items of data; track items.logo) {
-            <div class="col-6 col-md-4 mb-2">
-              <!-- Card -->
-              <div class="card card-bordered card-transition shadow-none p-3 ">
-                <a class="card-bhody">
-                  <div class="row g-1">
-                    <div class="col-3">
-                      <div class="flex-shrink-0">
-                      <img class="avatar avatar-sm" [src]="items.logo" alt="Logo">
-                    </div></div>
-                    <div class="col-7 d-flex align-items-center"><h6 class="mt-2">{{items.name}}</h6></div>
-                  </div>
 
 
 
 
-                </a>
-              </div>
-              <!-- End Card -->
-            </div>
-          }</div>
-        </div>
-      </figure>
-      <!-- End Browser Device -->
-
-
-
-
-
-
-
-
-
-
-
-      <!-- SVG Shape -->
-      <figure class="position-absolute top-0 end-0 mt-n10 me-n10" style="width: 12rem;" data-aos="fade-up" data-aos-delay="100" data-aos-offset="-50">
-        <img class="img-fluid" src="../assets/svg/components/dots-lg.svg" alt="Image Description">
-      </figure>
-      <!-- End SVG Shape -->
-
-      <!-- SVG Shape -->
-      <figure class="position-absolute bottom-0 start-0 mb-n7 ms-n7" style="width: 10rem;" data-aos="fade-up">
-        <img class="img-fluid" src="../assets/svg/components/dots.svg" alt="Image Description">
-      </figure>
-      <!-- End SVG Shape -->
+        </a>
+      </div>
+      <!-- End Card -->
     </div>
-  </div>
-  <!-- End Mockup -->
-
-  <!-- SVG Background Shape -->
-  <figure class="position-absolute top-0 end-0 zi-n1 mt-n10 me-n10" style="width: 32rem;">
-    <svg viewBox="0 0 451 902" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M451 820C247.2 820 82 654.8 82 451C82 247.2 247.2 82 451 82" stroke="white" stroke-width="164" stroke-miterlimit="10"/>
-    </svg>
-  </figure>
-  <!-- End SVG Background Shape -->
-
-  <!-- SVG Background Shape -->
-  <figure class="position-absolute bottom-0 start-0 zi-n1 mb-n10 me-n10" style="width: 21rem;">
-    <svg viewBox="0 0 451 902" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path opacity="0.125" d="M0 82C203.8 82 369 247.2 369 451C369 654.8 203.8 820 0 820" stroke="url(#paint1_linear)" stroke-width="164" stroke-miterlimit="10"/>
-      <defs>
-        <linearGradient id="paint1_linear" x1="323.205" y1="785.242" x2="-97.6164" y2="56.3589" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="white" stop-opacity="0"/>
-          <stop offset="1" stop-color="#377dff"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </figure>
-  <!-- End SVG Background Shape -->
-</div>
-<!-- End Hero -->
-
+  }</div>

@@ -1,0 +1,25 @@
+/* Change the border color of the checkbox to black */
+.custom-checkbox {
+  width: 20px;         /* Set the checkbox width */
+  height: 20px;        /* Set the checkbox height */
+  border: 2px solid black;  /* Set the border color to black */
+  border-radius: 4px;  /* Optional: rounded corners */
+  outline: none;       /* Remove default focus outline */
+  transition: border-color 0.3s ease;  /* Smooth transition */
+}
+
+/* Change border color when the checkbox is focused */
+.custom-checkbox:focus {
+  border-color: black;  /* Keep the border color black on focus */
+}
+
+/* Change border color when the checkbox is checked */
+.custom-checkbox:checked {
+  border-color: black;  /* Keep the border color black when checked */
+}
+
+/* Optional: Style the checkbox when it's checked */
+.custom-checkbox:checked::before {
+  background-color: black; /* Change background color of checked checkbox */
+  border-color: black;    /* Ensure the border color is black */
+}

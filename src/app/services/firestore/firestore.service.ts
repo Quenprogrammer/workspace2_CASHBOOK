@@ -21,7 +21,7 @@ export class FirestoreService {
 
   /** ✅ Fetch credited transactions */
   getAccounts(): Observable<Account[]> {
-    const accountCollection = collection(this.firestore, 'credit'); // Collection name
+    const accountCollection = collection(this.firestore, 'debit'); // Collection name
     return collectionData<Account>(accountCollection, { idField: 'id' }); // Using generics for type safety
   }
 

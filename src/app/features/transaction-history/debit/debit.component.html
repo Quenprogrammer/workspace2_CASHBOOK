@@ -1,39 +1,26 @@
-<!-- Loading Spinner Section
-<div *ngIf="isLoading" class="text-center">
-  <app-loading></app-loading>
+<div class="row g-1">
+<div class="col-md-3"><input type="text" class="form-control"  (input)="updateSearch('amount', $event)" placeholder="Search by Amount"></div>
+<div class="col-md-3"><input class="form-control" type="text" (input)="updateSearch('date', $event)" placeholder="Search by Date"></div>
+<div class="col-md-3"><input class="form-control" type="text" (input)="updateSearch('ref', $event)" placeholder="Search by Reference"></div>
+<div class="col-md-3"><input class="form-control" type="text" (input)="updateSearch('payee', $event)" placeholder="Search by Payee"></div>
+
 </div>
 
-&lt;!&ndash; Main Content Section &ndash;&gt;
-<div *ngIf="!isLoading">-->
-<!--@if (isLoading()) {
-  <app-loading></app-loading>
-} @else {-->
-<!--
-<div *ngIf="isLoading" class="text-center">
-  <app-loading></app-loading>
-</div>
--->
-<h1>test</h1>
 
-<input type="text" (input)="updateSearch('amount', $event)" placeholder="Search by Amount">
-<input type="text" (input)="updateSearch('date', $event)" placeholder="Search by Date">
-<input type="text" (input)="updateSearch('ref', $event)" placeholder="Search by Reference">
-<input type="text" (input)="updateSearch('payee', $event)" placeholder="Search by Payee">
 <div class="container mt-4">
   <h2>Download Transactions</h2>
 
   <div class="button-group mt-3">
     <button (click)="downloadCSV()" class="btn btn-primary">Download CSV</button>
     <button (click)="downloadExcel()" class="btn btn-success">Download Excel</button>
-<!--    <button (click)="downloadPDF()" class="btn btn-danger">Download PDF</button>-->
-    <button (click)="downloadJSON()" class="btn btn-info">Download JSON</button>
+   <button (click)="downloadJSON()" class="btn btn-info">Download JSON</button>
     <button (click)="downloadTXT()" class="btn btn-warning">Download TXT</button>
 
   </div>
 </div>
 
   <div class="container">
-    <!-- Form and Table Contents here -->
+
     <form>
       <div class="input-card input-card-sm">
         <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
@@ -82,6 +69,4 @@
     </form>
   </div>
 
-<!--
-</div>
--->
+

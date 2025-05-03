@@ -1,18 +1,14 @@
-/*
-import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import {inject} from '@angular/core';
 
-export const authGuard: CanActivateFn = () => {
+export const AuthGuard: CanActivateFn = () => {
   const router = inject(Router);
+  const loggedIn = localStorage.getItem('loggedIn');
 
-  // ✅ Check if userToken exists in localStorage
-  const isAuthenticated = !!localStorage.getItem('userToken');
-
-  if (!isAuthenticated) {
-    router.navigate(['/login']); // Redirect if not logged in
+  if (loggedIn === 'true') {
+    return true;
+  } else {
+    router.navigate(['/login']);
     return false;
   }
-
-  return true;
 };
-*/

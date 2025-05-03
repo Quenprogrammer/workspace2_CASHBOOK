@@ -3,7 +3,7 @@ import { interval } from 'rxjs';
 import { AuthGenerateService } from '../../../services/auth/auth-generate.service';
 
 @Component({
-  selector: 'app-stand-by',
+  selector: 'app-stand-by-OLD',
   standalone: true,
   template: `
     <h2  class="mb-0"> {{ formattedTime() }}s</h2>

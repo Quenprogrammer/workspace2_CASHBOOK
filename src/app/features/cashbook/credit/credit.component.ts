@@ -35,7 +35,11 @@ export interface MessageInquiries {
   styleUrls: ['./credit.component.scss']
 })
 export class CreditComponent implements OnInit {
-
+user:string='';
+Operation:string='';
+message:string='new transaction'
+  currentTime: Date = new Date();
+  today: Date = new Date();
   inquiriesMessage$: Observable<MessageInquiries[]>;
   generalMessageInquiries: any; // Moved declaration here
 
@@ -94,7 +98,7 @@ export class CreditComponent implements OnInit {
 
         console.log(`Transaction saved successfully to ${transactionType} collection`);
         this.toastService.show('', `Transaction saved successfully to ${transactionType} collection`, 'success');
-
+await  this.addNotifications();
         // Determine the total amount collection and document ID
         const totalCollection = transactionType === 'credit' ? 'totalCredit' : 'totalDebit';
         const documentId = transactionType === 'credit' ? 'totalCredited' : 'totalDebited';
@@ -150,5 +154,13 @@ export class CreditComponent implements OnInit {
     this.GeneralInquiriesMessage.patchValue({ referenceNumber: randomNum.toString() });
   }
 
-
+  async addNotifications() {
+    const usersCollection = collection(this.firestore, 'NOTIFICATIONS');
+    try {
+      await addDoc(usersCollection, { type: this.Operation, message: this.message, date:this.today , status:'successfully',user:this.user });
+      console.log('Operation completed');
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
 }

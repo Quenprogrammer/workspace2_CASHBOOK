@@ -1,0 +1,45 @@
+<div class="card h-100">
+  <!-- Header -->
+  <div class="card-header">
+    <h2 class="card-header-title">Logs</h2>
+  </div>
+  <!-- End Header -->
+
+  <!-- Body -->
+  <div class="card-body" style="height: 400px; overflow-y: auto;">
+    <ul class="list-unstyled list-py-3 mb-0" *ngIf="logs$ | async as logs;">
+      <li *ngFor="let log of logs">
+        <div class="d-flex align-items-center">
+          <a class="d-flex align-items-center me-2" href="#">
+            <div class="flex-shrink-0">
+              <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
+                <span class="avatar-initials">R</span>
+                <span class="avatar-status avatar-sm-status avatar-status-warning"></span>
+              </div>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h5 class="text-hover-primary mb-0">{{ log.action }}</h5>
+              <span class="fs-6 text-body">{{ log.date }}</span>
+            </div>
+          </a>
+          <div class="ms-auto">
+            <div class="form-check form-check-switch">
+              <p class="mb-0">{{ log.user }}</p>
+              <label class="form-check-label btn-icon btn-xs rounded-circle" for="connectionsCheckbox1">
+                <span class="form-check-default"><i class="bi-person-plus-fill"></i></span>
+                <span class="form-check-active"><i class="bi-check-lg"></i></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- End Body -->
+
+  <!-- Footer -->
+  <a class="card-footer text-center" href="user-profile-connections.html">
+    View all connections <i class="bi-chevron-right"></i>
+  </a>
+  <!-- End Footer -->
+</div>

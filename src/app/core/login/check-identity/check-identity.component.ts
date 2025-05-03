@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject, OnDestroy, signal, WritableSignal} from '@angular/core';
 import { NgIf } from '@angular/common';
 import {
   Firestore,
@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { TokenLoginComponent } from '../token-login/token-login.component';
 import { EmailLoginComponent } from '../email-login/email-login.component';
 import { OTPLoginComponent } from '../otplogin/otplogin.component';
+import {Router} from '@angular/router';
+import {Subscription, timer} from 'rxjs';
 
 @Component({
   selector: 'app-check-identity',
@@ -26,7 +28,22 @@ import { OTPLoginComponent } from '../otplogin/otplogin.component';
   templateUrl: './check-identity.component.html',
   styleUrls: ['./check-identity.component.css', '../../../../styles/modal.scss']
 })
-export class CheckIdentityComponent {
+export class CheckIdentityComponent implements OnDestroy{
+  EndTime =70;
+
+  subscription: Subscription;
+
+  constructor(private router: Router) {
+    this.subscription = timer(0, 1000).subscribe(() => {
+      this.EndTime--;
+      if (this.EndTime == 0) {
+        this.subscription.unsubscribe();
+        this.router.navigate(['/userTimeUp']);
+      }
+    });
+  }
+
+
   emailInput: string = '';
   emailExists: boolean | null = null;
   userInfo: DocumentData | null = null;
@@ -44,6 +61,11 @@ export class CheckIdentityComponent {
     } else {
       this.emailExists = false;
       this.userInfo = null;
+    }
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 

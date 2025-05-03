@@ -9,13 +9,14 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent {
   data =[
-    { name: 'Total Listings', count: 0,   logo: 'icons/customeimage/Rocket.svg' },
-    { name: 'Total Agents', count: 0,   logo: 'icons/customeimage/Norah.svg' },
-    { name: 'Total Leads', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
-    { name: 'Total Leads', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
-    { name: 'Total Leads', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
-    { name: 'Total Leads', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
-    { name: 'Total Leads', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
+    { name: 'Accounts', count: 0,   logo: 'icons/customeimage/Rocket.svg' },
+    { name: 'Apps', count: 0,   logo: 'icons/customeimage/Rocket.svg' },
+    { name: 'Notifications', count: 0,   logo: 'icons/customeimage/Norah.svg' },
+    { name: 'Recycle Bin', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
+    { name: 'Invoice', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
+    { name: 'Transactions', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
+    { name: 'Inbox', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
+    { name: 'Logs', count: 0,   logo: 'icons/customeimage/Mousehand.svg' },
 
   ]
 }

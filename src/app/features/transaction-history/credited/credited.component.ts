@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { AsyncPipe, CurrencyPipe, NgForOf, NgIf } from '@angular/common';
-import { Observable, BehaviorSubject, combineLatest, map } from 'rxjs';
+import {Observable, BehaviorSubject, combineLatest, map, take, of} from 'rxjs';
 import { Account, FirestoreService } from '../../../services/firestore/firestore.service';
 import { DatePipe } from '@angular/common';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingComponent } from '../../../core/system/loading/loading.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DownloadService} from '../../../services/download.service';
+import {doc, Firestore, getDoc, updateDoc} from '@angular/fire/firestore';
+import {companyName} from '../../data/companyInformation';
 
 @Component({
   selector: 'app-credited',
   standalone: true,
-  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse, LoadingComponent, FormsModule, ReactiveFormsModule],
+  imports: [AsyncPipe, NgForOf, CurrencyPipe, NgIf, NgbCollapse,  FormsModule, ReactiveFormsModule],
   providers: [DatePipe],
   templateUrl: './credited.component.html',
   styleUrls: ['./credited.component.css']
@@ -19,8 +22,11 @@ export class CreditedComponent implements OnInit {
   isLoading = true;
   isCollapsed = true;
   showFilters = true;
+  publicSiteModalOpen = signal(false);
+
   accounts$: Observable<Account[]> | undefined;
-  filteredAccounts$: Observable<Account[]> | undefined;
+  filteredAccounts$: Observable<Account[]> = new Observable<Account[]>(); // Initialize with empty Observable
+
 
   searchAmount = new BehaviorSubject<string>('');
   searchDate = new BehaviorSubject<string>('');
@@ -29,18 +35,22 @@ export class CreditedComponent implements OnInit {
 
   isModalOpen = false;
   selectedAccount: Account | null = null;
-
+  openPublicSiteModal() {
+    this.publicSiteModalOpen.set(true);
+  }
+  closePublicSiteModal() {
+    this.publicSiteModalOpen.set(false);
+  }
   /** ✅ Delete Popup Variables */
   isDeletePopupOpen = false;
   accountToDelete: Account | null = null;
 
-  constructor(private firestoreService: FirestoreService, private datePipe: DatePipe) {}
+  constructor(private firestore: Firestore, private firestoreService: FirestoreService, private datePipe: DatePipe,  private downloadService: DownloadService) {}
 
   ngOnInit() {
     this.accounts$ = this.firestoreService.getAccounts();
-
     this.filteredAccounts$ = combineLatest([
-      this.accounts$,
+      this.accounts$ || of([]),  // Use a default value if accounts$ is undefined
       this.searchAmount,
       this.searchDate,
       this.searchRef,
@@ -49,22 +59,17 @@ export class CreditedComponent implements OnInit {
       map(([accounts, amount, date, ref, payee]) => {
         return accounts.filter(account =>
           (amount ? account.amount?.toString().includes(amount.trim()) : true) &&
-          (date ? this.getFormattedDate(account.date) === date.trim() : true) &&
+          (date ? account.date?.toString().includes(date.trim()) : true) &&
           (ref ? account.referenceNumber?.toLowerCase().includes(ref.trim().toLowerCase()) : true) &&
           (payee ? account.payee?.toLowerCase().includes(payee.trim().toLowerCase()) : true)
         );
       })
     );
 
-    this.accounts$.subscribe(() => {
+    this.accounts$.pipe(take(1)).subscribe(() => {
       this.isLoading = false;
     });
-  }
 
-  getFormattedDate(date: string | Date | undefined): string {
-    if (!date) return 'Invalid Date';
-    const dateObj = typeof date === 'string' ? new Date(date) : date;
-    return this.datePipe.transform(dateObj, 'yyyy-MM-dd') || 'Invalid Date';
   }
 
   updateSearch(field: 'amount' | 'date' | 'ref' | 'payee', event: Event) {
@@ -86,8 +91,9 @@ export class CreditedComponent implements OnInit {
 
   closeModal() {
     this.isModalOpen = false;
-    this.selectedAccount = null;
+    this.selectedAccount = null;  // Reset selected account
   }
+
 
   /** ✅ OPEN DELETE POPUP */
   openDeletePopup(account: Account) {
@@ -101,22 +107,114 @@ export class CreditedComponent implements OnInit {
     this.accountToDelete = null;
   }
 
-  /** ✅ CONFIRM DELETE */
-/*  confirmDelete() {
+  confirmDelete() {
     if (this.accountToDelete?.id) {
-      this.firestoreService.deleteAccount(this.accountToDelete.id)
+      // Use the correct collection name: 'credit'
+      this.firestoreService.deleteAccount(this.accountToDelete.id, 'credit')
         .then(() => {
+          alert('Transaction deleted successfully.');
+          this.closeDeletePopup();
 
-          this.closeDeletePopup(); // ✅ Close popup after delete
+          // Optional: Refresh list if not reactive
+          // this.accounts$ = this.firestoreService.getAccounts();
         })
-        .catch(err => alert('Error deleting transaction: ' + err.message));
+        .catch(err => {
+          console.error('Deletion error:', err);
+          alert('Error deleting transaction: ' + err.message);
+        });
     } else {
       alert('Transaction ID not found.');
     }
-  }*/
+  }
+
+
+
+  downloadCSV() {
+    if (this.filteredAccounts$) {
+      this.downloadService.downloadCSV(this.filteredAccounts$, ['date', 'payee', 'amount', 'referenceNumber','paymentMode'], 'credit-transactions');
+    } else {
+      alert('No data available to download');
+    }
+  }
+
+
+  downloadExcel() {
+    this.downloadService.downloadExcel(this.filteredAccounts$, 'credit-transactions');
+  }
+
+ downloadPDF() {
+    this.downloadService.downloadPDF(this.filteredAccounts$, ['date', 'payee', 'amount', 'referenceNumber'], 'credit-transactions');
+   }
+
+  downloadJSON() {
+    this.downloadService.downloadJSON(this.filteredAccounts$, 'credit-transactions');
+  }
+
+  downloadTXT() {
+    this.downloadService.downloadTXT(this.filteredAccounts$, 'credit-transactions');
+  }
+
+
+  downloadAsWord() {
+    const fields = ['date', 'amount', 'description']; // your actual fields
+    this.downloadService.downloadWord(this.filteredAccounts$, fields, 'credit-transactions');
+  }
+
+  saveModalAsPDF() {
+    if (!this.selectedAccount) {
+      alert('No transaction selected.');
+      return;
+    }
+
+    this.downloadService.downloadSingleTransactionPDF(this.selectedAccount, 'credit-transaction');
+  }
+
+  async subtractFromTotalAmount() {
+    const collectionName = 'totalCredit';
+    const docId = 'totalCredited';
+
+    try {
+      const docRef = doc(this.firestore, collectionName, docId);
+      const docSnapshot = await getDoc(docRef);
+
+      if (!docSnapshot.exists()) {
+        throw new Error('Document not found');
+      }
+
+      const docData = docSnapshot.data() as { totalAmount: number };
+
+      if (this.accountToDelete && this.accountToDelete.amount != null) {
+        const updatedAmount = docData.totalAmount - this.accountToDelete.amount;
+        await updateDoc(docRef, { totalAmount: updatedAmount });
+        console.log('Document updated successfully');
+      } else {
+        alert('Account to delete has no valid amount');
+      }
+
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Error updating document:', error);
+        alert('Failed to update total amount: ' + error.message);
+        throw error;  // Rethrow the error for higher-level handling
+      } else {
+        console.error('Unknown error:', error);
+        alert('An unexpected error occurred.');
+        throw new Error('An unexpected error occurred');
+      }
+    }
+  }
+
 
   printDetails() {
-    if (!this.selectedAccount) return;
+    if (
+      !this.selectedAccount ||
+      !this.selectedAccount.date ||
+      !this.selectedAccount.amount ||
+      !this.selectedAccount.payee
+    ) {
+      alert('Selected transaction is incomplete or unavailable.');
+      return;
+    }
 
     const printWindow = window.open('', '', 'width=800,height=600');
     if (printWindow) {
@@ -180,7 +278,7 @@ export class CreditedComponent implements OnInit {
   <h2>Transaction Details</h2>
 
   <table>
-    <tr><th>Date</th><td>${this.getFormattedDate(this.selectedAccount.date)}</td></tr>
+    <tr><th>Date</th><td>${this.selectedAccount.date}</td></tr>
     <tr><th>Payee</th><td>${this.selectedAccount.payee}</td></tr>
     <tr><th>Type</th><td>${this.selectedAccount.type}</td></tr>
     <tr><th>Amount</th><td>₦${this.selectedAccount.amount}</td></tr>
@@ -196,4 +294,11 @@ export class CreditedComponent implements OnInit {
       printWindow.print();
     }
   }
+
+  protected readonly companyName = companyName;
 }
+
+
+
+
+

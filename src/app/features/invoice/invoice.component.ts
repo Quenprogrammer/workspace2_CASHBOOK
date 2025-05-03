@@ -57,6 +57,10 @@ export class InvoiceComponent {
   protected readonly country = country;
   protected readonly website = website;
   protected readonly logo = logo;
+  billToName = '';
+  dueDate = '';
+  BillToAddress = '';
+
   closeModal(): void {
 
   }
@@ -174,6 +178,7 @@ export class InvoiceComponent {
         // Save the data to Firestore in the 'invoices' collection
         await addDoc(collection(this.firestore, 'invoices'), invoiceData);
         alert('Invoice submitted successfully!');
+        await this.addNotifications()
         this.invoiceForm.reset();
         this.addItem(); // Reset with one item after submission
       } catch (error) {
@@ -182,6 +187,16 @@ export class InvoiceComponent {
       }
     } else {
       alert('Please fill all required fields correctly.');
+    }
+  }
+
+  async addNotifications() {
+    const usersCollection = collection(this.firestore, 'NOTIFICATIONS');
+    try {
+      await addDoc(usersCollection, { type: 'New Invoice Created', message: 'johndoe@example.com', date:'' , time:'' });
+      console.log('Operation completed');
+    } catch (error) {
+      console.error('Error:', error);
     }
   }
 }
