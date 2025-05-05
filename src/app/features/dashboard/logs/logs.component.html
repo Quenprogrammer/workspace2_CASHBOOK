@@ -1,56 +1,54 @@
-<div class="card">
-  <!-- Header -->
-  <div class="card-header card-header-content-between">
-    <h2 class="card-header-title">Login Stats</h2>
+<!-- Show loading when data is not yet available -->
+<app-loading *ngIf="!(logs$ | async); else showTable"></app-loading>
 
-  </div>
-  <!-- End Header -->
+<ng-template #showTable>
+  <div class="card">
+    <!-- Header -->
+    <div class="card-header card-header-content-between">
+      <h2 class="card-header-title">Login Stats</h2>
+    </div>
 
-  <!-- Table -->
-  <div class="table-responsive" style="height: 400px; overflow-y: auto;">
-    <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
-      <thead class="thead-light">
-      <tr>
-        <th>Project</th>
-        <th style="width: 40%;">Progress</th>
-        <th class="table-text-end">Hours spent</th>
-      </tr>
-      </thead>
-
-      <tbody  *ngIf="logs$ | async as logs;  ">
-      <tr *ngFor="let log of logs">
-        <td>
-          <div class="d-flex">
-                              <span class="avatar avatar-xs avatar-soft-dark avatar-circle">
-                                <span class="avatar-initials">U</span>
-                              </span>
-            <div class="ms-3">
-              <h5 class="mb-0">UI/UX</h5>
-              <small>Updated 2 hours ago</small>
+    <!-- Table -->
+    <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+      <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+        <thead class="thead-light">
+        <tr>
+          <th>Project</th>
+          <th style="width: 40%;">Progress</th>
+          <th class="table-text-end">Hours spent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let log of logs$ | async">
+          <td>
+            <div class="d-flex">
+                <span class="avatar avatar-xs avatar-soft-dark avatar-circle">
+                  <span class="avatar-initials">U</span>
+                </span>
+              <div class="ms-3">
+                <h5 class="mb-0">UI/UX</h5>
+                <small>Updated 2 hours ago</small>
+              </div>
             </div>
-          </div>
-        </td>
-        <td>
-          <div class="d-flex align-items-center">
-            <span class="me-3">0%</span>
-            <div class="progress table-progress">
-              <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                   aria-valuemax="100"></div>
+          </td>
+          <td>
+            <div class="d-flex align-items-center">
+              <span class="me-3">0%</span>
+              <div class="progress table-progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                     aria-valuemax="100"></div>
+              </div>
             </div>
-          </div>
-        </td>
-        <td class="table-text-end">4:25</td>
-      </tr>
+          </td>
+          <td class="table-text-end">4:25</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-
-      </tbody>
-    </table>
+    <!-- Footer -->
+    <a class="card-footer text-center" routerLink="/logs">
+      View all logs <i class="bi-chevron-right"></i>
+    </a>
   </div>
-  <!-- End Table -->
-
-  <!-- Footer -->
-  <a class="card-footer text-center" href="./projects.html">
-    View all projects <i class="bi-chevron-right"></i>
-  </a>
-  <!-- End Footer -->
-</div>
+</ng-template>

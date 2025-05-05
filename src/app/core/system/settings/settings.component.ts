@@ -17,6 +17,8 @@ import {SecurityComponent} from './security/security.component';
 import {ConfigComponent} from '../config/config.component';
 import {DisplayConfigComponent} from '../config/display-config/display-config.component';
 import {PaymentSetupComponent} from './payment-setup/payment-setup.component';
+import {TextComponent} from '../../components/text/text.component';
+import {companyName} from '../../../features/data/companyInformation';
 
 @Component({
   selector: 'app-settings',
@@ -36,7 +38,8 @@ import {PaymentSetupComponent} from './payment-setup/payment-setup.component';
     SecurityComponent,
     ConfigComponent,
     DisplayConfigComponent,
-    PaymentSetupComponent
+    PaymentSetupComponent,
+    TextComponent
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
@@ -277,5 +280,5 @@ export class SettingsComponent {
   }
 
 
-
+  protected readonly companyName = companyName;
 }

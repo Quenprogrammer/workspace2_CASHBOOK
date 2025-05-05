@@ -1,7 +1,7 @@
 import {Component, Inject, OnDestroy, OnInit, signal} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import { NetworkService } from '../../services/network.service';
-import { AccessPasswordComponent } from './access-password/access-password.component';
+
 import {TotalCreditedComponent} from '../../data/total-credited/total-credited.component';
 import {MenuItemsComponent} from './menu-items/menu-items.component';
 import {TextComponent} from "../../core/components/text/text.component";
@@ -11,15 +11,16 @@ import {WindowsViewComponent} from '../../core/windows-view/windows-view.compone
 import { doc, Firestore, setDoc} from '@angular/fire/firestore';
 import {NgbNav, NgbNavContent, NgbNavItem, NgbNavLinkBase} from '@ng-bootstrap/ng-bootstrap';
 import {LoadingComponent} from '../../core/system/loading/loading.component';
-import {StandByComponent} from '../../core/stand-by/stand-by.component';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NetworkComponent} from './network/network.component';
+import {AccessPasswordComponent} from './access-password/access-password.component';
 
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [
-
-    AccessPasswordComponent,
 
 
     NgIf,
@@ -32,7 +33,12 @@ import {StandByComponent} from '../../core/stand-by/stand-by.component';
     IntegrationComponent,
 
     LoadingComponent,
-
+    FormsModule,
+    NgForOf,
+    ReactiveFormsModule,
+    TextComponent,
+    NetworkComponent,
+    AccessPasswordComponent,
 
 
   ],
@@ -41,23 +47,21 @@ import {StandByComponent} from '../../core/stand-by/stand-by.component';
 })
 export class MenuComponent implements OnInit, OnDestroy {
   isLoading = signal<boolean>(false);
+  isModal2Open = signal(false);
 
-  isOnline: boolean = true;
   currentDate: string;
   currentTime: string = ''; // Initialize as an empty string
   private timer: any;
 
-  constructor(private networkService: NetworkService, @Inject(Firestore) private firestore: Firestore) {
+  constructor( @Inject(Firestore) private firestore: Firestore) {
     const today = new Date();
     this.currentDate = today.toLocaleDateString();
-    this.updateTime();
+
   }
 
 
-  ngOnInit(): void {
-    this.networkService.getOnlineStatus().subscribe(status => {
-      this.isOnline = status;
-    });
+  ngOnInit(){
+    this.updateTime();
   }
 
   ngOnDestroy(): void {

@@ -114,12 +114,14 @@ await  this.addNotifications();
           updatedTotalAmount += currentTotalAmount;
 
           await updateDoc(documentRef, { totalAmount: updatedTotalAmount });
+          await this.incrementTransactions();
         } else {
           await setDoc(documentRef, { totalAmount: updatedTotalAmount });
         }
 
-
+        await this.updateSystemTotal(transactionType, dataToSubmit.amount);
         console.log(`Updated ${transactionType} total amount: ${updatedTotalAmount}`);
+
       } catch (error) {
         console.error('Error saving transaction:', error);
         this.toastService.show('', 'Error saving transaction', 'danger');
@@ -161,6 +163,56 @@ await  this.addNotifications();
       console.log('Operation completed');
     } catch (error) {
       console.error('Error:', error);
+    }
+  }
+
+  async incrementTransactions() {
+    try {
+      const docRef = doc(this.firestore, 'SYSTEM_DATA_HISTORY', 'TOTAL_TRANSACTION');
+      const docSnapshot = await getDoc(docRef);
+
+      if (docSnapshot.exists()) {
+        const docData = docSnapshot.data() as { transactions: number };
+        const currentTransactions = docData.transactions || 0;
+
+        await updateDoc(docRef, {
+          transactions: currentTransactions + 1
+        });
+
+        this.toastService.show('', 'Transaction count updated successfully.', 'success');
+        console.log('Transaction count updated successfully.');
+      } else {
+        // If the document doesn't exist, create it with initial count 1
+        await setDoc(docRef, { transactions: 1 });
+        this.toastService.show('', 'Transaction count started at 1.', 'success');
+        console.log('Transaction count started at 1.');
+      }
+    } catch (error) {
+      console.error('Error updating transactions:', error);
+      this.toastService.show('', 'Error updating transactions.', 'danger');
+    }
+  }
+
+  async updateSystemTotal(transactionType: string, amount: number) {
+    const fieldKey = transactionType === 'credit' ? 'total_income' : 'total_debit';
+    const docRef = doc(this.firestore, 'SYSTEM_DATA_HISTORY', 'TOTAL_INCOME');
+
+    try {
+      const docSnap = await getDoc(docRef);
+      let current = 0;
+
+      if (docSnap.exists()) {
+        const data = docSnap.data() as { [key: string]: number };
+        current = data[fieldKey] || 0;
+      }
+
+      const newTotal = current + amount;
+      // ✅ Provide all 3 arguments to setDoc, including merge option
+      await setDoc(docRef, { [fieldKey]: newTotal }, { merge: true });
+
+      console.log(`Updated SYSTEM_DATA_HISTORY → ${fieldKey}: ${newTotal}`);
+    } catch (error) {
+      console.error('Failed to update SYSTEM_DATA_HISTORY:', error);
     }
   }
 }

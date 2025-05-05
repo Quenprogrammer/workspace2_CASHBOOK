@@ -4,7 +4,10 @@
     <div class="col-sm mb-sm-0">
 
       <h1 class="page-header-title">{{companyName}}</h1>
-      <p>View and manage all your academy's courses</p>
+      <p>View and manage all data</p><div class="text-center my-4">
+      <h4>Total Documents: {{ totalDocuments }}</h4>
+    </div>
+
     </div>
     <!-- End Col -->
 
@@ -15,7 +18,7 @@
 
 
   <div class="mt-4 mb-4">
-    <div class="card">
+    <div class="cardr">
 
       <div class="card-body">
         <div class="row g-1 ">
@@ -104,56 +107,32 @@
 
   <!-- End Row -->
 
-  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-5 mt-3">
+  <div class="row row-cols  row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-5 mt-3">
 
-  <div *ngFor="let stat of collectionStats" class="mb-2">
-
-    <div class="col mb-3 mb-lg-5">
-    <div class="card card-sm card-hover-shadow h-100  ">
-
-
-      <div class="card-body">
-        <div class="text-center">
-          <i class="bi  " style="font-size: 4rem;"></i>      </div>
-        <span class="d-block fs-6 text-muted mb-1 text-center">{{stat.count || '0'}} documents</span>
-        <h3 class="text-center">{{ stat.name }}</h3>
-      </div></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mb-5 mt-3">
-    @for(items of collectionsDetails; track items.name){
+    <div *ngFor="let stat of collectionStats" class="mb-2">
       <div class="col mb-3 mb-lg-5">
-        <!-- Card -->
-        <div class="card card-sm card-hover-shadow h-100  ">
-
-
+        <div class="card card-sm card-hover-shadow h-100">
           <div class="card-body">
-            <!--  <span  class="ms-2 ms-sm-3">
-                <div class="row g-1">
-                  <div class="col-md-5"><i class="bi-calendar-week"></i> Last Update</div>
-                  <div class="col-md-6 mt-n1 mt-md-0">
-                    <span class="text-success"> Apr 18, 2025 </span>
-                  </div>
-                </div>
-       </span>
-      -->
             <div class="text-center">
-              <i class="bi {{ items.icon }}" style="font-size: 4rem;"></i>      </div>
-            <span class="d-block fs-6 text-muted mb-1 text-center">{{items.documents || '0'}} documents</span>
-            <h3 class="text-center">{{items.name}}</h3>
+              <i class="bi" [ngClass]="stat.icon" style="font-size: 4rem;"></i>
+            </div>
+            <span class="d-block fs-6 text-muted mb-1 text-center">{{ stat.count || '0' }} documents</span>
+            <h3 class="text-center">{{ stat.name }}</h3> {{ stat.count || 0 }} documents ({{ stat.percentage }}%)
+            <div class="progress mt-3" style="height: 10px;">
+              <div class="progress-bar bg-primary" role="progressbar"
+                   [style.width.%]="stat.percentage"
+                   [attr.aria-valuenow]="stat.percentage"
+                   aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
           </div>
-
-
         </div>
-        <!-- End Card -->
       </div>
-    }
-
+    </div>
 
   </div>
-  <div *ngIf="isModalOpen" class="modal-overlay">
+
+    <div *ngIf="isModalOpen" class="modal-overlay">
     <div class="modal-content position-relative">
       <div class="card ">
         <div class="card-header d-flex justify-content-end  ">

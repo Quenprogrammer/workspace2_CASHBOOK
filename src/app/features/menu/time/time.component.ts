@@ -11,7 +11,7 @@ import {interval, map} from 'rxjs';
     AsyncPipe
   ],
   template: `
-    <p >Current Time: {{ currentTime | async }}</p>
+    <p >{{ currentTime | async }}</p>
   `,
 
 })

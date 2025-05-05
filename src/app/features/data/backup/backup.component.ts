@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { BackupService } from '../../../services/backup.service';
 import {DataServiceService} from '../../../services/dataService';
 import {GetCollectionCountService} from '../../../services/get-collection-count.service';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {allIcons} from '../../../../../public/icons/icons';
 import {RouterLink} from '@angular/router';
 import {companyName} from '../companyInformation';
@@ -20,7 +20,8 @@ interface collectionsDataInterface{
     NgIf,
     NgForOf,
     RouterLink,
-    SystemComponent
+    SystemComponent,
+    NgClass
   ],
   templateUrl: './backup.component.html',
   styleUrl: './backup.component.css'
@@ -32,10 +33,26 @@ export class BackupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDocs.getCountsForCollections(this.collectionsToCheck).subscribe(stats => {
-      this.collectionStats = stats;
+      const totalDocs = stats.reduce((sum, stat) => sum + (stat.count || 0), 0);
+
+      this.collectionStats = stats.map(stat => {
+        const match = this.collectionsDetails.find(
+          item => item.name.toLowerCase() === stat.name.toLowerCase()
+        );
+        const percentage = totalDocs > 0 ? ((stat.count || 0) / totalDocs) * 100 : 0;
+
+        return {
+          ...stat,
+          icon: match?.icon || 'bi-folder',
+          percentage: percentage.toFixed(1)
+        };
+      });
     });
   }
-  collectionStats: { name: string, count: number,  }[] = [];
+
+
+  collectionStats: { name: string, count: number, icon: string, percentage: string }[] = [];
+
   collectionsToCheck = [
     'General-inquiries',
     'HOMESETTINGS',
@@ -60,16 +77,32 @@ export class BackupComponent implements OnInit {
   ];
 
 
-  collectionsDetails:collectionsDataInterface[]=[
-    {name:'Logs', icon: 'bi-person-circle' , documents:''      /*login*/},
-    {name:'Logs', icon: 'bi-clock'   /*logs*/ , documents:''},
-    {name:'Users',icon: 'bi-globe'  /*users*/ , documents:''},
-    {name:'Configuration',icon: 'bi-tools' /*configs*/ , documents:''},
-    {name:'Accounts',icon: 'bi-currency-exchange' /*accounts*/, documents:''},
-    {name:'Transactions',icon: 'bi-arrow-repeat' /*transactiom*/, documents:'' },
+  collectionsDetails: collectionsDataInterface[] = [
+    { name: 'General-inquiries', icon: 'bi-envelope', documents: '' },
+    { name: 'HOMESETTINGS', icon: 'bi-house-door', documents: '' },
+    { name: 'LEADS', icon: 'bi-person-plus', documents: '' },
+    { name: 'Notifications', icon: 'bi-bell', documents: '' },
+    { name: 'banks', icon: 'bi-bank', documents: '' },
+    { name: 'cashbook accounts', icon: 'bi-cash-stack', documents: '' },
+    { name: 'config', icon: 'bi-tools', documents: '' },
+    { name: 'credit', icon: 'bi-plus-circle', documents: '' },
+    { name: 'credit-card-info', icon: 'bi-credit-card-2-front', documents: '' },
+    { name: 'crypto-tokens', icon: 'bi-currency-bitcoin', documents: '' },
+    { name: 'debit', icon: 'bi-dash-circle', documents: '' },
+    { name: 'income', icon: 'bi-currency-exchange', documents: '' },
+    { name: 'logs', icon: 'bi-clock', documents: '' },
+    { name: 'testingData', icon: 'bi-bezier', documents: '' },
+    { name: 'totalCredit', icon: 'bi-bar-chart-line', documents: '' },
+    { name: 'totalDebit', icon: 'bi-bar-chart-steps', documents: '' },
+    { name: 'transaction', icon: 'bi-arrow-left-right', documents: '' },
+    { name: 'transfer', icon: 'bi-box-arrow-up-right', documents: '' },
+    { name: 'transfer_by_login', icon: 'bi-person-check', documents: '' },
+    { name: 'users', icon: 'bi-people', documents: '' }
+  ];
 
-
-]
+  get totalDocuments(): number {
+    return this.collectionStats.reduce((total, stat) => total + (stat.count || 0), 0);
+  }
 
   openModal() {
 
@@ -98,18 +131,3 @@ export class BackupComponent implements OnInit {
   protected readonly companyName = companyName;
 }
 
-
-/* addLogTrack(): void {
-   const now = new Date();
-   const logTrack = {
-     date: now.toLocaleDateString(),  // e.g., "17/04/2025"
-     time: now.toLocaleTimeString(),  // e.g., "10:34:56 AM"
-     action: 'Data Backup',
-     user: 'admin',
-
-   };
-
-   this.firestoreService.addData('logs', logTrack)
-     .then(() => console.log('LogTrack saved to Firestore'))
-     .catch(error => console.error('Error saving LogTrack:', error));
- }*/

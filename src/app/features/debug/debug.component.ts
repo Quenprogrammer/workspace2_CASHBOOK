@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import {EncryptionService} from '../../services/encryption.service';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {companyName, logo} from '../data/companyInformation';
+import {Router} from '@angular/router';
+import { AuthStateService} from '../auth-state.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-debug',
@@ -12,10 +16,13 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
   templateUrl: './debug.component.html',
   styleUrl: './debug.component.css'
 })
-export class DebugComponent {
-  form: FormGroup;
+export class DebugComponent implements OnInit{
+isValue!:string;
 
-  constructor(
+subscription!:Subscription
+  /*form: FormGroup;
+
+  constructor(public sharedService: AuthStateService,
     private fb: FormBuilder,
     private encryptionService: EncryptionService
   ) {
@@ -37,4 +44,46 @@ export class DebugComponent {
 
     console.log('Encrypted form data:', encryptedData);
   }
+*/
+  protected readonly logo = logo;
+  protected readonly companyName = companyName;
+
+
+  username = signal('');
+  password = signal('');
+
+  constructor(public sharedService: AuthStateService,private router: Router) { }
+  setValueTrue(): void {
+    this.sharedService.setValue('eeeeeeeetrue');// or this.sharedService.setValue(true);
+
+  }
+
+
+  toggleValue(): void {
+    this.sharedService.toggleValue();
+  }
+
+  login(): void {
+    if (this.username() === 'admin@tibetrealty.com' && this.password() === 'a') {
+      // Simulate login success
+      localStorage.setItem('loggedIn', 'true');
+      this.setValueTrue();
+      this.router.navigate(['/menu']);
+    } else {
+      alert('Invalid username or password');
+    }
+  }
+  ngOnInit(){
+    this.subscription=this.sharedService.isValue$.subscribe(value =>
+    {this.isValue=value});
+    this.cleanCache()
+
+}
+
+  cleanCache(){
+    localStorage.setItem('loggedIn', 'false');
+  }
+ngOnDestroy():void{
+    this.subscription.unsubscribe()
+}
 }

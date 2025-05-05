@@ -1,55 +1,51 @@
-ol.even {
-  position: relative;
-  left: 5.45455rem;
+/* Styling for the Success/Error Message */
+.alert {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-ol.odd {
-  position: relative;
-  margin-bottom: -4.5%;
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
 }
 
-.hex {
-  position: relative;
-  margin: 1em auto;
-  width: 6rem;
-  height: 10.2rem;
-  background: #1e2530;
-  transform: rotate(-90deg);
-  display: inline-block;
-  list-style-type: none;
-  margin-right: 4.61538rem;
-  transition: all 150ms ease-in-out;
-  z-index: 2;
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
-.hex:before, .hex:after {
+/* Confirmation Dialog Styles */
+.confirmation-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.overlay {
   position: absolute;
-  width: inherit;
-  height: inherit;
-  border-radius: inherit;
-  background: inherit;
-  content: '';
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hex:before {
-  transform: rotate(60deg);
+.confirmation-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 10000;
 }
 
-.hex:after {
-  transform: rotate(-60deg);
-}
-
-.hex:hover {
-  background: #ea7432;
-  cursor: pointer;
-}
-.hex .hex-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%) rotate(90deg);
-
-  color: white;
+.confirmation-box button {
+  margin: 5px;
 }

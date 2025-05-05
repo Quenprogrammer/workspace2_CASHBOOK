@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {collectionData, Firestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {collection} from 'firebase/firestore';
@@ -20,7 +20,7 @@ interface LogDocument {
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.css'
 })
-export class AccountsComponent {
+export class AccountsComponent implements OnInit{
   firestore: Firestore = inject(Firestore);
   logs$!: Observable<LogDocument[]>;
 

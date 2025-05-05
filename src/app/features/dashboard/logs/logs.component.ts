@@ -3,6 +3,8 @@ import {collectionData, Firestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {collection} from 'firebase/firestore';
 import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
+import {LoadingComponent} from '../../../core/system/loading/loading.component';
+import {RouterLink} from '@angular/router';
 
 interface LogDocument {
   action: string;
@@ -16,7 +18,9 @@ interface LogDocument {
   imports: [
     NgForOf,
     AsyncPipe,
-    NgIf
+    NgIf,
+    LoadingComponent,
+    RouterLink
   ],
   templateUrl: './logs.component.html',
   styleUrl: './logs.component.css'

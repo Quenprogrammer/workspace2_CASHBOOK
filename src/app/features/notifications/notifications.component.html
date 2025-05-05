@@ -1,192 +1,323 @@
-<div class="navbar-dark bg-primary" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
-
-
-  <div>
-    <h3>Operation Details</h3>
-    <div *ngIf="documents$ | async as documents; else loading">
-      <div *ngFor="let doc of documents">
-        <p><strong>Status:</strong> {{ doc.status }}</p>
-        <p><strong>Date:</strong> {{ doc.date }}</p>
-        <p><strong>Operation:</strong> {{ doc.operation }}</p>
-        <p><strong>ID:</strong> {{ doc.id }}</p>
-      </div>
-    </div>
-    <ng-template #loading>
-      <p>Loading...</p>
-    </ng-template>
-  </div>
-
-  <div class="container content-space-1 content-space-b-lg-3">
-
-    <!-- app.component.html -->
 
 
 
-    <div class="row align-items-center">
-      <div class="col">
-        <div class=" ">
-          <h1 class="h2 text-white">Personal info</h1>
-        </div>
-
-        <!-- Breadcrumb -->
-
-        <!-- End Breadcrumb -->
-      </div>
-      <!-- End Col -->
-
-      <div class="col-auto">
-        <div class="d-none d-lg-block">
-          <a class="btn btn-soft-light btn-sm" href="#">Log out</a>
-        </div>
-
-        <!-- Responsive Toggle Button -->
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-default">
-                <i class="bi-list"></i>
-              </span>
-          <span class="navbar-toggler-toggled">
-                <i class="bi-x"></i>
-              </span>
-        </button>
-        <!-- End Responsive Toggle Button -->
-      </div>
-      <!-- End Col -->
-    </div>
-    <!-- End Row -->
-  </div>
-</div>
-
-<div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-n10">
-  <div class="row">
-
-    <div class="col-lg-12">
-      <!-- Card -->
-      <div class=" card card-body mb-5">
+<!-- Show loading when data is not yet available -->
+<app-loading *ngIf="!(logs$ | async); else showTable"></app-loading>
 
 
-        <div class="border-bottom pb-4 mb-4">
+
+
+<main id="content" role="main" class="main">
+  <ng-template #showTable>
+    <!-- Content -->
+    <div class="content container-fluid">
+
+      <div class="gradient-x-three-sm-primary">
+        <div class="container content-space-2">
+          <form>
+            <!-- Input Card --><h1>Notifications</h1>
+            <div class="input-card input-card-sm mb-3"  >
+              <div class="input-card-form">
+                <label for="jobTitleForm" class="form-label visually-hidden">Job, title, skills, or company</label>
+                <div class="input-group input-group-merge">
+                <span class="input-group-prepend input-group-text">
+                  <i class="bi-search"></i>
+                </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [ngModel]="searchQuery()"
+                    (ngModelChange)="searchQuery.set($event)"
+                    placeholder="Search logs"
+                  />
+
+                </div>
+              </div>
+
+              <div class="input-card-form">
+                <div class="input-group input-group-merge">
+                <span class="input-group-prepend input-group-text">
+                  <i class="bi-geo-alt"></i>
+                </span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary mx-1 mb-2 mb-md-0">Download</button>
+              <button type="button" class="btn btn-primary  mx-1 mb-2 mb-md-0" (click)="deleteAllLogs()">Delete all Logs </button>
+              <button type="button" class="btn btn-primary  mx-1 mb-2 mb-md-0"  (click)="filterLogs()" >BackUp Data </button>
+            </div>
+            <!-- End Input Card -->
+          </form>
+
           <div class="row align-items-center">
-            <div class="col-sm-6 mb-2 mb-sm-0">
-              <h3 class="mb-0">Reviews</h3>
+            <div class="col-md-auto mb-3 mb-lg-0">
+              <h6 class="mb-1">Limit search to:</h6>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-md mb-3 mb-lg-0">
+              <!-- Check -->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox1" value="option1" checked="">
+                <label class="form-check-label" for="jobSearchToCheckbox1">Job title</label>
+              </div>
+              <!-- End Check -->
+
+              <!-- Check -->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox2" value="option2">
+                <label class="form-check-label" for="jobSearchToCheckbox2">Skills</label>
+              </div>
+              <!-- End Check -->
+
+              <!-- Check -->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox3" value="option3">
+                <label class="form-check-label" for="jobSearchToCheckbox3">Companies</label>
+              </div>
+              <!-- End Check -->
+
+              <!-- Check -->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox4" value="option4">
+                <label class="form-check-label" for="jobSearchToCheckbox4">Field of study</label>
+              </div>
+              <!-- End Check -->
             </div>
 
-
-            <div class="col-sm-6">
-              <!-- Form -->
-              <form>
-                <div class="input-group input-group-merge">
-                  <input type="search" class="form-control" placeholder="Search reviews" aria-label="Search reviews">
-                  <div class="input-group-append input-group-text">
-                    <i class="bi-search"></i>
-                  </div>
-                </div>
-              </form>
-              <!-- End Form -->
+            <div class="col-md-auto">
+              <!-- Switch -->
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="remoteOnlySwitch">
+                <label class="form-check-label" for="remoteOnlySwitch">Remote only</label>
+              </div>
+              <!-- End Switch -->
             </div>
             <!-- End Col -->
           </div>
-          <!-- End Row -->
+          <div *ngIf="deletingInProgress()">
+            <p>Deleting... {{ deletedDocs() }} of {{ totalDocs() }} documents deleted.</p>
+            <progress [value]="deletedDocs()" [max]="totalDocs()"></progress>
+          </div>
         </div>
-
-
-
-
       </div>
-  <div class="card  shadow-none mb-2">
-    <ul class="list-comment list-comment-divider ">
-      <!-- Item -->
-      <li class="list-comment-item">
-        <div class="card p-3">
-          <!-- Media -->
-          <div class="d-flex align-items-center mb-3">
-            <div class="flex-shrink-0">
-              <img class="avatar avatar-sm avatar-circle" src="avatar/avatar-svgrepo-com (1).svg" alt="Image Description">
-            </div>
+      <!-- Card -->
+      <div class="card card-body">
 
-            <div class="flex-grow-1 ms-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Dave Austin</h5>
-                <span class="d-block small text-muted">April 3, 2019</span>
+        <div class="row">
+          <div class="col-lg-8 mb-7 mb-lg-0">
+            <!-- Heading -->
+            <div class="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
+              <h1 class="h3 mb-0">Shopping cart</h1>
+              <span>2 items</span>
+            </div>
+            <!-- End Heading -->
+
+            <!-- Form -->
+            <form>
+              <!-- List Group -->
+              <ul class="list-group list-group-flush list-group-no-gutters mb-5">
+                <!-- Item -->
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-xl avatar-4x3" src="../assets/img/320x320/img2.jpg" alt="Image Description">
+                    </div>
+
+                    <div class="flex-grow-1 ms-3">
+                      <div class="row">
+                        <div class="col-sm-7 mb-3 mb-sm-0">
+                          <h5><a class="text-dark" href="#">Originals national backpack</a></h5>
+
+                          <div class="d-block d-sm-none">
+                            <h5 class="mb-1">$29.99</h5>
+                          </div>
+
+                          <div class="d-grid gap-1">
+                            <div class="text-body">
+                              <span class="small">Gender:</span>
+                              <span class="fw-semibold small">Men</span>
+                            </div>
+
+                            <div class="text-body">
+                              <span class="small">Color:</span>
+                              <span class="fw-semibold small">Grey</span>
+                            </div>
+
+                            <div class="text-body">
+                              <span class="small">Size:</span>
+                              <span class="fw-semibold small">One size</span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-sm-3">
+                          <div class="row">
+                            <div class="col-auto">
+                              <!-- Select -->
+                              <select class="form-select form-select-sm mb-3">
+                                <option value="quantity1">1</option>
+                                <option value="quantity2">2</option>
+                                <option value="quantity3">3</option>
+                                <option value="quantity4">4</option>
+                                <option value="quantity5">5</option>
+                                <option value="quantity6">6</option>
+                                <option value="quantity7">7</option>
+                                <option value="quantity8">8</option>
+                                <option value="quantity9">9</option>
+                                <option value="quantity10">10</option>
+                              </select>
+                              <!-- End Select -->
+                            </div>
+
+                            <div class="col-auto">
+                              <div class="d-grid gap-2">
+                                <a class="link-sm link-secondary small" href="javascript:;">
+                                  <i class="bi-trash me-1"></i> Remove
+                                </a>
+
+                                <a class="link-sm link-secondary small" href="javascript:;">
+                                  <i class="bi-heart me-1"></i> Save for later
+                                </a>
+                              </div>
+                            </div>
+                            <!-- End Col -->
+                          </div>
+                          <!-- End Row -->
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-4 col-sm-2 d-none d-sm-inline-block text-right">
+                          <span class="h5 d-block mb-1">$29.99</span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+              <!-- End List Group -->
+
+              <div class="d-sm-flex justify-content-end">
+                <a class="link" href="../demo-shop/index.html">
+                  <i class="bi-chevron-left small ms-1"></i> Continue shopping
+                </a>
               </div>
-            </div>
+            </form>
+            <!-- End Form -->
           </div>
-          <!-- End Media -->
+          <!-- End Col -->
 
-          <div class="mb-2">
-            <p>This course helped me in learning python in a very simple and effective way & boosts up my confidence. Concepts have been explained in a crystal clear way.</p>
-          </div>
+          <div class="col-lg-4">
+            <div class="ps-lg-4">
+              <!-- Card -->
+              <div class="card card-sm shadow-sm mb-4">
+                <div class="card-body">
+                  <div class="border-bottom pb-4 mb-4">
+                    <h3 class="card-header-title">Order summary</h3>
+                  </div>
 
+                  <form>
+                    <div class="border-bottom pb-4 mb-3">
+                      <input type="text" class="form-control" name="name" placeholder="Enter promo code" aria-label="Enter promo code">
+                    </div>
 
+                    <div class="border-bottom pb-4 mb-4">
+                      <div class="d-grid gap-3">
+                        <dl class="row">
+                          <dt class="col-sm-6">Item subtotal (2)</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">$73.98</dd>
+                        </dl>
+                        <!-- End Row -->
 
-          <!-- Media -->
-          <div class="d-flex align-items-center">
+                        <dl class="row">
+                          <dt class="col-sm-6">Delivery</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">Free</dd>
+                        </dl>
+                        <!-- End Row -->
+                      </div>
+                    </div>
 
+                    <div class="border-bottom pb-4 mb-4">
+                      <div class="d-grid gap-3">
+                        <!-- Check -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="deliveryRadioName" id="deliveryRadio1" checked="">
+                          <label class="form-check-label text-dark" for="deliveryRadio1">
+                            Free - Standard delivery
+                            <span class="d-block text-muted small">Shipment may take 5-6 business days</span>
+                          </label>
+                        </div>
+                        <!-- End Check -->
 
-            <div class="d-flex gap-2">
-              <a class="btn btn-danger btn-xs" href="javascript:;">
-                <i class="bi-hand-thumbs-up me-1"></i> Delete <span>(45)</span>
-              </a>
+                        <!-- Check -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="deliveryRadioName" id="deliveryRadio2">
+                          <label class="form-check-label text-dark" for="deliveryRadio2">
+                            $7.99 - Express delivery
+                            <span class="d-block text-muted small">Shipment may take 2-3 business days</span>
+                          </label>
+                        </div>
+                        <!-- End Check -->
+                      </div>
+                    </div>
 
-            </div>
-          </div>
-          <!-- End Media -->
-        </div>
-      </li>
-      <!-- End Item -->
+                    <div class="d-grid gap-3 mb-4">
+                      <dl class="row">
+                        <dt class="col-sm-6">Estimated tax</dt>
+                        <dd class="col-sm-6 text-sm-end mb-0">$0.00</dd>
+                      </dl>
+                      <!-- End Row -->
 
-      <!-- End Item -->
-    </ul>
-  </div>
-  <div class="card  shadow-none mb-2">
-    <ul class="list-comment list-comment-divider ">
-      <!-- Item -->
-      <li class="list-comment-item">
-        <div class="card p-3">
-          <!-- Media -->
-          <div class="d-flex align-items-center mb-3">
-            <div class="flex-shrink-0">
-              <img class="avatar avatar-sm avatar-circle" src="avatar/avatar-svgrepo-com (1).svg" alt="Image Description">
-            </div>
+                      <dl class="row">
+                        <dt class="col-sm-6">Total</dt>
+                        <dd class="col-sm-6 text-sm-end mb-0">$73.98</dd>
+                      </dl>
+                      <!-- End Row -->
+                    </div>
 
-            <div class="flex-grow-1 ms-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Dave Austin</h5>
-                <span class="d-block small text-muted">April 3, 2019</span>
+                    <div class="d-grid">
+                      <a class="btn btn-primary btn-lg" href="../demo-shop/checkout.html">Checkout</a>
+                    </div>
+                  </form>
+                </div>
+                <!-- End Card -->
               </div>
+
+              <!-- Media -->
+              <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                  <div class="svg-icon svg-icon-sm text-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M22.1671 18.1421C22.4827 18.4577 23.0222 18.2331 23.0206 17.7868L23.0039 13.1053V5.52632C23.0039 4.13107 21.8729 3 20.4776 3H8.68815C7.2929 3 6.16183 4.13107 6.16183 5.52632V9H13C14.6568 9 16 10.3431 16 12V15.6316H19.6565L22.1671 18.1421Z" fill="#035A4B"></path>
+                      <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M1.98508 18V13C1.98508 11.8954 2.88051 11 3.98508 11H11.9851C13.0896 11 13.9851 11.8954 13.9851 13V18C13.9851 19.1046 13.0896 20 11.9851 20H4.10081L2.85695 21.1905C2.53895 21.4949 2.01123 21.2695 2.01123 20.8293V18.3243C1.99402 18.2187 1.98508 18.1104 1.98508 18ZM5.99999 14.5C5.99999 14.2239 6.22385 14 6.49999 14H11.5C11.7761 14 12 14.2239 12 14.5C12 14.7761 11.7761 15 11.5 15H6.49999C6.22385 15 5.99999 14.7761 5.99999 14.5ZM9.49999 16C9.22385 16 8.99999 16.2239 8.99999 16.5C8.99999 16.7761 9.22385 17 9.49999 17H11.5C11.7761 17 12 16.7761 12 16.5C12 16.2239 11.7761 16 11.5 16H9.49999Z" fill="#035A4B"></path>
+                    </svg>
+
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-2">
+                  <span class="small me-1">Need Help?</span>
+                  <a class="link small" href="#">Chat now</a>
+                </div>
+              </div>
+              <!-- End Media -->
             </div>
           </div>
-          <!-- End Media -->
-
-          <div class="mb-2">
-            <p>This course helped me in learning python in a very simple and effective way & boosts up my confidence. Concepts have been explained in a crystal clear way.</p>
-          </div>
-
-
-
-          <!-- Media -->
-          <div class="d-flex align-items-center">
-
-
-            <div class="d-flex gap-2">
-              <a class="btn btn-danger btn-xs" href="javascript:;">
-                <i class="bi-hand-thumbs-up me-1"></i> Delete <span>(45)</span>
-              </a>
-
-            </div>
-          </div>
-          <!-- End Media -->
+          <!-- End Col -->
         </div>
-      </li>
-      <!-- End Item -->
+      </div>
 
-      <!-- End Item -->
-    </ul>
-  </div>
+
+      <!-- End Card -->
     </div>
+    <!-- End Content -->
 
-  </div>
-  <!-- End Row -->
-</div>
-<!-- End Hero -->
+  </ng-template>
 
-<!-- End Content -->
+  <!-- Confirmation Modal -->
+
+
+</main>

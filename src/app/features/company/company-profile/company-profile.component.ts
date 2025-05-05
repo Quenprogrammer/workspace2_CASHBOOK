@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {address, companyName, founded, LGA} from '../../data/companyInformation';
+import {address, companyName, founded, LGA, theme} from '../../data/companyInformation';
 import {CaseStudyComponent} from './case-study/case-study.component';
 import {DataServiceService} from '../../../services/dataService';
 
@@ -38,4 +38,5 @@ export class CompanyProfileComponent {
   protected readonly address = address;
   protected readonly LGA = LGA;
   protected readonly founded = founded;
+  protected readonly theme = theme;
 }

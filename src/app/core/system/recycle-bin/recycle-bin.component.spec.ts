@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NetBalanceComponent } from './net-balance.component';
+import { RecycleBinComponent } from './recycle-bin.component';
 
-describe('NetBalanceComponent', () => {
-  let component: NetBalanceComponent;
-  let fixture: ComponentFixture<NetBalanceComponent>;
+describe('RecycleBinComponent', () => {
+  let component: RecycleBinComponent;
+  let fixture: ComponentFixture<RecycleBinComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NetBalanceComponent]
+      imports: [RecycleBinComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NetBalanceComponent);
+    fixture = TestBed.createComponent(RecycleBinComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

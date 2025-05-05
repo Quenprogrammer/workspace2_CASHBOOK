@@ -15,7 +15,7 @@ import {TruncateTextPipe} from '../../../app/shared/truncate-text-pipe/truncate-
   styleUrl: './state-we-operate.component.css'
 })
 export class StateWeOperateComponent {
-statesWeOperateIn = [
+  statesWeOperateIn = [
     {
       name: 'Kano State',
       icon: 'publicSite/bgPublicsSite/kano.webp',
@@ -52,12 +52,12 @@ statesWeOperateIn = [
       map: 'publicSite/map/lagos.png',
       description: 'Lagos State is the cornerstone of our southern operations and a major economic gateway for the country. From Apapa ports to the mainland business districts, our transportation services are fully integrated into the commercial ecosystem. We handle container movement, last-mile delivery, e-commerce logistics, inter-state passenger services, and business-to-business transport. With high traffic and dense population, our operations in Lagos are supported by advanced logistics planning, GPS tracking, and customer service systems. Whether you need to move cargo from the ports or schedule regular passenger trips, we deliver speed, reliability, and excellence across the board.'
     },
-  {
-    name: 'Niger Republic',
-    icon: 'publicSite/bgPublicsSite/nigerR.jpeg',
-    map: 'publicSite/map/niger.png',
-    description: 'Niger Republic plays a crucial role in our cross-border transportation network, serving as a strategic location for international trade and logistics between Nigeria and the rest of West Africa. As a neighboring country, Niger is an essential link for transporting goods, agricultural produce, industrial materials, and essential supplies across borders. We provide reliable services that cover long-haul deliveries, including moving mining equipment, fuel, construction materials, and food supplies between Nigeria and Niger. Our fleet is specially equipped for long-distance journeys, ensuring that all goods are transported securely, safely, and in compliance with all customs and border regulations. We offer both freight and passenger transport services, with a focus on timeliness, efficiency, and customer satisfaction. Our team is well-versed in the logistical challenges posed by the diverse terrains and weather conditions of the region, ensuring smooth operations even in remote and challenging areas. Whether its managing bulk shipments or facilitating smaller business deliveries, we ensure that businesses in Niger and Nigeria stay connected with reliable, cost-effective, and timely transportation solutions.'
-  }
+    {
+      name: 'Niger Republic',
+      icon: 'publicSite/bgPublicsSite/nigerR.jpeg',
+      map: 'publicSite/map/niger.png',
+      description: 'Niger Republic plays a crucial role in our cross-border transportation network, serving as a strategic location for international trade and logistics between Nigeria and the rest of West Africa. As a neighboring country, Niger is an essential link for transporting goods, agricultural produce, industrial materials, and essential supplies across borders. We provide reliable services that cover long-haul deliveries, including moving mining equipment, fuel, construction materials, and food supplies between Nigeria and Niger. Our fleet is specially equipped for long-distance journeys, ensuring that all goods are transported securely, safely, and in compliance with all customs and border regulations. We offer both freight and passenger transport services, with a focus on timeliness, efficiency, and customer satisfaction. Our team is well-versed in the logistical challenges posed by the diverse terrains and weather conditions of the region, ensuring smooth operations even in remote and challenging areas. Whether its managing bulk shipments or facilitating smaller business deliveries, we ensure that businesses in Niger and Nigeria stay connected with reliable, cost-effective, and timely transportation solutions.'
+    }
   ];
   isModalOpen: boolean = false;
   closeModal() {

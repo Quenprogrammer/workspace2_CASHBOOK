@@ -42,26 +42,24 @@ z
       <div class="card-body">
         <div class="row ">
 
-          <div class="col-6 col-sm-3 mb-5 mb-lg-0">
+          <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+           <app-network></app-network>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
             <!-- Stats -->
             <div class="d-lg-flex align-items-md-center">
               <div class="flex-shrink-0">
-                <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                <div class=" " style="width: 3rem; height: 3rem;" role="status">
+                  <img style="width: 100%; height:40px" src="gif/3.svg" alt="">
                 </div>
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Network Connection</span>
+                <span class="d-block fs-6">Database Records</span>
                 <div class="d--flex align-items-center">
-                  <h3 class="mb-0" *ngIf="isOnline; else offlineTemplate">online</h3>
-                  <div class="network-status">
-                    <ng-template #offlineTemplate>
-                      <h3 class="mb-0">offline</h3>
-                    </ng-template>
-                  </div>
+                  <h3 class="mb-0" >27738848</h3>
 
-                  <!-- Other content of your menu component -->
 
                 </div>
               </div>
@@ -69,26 +67,7 @@ z
             <!-- End Stats -->
           </div>
 
-          <div class="col-6 col-sm-3">
-            <!-- Stats -->
-            <div class="d-lg-flex align-items-md-center">
-              <div class="flex-shrink-0">
-                <i class="bi-clock-history fs-1 text-primary"></i>
-              </div>
-
-              <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Records</span>
-                <div class="d--flex align-items-center">
-                  <h3 class="mb-0">
-
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <!-- End Stats -->
-          </div>
-
-          <div class="col-6 col-sm-3">
+          <div class="col-6 col-md-4 col-lg-3">
             <!-- Stats -->
             <div class="d-lg-flex align-items-md-center">
               <div class="flex-shrink-0">
@@ -96,7 +75,7 @@ z
               </div>
 
               <div class="flex-grow-1 ms-lg-3">
-                <span class="d-block fs-6">Authorization</span>
+
                 <div class="d--flex align-items-center">
                   <h3 class="mb-0">
                     <app-access-password></app-access-password>
@@ -106,6 +85,27 @@ z
             </div>
             <!-- End Stats -->
           </div>
+
+       <!--   <div class="col-6 col-sm-3">
+            &lt;!&ndash; Stats &ndash;&gt;
+            <div class="d-lg-flex align-items-md-center">
+
+
+              <div class="flex-grow-1 ms-lg-3">
+
+                <div class="d&#45;&#45;flex align-items-center">
+                  <h3 class="mb-0">
+                    <a (click)="isModal2Open.set(true) " class="card-link custom-hover">
+                      <img src="gif/server.svg" alt=" item.name " class="card-icon"/>
+                      <app-text [text]="'Start'"></app-text>
+                    </a>
+
+                  </h3>
+                </div>
+              </div>
+            </div>
+            &lt;!&ndash; End Stats &ndash;&gt;
+          </div>-->
         </div>
         <!-- End Row -->
 
@@ -148,6 +148,12 @@ z
 
   </div>
   }
+  <div *ngIf="isModal2Open()" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close" (click)="isModal2Open.set(false) ">&times;</span>
+
+    </div>
+  </div>
 
 </main>
 

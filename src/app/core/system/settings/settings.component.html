@@ -1,113 +1,24 @@
-<!--<div class="gradient-x-three-sm-primary" style="background-color: black">
-  <div class="container content-space-1">
-    <h1 class="mb-1 mt-1 text-white" >Transaction<span style="color: red"> Records</span></h1>
-  </div></div>
-<main class="container">
-
-
-  &lt;!&ndash; End Breadcrumb &ndash;&gt;
-
-  &lt;!&ndash; Card Grid &ndash;&gt;
-
-    <div class="row col-lg-divider">
-      <div class="col-lg-3">
-        &lt;!&ndash; Navbar &ndash;&gt;
-        <div class="navbar-expand-lg">
-          &lt;!&ndash; Navbar Toggle &ndash;&gt;
-
-          &lt;!&ndash; End Navbar Toggle &ndash;&gt;
-
-          &lt;!&ndash; Navbar Collapse &ndash;&gt;
-          <div id="navbarVerticalNavMenu" class="navbar-collapse collapse" style="">
-            <div class="d-grid gap-4 flex-grow-1">
-              <div class="nav nav-sm nav-pills nav-vertical">
-                <h5 class="nav-subtitle">Explore</h5>
-                <a class="nav-link d-flex justify-content-between" href="#">All <span class="badge text-dark border rounded-pill">30+</span></a>
-                <a class="nav-link" href="#">Top rated</a>
-                <a class="nav-link" href="#">Featured</a>
-                <a class="nav-link" href="#">Daily tools</a>
-                <a class="nav-link d-flex justify-content-between" href="#">New <span class="badge text-dark border rounded-pill">18</span></a>
-                <a class="nav-link" href="#">Channels</a>
-              </div>
-
-
-
-
-            </div>
-          </div>
-          &lt;!&ndash; End Navbar Collapse &ndash;&gt;
-        </div>
-        &lt;!&ndash; End Navbar &ndash;&gt;
+<div class="row g-1"></div>
+<div class="col-lg-4 mb-3"></div>
+<div class="col-lg-8 mb-3"><div class=" grid-page">
+  <div class="row">
+    @for(item of navItems; track item.name){
+      <div class="col-4 col-md-3 col-lg-2 custom-hover">
+        <a (click)="openModal(item.name)" class="card-link custom-hover">
+          <img [src]="item.logo" alt="{{ item.name }}" class="card-icon"/>
+          <app-text [text]="item.name"></app-text>
+        </a>
       </div>
-      &lt;!&ndash; End Col &ndash;&gt;
-
-      <div class="col-lg-9">
-        <div class="ps-lg-2">
-          &lt;!&ndash; Search &ndash;&gt;
-          <div class="mb-4">
+    }
+  </div>
+</div></div>
 
 
-            <form class="mt-2">
-              &lt;!&ndash; Input Card &ndash;&gt;
-              <div class="input-card border">
-                <div class="input-card-form">
-                  <label for="searchAppsForm" class="form-label visually-hidden">Search for apps</label>
-                  <div class="input-group input-group-merge">
-                      <span class="input-group-prepend input-group-text">
-                        <i class="bi-search"></i>
-                      </span>
-                    <input type="text" class="form-control" id="searchAppsForm" placeholder="Search " aria-label="Search for apps">
-                  </div>
-                </div>
-                <button type="button" class="btn btn-primary">
-                  <i class="bi-arrow-right"></i>
-                </button>
-              </div>
-              &lt;!&ndash; End Input Card &ndash;&gt;
-            </form>
-          </div>
-          &lt;!&ndash; End Search &ndash;&gt;
-
-          <div class="row gx-3">
-            @for (items of settings; track items.name){
-            <div class="col-sm-6 col-md-4 mb-3">
-              &lt;!&ndash; Card &ndash;&gt;
-              <div class="card card-bordered card-transition  h-100 shadow-lg">
-                <a class="card-body" [routerLink]="items.link">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-lg" [src]="items.logo" alt="Logo">
-                    </div>
-
-                    <div class="flex-grow-1 ms-3">
-                      <div class="d-flex align-items-center">
-                        <h5 class="card-title mb-0">{{items.name}}</h5>
-                       </div>
-                      <p class="card-text text-body small">{{items.hint}}</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              &lt;!&ndash; End Card &ndash;&gt;
-            </div>
-            &lt;!&ndash; End Col &ndash;&gt;
-            }
-
-          </div>
-          &lt;!&ndash; End Row &ndash;&gt;
-        </div>
-      </div>
-      &lt;!&ndash; End Col &ndash;&gt;
-    </div>
-    &lt;!&ndash; End Row &ndash;&gt;
-
-  &lt;!&ndash; End Card Grid &ndash;&gt;
-</main>
-&lt;!&ndash; Button 1 &ndash;&gt;-->
+<!--
 <div class="row gx-3">
 
     <div class="col-sm-6 col-md-4 mb-3" *ngFor="let item of navItems">
-      <!-- Card -->
+      &lt;!&ndash; Card &ndash;&gt;
       <div class="card card-bordered card-transition  h-100 shadow-lg">
         <a class="card-body" routerLink="items.link">
           <div class="d-flex">
@@ -123,18 +34,19 @@
             </div>
           </div>
           <div class="col-5">
-            <a class="btn btn-primary btn-sm w-100" (click)="openModal(item.name)">
+            <a class="btn btn-primary w-100 btn-sm w-100" (click)="openModal(item.name)">
               <i class="bi bi-pencil-square me-1"></i> Edit
             </a>
           </div>
         </a>
       </div>
-      <!-- End Card -->
+      &lt;!&ndash; End Card &ndash;&gt;
     </div>
-    <!-- End Col -->
+    &lt;!&ndash; End Col &ndash;&gt;
 
 
 </div>
+-->
 
 
 
@@ -146,9 +58,11 @@
 <!-- ✅ Modal: Edit -->
 <div *ngIf="isModalOpen()" class="modal-overlay">
   <div class="modal-content position-relative">
-    <div class="card" style=" min-height:90vh; max-height:95vh">
-
-      <div class="card-body">
+    <div class="card" style="  height:90vh; overflow-y: scroll">
+<div class="text-end ">
+  <button type="button" class="btn btn-danger " (click)="closeModal() ">Close</button>
+</div>
+      <div class=" ">
         <ng-container *ngIf="activeComponent() === 'Add User'">
           <app-payment-setup></app-payment-setup>
         </ng-container>
@@ -166,7 +80,204 @@
           <app-storage></app-storage>
         </ng-container>
         <ng-container *ngIf="activeComponent() === 'Security'">
-          <app-security></app-security>
+
+
+            <!-- End Col -->
+
+
+
+
+
+     <div class=" ">
+       <h3>security </h3>
+
+       <div class="text-center my-2">
+         <div class="card- body" >
+           <div class="row g-1 ">
+             <div class="col-lg-5">
+               <div class="row g-1 p-2">
+                 <div class="col-6 text-end ">
+                   <div class="flex-shrink-0">
+                     <img  class="avatar avatar-xxl avatar-4x3" src="gif/lod4.gif" alt="Image Description" data-hs-theme-appearance="default">
+                   </div></div>
+                 <div class="col-6 text-start">
+                   <div class="flex-grow-1 ms-5 mt-5 mt-md-3">
+
+                     <h4 class="display-3 text-dark mb-0 mt-5 mt-lg-5">4.84</h4>
+                   </div>
+                 </div>
+               </div>
+
+             </div>
+             <div class="col-lg-7 p-3">
+               <div class="row g-1 mb-md-2">
+                 <div class="col-4 col-md-3 text-end">  <span class="me-3">Documents</span></div>
+                 <div class="col-6 col-md-7"><div class="progress flex-grow-1 mt-2">
+                   <div class="progress-bar" role="progressbar" style="width: 82%;" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                 </div>
+                 </div>
+                 <div class="col-2"> <span class="ms-3">40%</span></div>
+               </div>
+               <div class="row g-1 mb-md-2">
+                 <div class="col-4 col-md-3 text-end">  <span class="me-3">Collections</span></div>
+                 <div class="col-6 col-md-7"><div class="progress flex-grow-1 mt-2">
+                   <div class="progress-bar" role="progressbar" style="width: 82%;" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                 </div></div>
+                 <div class="col-2"> <span class="ms-3">40%</span></div>
+               </div>
+
+               <h6 class="mb-1">Backup to:</h6>
+               <div class="col-md mb-3 mb-lg-0">
+                 <!-- Check -->
+                 <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox1" value="option1" checked="">
+                   <label class="form-check-label" for="jobSearchToCheckbox1">Aims Serve</label>
+                 </div>
+                 <!-- End Check -->
+
+                 <!-- Check -->
+                 <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox2" value="option2">
+                   <label class="form-check-label" for="jobSearchToCheckbox2">Excel</label>
+                 </div>
+                 <!-- End Check -->
+
+                 <!-- Check -->
+                 <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox3" value="option3">
+                   <label class="form-check-label" for="jobSearchToCheckbox3">JSON</label>
+                 </div>
+                 <!-- End Check -->
+
+                 <!-- Check -->
+                 <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="checkbox" id="jobSearchToCheckbox4" value="option4">
+                   <label class="form-check-label" for="jobSearchToCheckbox4">Text</label>
+                 </div>
+
+
+                 <!-- End Check -->
+               </div>
+               <div class="row g-1">
+                 <div class="col-6 col-md-auto"><button type="button" class="btn btn-primary w-100">Backup</button></div>
+                 <div class="col-6 col-md-auto"><button type="button" class="btn btn-primary w-100">Delete data</button></div>
+                 <div class="col-5 col-md-auto"><button type="button" class="btn btn-primary w-100">Encrypt</button></div>
+                 <div class="col-7 col-md-auto"><button type="button" class="btn btn-primary w-100">Move to recycle bin</button></div>
+               </div>
+               <!-- Card -->
+
+               <!-- End Card -->
+             </div>
+           </div>
+           <div class="card">
+
+             <div class="container">
+             <div class="table-responsive">
+               <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
+                 <thead class="thead-light">
+                 <tr>
+                   <th>Name</th>
+                   <th>Status</th>
+                   <th>Access</th>
+                   <th style="width: 5%;"></th>
+                 </tr>
+                 </thead>
+
+                 <tbody>
+                 <tr>
+                   <td>
+                     <div class="d-flex align-items-center">
+                       <div class="flex-shrink-0">
+                         <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img8.jpg" alt="Image Description">
+                       </div>
+
+                       <div class="flex-grow-1 ms-3">
+                         <a class="d-inline-block link-dark" href="#">
+                           <h6 class="text-hover-primary mb-0">Amanda Harvey <img class="avatar avatar-xss ms-1" src="../assets/svg/illustrations/top-vendor.svg" alt="Image Description" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified user"></h6>
+                         </a>
+                         <small class="d-block">amandaDocsxample.com</small>
+                       </div>
+                     </div>
+                   </td>
+                   <td>
+                     <!-- Select -->
+                     <select class="js-select form-select form-select-sm">
+                       <option value="memberStatusLabelActive1" selected data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-success me-2"></span> Active</span>'>Active</option>
+                       <option value="memberStatusLabelInactive1" data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-danger me-2"></span> Inactive</span>'>Inactive</option>
+                     </select>
+                     <!-- End Select -->
+                   </td>
+                   <td>
+                     <!-- Select -->
+                     <select class="js-select form-select form-select-sm">
+                       <option value="memberStatusLabelAdmin1" selected>Admin</option>
+                       <option value="memberStatusLabelCanEdit1">Can edit</option>
+                       <option value="memberStatusLabelCanView1">Can view</option>
+                     </select>
+                     <!-- End Select -->
+                   </td>
+                   <td>
+                     <a class="text-body" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Locked">
+                       <i class="bi-lock-fill"></i>
+                     </a>
+                   </td>
+                 </tr>
+
+                 <tr>
+                   <td>
+                     <div class="d-flex align-items-center">
+                       <div class="flex-shrink-0">
+                         <img class="avatar avatar-sm avatar-circle" src="../assets/img/160x160/img7.jpg" alt="Image Description">
+                       </div>
+
+                       <div class="flex-grow-1 ms-3">
+                         <a class="d-inline-block link-dark" href="#">
+                           <h6 class="text-hover-primary mb-0">Anne Richard</h6>
+                         </a>
+                         <small class="d-block">anneDocsxample.com</small>
+                       </div>
+                     </div>
+                   </td>
+                   <td>
+                     <!-- Select -->
+                     <select class="js-select form-select form-select-sm">
+                       <option value="memberStatusLabelActive2" data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-success me-2"></span> Active</span>'>Active</option>
+                       <option value="memberStatusLabelInactive2" selected data-option-template='<span class="d-flex align-items-center"><span class="legend-indicator bg-danger me-2"></span> Inactive</span>'>Inactive</option>
+                     </select>
+                     <!-- End Select -->
+                   </td>
+                   <td>
+                     <!-- Select -->
+                     <select class="js-select form-select form-select-sm">
+                       <option value="memberStatusLabelAdmin2">Admin</option>
+                       <option value="memberStatusLabelCanEdit2" selected>Can edit</option>
+                       <option value="memberStatusLabelCanView2">Can view</option>
+                     </select>
+                     <!-- End Select -->
+                   </td>
+                   <td>
+                     <a class="text-body" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove member">
+                       <i class="bi-trash"></i>
+                     </a>
+                   </td>
+                 </tr>
+
+
+
+                 </tbody>
+               </table>
+             </div>
+             <!-- End Table -->
+             </div>
+
+           </div>
+         </div>
+       </div>
+
+
+
+</div>
+
         </ng-container>
         <ng-container *ngIf="activeComponent() === 'Company'">
           <app-company-profile></app-company-profile>
@@ -178,3 +289,6 @@
   </div>
 </div>
 
+<div  class="col">
+
+</div>
